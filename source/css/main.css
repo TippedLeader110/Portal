@@ -1,0 +1,36 @@
+.c{
+	text-align: center;
+}
+.bb{
+	margin-top: 0px;
+	padding-top: 101px;
+}
+.navm{
+	width: 140px;
+	margin-left: 180px;
+}
+.navt{
+	width: 40px;
+}
+.nav-item{
+	width: 120px;
+}
+.cl{
+	color: black;
+}
+.nav-item :hover{
+	color: gray;
+}
+.car{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev{
+    display:block;
+}
+/*.dropdown-item :hover{
+	background: gray;
+}*/

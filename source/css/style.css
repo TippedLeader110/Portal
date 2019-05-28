@@ -1,0 +1,41 @@
+
+.parallax { 
+  /* The image used */
+  background-image: url("../img/back.jpg");
+
+  /* Set a specific height */
+  height: 500px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media only screen and (max-device-width: 1366px) {
+  .parallax {
+    /*background-attachment: scroll;*/
+  }
+}
+
+.bb { 
+  /* The image used */
+  background-image: url("../img/back.jpg");
+
+  /* Set a specific height */
+  height: 300px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.navmod{
+  border-radius: 0px;
+  background-color: white;
+  text-align: center;
+}
+.con{
+  background: white;
+}

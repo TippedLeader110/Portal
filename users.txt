@@ -1,0 +1,3 @@
+CREATE USER 'portal'@'localhost' IDENTIFIED BY 'P2019RtAl';
+GRANT ALL ON portal.* TO 'portal'@'localhost' IDENTIFIED BY 'P2019RtAl';
+FLUSH PRIVILEGES;
