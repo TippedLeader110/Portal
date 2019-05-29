@@ -5,33 +5,27 @@
 		<h2 style="color: white">Pilih menu <i class="fas fa-bars"></i> Untuk edit lebih lanjut</h2>
 	</center>
 </div>
-<div class="container" style="background: white">
+<div class="container-fluid" style="background: white">
 	<div class="row">
 		<div class="col-12 " class="ctext">
 			<div id="mainpage" style="padding: 40px 20px 40px 20px">
 				<?php foreach ($sek as $key => $v): ?>
 				<?php endforeach ?>
-				<table class="table-borderless">
+				<table class="table table-bordered">
+				<thead class="thead-dark">
 					<tr>
-						<td>
-							<h2>Nama Sekolah : <?php echo $v->nama_sekolah ?></h2>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h2>Visi Sekolah : <?php echo $v->visi ?></h2>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h2>Misi Sekolah : <?php echo $v->misi ?></h2>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h2>Sejarah Sekolah : <?php echo $v->sejarah ?></h2>
-						</td>
-					</tr>
+						<th><center>Nama Sekolah</center></th>
+						<th><center>Visi Sekolah</center></th>
+						<th><center>Misi Sekolah</center></th>
+						<th><center>Hapus</center></th>
+						<th><center>Edit</center></th>
+						</tr>
+						<td><center><?php echo $v->nama_sekolah?></center></td>
+						<td><center><?php echo $v->visi ?></center></td>
+						<td><center><?php echo $v->misi ?></center></td>
+						<th><a href="#" class="btn btn-danger" role="button">Hapus</a></th>
+						<th><a href="#" class="btn btn-primary" role="button">Edit</a></th>
+
 				</table>
 			</div>
 		</div>
