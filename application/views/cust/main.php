@@ -9,11 +9,12 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>/source/css/custom.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 </head>
 <body style="background: #DFE3ED">
 	<div id="main">
 	<?php $this->load->view('nav/cust'); ?>
-	<?php $this->load->view('nav/custkiri'); ?>
+	<?php $data['navact'] = $navact; $this->load->view($nav, $data); ?>
 		<div class="container" style="border-radius: 0px;">
 		<div class="row" style="background: transparent;">
 			<div class="col-12" onmouseover="closeNav();">
@@ -24,4 +25,4 @@
 	</div>
 	<?php $this->load->view('nav/script'); ?>
 </body>
-</html>
+</html>	

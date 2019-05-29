@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 80px;">
-  <?php if ($home==1): ?>
+  <?php if ($home!=0): ?>
   <a class="navbar-brand" href="javascript:void(0);" onclick="openNav();"><i class="fas fa-bars"></i></a>
   <?php endif ?>
   <a class="navbar-brand" href="#">Dashboard Admin</a>
@@ -30,9 +30,6 @@
         <a class="nav-link" href="<?php echo base_url() ?>Custom/KUser">Kelolah Pengguna</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    
   </div>
 </nav>

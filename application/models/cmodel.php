@@ -8,6 +8,11 @@ class cmodel extends CI_Model {
 		return $query->result();		
 	}
 
+	public function setWarna($a,$b){
+		$data = array('warna_tema' => $a, 'label' => $b);
+		$this->db->insert('tema', $data);
+	}
+
 }
 
 ?>
