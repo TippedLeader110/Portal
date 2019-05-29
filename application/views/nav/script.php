@@ -35,13 +35,13 @@ function sw1() {
             type: 'POST',
             data: {kode: aa, label: ab},
             error: function() {
-           		alert('Something is wrong');
+           		Swal.fire('Galat !!','Ada yang salah dengan controller', "error");
            		alert(data);
            	},
            	success: function() {
                 Swal.fire({
                  	title: 'Sukses',
-                 	text: 'Data berhasil disimpan !!',
+                 	text: 'Warna berhasil disimpan !!',
                  	type: "success",
                  	timer: 3000
                  });
@@ -52,40 +52,37 @@ function sw1() {
            }
         });
   	}
+	else{
+		Swal.fire('Galat !!','Warna tidak disimpan !!', "error");
+	}
 	})
 }
 
-function delWarna(ab) {
+function delWarna(ab, aa) {
     Swal.fire({
-    	title: 'Tambah warna baru',
-		html:
-		  	'<form method="post" class="form-user">'+
-		    '<input id="s1" name="kode" class="swal2-input" placeholder="Kode Warna">' +
-		    '<input id="s2" name="label" class="swal2-input" placeholder="Label Warna">'+
-		    '</form>',
+    	title: 'Hapus Warna',
+    	text: 'Apakah anda ingin menghapus warna ini ( ' + aa + ' ) ?',
+    	type: "question",
 		showCancelButton: true,
-		confirmButtonText: 'Simpan',
+		confirmButtonText: 'Ya, Hapus',
 		cancelButtonText: 'Batal',
 		cancelButtonColor: 'red',
 		showLoaderOnConfirm: true
     }).then(result => {
   	if (result.value) {
-  		var data = $('.form-user').serialize();
-  		var ab = $('#s2').val();
-  		var aa = $('#s1').val();
   		// alert(ab + " " + aa);
 		$.ajax({
-        	url: 'http://localhost/Portal/Custom/saveWarna',
+        	url: 'http://localhost/Portal/Custom/remWarna',
             type: 'POST',
-            data: {kode: aa, label: ab},
+            data: {id: ab,},
             error: function() {
-           		alert('Something is wrong');
-           		alert(data);
+           		// alert('Something is wrong');
+           		Swal.fire('Galat !!','Ada yang salah dengan controller', "error");
            	},
            	success: function() {
                 Swal.fire({
                  	title: 'Sukses',
-                 	text: 'Data berhasil disimpan !!',
+                 	text: 'Warna berhasil dihapus !!',
                  	type: "success",
                  	timer: 3000
                  });
@@ -96,6 +93,9 @@ function delWarna(ab) {
            }
         });
   	}
+  	else{
+		Swal.fire('Galat !!','Warna tidak jadi dihapus !!', "error");
+	}
 	})
 }
 </script>

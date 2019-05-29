@@ -70,6 +70,10 @@ class Custom extends CI_Controller {
 		$b = $this->input->post('label');
 		$this->cmodel->setWarna($a,$b);
 	}
+	public function remWarna(){
+		$a = $this->input->post('id');
+		$this->cmodel->delWarna($a);
+	}
 
 	// --------------------KWeb----------------------
 

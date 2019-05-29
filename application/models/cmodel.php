@@ -12,6 +12,10 @@ class cmodel extends CI_Model {
 		$data = array('warna_tema' => $a, 'label' => $b);
 		$this->db->insert('tema', $data);
 	}
+	public function delWarna($a){
+		$this->db->where('id_tema', $a)
+		$this->db->delete('tema');
+	}
 
 }
 

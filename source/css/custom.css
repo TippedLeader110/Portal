@@ -1,3 +1,8 @@
+.sidenav .closebtn:hover {
+  color: red;
+  border-left: 0px solid #DFE3ED;
+  /*background: gray;*/
+}
 /* The side navigation menu */
 .sidenav {
   height: 100%; /* 100% Full-height */
@@ -24,7 +29,10 @@
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
   color: #818181;
+  border-left: 10px solid #DFE3ED;
+  /*background: gray;*/
 }
+
 
 /* Position and style the close button (top right corner) */
 .sidenav .closebtn {
@@ -45,11 +53,21 @@
   background-color: #393E41;
 }
 
+.sidenav .actnav a:hover {
+  color: #818181;
+
+}
+
 .jj{
   background: #335C81;
 }
 
 .actnav{
   background-color: #DFE3ED;
+  border-left: 10px solid black;
+  color: black;
+}
+
+.sidenav .actnav {
   color: black;
 }
