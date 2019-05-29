@@ -62,6 +62,12 @@
   background: #335C81;
 }
 
+.ja{
+  height: 200px;
+  padding-top: 25px;
+  background: #706E70;
+}
+
 .actnav{
   background-color: #DFE3ED;
   border-left: 10px solid black;
@@ -70,4 +76,8 @@
 
 .sidenav .actnav {
   color: black;
+}
+
+.ctext{
+  padding-top: 30px;
 }

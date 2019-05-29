@@ -25,18 +25,10 @@ class Custom extends CI_Controller {
 	public function index()
 	{
 		$data['cmain'] = "page/cmain";
-		$data['home'] = 0;	
-		$data['ac'] = 1;
-		$data['navact'] = 0;
+		$data['home'] = 0;	 //Navbar ada apa ga
+		$data['ac'] = 1;     //Posisi aktif nav bar
+		$data['navact'] = 0; //Posisi sidenav aktif
 		$data['nav'] = 'nav/custkiri';
-		$this->load->view('cust/main', $data);
-	}
-	public function EWeb(){
-		$data['home'] = 1;	
-		$data['cmain'] = "page/ceweb";
-		$data['ac'] = 2;
-		$data['nav'] = 'nav/custkiri';
-		$data['navact'] = 0;
 		$this->load->view('cust/main', $data);
 	}
 	public function KWeb(){
@@ -56,6 +48,16 @@ class Custom extends CI_Controller {
 	}
 	// --------------------EWeb----------------------
 
+	public function EWeb(){
+		$data['home'] = 1;	
+		$data['cmain'] = "page/ceweb";
+		$data['ac'] = 2;
+		$data['nav'] = 'nav/custkiri';
+		$data['navact'] = 1;
+		$data['sek'] = $this->cmodel->getIdentitas();
+		$this->load->view('cust/main', $data);
+	}
+
 	public function warna(){
 		$data['home'] = 1;	
 		$data['cmain'] = "page/cwarna";
@@ -65,6 +67,12 @@ class Custom extends CI_Controller {
 		$data['warna'] = $this->cmodel->getWarna();
 		$this->load->view('cust/main', $data);
 	}
+
+	public function ewarna(){
+		$data['warna'] = $this->cmodel->getWarna();
+		$this->load->view('page/ajax/warna', $data);	
+	}
+
 	public function saveWarna(){
 		$a = $this->input->post('kode');
 		$b = $this->input->post('label');
@@ -77,4 +85,11 @@ class Custom extends CI_Controller {
 
 	// --------------------KWeb----------------------
 
+	public function galery(){
+		$data['home'] = 1;	
+		$data['cmain'] = "page/cgalery";
+		$data['ac'] = 3;
+		$data['nav'] = 'nav/custkiri2';
+		$data['navact'] = 1;
+	}
 }

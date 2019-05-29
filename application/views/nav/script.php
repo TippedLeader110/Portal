@@ -45,10 +45,11 @@ function sw1() {
                  	type: "success",
                  	timer: 3000
                  });
-                setTimeout(function() 
-  				{
-    			location.reload();  //Refresh page
-  				}, 3100);
+				$("#warna").load('<?php echo base_url('Custom/ewarna')?>');
+      //           setTimeout(function() 
+  				// {
+    		// 	location.reload();  //Refresh page
+  				// }, 100);
            }
         });
   	}
@@ -86,10 +87,11 @@ function delWarna(ab, aa) {
                  	type: "success",
                  	timer: 3000
                  });
-                setTimeout(function() 
-  				{
-    			location.reload();  //Refresh page
-  				}, 3100);
+                $("#warna").load('<?php echo base_url('Custom/ewarna')?>');
+      //           setTimeout(function() 
+  				// {
+    		// 	location.reload();  //Refresh page
+  				// }, 100);
            }
         });
   	}

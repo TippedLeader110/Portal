@@ -16,6 +16,10 @@ class cmodel extends CI_Model {
 		$this->db->where('id_tema', $a);
 		$this->db->delete('tema');
 	}
+	public function getIdentitas(){
+		$res = $this->db->get('identitas');
+		return $res->result();
+	}
 
 }
 
