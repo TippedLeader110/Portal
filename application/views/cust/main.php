@@ -11,11 +11,11 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 </head>
-<body style="background: #DFE3ED">
+<body style="background: white">
 	<div id="main">
 	<?php $this->load->view('nav/cust'); ?>
 	<?php $data['navact'] = $navact; $this->load->view($nav, $data); ?>
-		<div class="container" style="border-radius: 0px;">
+		<div class="container" style="border-radius: 0px;margin-top: 20px;">
 		<div class="row" style="background: transparent;">
 			<div class="col-12" onmouseover="closeNav();">
 					<?php $this->load->view($cmain); ?>

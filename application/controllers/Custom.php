@@ -53,6 +53,16 @@ class Custom extends CI_Controller {
 		$data['cmain'] = "page/ceweb";
 		$data['ac'] = 2;
 		$data['nav'] = 'nav/custkiri';
+		$data['navact'] = 0;
+		$data['sek'] = $this->cmodel->getIdentitas();
+		$this->load->view('cust/main', $data);
+	}
+
+	public function identitas(){
+		$data['home'] = 1;	
+		$data['cmain'] = "page/cidsekolah";
+		$data['ac'] = 2;
+		$data['nav'] = 'nav/custkiri';
 		$data['navact'] = 1;
 		$data['sek'] = $this->cmodel->getIdentitas();
 		$this->load->view('cust/main', $data);

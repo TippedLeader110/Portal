@@ -12,7 +12,7 @@
   top: 0; /* Stay at the top */
   left: 0;
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 75px; /* Place content 60px from the top */
+  padding-top: 80px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
@@ -69,8 +69,8 @@
 }
 
 .actnav{
-  background-color: #DFE3ED;
-  border-left: 10px solid black;
+  background-color: white;
+  border-left: 10px solid #393E41;
   color: black;
 }
 
@@ -80,4 +80,16 @@
 
 .ctext{
   padding-top: 30px;
+}
+
+.pad{
+  border: 10px solid #393E41;
+}
+
+.image {
+  border: 1px solid lightblue;
+  height: 200px;
+  background-image: url('../img/b.jpg');
+  background-size: cover;
+  background-position: center center;
 }
