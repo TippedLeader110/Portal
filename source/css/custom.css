@@ -89,9 +89,47 @@
 .image {
   border: 1px solid lightblue;
   height: 250px;
-  width: 300px;
-  background-image: url('../img/b.jpg');
+  width: 250px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  /*background-image: url('../img/b.jpg');*/
   background-size: cover;
   background-position: center center;
+  display: block;
+
 }
 
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 250px;
+  width: 240px;
+  opacity: 0;
+  transition: .3s ease;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.cc:hover .overlay {
+  opacity: 1;
+}
+
+.icon {
+  color: white;
+  font-size: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.fa-user:hover {
+  color: #eee;
+}

@@ -6,8 +6,14 @@
 		<div class="col-3 ">
 			<div class="container-fluid" > 
 				<div class="row">
-					<div class="container image">
-						
+					<div class="cc">
+						<div class="image" style="background-image: url('<?php echo base_url('source/img/b.jpg') ?>');width: 240px;">
+						</div>
+						<div class="overlay">
+						    <a href="javascript:void(0);" onclick="upLogo();" class="icon" title="User Profile">
+						  	  <i class="fas fa-upload"></i>
+						    </a>
+						</div>
 					</div>
 				</div>
 			</div>

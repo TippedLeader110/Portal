@@ -11,6 +11,29 @@ function closeNav() {
   document.getElementById("main").style.marginLeft = "0";
 }
 
+function upLogo(){
+	$('#upload').on('click', function () {
+        var file_data = $('#file').prop('files')[0];
+        var form_data = new FormData();
+        form_data.append('file', file_data);
+        $.ajax({
+            url: 'http://localhost/ci/index.php/welcome/upload', // point to server-side controller method
+            dataType: 'text', // what to expect back from the server
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+            type: 'post',
+            success: function (response) {
+                $('#msg').html(response); // display success response from the server
+            },
+            error: function (response) {
+                $('#msg').html(response); // display error response from the server
+            }
+        });
+    });
+    }
+
 function sw1() {
     Swal.fire({
     	title: 'Tambah warna baru',
