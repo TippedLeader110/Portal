@@ -1,0 +1,53 @@
+.nava{
+  text-decoration: none;
+  color: black;
+}
+
+.nava:hover{
+  text-decoration: none;
+  color: black;
+  /*text-decoration-color: #577399;*/
+  
+}
+
+.actnava{
+  color: black;
+  /*text-decoration-color: #577399;*/
+}
+
+.nava:visited{
+  text-decoration: none;
+  color: black;
+  /*text-decoration-color: #577399; */
+}
+
+td{
+  /*padding-bottom: -3px;*/
+  /*border-bottom: 3px solid lightcoral;*/
+  padding-right: 15px;
+  border-bottom: 3px solid transparent;
+}
+
+td:hover{
+  /*padding-bottom: -3px;*/
+  border-bottom: 3px solid orange;
+}
+
+.acttd{
+  /*padding-bottom: -3px;*/
+  border-bottom: 3px solid lightcoral;
+}
+
+hr{
+  /*z-index: 2;*/
+  margin-top: 0px;
+}
+
+h5{
+  font-weight: normal;  
+}
+
+.acth5{
+  font-weight: bold;
+}
+

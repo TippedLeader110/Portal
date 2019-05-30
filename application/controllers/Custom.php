@@ -68,6 +68,12 @@ class Custom extends CI_Controller {
 		$this->load->view('cust/main', $data);
 	}
 
+	public function getSek(){
+			$response = $this->db->get('identitas');
+			$response = $response->result();
+			echo json_encode($response);
+	}
+
 	public function warna(){
 		$data['home'] = 1;	
 		$data['cmain'] = "page/cwarna";

@@ -88,8 +88,10 @@
 
 .image {
   border: 1px solid lightblue;
-  height: 200px;
+  height: 250px;
+  width: 300px;
   background-image: url('../img/b.jpg');
   background-size: cover;
   background-position: center center;
 }
+
