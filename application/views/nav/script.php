@@ -86,6 +86,54 @@ function sw1() {
 	})
 }
 
+function nama() {
+    Swal.fire({
+    	title: 'Ganti Nama Sekolah',
+		html:
+		  	'<form method="post" class="form-user">'+
+		    '<input id="s1" name="kode" class="swal2-input" placeholder="Nama Sekolah">' +
+		    '</form>',
+		showCancelButton: true,
+		confirmButtonText: 'Perbaharui',
+		cancelButtonText: 'Batal',
+		cancelButtonColor: 'red',
+		showLoaderOnConfirm: true
+    }).then(result => {
+  	if (result.value) {
+  		var data = $('.form-user').serialize();
+  		var ab = $('#s2').val();
+  		var aa = $('#s1').val();
+  		// alert(ab + " " + aa);
+		$.ajax({
+        	url: 'http://localhost/Portal/Custom/upNama',
+            type: 'POST',
+            data: {kode: aa},
+            error: function() {
+           		Swal.fire('Galat !!','Ada yang salah dengan controller', "error");
+           		alert(data);
+           	},
+           	success: function() {
+                Swal.fire({
+                 	title: 'Sukses',
+                 	text: 'Nama Sekolah berhasil disimpan !!',
+                 	type: "success",
+                 	timer: 3000
+                 });
+				getSek();
+
+      //           setTimeout(function() 
+  				// {
+    		// 	location.reload();  //Refresh page
+  				// }, 100);
+           }
+        });
+  	}
+	else{
+		Swal.fire('Galat !!','Nama Sekolah tidak disimpan !!', "error");
+	}
+	})
+}
+
 function delWarna(ab, aa) {
     Swal.fire({
     	title: 'Hapus Warna',

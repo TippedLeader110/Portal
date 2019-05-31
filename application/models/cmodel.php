@@ -21,6 +21,30 @@ class cmodel extends CI_Model {
 		return $res->result();
 	}
 
+	public function pNama($data){
+		$this->db->set('nama_sekolah', $data);
+		$this->db->where('id_identitas', 1);
+		$this->db->update('identitas');
+	}
+
+	public function pVisi($data){
+		$this->db->set('Visi', $data);
+		$this->db->where('id_identitas', 1);
+		$this->db->update('identitas');
+	}
+
+	public function pSejarah($data){
+		$this->db->set('Sejarah', $data);
+		$this->db->where('id_identitas', 1);
+		$this->db->update('identitas');
+	}
+
+	public function pMisi($data){
+		$this->db->set('Misi', $data);
+		$this->db->where('id_identitas', 1);
+		$this->db->update('identitas');
+	}
+
 }
 
 ?>

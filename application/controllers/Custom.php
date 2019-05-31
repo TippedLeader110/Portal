@@ -74,6 +74,29 @@ class Custom extends CI_Controller {
 			echo json_encode($response);
 	}
 
+	public function upVisi(){
+		$data = $this->input->post('data');
+		$go = $this->cmodel->pVisi($data);
+	}
+
+
+	public function upSejarah(){
+		$data = $this->input->post('data');
+		$go = $this->cmodel->pSejarah($data);
+	}
+
+	public function upNama(){
+		$data = $this->input->post('kode');
+		$go = $this->cmodel->pNama($data);
+	}
+
+
+	public function upMisi(){
+		$data = $this->input->post('data');
+		$go = $this->cmodel->pMisi($data);
+	}
+
+
 	public function warna(){
 		$data['home'] = 1;	
 		$data['cmain'] = "page/cwarna";
