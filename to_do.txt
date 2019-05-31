@@ -1,0 +1,10 @@
+-procedure untuk nyimpan artikel
+-ciew nampilkan fitur dimana fitur tidak ada di tabel main(DONE)
+-buat trigger jika ada warna yg sama disimpan jadi error
+-ERD
+-view nampilin semua gallery
+-view nampilin semua artikel+penulis
+-view nampilin semua navbar
+-------------------- fitur
+-trigger anti cheater
+-upload dan posting(DONE)
