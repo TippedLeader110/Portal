@@ -21,14 +21,14 @@
   /*text-decoration-color: #577399; */
 }
 
-td{
+.tdp{
   /*padding-bottom: -3px;*/
   /*border-bottom: 3px solid lightcoral;*/
   padding-right: 15px;
   border-bottom: 3px solid transparent;
 }
 
-td:hover{
+.tdp:hover{
   /*padding-bottom: -3px;*/
   border-bottom: 3px solid orange;
 }

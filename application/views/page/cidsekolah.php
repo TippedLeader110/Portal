@@ -46,9 +46,9 @@
 				<hr>
 			<table>
 				<tr>
-					<td id="tdd1" align="center"><a onclick="getVisi();" href="javascript:void(0);" class="nava"><h5 >Visi Sekolah</h5></a></td>
-					<td id="tdd2" align="center"><a onclick="getMisi();" href="javascript:void(0);" class="nava"><h5 >Misi Sekolah</h5></a></td>
-					<td id="tdd3" align="center"><a onclick="getSejarah();" href="javascript:void(0);" class="nava"><h5 >Sejarah Sekolah</h5></a></td>
+					<td class="tdp" id="tdd1"><a onclick="getVisi();" href="javascript:void(0);" class="nava">&nbsp;<h5 >Visi Sekolah</h5></a></td>
+					<td class="tdp" id="tdd2"><a onclick="getMisi();" href="javascript:void(0);" class="nava">&nbsp;<h5 >Misi Sekolah</h5></a></td>
+					<td class="tdp" id="tdd3"><a onclick="getSejarah();" href="javascript:void(0);" class="nava">&nbsp;<h5 >Sejarah Sekolah</h5></a></td>
 				</tr>
 			</table>
 			<hr>
@@ -83,8 +83,10 @@
 
 <script type="text/javascript">
 	 window.onload = function() {
-        var a = CKEDITOR.replace('sekid');
-        CKFinder.setupCKEditor(a);
+        CKEDITOR.replace( 'sekid', {
+		filebrowserBrowseUrl: '<?php echo base_url('plugins/ckeditor/ckfinder/ckfinder.html') ?>',
+		filebrowserUploadUrl: '<?php echo base_url('plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') ?>'
+} );
     };
 
 	$(document).ready(function(){
