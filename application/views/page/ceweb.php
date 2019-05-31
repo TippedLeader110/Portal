@@ -13,7 +13,7 @@
 				<?php foreach ($sek as $key => $v): ?>
 				<?php endforeach ?>
 			<div class="btn-group">
-			<button type ="button" href="" class="btn btn-primary">Edit</button>
+			<button type ="button" href="" class="btn btn-primary">Edit</button>&nbsp
 			<button type="button" href="" class="btn btn-danger">Hapus</button>
 			</div>
 			</div>
