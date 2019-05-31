@@ -133,3 +133,17 @@
 .fa-user:hover {
   color: #eee;
 }
+
+.head{
+  padding: 10px 10px 10px 10px;
+  margin-left: -15px;
+  background: #B2BFD0;
+  border: 0px solid #B2BFD0;
+  border-radius: 5px;
+}
+
+.tombol{
+  padding: 2px 10px 2px 10px;
+  border-radius: 5px;
+  border: 0px solid transparent;
+}
