@@ -1,15 +1,12 @@
 <script type="text/javascript" src="<?php echo base_url('plugins/ckeditor/ckeditor.js') ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('plugins/ckeditor/CKFinder/ckfinder.js') ?>"></script>
+<!-- <script type="text/javascript" src="<?php echo base_url('plugins/ckeditor/CKFinder/ckfinder.js') ?>"></script> -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>source/css/customNav.css">
 <?php foreach ($sek as $key => $val): ?>
 <?php endforeach ?>
-
-
-<div class="container-fluid" >
 	<div class="row">
 		<div class="col-12">
 			<div class="head">
-				Dashboard Admin / Edit Tampilan Website / Pengaturan Identitas Sekolah
+				Dashboard Admin / Edit Tampilan Sekolah / Pengaturan Identitas Sekolah
 			</div>
 		</div>
 	</div>
@@ -35,7 +32,8 @@
 		<!-- <div class="col-1">
 			
 		</div> -->
-		<div class="col-9 ">
+<!-- <div class="ccontainer"> -->
+		<div class="col-9">
 			<!-- // <?php $this->load->view('nav/cidnav') ?> -->
 			<hr>
 			<table>
@@ -60,7 +58,6 @@
 		</div>
 	</div>
 </div>
-
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-xl">
 	    <div class="modal-content">
@@ -83,10 +80,14 @@
 
 <script type="text/javascript">
 	 window.onload = function() {
-        CKEDITOR.replace( 'sekid', {
-		filebrowserBrowseUrl: '<?php echo base_url('plugins/ckeditor/ckfinder/ckfinder.html') ?>',
-		filebrowserUploadUrl: '<?php echo base_url('plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') ?>'
-} );
+		var editor = CKEDITOR.replace( 'sekid', {
+		height:500, removePlugins : 'resize', filebrowserBrowseUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/ckfinder.html'); ?>', filebrowserImageBrowseUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/ckfinder.html?type=Images'); ?>', 
+		filebrowserFileBrowseUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/ckfinder.html?type=File'); ?>', 
+			filebrowserFlashBrowseUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/ckfinder.html?type=Flash'); ?>', 
+			filebrowserUploadUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'); ?>', 
+			filebrowserImageUploadUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'); ?>', 
+			filebrowserFlashUploadUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'); ?>'
+	}); CKFinder.setupCKEditor( editor, '../' );
     };
 
 	$(document).ready(function(){

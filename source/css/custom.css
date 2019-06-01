@@ -148,3 +148,13 @@
   border: 0px solid transparent;
   margin-bottom: 10px;
 }
+
+.cwarna{
+  background: #B2BFD0;
+}
+
+.ccontainer{
+  background: white;
+  border: 0px solid #B2BFD0;
+  border-radius: 5px;
+}

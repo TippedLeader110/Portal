@@ -1,9 +1,6 @@
 <script type="text/javascript" src="<?php echo base_url() ?>/source/js/j.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-    
-    CKEDITOR.replace( 'sekid' );
-	});
+
  function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
   document.getElementById("main").style.marginLeft = "250px";

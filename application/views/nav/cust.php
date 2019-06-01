@@ -17,12 +17,12 @@
       <li class="nav-item <?php if ($ac==2): ?>
         active
       <?php endif ?>">
-        <a class="nav-link" href="<?php echo base_url() ?>Custom/EWeb">Edit Tampilan Website</a>
+        <a class="nav-link" href="<?php echo base_url() ?>Custom/EWeb">Edit Tampilan Web Sekolah</a>
       </li>
       <li class="nav-item <?php if ($ac==3): ?>
         active
       <?php endif ?>">
-        <a class="nav-link" href="<?php echo base_url() ?>Custom/KWeb">Kelolah Data Website</a>
+        <a class="nav-link" href="<?php echo base_url() ?>Custom/KWeb">Kelolah Data Web Sekolah</a>
       </li>
       <li class="nav-item <?php if ($ac==4): ?>
         active
