@@ -58,6 +58,8 @@ class Custom extends CI_Controller {
 		$this->load->view('cust/main', $data);
 	}
 
+	##################################################
+
 	public function identitas(){
 		$data['home'] = 1;	
 		$data['cmain'] = "page/cidsekolah";
@@ -95,7 +97,19 @@ class Custom extends CI_Controller {
 		$data = $this->input->post('data');
 		$go = $this->cmodel->pMisi($data);
 	}
+	############################################
 
+	public function navbar(){
+		$data['home'] = 1;	
+		$data['cmain'] = "page/cnavbar";
+		$data['ac'] = 2;
+		$data['nav'] = 'nav/custkiri';
+		$data['navact'] = 2;
+		$data['warna'] = $this->cmodel->getWarna();
+		$this->load->view('cust/main', $data);
+	}
+
+	############################################
 
 	public function warna(){
 		$data['home'] = 1;	
@@ -103,7 +117,6 @@ class Custom extends CI_Controller {
 		$data['ac'] = 2;
 		$data['nav'] = 'nav/custkiri';
 		$data['navact'] = 4;
-		$data['warna'] = $this->cmodel->getWarna();
 		$this->load->view('cust/main', $data);
 	}
 

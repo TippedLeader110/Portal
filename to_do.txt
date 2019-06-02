@@ -8,3 +8,10 @@
 -------------------- fitur
 -trigger anti cheater
 -upload dan posting(DONE)
+-----------------------------
+ORDER -> FAHMI btw navdrop + navigasi hapus aja uda ga dipake
+tipe di subnav enumnya divider . item
+id_sub jangan jadikan primary key lagi
+view dropdown <-ininamanyna ya = id_item , label(navitem) , link(navitem), tipe(navitem), tipe(subnav), capek pun ini query nya
+ select navitem.id_item , subnavitem.label ,subnavitem.link, subnavitem.id_sub from navitem inner join subnavitem where subnavitem.id_item = navitem.id_item;
+kalo kau nanya kenapa ga kau aja yg buat bay jawab ku = karna aku rajin ga kaya kau
