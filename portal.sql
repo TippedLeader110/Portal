@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2019 at 10:33 AM
+-- Generation Time: Jun 02, 2019 at 04:46 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -21,6 +21,34 @@ SET time_zone = "+00:00";
 --
 -- Database: `portal`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `artikel`
+-- (See below for the actual view)
+--
+CREATE TABLE `artikel` (
+`id_post` int(10)
+,`isi` varchar(500)
+,`judul` text
+,`kategori` text
+,`tanggal` date
+,`nama` text
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `dropdown`
+-- (See below for the actual view)
+--
+CREATE TABLE `dropdown` (
+`id_item` int(10)
+,`label` text
+,`link` text
+,`id_sub` int(10)
+);
 
 -- --------------------------------------------------------
 
@@ -62,7 +90,7 @@ CREATE TABLE `identitas` (
 --
 
 INSERT INTO `identitas` (`id_identitas`, `logo`, `nama_sekolah`, `visi`, `misi`, `sejarah`) VALUES
-(10, '\"back.jpg\"', 'SMA LUAR BIASA KEREN', 'MENJADI SEKOLAH YANG TERBELAKANG DAN DIPENUHI WIBU', '-MENJADI SEKOLAH TERBELAKANG\r\n-LULUSAN MENJADI WIBU\r\n-MENCINTAI GRAND BLUE SEGENAP HATI\r\n-HANYA NIGGA YANG DAPAT MASUK', 'SEKOLAH INI DICIPTAKAN OLEH ALI HIDAYAT SETELAH DIUSIR DARI WAKANDA');
+(1, '\"back.jpg\"', 'SMA LUAR BIASA KEREN', 'MENJADI SEKOLAH YANG TERBELAKANG DAN DIPENUHI WIBU', '-MENJADI SEKOLAH TERBELAKANG\r\n-LULUSAN MENJADI WIBU\r\n-MENCINTAI GRAND BLUE SEGENAP HATI\r\n-HANYA NIGGA YANG DAPAT MASUK', 'SEKOLAH INI DICIPTAKAN OLEH ALI HIDAYAT SETELAH DIUSIR DARI WAKANDA');
 
 -- --------------------------------------------------------
 
@@ -83,49 +111,6 @@ CREATE TABLE `main` (
 
 INSERT INTO `main` (`id_container`, `id_fitur`, `weight`, `height`) VALUES
 (10, 10, '300px', '200px');
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `navbar`
--- (See below for the actual view)
---
-CREATE TABLE `navbar` (
-);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `navdrop`
---
-
-CREATE TABLE `navdrop` (
-  `id_navdrop` int(10) NOT NULL,
-  `tipe` text NOT NULL,
-  `warna` text NOT NULL,
-  `id_navbar` int(10) NOT NULL,
-  `font` text NOT NULL,
-  `label` text NOT NULL,
-  `link` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `navdrop`
---
-
-INSERT INTO `navdrop` (`id_navdrop`, `tipe`, `warna`, `id_navbar`, `font`, `label`, `link`) VALUES
-(1, 'item', 'black', 10, 'fantasy', '', 'about');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `navigasi`
---
-
-CREATE TABLE `navigasi` (
-  `id_nav` int(10) NOT NULL,
-  `id_item` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -160,6 +145,7 @@ CREATE TABLE `nofitur` (
 
 CREATE TABLE `post` (
   `id_post` int(10) NOT NULL,
+  `id_penulis` int(10) NOT NULL,
   `judul` text NOT NULL,
   `kategori` text NOT NULL,
   `isi` varchar(500) NOT NULL,
@@ -171,8 +157,8 @@ CREATE TABLE `post` (
 -- Dumping data for table `post`
 --
 
-INSERT INTO `post` (`id_post`, `judul`, `kategori`, `isi`, `tanggal`, `status`) VALUES
-(1, 'PENGUMUMAN PEMENANG', 'SEKOLAH', 'ALI MEMENANGKAN KEJUARAAN KENIGAAN DENGAN TOTAL KEMENANGAN 10-0 MELAWAN NIGERIA', '2019-05-01', 'WOW');
+INSERT INTO `post` (`id_post`, `id_penulis`, `judul`, `kategori`, `isi`, `tanggal`, `status`) VALUES
+(1, 1, 'PENGUMUMAN PEMENANG', 'SEKOLAH', 'ALI MEMENANGKAN KEJUARAAN KENIGAAN DENGAN TOTAL KEMENANGAN 10-0 MELAWAN NIGERIA', '2019-05-01', 'WOW');
 
 -- --------------------------------------------------------
 
@@ -216,7 +202,7 @@ CREATE TABLE `subnavitem` (
   `id_item` int(10) NOT NULL,
   `label` text NOT NULL,
   `link` text NOT NULL,
-  `tipe` text NOT NULL
+  `tipe` enum('divider','item') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -260,11 +246,20 @@ INSERT INTO `user` (`id`, `nama`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure for view `navbar`
+-- Structure for view `artikel`
 --
-DROP TABLE IF EXISTS `navbar`;
+DROP TABLE IF EXISTS `artikel`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`portal`@`localhost` SQL SECURITY DEFINER VIEW `navbar`  AS  select `navigasi`.`id_nav` AS `id_nav`,`navigasi`.`warna_nav` AS `warna_nav`,`navigasi`.`warna` AS `warna`,`navigasi`.`font` AS `font`,`navigasi`.`label` AS `label`,`navigasi`.`link` AS `link`,`navigasi`.`tipe` AS `tipe`,`navigasi`.`tipe_container` AS `tipe_container` from `navigasi` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `artikel`  AS  select `post`.`id_post` AS `id_post`,`post`.`isi` AS `isi`,`post`.`judul` AS `judul`,`post`.`kategori` AS `kategori`,`post`.`tanggal` AS `tanggal`,`user`.`nama` AS `nama` from (`post` join `user`) where (`user`.`id` = `post`.`id_penulis`) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `dropdown`
+--
+DROP TABLE IF EXISTS `dropdown`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dropdown`  AS  select `navitem`.`id_item` AS `id_item`,`subnavitem`.`label` AS `label`,`subnavitem`.`link` AS `link`,`subnavitem`.`id_sub` AS `id_sub` from (`navitem` join `subnavitem` on((`subnavitem`.`id_item` = `navitem`.`id_item`))) ;
 
 -- --------------------------------------------------------
 
@@ -292,13 +287,6 @@ ALTER TABLE `identitas`
   ADD PRIMARY KEY (`id_identitas`);
 
 --
--- Indexes for table `navigasi`
---
-ALTER TABLE `navigasi`
-  ADD PRIMARY KEY (`id_nav`),
-  ADD KEY `index` (`id_item`);
-
---
 -- Indexes for table `navitem`
 --
 ALTER TABLE `navitem`
@@ -308,7 +296,8 @@ ALTER TABLE `navitem`
 -- Indexes for table `post`
 --
 ALTER TABLE `post`
-  ADD PRIMARY KEY (`id_post`);
+  ADD PRIMARY KEY (`id_post`),
+  ADD KEY `index` (`id_penulis`);
 
 --
 -- Indexes for table `siswa`
@@ -321,7 +310,6 @@ ALTER TABLE `siswa`
 -- Indexes for table `subnavitem`
 --
 ALTER TABLE `subnavitem`
-  ADD PRIMARY KEY (`id_sub`),
   ADD KEY `index` (`id_item`);
 
 --
@@ -361,12 +349,6 @@ ALTER TABLE `tema`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `navigasi`
---
-ALTER TABLE `navigasi`
-  ADD CONSTRAINT `navigasi_ibfk_1` FOREIGN KEY (`id_item`) REFERENCES `navitem` (`id_item`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `subnavitem`
