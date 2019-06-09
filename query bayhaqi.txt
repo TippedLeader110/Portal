@@ -1,0 +1,7 @@
+delimiter !
+create or replace procedure mypost(A INT)
+BEGIN
+	select a.judul, a.kategori, a.status , a.tanggal from  post a inner join  user b where b.id = A and b.id = a.id_user;
+END !
+
+create or replace view allpost as select a.judul, a.kategori, a.status ,a.tanggal from  post a inner join  user b where b.id = a.id_user;

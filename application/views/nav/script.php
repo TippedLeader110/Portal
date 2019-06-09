@@ -1,4 +1,3 @@
-<script type="text/javascript" src="<?php echo base_url() ?>/source/js/j.js"></script>
 <script type="text/javascript">
 
  function openNav() {
@@ -173,6 +172,9 @@ function delWarna(ab, aa) {
 	})
 }
 
-
+function change(){
+		alret("yeah");
+	}
+	
 </script>
 

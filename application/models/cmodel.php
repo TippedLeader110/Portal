@@ -45,6 +45,26 @@ class cmodel extends CI_Model {
 		$this->db->update('identitas');
 	}
 
+	public function getNavbar(){
+		$this->db->order_by("id_item", "asc");
+		$data = $this->db->get('navitem');
+		$data = $data->result();
+		return $data;
+	}
+
+	public function getnavDrop($ab){
+		$this->db->where('id_item', $ab);
+		$data = $this->db->get('subnavitem');
+		$data = $data->result();
+		return $data;
+	}
+
+	public function upidNav($a, $b){
+		$this->db->set('id_item', $b);
+		$this->db->where('id_item', $a);
+		$this->db->update('navitem');
+	}	
+
 }
 
 ?>

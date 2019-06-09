@@ -105,8 +105,51 @@ class Custom extends CI_Controller {
 		$data['ac'] = 2;
 		$data['nav'] = 'nav/custkiri';
 		$data['navact'] = 2;
-		$data['warna'] = $this->cmodel->getWarna();
+		$data['navbar'] = $this->cmodel->getNavbar();
 		$this->load->view('cust/main', $data);
+	}
+
+	public function navEdit(){
+		$r = $this->db->get('navitem');
+		$data['nav'] = $r->result();
+		$this->load->view('page/ajax/navedit', $data);	
+	}
+
+	public function getNav(){
+		$ab = $this->input->post('ab');
+		$data = $this->cmodel->getnavDrop($ab);
+		echo json_encode($data);
+	}
+
+	public function enavbar(){
+		$ab = $this->input->post('ab');
+		$data['navbar'] = $this->cmodel->getnavDrop($ab);
+		$this->load->view('page/ajax/navbar', $data);	
+	}
+
+	public function enavbarfirst(){
+		$ab = $this->input->post('ab');
+		$this->db->order_by("id_item", "asc");
+		$res = $this->db->get('navitem');
+		$res = $res->result();
+		$data['navbar'] = $res;
+		$this->load->view('page/ajax/navbar2', $data);	
+	}
+
+	public function upNav(){
+		$a = json_decode($_POST['a'], true);
+		$b = json_decode($_POST['b'], true);
+		// $a = array(0 => 0, 1 => 1);
+		// $b = array(0 => 0, 1 => 1);
+
+		for ($i=0; $i < sizeof($a); $i++) { 
+			$this->db->set('id_sort', $i+1);
+			$this->db->where('id_item', $b[$i]);
+			$this->db->update('navitem');
+		}
+
+		$this->db->query(" update navitem set id_item = id_sort");
+
 	}
 
 	############################################
