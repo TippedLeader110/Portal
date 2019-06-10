@@ -41,12 +41,15 @@
 				<div class="row">
 				<div class="col-6">
 					<div class="container menupage" style="background: #6A88A3;border-radius: 0px;">
-						<center><h4 style="color: white">Identitas Dropdown Navigasi Bar &nbsp;<a onclick="Swal.fire('Tips', 'Pilih salah satu navigasi bar untuk menampilkan menu dropdown', 'info');" href="javascript:void(0);"><i class="fas fa-question-circle" style="color: white"></i></a></h4></center>
+						<center><h4 style="color: white">Pengaturan Dropdown Navigasi Bar &nbsp;<a onclick="Swal.fire('Tips', 'Pilih salah satu navigasi bar untuk menampilkan menu dropdown', 'info');" href="javascript:void(0);"><i class="fas fa-question-circle" style="color: white"></i></a></h4></center>
 					</div>
+					<div id="dropedit" style="margin-top: 20px;">
+
+						<center>
 					<div id="droplist">
-					<div id="dropedit" style="margin-top: 30px;">
 							
 					</div>
+					</center>
 					</div>
 				</div>
 				<div class="col-6">
@@ -54,7 +57,7 @@
 					<center><h4 style="color: white">Identitas Navigasi Bar&nbsp;<a onclick="Swal.fire('Tips', 'Pilih salah satu navigasi bar untuk menampilkan menu', 'info');" href="javascript:void(0);"><i class="fas fa-question-circle" style="color: white"></i></a></h4></center>
 					</div>
 					
-					<div id="navedit" style="margin-top: 30px;">
+					<div id="navedit" style="margin-top: 20px;">
 							
 					</div>
 				</div>
@@ -71,7 +74,12 @@
 	$(document).ready(function(){
 	});
 	$('#droplist').sortable({
-		axis : "y"
+		axis : "y",
+		update: function(event, ui) {
+            var iddrop = $('#droplist').sortable("toArray");
+            console.log("idDROP");
+            console.log(iddrop);
+        }
 	});
 	$('#navlist').sortable({
 		update: function(event, ui) {
@@ -219,20 +227,21 @@
 		})
 
 		$.ajax({
-			url: '<?php echo base_url('Custom/navDropId') ?>',
-			type: 'post',
-			data: {ab: ab},
-			error: function() {
+        	url: '<?php echo base_url('Custom/enavbar') ?>',
+            type: 'POST',
+            data: {ab: ab},
+            // dataType: 'json',
+            error: function() {
            		// alert('Something is wrong');
            		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
            	},
            	success: function(data) {	
-           		$('#dropedit').empty();
-           		$('#dropedit').append(data);
+           		// $('#droplist').append(data);
+           		$('#droplist').html(data);
+           		// $('#drop').html('Dropdown navbar ke :  ' + ab)
            		// $("#myList").append("<li>" + v + "</li>");
            }
-
-		})
+        })
 	    }
 		else{
 			$('#navedit').empty();

@@ -64,12 +64,16 @@ h5{
     /*height: 50px;*/
 }
 
-.floatvertikal {
+#droplist {
     list-style-type: none;
     display: block;
 }
-.floatvertikal>li {
-    background: #D8DADF;
+#droplist>li {
+    border-radius: 2px;
+    border-style: solid;
+    border-color: #26435E;
+    border-width: 1px;
+    background: #A9B3CE;
     /*width: 50px;*/
     margin: 5px;
     padding: 5px;

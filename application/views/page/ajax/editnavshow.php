@@ -26,7 +26,11 @@
 			<center><h3>Link Navigasi</h3></center>
 			<center><button class="btn btn-outline-primary">Pilih Link</button></center>
 
+
 		</td>
+	</tr>
+	<tr>
+		<td colspan="2"><center><button class="btn btn-primary">Simpan</button></center></td>
 	</tr>
 </table>
 
