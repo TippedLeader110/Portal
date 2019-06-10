@@ -34,21 +34,28 @@
 		<div class="col-12" >
 			<div class="container menupage" >
 				<center><h2>Menu Edit Navigasi Bar</h2></center>
+				<select id="select" class="custom-select">
+							<!--  SELECT HERE  -->
+					</select>
 				<hr>
 				<div class="row">
 				<div class="col-6">
 					<div class="container menupage" style="background: #6A88A3;border-radius: 0px;">
-						<h4 style="color: white">Pilih salah satu dropdown&nbsp;<a onclick="" href="javascript:void(0);"><i class="fas fa-question-circle" style="color: white"></i></a></h4>
+						<center><h4 style="color: white">Identitas Dropdown Navigasi Bar &nbsp;<a onclick="Swal.fire('Tips', 'Pilih salah satu navigasi bar untuk menampilkan menu dropdown', 'info');" href="javascript:void(0);"><i class="fas fa-question-circle" style="color: white"></i></a></h4></center>
+					</div>
+					<div id="droplist">
+					<div id="dropedit" style="margin-top: 30px;">
+							
+					</div>
 					</div>
 				</div>
 				<div class="col-6">
 					<div class="container menupage" style="background: #6A88A3;border-radius: 0px;">
-					<select class="custom-select" onchange="change();">
-						<option>-Pilih Navbar-</option>
-					<?php foreach ($nav as $key => $v): ?>
-						<option value="<?php echo $v->id_item ?>"><?php echo $v->label ?></option>
-					<?php endforeach ?>
-					</select>
+					<center><h4 style="color: white">Identitas Navigasi Bar&nbsp;<a onclick="Swal.fire('Tips', 'Pilih salah satu navigasi bar untuk menampilkan menu', 'info');" href="javascript:void(0);"><i class="fas fa-question-circle" style="color: white"></i></a></h4></center>
+					</div>
+					
+					<div id="navedit" style="margin-top: 30px;">
+							
 					</div>
 				</div>
 				</div>
@@ -90,11 +97,17 @@
 			data: {a: a, b: b},
 			error: function() {
            		// alert('Something is wrong');
-           		Swal.fire('Galat !!','Ada yang salah dengan controller', "error");
+           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
            	},
            	success: function(data) {	
            	// $('#drop').html('Dropdown navbar ke :  ' + data);
 			dude();
+			Swal.fire({
+                 	title: 'Sukses',
+                 	text: 'Posisi berhasil diatur !!',
+                 	type: "success",
+                 	timer: 3000
+                 });
            }
 		})
 	}
@@ -105,13 +118,15 @@
         	url: '<?php echo base_url('Custom/enavbarfirst') ?>',
             error: function() {
            		// alert('Something is wrong');
-           		Swal.fire('Galat !!','Ada yang salah dengan controller', "error");
+           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
            	},
            	success: function(data) {	
            		$('#navlist').empty();
            		$('#navlist').append(data);
+           		editn();
            		var beforeidsInOrder = $('#navlist').sortable("toArray");
            		console.log(beforeidsInOrder);
+           		
            }
         });
 	}
@@ -128,7 +143,7 @@
             // dataType: 'json',
             error: function() {
            		// alert('Something is wrong');
-           		Swal.fire('Galat !!','Ada yang salah dengan controller', "error");
+           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
            	},
            	success: function(data) {	
            		// $('#droplist').append(data);
@@ -171,15 +186,59 @@
             // dataType: 'json',
             error: function() {
            		// alert('Something is wrong');
-           		Swal.fire('Galat !!','Ada yang salah dengan controller', "error");
+           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
            	},
            	success: function(data) {	
            		// $('#droplist').append(data);
-           		$('#edit').empty();
-           		$('#edit').append(data);
+           		$('#select').empty();
+           		$('#select').append(data);
            		// $("#myList").append("<li>" + v + "</li>");
            }
         });
-	}
+	}	
+
+
+	$('#select').change(function(){
+	    console.log($(this).val());
+	    var ab = $(this).val();
+	    if (ab!="null") {
+		$.ajax({
+			url: '<?php echo base_url('Custom/navId') ?>',
+			type: 'post',
+			data: {ab: ab},
+			error: function() {
+           		// alert('Something is wrong');
+           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           	},
+           	success: function(data) {	
+           		// $('#navedit').empty();
+           		$('#navedit').html(data);
+           		// $("#myList").append("<li>" + v + "</li>");
+           }
+
+		})
+
+		$.ajax({
+			url: '<?php echo base_url('Custom/navDropId') ?>',
+			type: 'post',
+			data: {ab: ab},
+			error: function() {
+           		// alert('Something is wrong');
+           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           	},
+           	success: function(data) {	
+           		$('#dropedit').empty();
+           		$('#dropedit').append(data);
+           		// $("#myList").append("<li>" + v + "</li>");
+           }
+
+		})
+	    }
+		else{
+			$('#navedit').empty();
+		}
+
+
+	})
 
 	</script>

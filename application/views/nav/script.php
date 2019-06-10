@@ -58,7 +58,7 @@ function sw1() {
             type: 'POST',
             data: {kode: aa, label: ab},
             error: function() {
-           		Swal.fire('Galat !!','Ada yang salah dengan controller', "error");
+           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
            		alert(data);
            	},
            	success: function() {
@@ -105,7 +105,7 @@ function nama() {
             type: 'POST',
             data: {kode: aa},
             error: function() {
-           		Swal.fire('Galat !!','Ada yang salah dengan controller', "error");
+           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
            		alert(data);
            	},
            	success: function() {
@@ -149,7 +149,7 @@ function delWarna(ab, aa) {
             data: {id: ab,},
             error: function() {
            		// alert('Something is wrong');
-           		Swal.fire('Galat !!','Ada yang salah dengan controller', "error");
+           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
            	},
            	success: function() {
                 Swal.fire({
@@ -172,9 +172,5 @@ function delWarna(ab, aa) {
 	})
 }
 
-function change(){
-		alret("yeah");
-	}
-	
 </script>
 

@@ -6,7 +6,7 @@
 		<h2 style="color: white">disimpan admin</h2>
 	</center>
 </div>
-<div class="container ctext" style="background: white;">
+<div class="container ctext menuborder" style="border-radius: 0px;">
 	<!-- <center><h2>Warna yang Tersimpan</h2></center> -->
 	<center>
 	<table>

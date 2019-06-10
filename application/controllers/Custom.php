@@ -109,6 +109,22 @@ class Custom extends CI_Controller {
 		$this->load->view('cust/main', $data);
 	}
 
+	public function navId(){
+		$id = $this->input->post('ab');
+		$this->db->where('id_item', $id);
+		$r = $this->db->get('navitem');
+		$data['res'] = $r->result();
+		$this->load->view('page/ajax/editnavshow', $data);	
+
+	}
+
+	public function navDropId(){
+		$id = $this->input->post('ab');
+		$data['navbar'] = $this->cmodel->getnavDrop($id);
+		$this->load->view('page/ajax/navbar', $data);	
+
+	}
+
 	public function navEdit(){
 		$r = $this->db->get('navitem');
 		$data['nav'] = $r->result();

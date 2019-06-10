@@ -158,3 +158,8 @@
   border: 0px solid #B2BFD0;
   border-radius: 5px;
 }
+
+.menuborder{
+  border-radius: 4px;border-color: #26435E;border-width: 1px;border-style: solid;padding: 20px 10px 20px 10px;
+  background: #DCE1E9;
+}
