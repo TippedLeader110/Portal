@@ -219,4 +219,13 @@ class Custom extends CI_Controller {
 		$data['navact'] = 2;	
 		$this->load->view('cust/main', $data);
 	}
+
+	public function postCreate(){
+		$this->load->view('page/ajax/createpost');
+	}
+	public function postShow(){
+		$r = $this->db->get('post');
+		$data['quer'] = $r->result();
+		$this->load->view('page/ajax/showpost', $data);
+	}
 }

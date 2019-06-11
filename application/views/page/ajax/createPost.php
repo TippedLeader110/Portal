@@ -14,7 +14,7 @@
 					<tr>
 						<td><button class="btn btn-primary" onclick="create();"><div style="color: white">Buat Post</div><span><h2><i class="fas fa-pen"></i></h2></span></button>&nbsp;
 						</td>	
-						<td style="padding-top: 1px;"><button onclick="show();" class="btn btn-info"><div style="color: white">Tampilkan Data</div><span><h2><i class="fas fa-table" style="color: white"></i></h2></span></button>&nbsp;
+						<td style="padding-top: 1px;"><button onclick="pop();" class="btn btn-info"><div style="color: white">Bantuan</div><span><h2><i class="fas fa-question" style="color: white"></i></h2></span></button>&nbsp;
 						</td>
 					</tr>
 				</table>
@@ -30,9 +30,5 @@
 	function create(){
 		// alert('go');
 		$("#page").load('<?php echo base_url('Custom/postCreate') ?>');
-	}
-	function show(){
-		// alert('go');
-		$("#page").load('<?php echo base_url('Custom/postShow') ?>');
 	}
 </script>
