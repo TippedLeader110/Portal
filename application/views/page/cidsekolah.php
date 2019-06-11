@@ -281,20 +281,20 @@
 		})
 	}
 
-	function SaveMisi(){
-		var a = CKEDITOR.instances.sekid.getData();
-		$.ajax({
-			url: '<?php echo base_url('Custom/upNama') ?>',
-			type: "post",
-			data: {data: a},
-			error: function(){
-				Swal.fire('Galat !', 'Sesuatu tidak beres !!!', 'error');
-			},
-			success: function(){
-				getMisi();
-				Swal.fire('Sukses', 'Nama Sekolah Terpebaharui', 'success');	
-			}
-		})
-	}
+	// function SaveMisi(){
+	// 	var a = CKEDITOR.instances.sekid.getData();
+	// 	$.ajax({
+	// 		url: '<?php echo base_url('Custom/upNama') ?>',
+	// 		type: "post",
+	// 		data: {data: a},
+	// 		error: function(){
+	// 			Swal.fire('Galat !', 'Sesuatu tidak beres !!!', 'error');
+	// 		},
+	// 		success: function(){
+	// 			getMisi();
+	// 			Swal.fire('Sukses', 'Nama Sekolah Terpebaharui', 'success');	
+	// 		}
+	// 	})
+	// }
 </script>
 

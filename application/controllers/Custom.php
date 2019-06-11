@@ -29,7 +29,7 @@ class Custom extends CI_Controller {
 		$data['ac'] = 1;     //Posisi aktif nav bar
 		$data['navact'] = 0; //Posisi sidenav aktif
 		$data['nav'] = 'nav/custkiri';
-		$this->load->view('cust/main', $data);
+		$this->load->view('cust/main_fluid', $data);
 	}
 	public function KWeb(){
 		$data['home'] = 2;	
@@ -37,7 +37,7 @@ class Custom extends CI_Controller {
 		$data['ac'] = 3;
 		$data['nav'] = 'nav/custkiri2';
 		$data['navact'] = 0;
-		$this->load->view('cust/main', $data);
+		$this->load->view('cust/main_fluid', $data);
 	}
 	public function KUser(){
 		$data['home'] = 1;	
@@ -55,7 +55,7 @@ class Custom extends CI_Controller {
 		$data['nav'] = 'nav/custkiri';
 		$data['navact'] = 0;
 		$data['sek'] = $this->cmodel->getIdentitas();
-		$this->load->view('cust/main', $data);
+		$this->load->view('cust/main_fluid', $data);
 	}
 
 	##################################################

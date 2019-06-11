@@ -8,8 +8,8 @@
 		</div>
 	</div>
 	<div class="row" style="margin-top: 20px;">
-		<div class="col-12" style="">
-			<div class="container menupage">
+		<div class="col-6" style="">
+			<div class="container menupage"  style="height: 550px;">
 			<center><h2>Pengaturan Posisi dan Link Navbar</h2></center>
 			<hr>
 			<table><tr><td><button class="btn btn-primary" onclick="sub();"><div style="color: white">Simpan</div><span><h2><i class="far fa-save"></i></h2></span></button>&nbsp;</td>	
@@ -24,35 +24,21 @@
 					<?php endforeach ?>
 					</div>
 				</div>
-				<div style="background: #B2BFD0;height: 100px;">
+				<div style="background: #B2BFD0;height: 300px;">
 					<center><h1 style="color: white;padding-top: 20px;">Content</h1></center>
 				</div>
 				</div>
 		</div>
-	</div>
-	<div class="row" style="margin-top: 20px">
-		<div class="col-12" >
-			<div class="container menupage" >
+		<div class="col-6">
+			<div class="container menupage" style="height: 550px;">
 				<center><h2>Menu Edit Navigasi Bar</h2></center>
+				<hr>
 				<select id="select" class="custom-select">
 							<!--  SELECT HERE  -->
 					</select>
 				<hr>
 				<div class="row">
-				<div class="col-6">
-					<div class="container menupage" style="background: #6A88A3;border-radius: 0px;">
-						<center><h4 style="color: white">Pengaturan Dropdown Navigasi Bar &nbsp;<a onclick="Swal.fire('Tips', 'Pilih salah satu navigasi bar untuk menampilkan menu dropdown', 'info');" href="javascript:void(0);"><i class="fas fa-question-circle" style="color: white"></i></a></h4></center>
-					</div>
-					<div id="dropedit" style="margin-top: 20px;">
-
-						<center>
-					<div id="droplist">
-							
-					</div>
-					</center>
-					</div>
-				</div>
-				<div class="col-6">
+				<div class="col-12">
 					<div class="container menupage" style="background: #6A88A3;border-radius: 0px;">
 					<center><h4 style="color: white">Identitas Navigasi Bar&nbsp;<a onclick="Swal.fire('Tips', 'Pilih salah satu navigasi bar untuk menampilkan menu', 'info');" href="javascript:void(0);"><i class="fas fa-question-circle" style="color: white"></i></a></h4></center>
 					</div>
@@ -61,8 +47,15 @@
 							
 					</div>
 				</div>
+				
 				</div>
 			</div>
+					
+				</div>
+	</div>
+	<div class="row" style="margin-top: 20px">
+		<div class="col-12" >
+			
 		</div>
 	</div>
 	<div class="row" style="margin-top: 20px;" id="edit">

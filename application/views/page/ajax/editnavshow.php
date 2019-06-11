@@ -5,9 +5,10 @@
 <table class="table table-borderless">
 	<tr>
 		<td>
-			<h3 class="">Label Navigasi</h3><input type="text" class="form-control" value="<?php echo $v->label ?>" name="label">
+			<form method="post" id="labelnav">
+			<h3 class="">Label Navigasi</h3><input type="text" class="form-control" id="label" value="<?php echo $v->label ?>" name="label">
 		</td>
-		<td>
+		<!-- <td>
 			<h3 class="">Tipe Navigasi</h3>
 			<select class="custom-select">
 				<?php if ($v->tipe==item): ?>
@@ -19,18 +20,21 @@
 				<option>Navigasi Item</option>
 				<?php endif ?>
 			</select>
-		</td>
+		</td> -->
 	</tr>
 	<tr>
 		<td colspan="2">
-			<center><h3>Link Navigasi</h3></center>
-			<center><button class="btn btn-outline-primary">Pilih Link</button></center>
-
-
+			<h3>Link Navigasi</h3><button class="btn btn-outline-primary">Pilih Link</button>
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2"><center><button class="btn btn-primary">Simpan</button></center></td>
-	</tr>
+		<td onclick="saveNav();" colspan="2"><center><button class="btn btn-primary">Simpan</button></center></td>
+	</tr></form>
 </table>
+
+<script type="text/javascript">
+	function saveNav(){
+		alert($('#label').val());
+	}
+</script>
 
