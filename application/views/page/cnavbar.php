@@ -242,5 +242,45 @@
 
 
 	})
+	function upidNav(){
+		// alert($('#label').val());
+		var ab = $('#label').val();
+		var aa = $('#id_t').val()
+		$.ajax({
+			url: <?php echo base_url('Custom/upidNav') ?>,
+			type: 'POST',
+            data: {kode: aa, label: ab},
+            error: function() {
+           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           		alert(data);
+           	},
+           	success: function() {
+                Swal.fire({
+                 	title: 'Sukses',
+                 	text: 'Navigasi bar berhasil diperbaharui !!',
+                 	type: "success",
+                 	timer: 3000
+                 });
+			    if (aa!="null") {
+				$.ajax({
+					url: '<?php echo base_url('Custom/navId') ?>',
+					type: 'post',
+					data: {ab: aa},
+					error: function() {
+		           		// alert('Something is wrong');
+		           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+		           	},
+		           	success: function(data) {	
+		           		// $('#navedit').empty();
+		           		$('#navedit').html(data);
+		           		// $("#myList").append("<li>" + v + "</li>");
+		           }
 
+				})
+			}
+				
+           }
+        });
+
+		}
 	</script>

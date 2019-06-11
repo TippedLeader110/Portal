@@ -109,6 +109,12 @@ class Custom extends CI_Controller {
 		$this->load->view('cust/main', $data);
 	}
 
+	public function upidNav(){
+		$id = $this->input->post('kode');
+		$label = $this->input->post('label');
+		$this->db->query("UPDATE navitem set label = '".$label."' where id_item = '".$id."'");
+	}
+
 	public function navId(){
 		$id = $this->input->post('ab');
 		$this->db->where('id_item', $id);
@@ -202,5 +208,15 @@ class Custom extends CI_Controller {
 		$data['ac'] = 3;
 		$data['nav'] = 'nav/custkiri2';
 		$data['navact'] = 1;
+	}
+	#################################################
+
+	public function artikel(){
+		$data['home'] = 1;	
+		$data['cmain'] = "page/cpost";
+		$data['ac'] = 3;
+		$data['nav'] = 'nav/custkiri2';
+		$data['navact'] = 2;	
+		$this->load->view('cust/main', $data);
 	}
 }

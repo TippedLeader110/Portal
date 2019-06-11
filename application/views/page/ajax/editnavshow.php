@@ -7,6 +7,7 @@
 		<td>
 			<form method="post" id="labelnav">
 			<h3 class="">Label Navigasi</h3><input type="text" class="form-control" id="label" value="<?php echo $v->label ?>" name="label">
+			<input type="text" id="id_t" hidden name="" value="<?php echo $v->id_item ?>">
 		</td>
 		<!-- <td>
 			<h3 class="">Tipe Navigasi</h3>
@@ -24,17 +25,55 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<h3>Link Navigasi</h3><button class="btn btn-outline-primary">Pilih Link</button>
+			<h3>Link Navigasi</h3><button class="btn btn-outline-primary" onclick="Link();">Pilih Link</button>
 		</td>
 	</tr>
 	<tr>
-		<td onclick="saveNav();" colspan="2"><center><button class="btn btn-primary">Simpan</button></center></td>
+		<td onclick="upidNav();" colspan="2"><center><button class="btn btn-primary">Simpan</button></center></td>
 	</tr></form>
 </table>
 
+<div id="linkSelect" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+
 <script type="text/javascript">
-	function saveNav(){
-		alert($('#label').val());
-	}
+function upidNav(){
+		// alert($('#label').val());
+		var ab = $('#label').val();
+		var aa = $('#id_t').val();
+		console.log(ab);console.log(aa);
+		// 
+		$.ajax({
+        	url: '<?php echo base_url('Custom/upidNav') ?>',
+            type: 'POST',
+            data: {kode: aa, label: ab},
+            error: function() {
+           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           		alert(data);
+           	},
+           	success: function() {
+                Swal.fire({
+                 	title: 'Sukses',
+                 	text: 'Label navigasi berhasil disimpan !!',
+                 	type: "success",
+                 	timer: 3000
+                 });
+                location.reload();
+           }
+        })
+		}	
 </script>
 

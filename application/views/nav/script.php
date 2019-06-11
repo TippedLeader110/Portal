@@ -116,11 +116,6 @@ function nama() {
                  	timer: 3000
                  });
 				getSek();
-
-      //           setTimeout(function() 
-  				// {
-    		// 	location.reload();  //Refresh page
-  				// }, 100);
            }
         });
   	}
