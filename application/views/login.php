@@ -24,15 +24,20 @@
                 </div>
                 <div class="input-group form-group">
                     
-                    <input type="password" name="password" class="form-control" placeholder="Password">
+                <input type="password" name="password" class="form-control" placeholder="Password">
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" name="btn" value="Login" class="btn btn-info btn-block login">
+                    <input type="submit" name="btn" value="Login" class="btn btn-info">
+        
+                    <input type="submit" name="btn" value="Daftar" class="btn btn-succes ">
                 </div>
-                 <div class="form-group">
-                    <input type="submit" name="btn" value="Login" class="btn btn-succes btn-block login">
-                </div>
+                    <div class="row">
+                        <div class="container-fluid" style="color: #2F669F; ">
+                                <a href="#" onclick="" style="text-decoration: none;">Lupa Kata Sandi?</a>
+                            
+                        </div>
+                    </div>      
 
             </form>
         </div>
