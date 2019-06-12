@@ -30,6 +30,7 @@
 				<input type="text" class="form-control" name="title" id="title">
 				<hr>
 				Kategori 
+				<span id="errorkat"></span>
 				<select  id="select" class="form-control"> 
 					<option id="null" value="null">Pilih Kategori</option>
 					<?php foreach ($m as $key => $v): ?>
@@ -39,13 +40,21 @@
 					<?php endforeach ?>
 				</select>
 				<hr>
+				Tipe Publikasi
+				<span id="errorpub"></span>
+				<select id="select2" class="form-control">
+					<option>Pilih tipe publikasi</option>
+					<option value="public">Public</option>
+					<option value="private">Private</option>
+				</select>
+				<hr>
 				Waktu <input type="text" class="form form-control" id="waktu" name="waktu" value="<?php echo date("Y/m/d") ?>">	
 				<button onclick="post();" style="margin-top: 20px;" class="btn btn-success">Post</button>
 				</div>
 			</div>
 			<div class="col-8">
 				Isi Artikel
-				<textarea name="createpost" id="createpost"></textarea>
+				<textarea name="createpost" id="createpost" style="max-height: 450px;"></textarea>
 			</div>
 		</div>
 	</div>
@@ -66,6 +75,7 @@
 		})
 
 	function post(){
+		var stat = $('#select2').val();
 		var t = $('#title').val();
 		var waktu = $('#waktu').val();
 		var Kategori = $('#select').val();
@@ -77,7 +87,7 @@
 		$.ajax({
 			url : '<?php echo base_url('Custom/savePost') ?>',
 			type: 'post',
-			data: {t:t, waktu:waktu, kat:Kategori, is:isi},
+			data: {t:t, waktu:waktu, kat:Kategori, is:isi, stat:stat},
 			error: function(data){
 				Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
            		console.log(data);

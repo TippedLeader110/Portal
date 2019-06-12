@@ -6,29 +6,17 @@
 
   <div class="collapse  navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item nav-item-c">
-        <a class="nav-link cl" href="#" style="">Tentang Kami <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item nav-item-c mr-auto">
-        <a class="nav-link cl" href="#" style="">Kurikulum</a>
-      </li>
-      <li class="nav-item nav-item-c mr-auto">
-        <a class="nav-link cl" href="#" style="">Fasilitas</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link cl dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="">
-          News
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Berita Sekolah</a>
-          <a class="dropdown-item" href="#">Kegiatan</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Semua Artikel</a>
-        </div>
-      </li>
+    	<?php foreach ($datanav as $key => $v): ?>
+	    <li class="nav-item nav-item-c">
+        <a class="nav-link cl" href="<?php echo base_url('Home/') ?><?php echo $v->link ?>" style=""><?php echo $v->label; ?><span class="sr-only">(current)</span></a>
+      	</li>
+    	<?php endforeach ?>
       <li class="nav-item nav-item-c mr-auto">
         <a class="nav-link cl" href="<?php echo base_url() ?>Home/portal" style="">Login</a>
       </li>
     </ul>
   </div>
 </nav>
+<script type="text/javascript">
+	
+</script>

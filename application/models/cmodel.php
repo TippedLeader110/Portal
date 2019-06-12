@@ -65,8 +65,8 @@ class cmodel extends CI_Model {
 		$this->db->update('navitem');
 	}	
 
-	public function savePostnow($title,$waktu,$Kategori,$isi){
-		$data = array('judul' => $title, 'tanggal' => $waktu, 'id_kategori' => $Kategori, 'isi' => $isi);
+	public function savePostnow($title,$waktu,$Kategori,$isi, $stat){
+		$data = array('judul' => $title, 'tanggal' => $waktu, 'id_kategori' => $Kategori, 'isi' => $isi, 'status' => $stat);
 		$this->db->insert('post', $data);
 	}
 

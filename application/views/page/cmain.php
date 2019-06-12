@@ -6,9 +6,9 @@
 		<h2 style="color: white">dan mengubahnya menjadi sesuai dengan keinginan</h2>
 		<table style="margin-top: 50px;">
 				<tr>
-					<td class="tdp" id="tdd1"><a onclick="getR();" href="javascript:void(0);" class="nava"><h5 >Laporan Singkat</h5></a></td>
-					<td class="tdp" id="tdd2"><a onclick="getLog();" href="javascript:void(0);" class="nava"><h5 >Log Terakhir</h5></a></td>
-					<td class="tdp" id="tdd3"><a onclick="getSejarah();" href="javascript:void(0);" class="nava"><h5 >User Saya</h5></a></td>
+					<td class="tdp" id="tdd1"><a onclick="getR();" href="javascript:void(0);" class="nava"><h5  style="color: white">Laporan Singkat</h5></a></td>
+					<td class="tdp" id="tdd2"><a onclick="getLog();" href="javascript:void(0);" class="nava"><h5  style="color: white">Log Terakhir</h5></a></td>
+					<td class="tdp" id="tdd3"><a onclick="getSejarah();" href="javascript:void(0);" class="nava"><h5  style="color: white">User Saya</h5></a></td>
 				</tr>
 		</table>
 	</center>
