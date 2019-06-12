@@ -19,9 +19,12 @@ class Custom extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	function __construct(){
-        parent::__construct();
-        $data['home']=1;
-    }
+		parent::__construct();
+	
+		// if($this->session->userdata('status') != "login"){
+		// 	redirect(base_url("login"));
+		// }
+	}
 	public function index()
 	{
 		$data['cmain'] = "page/cmain";
@@ -189,6 +192,22 @@ class Custom extends CI_Controller {
 
 	}
 
+	public function addNav(){
+		$a = $this->db->query('select max(id_item) as id_item from navitem')->result();
+		foreach ($a as $key => $value) {
+		}
+		$anilai = $value->id_item;
+		$anilai = $anilai+1;
+		$data = array('id_item' => $anilai , 'id_sort' => $anilai, 'label' => 'Unamed');
+		$this->db->insert('navitem', $data);
+	}
+
+	public function delNav(){
+		$id = $this->input->post('id');
+		$this->db->where('id_item', $id);
+		$this->db->delete('navitem');
+	}
+
 	############################################
 
 	public function warna(){
@@ -247,9 +266,25 @@ class Custom extends CI_Controller {
 	}
 	public function savePost(){
 		$title = $this->input->post('t');
+		$stat = $this->input->post('stat');
 		$waktu = $this->input->post('waktu');
 		$Kategori = $this->input->post('kat');
 		$isi = $this->input->post('is');
-		$this->cmodel->savePostnow($title,$waktu,$Kategori,$isi);
+		$this->cmodel->savePostnow($title,$waktu,$Kategori,$isi,$stat);
+	}
+	public function postKate(){
+		$r = $this->db->get('kategori');
+		$data['quer'] = $r->result();
+		$this->load->view('page/ajax/showKate', $data);
+	}
+	public function delKate(){
+		$id = $this->input->post('id');
+		$this->db->where('id_kategori', $id);
+		$this->db->delete('kategori');
+	}
+	public function kateTambah(){
+		$a = $this->input->post('kode');
+		$data = array('nama_kategori' => $a);
+		$this->db->insert('kategori', $data);
 	}
 }

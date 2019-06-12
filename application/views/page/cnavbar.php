@@ -10,9 +10,11 @@
 	<div class="row" style="margin-top: 20px;">
 		<div class="col-6" style="">
 			<div class="container menupage"  style="height: 550px;">
-			<center><h2>Pengaturan Posisi dan Link Navbar</h2></center>
+			<center><h2>Pengaturan Posisi & Struktur Navbar</h2></center>
 			<hr>
-			<table><tr><td><button class="btn btn-primary" onclick="sub();"><div style="color: white">Simpan</div><span><h2><i class="far fa-save"></i></h2></span></button>&nbsp;</td>	
+			<table><tr>
+				<td style="padding-top: 1px;"><button onclick="tam();" class="btn btn-success"><div style="color: white">Tambah</div><span><h2><i class="fas fa-plus" style="color: white"></i></h2></span></button>&nbsp;</td>
+				<td><button class="btn btn-primary" onclick="sub();"><div style="color: white">Simpan</div><span><h2><i class="far fa-save"></i></h2></span></button>&nbsp;</td>	
 				<td style="padding-top: 1px;"><button onclick="pop();" class="btn btn-info"><div style="color: white">Bantuan</div><span><h2><i class="fas fa-question" style="color: white"></i></h2></span></button>&nbsp;</td>
 				</tr></table>
 				<div id="navfirst" class="container-fluid" style="background: #335C81;height: 65px;padding-top: 10px;">
@@ -20,11 +22,11 @@
 					<?php foreach ($navbar as $key => $v): ?>
 						<li <?php if ($v->tipe=='drop'): ?>
 							style="background: #706E70"
-						<?php endif ?> id="<?php echo $v->id_item ?>" ondblclick="getDrop('<?php echo $v->id_item ?>');" id="list"><?php echo $v->label; ?></li>
+						<?php endif ?> id="<?php echo $v->id_item ?>" ondblclick="getDrop('<?php echo $v->id_item ?>');" id="list"><?php echo $v->label; ?><a onclick="del(<?php echo $v->id_item ?>);" href="javascript:void(0);"><i class="fas fa-times"></i></a></li>
 					<?php endforeach ?>
 					</div>
 				</div>
-				<div style="background: #B2BFD0;height: 300px;">
+				<div style="background: #B2BFD0;height: 270px;">
 					<center><h1 style="color: white;padding-top: 20px;">Content</h1></center>
 				</div>
 				</div>
@@ -106,6 +108,64 @@
 			Swal.fire({
                  	title: 'Sukses',
                  	text: 'Posisi berhasil diatur !!',
+                 	type: "success",
+                 	timer: 3000
+                 });
+           }
+		})
+	}
+	function del(aa) {
+    Swal.fire({
+    	title: 'Hapus Navbar',
+    	text: 'Apakah anda ingin menghapus navbar ini?',
+    	type: "question",
+		showCancelButton: true,
+		confirmButtonText: 'Ya, Hapus',
+		cancelButtonText: 'Batal',
+		cancelButtonColor: 'red',
+		showLoaderOnConfirm: true
+    }).then(result => {
+  	if (result.value) {
+  		// alert(ab + " " + aa);
+		$.ajax({
+        	url: '<?php echo base_url('Custom/delNav') ?>',
+            type: 'POST',
+            data: {id: aa},
+            error: function() {
+           		// alert('Something is wrong');
+           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           	},
+           	success: function() {
+                Swal.fire({
+                 	title: 'Sukses',
+                 	text: 'Navbar berhasil dihapus !!',
+                 	type: "success",
+                 	timer: 3000
+                 });
+                dude();
+           }
+        });
+  	}
+  	else{
+		Swal.fire('Galat !!','Navbar tidak jadi dihapus !!', "error");
+	}
+	})
+}
+
+	function tam(){
+		$.ajax({
+			url: '<?php echo base_url('Custom/addNav') ?>',
+			type: "post",
+			error: function() {
+           		// alert('Something is wrong');
+           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           	},
+           	success: function(data) {	
+           	// $('#drop').html('Dropdown navbar ke :  ' + data);
+			dude();
+			Swal.fire({
+                 	title: 'Sukses',
+                 	text: 'Navbar berhasil ditambah !!',
                  	type: "success",
                  	timer: 3000
                  });

@@ -21,6 +21,7 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$data['v1'] = "page/home_v";
+		$data['datanav'] = $this->db->get('navitem')->result();
 		$data['vnav'] = "nav/home_v";
 		$this->load->view('layout/home_v', $data);
 	}
