@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2019 at 03:50 PM
+-- Generation Time: Jun 12, 2019 at 01:57 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -31,6 +31,21 @@ INSERT INTO allpost VALUES(judul,nama_kategori,isi,tanggal,s,nama);
 END$$
 
 DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `allnavitem`
+-- (See below for the actual view)
+--
+CREATE TABLE `allnavitem` (
+`id_item` int(10)
+,`id_sort` int(11)
+,`tipe` enum('drop','item')
+,`warna` text
+,`label` text
+,`link` text
+);
 
 -- --------------------------------------------------------
 
@@ -529,8 +544,8 @@ INSERT INTO `tema` (`id_tema`, `warna_tema`, `label`) VALUES
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `nama` text NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(11) NOT NULL
+  `username` varchar(14) NOT NULL,
+  `password` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -539,6 +554,15 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `nama`, `username`, `password`) VALUES
 (1, 'admin', '', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `allnavitem`
+--
+DROP TABLE IF EXISTS `allnavitem`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `allnavitem`  AS  select `navitem`.`id_item` AS `id_item`,`navitem`.`id_sort` AS `id_sort`,`navitem`.`tipe` AS `tipe`,`navitem`.`warna` AS `warna`,`navitem`.`label` AS `label`,`navitem`.`link` AS `link` from `navitem` order by `navitem`.`id_item` ;
 
 -- --------------------------------------------------------
 
@@ -692,8 +716,8 @@ ALTER TABLE `nilai`
 --
 ALTER TABLE `post`
   ADD PRIMARY KEY (`id_post`),
-  ADD KEY `kategori_id` (`id_kategori`),
-  ADD KEY `user_id` (`id_user`);
+  ADD KEY `user_id` (`id_user`),
+  ADD KEY `kategori_id` (`id_kategori`);
 
 --
 -- Indexes for table `siswa`
@@ -711,6 +735,18 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `kategori`
+--
+ALTER TABLE `kategori`
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `post`
+--
+ALTER TABLE `post`
+  MODIFY `id_post` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
