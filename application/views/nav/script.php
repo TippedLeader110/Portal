@@ -59,7 +59,7 @@ function sw1() {
             data: {kode: aa, label: ab},
             error: function() {
            		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
-           		alert(data);
+           		console.log(data);
            	},
            	success: function() {
                 Swal.fire({
@@ -106,7 +106,7 @@ function nama() {
             data: {kode: aa},
             error: function() {
            		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
-           		alert(data);
+           		console.log(data);
            	},
            	success: function() {
                 Swal.fire({

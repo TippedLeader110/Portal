@@ -21,9 +21,9 @@ class Custom extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 	
-		// if($this->session->userdata('status') != "login"){
-		// 	redirect(base_url("login"));
-		// }
+		if($this->session->userdata('status') != "login"){
+			redirect(base_url("login"));
+		}
 	}
 	public function index()
 	{
@@ -260,7 +260,7 @@ class Custom extends CI_Controller {
 		$this->load->view('page/ajax/createpost', $data);
 	}
 	public function postShow(){
-		$r = $this->db->get('post');
+		$r = $this->db->query('select * from allpost');
 		$data['quer'] = $r->result();
 		$this->load->view('page/ajax/showpost', $data);
 	}

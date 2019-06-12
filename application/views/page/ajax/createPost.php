@@ -48,7 +48,7 @@
 					<option value="private">Private</option>
 				</select>
 				<hr>
-				Waktu <input type="text" class="form form-control" id="waktu" name="waktu" value="<?php echo date("Y/m/d") ?>">	
+				Waktu <input type="text" class="form form-control" id="waktu" name="waktu" value="<?php echo date("Y-m-d") ?>">	
 				<button onclick="post();" style="margin-top: 20px;" class="btn btn-success">Post</button>
 				</div>
 			</div>
