@@ -158,11 +158,11 @@
            		var sejarah = result[0].sejarah;
            		var misi = result[0].misi;
            		CKEDITOR.instances.sekid.setData(visi);
-           		$("#sek1").html(visi);
+           		$("#sek1").html(visi).hide().fadeIn('slow');
                 visi = '<button class="tombol" style="background: #335C81;color: white" data-toggle="modal" data-target="#myModal" onclick="mod();">Edit Visi</button><br>' + visi;
                 var tombol = '<button type="button" onclick="SaveVisi();" class="btn btn-primary" data-dismiss="modal">Simpan</button>'
-                $("#sek").html(visi);
-                $("#but").html(tombol);
+                $("#sek").html(visi).hide().fadeIn('slow');
+                $("#but").html(tombol).hide().fadeIn('slow');
                 $("#tdd1").toggleClass("acttd", true);
                 $("#tdd2").toggleClass("acttd", false);
                 $("#tdd3").toggleClass("acttd", false);
@@ -190,9 +190,9 @@
            		var misi = result[0].misi;
            		CKEDITOR.instances.sekid.setData(misi);
            		misi = '<button class="tombol" style="background: #335C81;color: white" data-toggle="modal" data-target="#myModal" onclick="mod();">Edit Misi</button><br>' + misi;
-                $("#sek").html(misi);
+                $("#sek").html(misi).hide().fadeIn('slow');
                 var tombol = '<button type="button" onclick="SaveMisi();" class="btn btn-primary" data-dismiss="modal">Simpan</button>'
-                $("#but").html(tombol);
+                $("#but").html(tombol).hide().fadeIn('slow');
                 $("#tdd1").toggleClass("acttd", false);
                 $("#tdd2").toggleClass("acttd", true);
                 $("#tdd3").toggleClass("acttd", false);
@@ -220,9 +220,9 @@
            		var misi = result[0].misi;
            		CKEDITOR.instances.sekid.setData(sejarah);
            		sejarah = '<button class="tombol" style="background: #335C81;color: white" data-toggle="modal" data-target="#myModal" onclick="mod();">Edit Sejarah</button><br>' + sejarah;
-                $("#sek").html(sejarah);
+                $("#sek").html(sejarah).hide().fadeIn('slow');
                 var tombol = '<button type="button" onclick="SaveSejarah();" class="btn btn-primary" data-dismiss="modal">Simpan</button>'
-                $("#but").html(tombol);
+                $("#but").html(tombol).hide().fadeIn('slow');
                 $("#tdd1").toggleClass("acttd", false);
                 $("#tdd2").toggleClass("acttd", false);
                 $("#tdd3").toggleClass("acttd", true);

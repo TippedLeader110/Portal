@@ -1,34 +1,91 @@
-  
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>source/css/customNav.css">
-	<div class="row">
-		<div class="col-12">
-			<div class="head" style="margin-left: 0px;">
-				Dashboard Admin / Kelolah Data Web Sekolah / Kelolah Halaman / Postingan
+<script type="text/javascript" src="<?php echo base_url('plugins/ckeditor/ckeditor.js') ?>"></script>
+<!-- <script type="text/javascript" src="<?php echo base_url('plugins/ckeditor/CKFinder/ckfinder.js') ?>"></script> -->
+	<div class="container-fluid menupage">
+		<center><h2 style="font-weight: bold;">Formulir Posting Artikel</h2></center>
+		<hr>
+		<!-- <nav>
+		  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+		    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Identitas Artikel</a>
+		    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Isi Artikel</a>
+		  </div>
+		</nav>
+		<div class="tab-content" id="nav-tabContent">
+		  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+		  	<div class="table-responsive">
+		  		<div class="table">
+		  			<tr>
+		  				<td>Judul <input type="text" class="form form-control" id="title" name="">
+		  	</td>
+		  			</tr>
+		  		</div>
+		  	</div>
+		  	</div>
+		  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><textarea name="createpost" id="createpost"></textarea>
+			</div>
+		</div> -->
+		<div class="row">
+			<div class="col-4">
+				<div class="form-group">
+				Judul 
+				<input type="text" class="form-control" name="title" id="title">
+				<hr>
+				Kategori 
+				<select  id="select" class="form-control"> 
+					<option id="null" value="null">Pilih Kategori</option>
+					<?php foreach ($m as $key => $v): ?>
+						<option id="<?php echo $v->id_kategori ?>" value="<?php echo $v->id_kategori ?>">
+							<?php echo $v->nama_kategori ?>
+						</option>
+					<?php endforeach ?>
+				</select>
+				<hr>
+				Waktu <input type="text" class="form form-control" id="waktu" name="waktu" value="<?php echo date("Y/m/d") ?>">	
+				<button onclick="post();" style="margin-top: 20px;" class="btn btn-success">Post</button>
+				</div>
+			</div>
+			<div class="col-8">
+				Isi Artikel
+				<textarea name="createpost" id="createpost"></textarea>
 			</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-12" style="margin-top: 20px;">
-			<div class="jumbotron" style="background: #335c81;">
-				<table>
-					<tr>
-						<td><button class="btn btn-primary" onclick="create();"><div style="color: white">Buat Post</div><span><h2><i class="fas fa-pen"></i></h2></span></button>&nbsp;
-						</td>	
-						<td style="padding-top: 1px;"><button onclick="pop();" class="btn btn-info"><div style="color: white">Bantuan</div><span><h2><i class="fas fa-question" style="color: white"></i></h2></span></button>&nbsp;
-						</td>
-					</tr>
-				</table>
-			</div>								
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-12" id="page">
-		
-		</div>
-	</div>
+
 <script type="text/javascript">
-	function create(){
-		// alert('go');
-		$("#page").load('<?php echo base_url('Custom/postCreate') ?>');
+		var editor = CKEDITOR.replace( 'createpost', {
+		height:500, removePlugins : 'resize', filebrowserBrowseUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/ckfinder.html'); ?>', filebrowserImageBrowseUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/ckfinder.html?type=Images'); ?>', 
+		filebrowserFileBrowseUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/ckfinder.html?type=File'); ?>', 
+			filebrowserFlashBrowseUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/ckfinder.html?type=Flash'); ?>', 
+			filebrowserUploadUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'); ?>', 
+			filebrowserImageUploadUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'); ?>', 
+			filebrowserFlashUploadUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'); ?>'
+	});
+		
+		$('#select').change(function(){
+			var ab = $(this).val();
+			console.log(ab);
+		})
+
+	function post(){
+		var t = $('#title').val();
+		var waktu = $('#waktu').val();
+		var Kategori = $('#select').val();
+		var isi = CKEDITOR.instances.createpost.getData();
+		console.log(t);
+		console.log(waktu);
+		console.log(Kategori);
+		console.log(isi);
+		$.ajax({
+			url : '<?php echo base_url('Custom/savePost') ?>',
+			type: 'post',
+			data: {t:t, waktu:waktu, kat:Kategori, is:isi},
+			error: function(data){
+				Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           		console.log(data);
+			},
+			success: function(data){
+				Swal.fire('Sukses', 'Artikel berhasi disimpan !!!', 'success'),
+				console.log(data);
+			}
+		})
 	}
 </script>

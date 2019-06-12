@@ -31,6 +31,21 @@ class Custom extends CI_Controller {
 		$data['nav'] = 'nav/custkiri';
 		$this->load->view('cust/main_fluid', $data);
 	}
+
+	public function getCmain(){
+		$id = $this->input->post('id');
+		if ($id=='report') {
+			// $data['ret'] = $this->cmodel->getAllcount();
+			$this->load->view('page/ajax/mainReport');
+		}
+		elseif ($id=='user') {
+			# code...
+		}
+		elseif ($id=='pintas') {
+			# code...
+		}
+	}
+
 	public function KWeb(){
 		$data['home'] = 2;	
 		$data['cmain'] = "page/ckweb";
@@ -221,11 +236,20 @@ class Custom extends CI_Controller {
 	}
 
 	public function postCreate(){
-		$this->load->view('page/ajax/createpost');
+		$ali = $this->db->get('kategori');
+		$data['m'] = $ali->result();
+		$this->load->view('page/ajax/createpost', $data);
 	}
 	public function postShow(){
 		$r = $this->db->get('post');
 		$data['quer'] = $r->result();
 		$this->load->view('page/ajax/showpost', $data);
+	}
+	public function savePost(){
+		$title = $this->input->post('t');
+		$waktu = $this->input->post('waktu');
+		$Kategori = $this->input->post('kat');
+		$isi = $this->input->post('is');
+		$this->cmodel->savePostnow($title,$waktu,$Kategori,$isi);
 	}
 }

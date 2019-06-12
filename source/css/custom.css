@@ -1,3 +1,6 @@
+body {
+  /*font-family: Comic Sans MS;*/
+}
 .sidenav .closebtn:hover {
   color: red;
   border-left: 0px solid #DFE3ED;
@@ -162,4 +165,36 @@
 .menuborder{
   border-radius: 4px;border-color: #26435E;border-width: 1px;border-style: solid;padding: 20px 10px 20px 10px;
   background: #DCE1E9;
+}
+
+.kolmenu{
+  height: 200px;
+  background: #384A62;
+  padding: 35px 00px 50px 00px;
+}
+
+.kolmenu center h1{
+  font-size: 100px;
+  color: white;
+}
+
+.koltext{
+  color: white;
+  padding-top: 5px;
+  height: 40px;
+  font-style: bold;
+  background: #384A62;
+}
+
+.tdp>a>h5{
+  color: white;
+  font-weight: bold;
+}
+
+.homeimg{
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
 }

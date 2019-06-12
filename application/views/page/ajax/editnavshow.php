@@ -60,9 +60,9 @@ function upidNav(){
         	url: '<?php echo base_url('Custom/upidNav') ?>',
             type: 'POST',
             data: {kode: aa, label: ab},
-            error: function() {
+            error: function(data) {
            		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
-           		alert(data);
+           		console.log(data);
            	},
            	success: function() {
                 Swal.fire({

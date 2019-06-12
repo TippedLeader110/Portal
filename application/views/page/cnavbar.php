@@ -247,7 +247,7 @@
 		var ab = $('#label').val();
 		var aa = $('#id_t').val()
 		$.ajax({
-			url: <?php echo base_url('Custom/upidNav') ?>,
+			url: '<?php echo base_url('Custom/upidNav') ?>',
 			type: 'POST',
             data: {kode: aa, label: ab},
             error: function() {
@@ -272,7 +272,7 @@
 		           	},
 		           	success: function(data) {	
 		           		// $('#navedit').empty();
-		           		$('#navedit').html(data);
+		           		$('#navedit').html(data).hide().fadeIn('slow');
 		           		// $("#myList").append("<li>" + v + "</li>");
 		           }
 

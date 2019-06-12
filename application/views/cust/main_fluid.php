@@ -17,11 +17,15 @@
 <body style="background: white">
 	<div id="main">
 	<?php $this->load->view('nav/cust'); ?>
-	<?php $data['navact'] = $navact; $this->load->view($nav, $data); ?>
+	<div class="row">
+		<div class="col-12">
+			<?php $data['navact'] = $navact; $this->load->view($nav, $data); ?>
 			<div  onmouseover="closeNav();">
 					<?php $this->load->view($cmain); ?>
 			</div>
+		</div>
 	</div>
+</div>
 	<?php $this->load->view('nav/script'); ?>
 </body>
 </html>	

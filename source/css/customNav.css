@@ -24,7 +24,8 @@
 .tdp{
   /*padding-bottom: -3px;*/
   /*border-bottom: 3px solid lightcoral;*/
-  padding-right: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
   border-bottom: 3px solid transparent;
 }
 
@@ -91,4 +92,28 @@ h5{
 
 .kolmenu{
   height: 200px;
+  background: #384A62;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 35px 00px 50px 00px;
+}
+
+.kolmenu center h1{
+  font-weight: bold;
+  color: white;
+}
+
+.koltext{
+  color: white;
+  padding-top: 5px;
+  height: 40px;
+  font-weight: bold;
+  background: #384A62;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.tdp>a>h5{
+  color: black;
+  font-weight: bold;
 }
