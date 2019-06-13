@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("source/css/customNav.css") ?>">
 <div class="jumbotron" style="background: #577399;border-radius: 0px;padding-bottom: 0px;">
 	<center>
-		<h1 style="color: white">Selamat Datang ## di Halaman Admin</h1>
+		<h1 style="color: white">Selamat Datang <?php echo $this->session->userdata('nama') ?> di Halaman Admin</h1>
 		<h2 style="color: white">Di Halaman ini anda dapat memodifikasi tampilan awal website</h2>
 		<h2 style="color: white">dan mengubahnya menjadi sesuai dengan keinginan</h2>
 		<table style="margin-top: 50px;">

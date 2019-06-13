@@ -198,3 +198,17 @@ body {
   right: 0;
   position: absolute;
 }
+
+.ex3 {
+  height: 200px;
+  overflow: auto;
+}
+
+div.ex3 {
+  height: 200px;
+  overflow: auto;
+}
+
+.table tbody tr.highlight td {
+  background-color: #ddd;
+}

@@ -9,7 +9,7 @@
 	</div>
 	<div class="row" style="margin-top: 20px;">
 		<div class="col-6" style="">
-			<div class="container menupage"  style="height: 550px;">
+			<div class="container menupage"  style="height: 600px;">
 			<center><h2>Pengaturan Posisi & Struktur Navbar</h2></center>
 			<hr>
 			<table><tr>
@@ -32,7 +32,7 @@
 				</div>
 		</div>
 		<div class="col-6">
-			<div class="container menupage" style="height: 550px;">
+			<div class="container menupage" style="height: 600px;">
 				<center><h2>Menu Edit Navigasi Bar</h2></center>
 				<hr>
 				<select id="select" class="custom-select">
@@ -68,6 +68,7 @@
 	<script type="text/javascript">
 	$(document).ready(function(){
 	});
+	
 	$('#droplist').sortable({
 		axis : "y",
 		update: function(event, ui) {
@@ -343,4 +344,5 @@
         });
 
 		}
+
 	</script>

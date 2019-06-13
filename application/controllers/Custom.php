@@ -138,6 +138,8 @@ class Custom extends CI_Controller {
 		$this->db->where('id_item', $id);
 		$r = $this->db->get('navitem');
 		$data['res'] = $r->result();
+		$data['kate'] = $this->db->get('kategori')->result();
+		$data['post'] = $this->db->get('allpost')->result();
 		$this->load->view('page/ajax/editnavshow', $data);	
 
 	}

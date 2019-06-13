@@ -66,7 +66,7 @@ class cmodel extends CI_Model {
 	}	
 
 	public function savePostnow($title,$waktu,$Kategori,$isi, $stat){
-		$data = array('judul' => $title, 'tanggal' => $waktu, 'id_kategori' => $Kategori, 'isi' => $isi, 'status' => $stat);
+		$data = array('judul' => $title, 'tanggal' => $waktu, 'id_kategori' => $Kategori, 'isi' => $isi, 'status' => $stat, 'id_user' => $this->session->userdata('id'));
 		$this->db->insert('post', $data);
 	}
 
