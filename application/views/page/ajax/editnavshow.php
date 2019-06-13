@@ -136,10 +136,9 @@ $('#selectlink').change(function(){
 })
 
 function Link(){
-	var a;
 	$('#linkSelect').modal('toggle');
 	$('#infoTable').on('click', 'tbody tr', function(event) {
-		var a = $(this).val();
+		var a = $(this).attr('value');
 		console.log(a);
   $(this).addClass('highlight').siblings().removeClass('highlight');
 });

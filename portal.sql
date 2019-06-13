@@ -42,6 +42,7 @@ DROP TABLE IF EXISTS `allpost`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 /*!50001 CREATE TABLE `allpost` (
+  `id_post` tinyint NOT NULL,
   `nama` tinyint NOT NULL,
   `judul` tinyint NOT NULL,
   `tanggal` tinyint NOT NULL,
@@ -528,7 +529,7 @@ CREATE TABLE `post` (
   KEY `kategori_id` (`id_kategori`),
   CONSTRAINT `post_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE SET NULL ON UPDATE NO ACTION,
   CONSTRAINT `user_id` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -537,7 +538,7 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (1,'PENGUMUMAN PEMENANG',1,'ALI MEMENANGKAN KEJUARAAN KENIGAAN DENGAN TOTAL KEMENANGAN 10-0 MELAWAN NIGERIA','2019-05-01','WOW',1),(2,'ali rafid',1,'<p>dwwad</p>\n','2019-06-12','public',NULL),(5,'DEMO',2,'<p>ALI</p>\n','2019-06-13','public',2),(6,'   n nn',3,'<p>bjbjkbkj</p>\n','2019-06-13','public',2);
+INSERT INTO `post` VALUES (1,'PENGUMUMAN PEMENANG',1,'ALI MEMENANGKAN KEJUARAAN KENIGAAN DENGAN TOTAL KEMENANGAN 10-0 MELAWAN NIGERIA','2019-05-01','WOW',1),(2,'ali rafid',1,'<p>dwwad</p>\n','2019-06-12','public',NULL),(5,'DEMO',2,'<p>ALI</p>\n','2019-06-13','public',2),(6,'   n nn',3,'<p>bjbjkbkj</p>\n','2019-06-13','public',2),(7,'dwad',1,'<p>wd</p>\n','2019-06-13','public',2),(8,'dwadww',1,'<p>wd</p>\n','2019-06-13','public',2),(9,'dwadww',1,'<p>wd</p>\n','2019-06-13','public',2),(10,'dwadww',1,'<p>wd</p>\n','2019-06-13','public',2),(11,'dwadww',1,'<p>wd</p>\n','2019-06-13','public',2);
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -711,12 +712,12 @@ UNLOCK TABLES;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET character_set_client      = cp932 */;
+/*!50001 SET character_set_results     = cp932 */;
+/*!50001 SET collation_connection      = cp932_japanese_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `allpost` AS select `user`.`nama` AS `nama`,`post`.`judul` AS `judul`,`post`.`tanggal` AS `tanggal`,`post`.`status` AS `status`,`kategori`.`nama_kategori` AS `nama_kategori` from ((`post` join `user` on((`post`.`id_user` = `user`.`id_user`))) join `kategori` on((`post`.`id_kategori` = `kategori`.`id_kategori`))) */;
+/*!50001 VIEW `allpost` AS select `a`.`id_post` AS `id_post`,`b`.`nama` AS `nama`,`a`.`judul` AS `judul`,`a`.`tanggal` AS `tanggal`,`a`.`status` AS `status`,`c`.`nama_kategori` AS `nama_kategori` from ((`post` `a` join `user` `b` on((`a`.`id_user` = `b`.`id_user`))) join `kategori` `c` on((`a`.`id_kategori` = `c`.`id_kategori`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -920,4 +921,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-13  8:53:32
+-- Dump completed on 2019-06-13  9:59:51
