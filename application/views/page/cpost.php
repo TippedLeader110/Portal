@@ -55,7 +55,7 @@
             data: {id: ab,},
             error: function() {
            		// alert('Something is wrong');
-           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           		Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
            	},
            	success: function() {
                 Swal.fire({
@@ -69,7 +69,7 @@
         });
   	}
   	else{
-		Swal.fire('Galat !!','Kategori tidak jadi dihapus !!', "error");
+		Swal.fire('Kesalahan !!','Kategori tidak jadi dihapus !!', "error");
 	}
 	})
 }
@@ -96,7 +96,7 @@
             type: 'POST',
             data: {kode: aa},
             error: function() {
-           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           		Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
            		alert(data);
            	},
            	success: function() {
@@ -111,7 +111,7 @@
         });
   	}
 	else{
-		Swal.fire('Galat !!','Nama Kategori tidak disimpan !!', "error");
+		Swal.fire('Kesalahan !!','Nama Kategori tidak disimpan !!', "error");
 	}
 	})
 }

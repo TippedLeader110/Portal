@@ -101,7 +101,7 @@
 			data: {a: a, b: b},
 			error: function() {
            		// alert('Something is wrong');
-           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           		Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
            	},
            	success: function(data) {	
            	// $('#drop').html('Dropdown navbar ke :  ' + data);
@@ -134,7 +134,7 @@
             data: {id: aa},
             error: function() {
            		// alert('Something is wrong');
-           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           		Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
            	},
            	success: function() {
                 Swal.fire({
@@ -148,7 +148,7 @@
         });
   	}
   	else{
-		Swal.fire('Galat !!','Navbar tidak jadi dihapus !!', "error");
+		Swal.fire('Kesalahan !!','Navbar tidak jadi dihapus !!', "error");
 	}
 	})
 }
@@ -159,7 +159,7 @@
 			type: "post",
 			error: function() {
            		// alert('Something is wrong');
-           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           		Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
            	},
            	success: function(data) {	
            	// $('#drop').html('Dropdown navbar ke :  ' + data);
@@ -180,7 +180,7 @@
         	url: '<?php echo base_url('Custom/enavbarfirst') ?>',
             error: function() {
            		// alert('Something is wrong');
-           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           		Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
            	},
            	success: function(data) {	
            		$('#navlist').empty();
@@ -205,7 +205,7 @@
             // dataType: 'json',
             error: function() {
            		// alert('Something is wrong');
-           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           		Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
            	},
            	success: function(data) {	
            		// $('#droplist').append(data);
@@ -248,7 +248,7 @@
             // dataType: 'json',
             error: function() {
            		// alert('Something is wrong');
-           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           		Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
            	},
            	success: function(data) {	
            		// $('#droplist').append(data);
@@ -270,7 +270,7 @@
 			data: {ab: ab},
 			error: function() {
            		// alert('Something is wrong');
-           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           		Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
            	},
            	success: function(data) {	
            		// $('#navedit').empty();
@@ -287,7 +287,7 @@
             // dataType: 'json',
             error: function() {
            		// alert('Something is wrong');
-           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           		Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
            	},
            	success: function(data) {	
            		// $('#droplist').append(data);
@@ -312,7 +312,7 @@
 			type: 'POST',
             data: {kode: aa, label: ab},
             error: function() {
-           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           		Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
            		alert(data);
            	},
            	success: function() {
@@ -329,7 +329,7 @@
 					data: {ab: aa},
 					error: function() {
 		           		// alert('Something is wrong');
-		           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+		           		Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
 		           	},
 		           	success: function(data) {	
 		           		// $('#navedit').empty();

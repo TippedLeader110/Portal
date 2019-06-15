@@ -27,7 +27,7 @@
 		<td colspan="2">
 			<div class="form-group">
 			<h3>Link Navigasi</h3>
-			<input class="form-control" type="text" name="link" placeholder="Ketik Manual" id="link"> &nbsp;atau <br><button class="btn btn-outline-primary"  onclick="Link();">Pilih Link</button>
+			<input class="form-control" type="text" name="link" placeholder="Ketik Manual" value="<?php echo $v->link ?>" id="link"> &nbsp;atau <br><button class="btn btn-outline-primary"  onclick="Link();">Pilih Link</button>
 			</div>
 		</td>
 	</tr>
@@ -51,9 +51,10 @@
 		    				<h3>Filter Pencarian</h3>
 		    				<hr>
 		    				Cari
-		    				<input type="text" class="form-control" name="cari" placeholder="Cari Judul">
+		    				<input type="text" class="form-control" name="cari" oninput="search(this);" placeholder="Cari Judul">
 		    				Kategori
 		    				<select id="selectlink" class="form-control">
+		    					<option>Pilih Kategori</option>
 		        <?php foreach ($kate as $key => $ww): ?>
 		    			<option value="<?php echo $ww->id_kategori ?>"><?php echo $ww->nama_kategori ?></option>
 		        <?php endforeach ?>
@@ -63,26 +64,9 @@
 		    		<div class="col-8">
 		    			<div class="container-fluid ex3">
 		    			<div class="table-responsive">
-		    			<table id="infoTable" class="table table-fixed table-condensed ex3">
-		    			<tr>
-		    				<td>Judul</td><td>Author</td><td>Status</td>
-		    			</tr>
 		    			<div id="tabledit">
-		    				<?php foreach ($post as $key => $p): ?>
-		    			<tr value="<?php echo $p->id_post ?>">
-		    				<td>
-		    					<?php echo $p->judul ?>
-		    				</td>
-		    				<td>
-		    					<?php echo $p->nama ?>
-		    				</td>
-		    				<td>
-		    					<?php echo $p->status ?>
-		    				</td>
-		    			</tr>
-		    				<?php endforeach ?>
-		    				</div>
-		    			</table>
+		    				
+		    			</div>
 		    			</div>
 		    			</div>
 		    		</div>
@@ -97,51 +81,97 @@
 </div>
 
 <script type="text/javascript">
+	var tempdata = '';
+	var valueselect = $('#selectlink').val();
+	var tempdata2 = '';
+
+		
+
+
+	$.ajax({
+		url: '<?php echo base_url('Custom/') ?>',
+		type: 'post',
+		data: {da:valueselect},
+		error: function(){
+			Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
+           		console.log(data);
+		}
+	})
+
+
 	$("#table").selectable({
     filter: 'tr'
 	});
 	$("table").selectable({
     filter: 'tr'
 	});
+
+	function search(d){
+		console.log($(d).val());
+		tempdata = $(d).val();
+	    if (tempdata=='') {
+	    	$('#tabledit').empty();
+	    	$('#tabledit').load('<?php echo base_url("Custom/naveditkate/") ?>' + tempdata2);
+	    }
+	    else
+	    {
+	    	$('#tabledit').empty();
+	    $('#tabledit').load('<?php echo base_url("Custom/naveditkate2/") ?>' + tempdata2 +  '/'  +tempdata);
+	    }
+	}
 function upidNav(){
+
 		// alert($('#label').val());
 		var ab = $('#label').val();
 		var aa = $('#id_t').val();
+		var ac = $('#link').val();
 		console.log(ab);console.log(aa);
 		// 
 		$.ajax({
         	url: '<?php echo base_url('Custom/upidNav') ?>',
             type: 'POST',
-            data: {kode: aa, label: ab},
+            data: {kode: aa, label: ab, link: ac},
             error: function(data) {
-           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           		Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
            		console.log(data);
            	},
-           	success: function() {
+           	success: function(dat) {
                 Swal.fire({
                  	title: 'Sukses',
                  	text: 'Label navigasi berhasil disimpan !!',
                  	type: "success",
                  	timer: 3000
                  });
+                console.log(dat);
                 location.reload();
            }
         })
 		}	
+
 $('#selectlink').change(function(){
 	console.log($(this).val());
 	    var linkval = $(this).val();
-	    $.ajax()
+	    tempdata2 = linkval;
+	    $('#tabledit').empty();
+	    $('#tabledit').load('<?php echo base_url("Custom/naveditkate/") ?>' + linkval);
+	    // $.ajax({
+	    // 	url : '<?php echo base_url('Custom/naveditkate') ?>',
+	    // 	type : 'post',
+	    // 	data : {id:linkval},
+	    // 	error: function(data) {
+     //       		Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
+     //       		console.log(data);
+     //       	},
+     //       	success: function(data) {
+     //            #('tabledit').load
+     //       }
+	    // })
 
 })
 
 function Link(){
 	$('#linkSelect').modal('toggle');
-	$('#infoTable').on('click', 'tbody tr', function(event) {
-		var a = $(this).attr('value');
-		console.log(a);
-  $(this).addClass('highlight').siblings().removeClass('highlight');
-});
+	
 
 }
 

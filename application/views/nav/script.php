@@ -58,7 +58,7 @@ function sw1() {
             type: 'POST',
             data: {kode: aa, label: ab},
             error: function() {
-           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           		Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
            		console.log(data);
            	},
            	success: function() {
@@ -77,7 +77,7 @@ function sw1() {
         });
   	}
 	else{
-		Swal.fire('Galat !!','Warna tidak disimpan !!', "error");
+		Swal.fire('Kesalahan !!','Warna tidak disimpan !!', "error");
 	}
 	})
 }
@@ -105,7 +105,7 @@ function nama() {
             type: 'POST',
             data: {kode: aa},
             error: function() {
-           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           		Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
            		console.log(data);
            	},
            	success: function() {
@@ -120,7 +120,7 @@ function nama() {
         });
   	}
 	else{
-		Swal.fire('Galat !!','Nama Sekolah tidak disimpan !!', "error");
+		Swal.fire('Kesalahan !!','Nama Sekolah tidak disimpan !!', "error");
 	}
 	})
 }
@@ -144,7 +144,7 @@ function delWarna(ab, aa) {
             data: {id: ab,},
             error: function() {
            		// alert('Something is wrong');
-           		Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+           		Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
            	},
            	success: function() {
                 Swal.fire({
@@ -162,7 +162,7 @@ function delWarna(ab, aa) {
         });
   	}
   	else{
-		Swal.fire('Galat !!','Warna tidak jadi dihapus !!', "error");
+		Swal.fire('Kesalahan !!','Warna tidak jadi dihapus !!', "error");
 	}
 	})
 }

@@ -9,7 +9,7 @@
   <?php endif ?>" href="<?php echo base_url() ?>Custom/navbar">Navbar</a>
   <a class="<?php if ($navact==3): ?>
   	actnav
-  <?php endif ?>" href="<?php echo base_url() ?>Custom/layout">Fitur</a>
+  <?php endif ?>" href="<?php echo base_url() ?>Custom/layout">Layout Home</a>
   <a class="<?php if ($navact==4): ?>
   	actnav
   <?php endif ?>" href="<?php echo base_url() ?>Custom/warna">Warna</a>

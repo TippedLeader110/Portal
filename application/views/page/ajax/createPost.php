@@ -89,7 +89,7 @@
 			type: 'post',
 			data: {t:t, waktu:waktu, kat:Kategori, is:isi, stat:stat},
 			error: function(data){
-				Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");
+				Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
            		console.log(data);
 			},
 			success: function(data){

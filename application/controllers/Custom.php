@@ -130,7 +130,8 @@ class Custom extends CI_Controller {
 	public function upidNav(){
 		$id = $this->input->post('kode');
 		$label = $this->input->post('label');
-		$this->db->query("UPDATE navitem set label = '".$label."' where id_item = '".$id."'");
+		$link = $this->input->post('link');
+		$this->db->query("UPDATE navitem set label = '".$label."' , link = '".$link."' where id_item = '".$id."'");
 	}
 
 	public function navId(){
@@ -142,6 +143,16 @@ class Custom extends CI_Controller {
 		$data['post'] = $this->db->get('allpost')->result();
 		$this->load->view('page/ajax/editnavshow', $data);	
 
+	}
+
+	public function naveditkate($id){
+		$data['post'] = $this->db->query("call allpost(".$id.")")->result();
+		$this->load->view('page/ajax/tableLink', $data);	
+	}
+
+	public function naveditkate2($id, $like){
+		$data['post'] = $this->db->query("call postname(".$id.", '".$like."')")->result();
+		$this->load->view('page/ajax/tableLink', $data);	
 	}
 
 	public function navDropId(){
@@ -289,4 +300,17 @@ class Custom extends CI_Controller {
 		$data = array('nama_kategori' => $a);
 		$this->db->insert('kategori', $data);
 	}
+
+	// Layout Tata Letak
+
+	public function layout(){
+		$data['home'] = 1;	
+		$data['cmain'] = "page/clayout";
+		$data['ac'] = 2;
+		$data['nav'] = 'nav/custkiri';
+		$data['navact'] = 3;
+		$data['sek'] = $this->cmodel->getIdentitas();
+		$this->load->view('cust/main', $data);
+	}
+
 }

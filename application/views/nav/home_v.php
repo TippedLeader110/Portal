@@ -8,11 +8,11 @@
     <ul class="navbar-nav mr-auto">
     	<?php foreach ($datanav as $key => $v): ?>
 	    <li class="nav-item nav-item-c">
-        <a class="nav-link cl" href="<?php echo base_url('Home/') ?><?php echo $v->link ?>" style=""><?php echo $v->label; ?><span class="sr-only">(current)</span></a>
+        <a class="nav-link cl" href="<?php echo $v->link ?>" style=""><?php echo $v->label; ?><span class="sr-only">(current)</span></a>
       	</li>
     	<?php endforeach ?>
       <li class="nav-item nav-item-c mr-auto">
-        <a class="nav-link cl" href="<?php echo base_url() ?>Home/portal" style="">Login</a>
+        <a class="nav-link cl" href="<?php echo base_url('login') ?>" style="">Login</a>
       </li>
     </ul>
   </div>

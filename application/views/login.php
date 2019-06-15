@@ -59,12 +59,12 @@
             type: 'post',
             data: {username:a, password:b},
             error: function(){
-                Swal.fire('Galat !!','Koneksi ke server gagal !!', "error");   
+                Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");   
             },
             success: function(data){
                 console.log(data);
                 if (data==0) {
-                    Swal.fire('Galat !!','Username / Password salah !!', "error");
+                    Swal.fire('Kesalahan !!','Username / Password salah !!', "error");
 
                 }
                 else if(data==1){
