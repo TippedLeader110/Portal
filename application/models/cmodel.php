@@ -70,6 +70,11 @@ class cmodel extends CI_Model {
 		$this->db->insert('post', $data);
 	}
 
+	public function saveGurunow($nama,$jabatan,$alamat,$mapel){
+		$data = array('nama_guru' => $nama, 'id_jabatan' => $jabatan, 'alamat' => $alamat, 'id_mapel' => $mapel, 'id_user' => $this->session->userdata('id'));
+		$this->db->insert('post', $data);
+	}
+
 }
 
 ?>

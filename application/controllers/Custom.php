@@ -285,6 +285,11 @@ class Custom extends CI_Controller {
 		$isi = $this->input->post('is');
 		$this->cmodel->savePostnow($title,$waktu,$Kategori,$isi,$stat);
 	}
+	public function delPost(){
+		$id = $this->input->post('id');
+		$this->db->where('id_post',$id);
+		$this->db->delete('post');
+	}
 	public function postKate(){
 		$r = $this->db->get('kategori');
 		$data['quer'] = $r->result();
@@ -299,6 +304,69 @@ class Custom extends CI_Controller {
 		$a = $this->input->post('kode');
 		$data = array('nama_kategori' => $a);
 		$this->db->insert('kategori', $data);
+	}
+
+
+###############################################
+	public function guru(){
+		$data['home'] = 1;	
+		$data['cmain'] = "page/cguru";
+		$data['ac'] = 3;
+		$data['nav'] = 'nav/custkiri2';
+		$data['navact'] = 2;	
+		$this->load->view('cust/main', $data);
+	}
+	public function guruCreate(){
+		$ali = $this->db->get('guru');
+		$data['m'] = $ali->result();
+		$this->load->view('page/ajax/createguru', $data);
+	}
+	public function guruShow(){
+		$r = $this->db->query('select * from ket_guru');
+		$data['quer'] = $r->result();
+		$this->load->view('page/ajax/showguru', $data);
+	}
+	public function saveGuru(){
+		$nama = $this->input->post('n');
+		$jabatan = $this->input->post('jabatan');
+		$alamat = $this->input->post('alamat');
+		$mapel = $this->input->post('mapel');
+		$this->cmodel->savePostnow($title,$waktu,$Kategori,$isi,$stat);
+	}
+	public function delGuru(){
+		$id = $this->input->post('id');
+		$this->db->where('id_guru',$id);
+		$this->db->delete('guru');
+	}
+	public function sJabatan(){
+		$r = $this->db->get('jabatan_guru');
+		$data['quer'] = $r->result();
+		$this->load->view('page/ajax/showJabatan', $data);
+	}
+	public function delJabat(){
+		$id = $this->input->post('id');
+		$this->db->where('id_jabatan', $id);
+		$this->db->delete('jabatan_guru');
+	}
+	public function JabatTambah(){
+		$a = $this->input->post('kode');
+		$data = array('jabatan' => $a);
+		$this->db->insert('jabatan_guru', $data);
+	}
+	public function smapel(){
+		$r = $this->db->get('mapel');
+		$data['quer'] = $r->result();
+		$this->load->view('page/ajax/smapel', $data);
+	}
+	public function delmapel(){
+		$id = $this->input->post('id');
+		$this->db->where('id_mapel', $id);
+		$this->db->delete('mapel');
+	}
+	public function mapelTambah(){
+		$a = $this->input->post('kode');
+		$data = array('mapel' => $a);
+		$this->db->insert('mapel', $data);
 	}
 
 	// Layout Tata Letak
