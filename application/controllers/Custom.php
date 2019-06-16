@@ -253,8 +253,40 @@ class Custom extends CI_Controller {
 		$data['home'] = 1;	
 		$data['cmain'] = "page/cgalery";
 		$data['ac'] = 3;
-		$data['nav'] = 'nav/custkiri2';
+		$data['nav'] = 'nav/custkiri';
 		$data['navact'] = 1;
+		$this->load->view('cust/main', $data);
+	}
+	public function delImg(){
+		$a = $this->input->post('a');
+		$this->db->where('id_img' , $a);
+		$this->db->delete('img');
+	}
+	public function egalery(){
+		$data['galery'] = $this->db->get('img')->result();
+		$this->load->view('page/ajax/galery', $data);	
+	}
+
+	public function saveGambar(){
+		$a = $this->input->post();
+		$this->cmodel->setGambar($a);
+	}
+	public function do_upload(){
+        $config['upload_path']="./source/gambar/galery"; //path folder file upload
+        $config['allowed_types']='gif|jpg|png'; //type file yang boleh di upload
+        $config['encrypt_name'] = TRUE; //enkripsi file name upload
+         
+        $this->load->library('upload',$config); //call library upload 
+        if($this->upload->do_upload("file")){ //upload file
+            $data = array('upload_data' => $this->upload->data()); //ambil file name yang diupload
+ 
+            $judul= $this->input->post('deskripsi'); //get judul image
+            $tipe= $this->input->post('tipe');
+            $image= $data['upload_data']['file_name']; //set file name ke variable image
+             
+            $result= $this->cmodel->simpan_upload($judul,$image,$tipe); //kirim value ke model m_upload
+            echo json_decode($result);
+        }
 	}
 	#################################################
 
@@ -267,6 +299,11 @@ class Custom extends CI_Controller {
 		$this->load->view('cust/main', $data);
 	}
 
+	public function delPost(){
+		$id = $this->input->post('id');
+		$this->db->where('id_post',$id);
+		$this->db->delete('post');
+	}
 	public function postCreate(){
 		$ali = $this->db->get('kategori');
 		$data['m'] = $ali->result();
@@ -285,11 +322,6 @@ class Custom extends CI_Controller {
 		$isi = $this->input->post('is');
 		$this->cmodel->savePostnow($title,$waktu,$Kategori,$isi,$stat);
 	}
-	public function delPost(){
-		$id = $this->input->post('id');
-		$this->db->where('id_post',$id);
-		$this->db->delete('post');
-	}
 	public function postKate(){
 		$r = $this->db->get('kategori');
 		$data['quer'] = $r->result();
@@ -306,8 +338,7 @@ class Custom extends CI_Controller {
 		$this->db->insert('kategori', $data);
 	}
 
-
-###############################################
+	###############################################
 	public function guru(){
 		$data['home'] = 1;	
 		$data['cmain'] = "page/cguru";
@@ -369,6 +400,7 @@ class Custom extends CI_Controller {
 		$this->db->insert('mapel', $data);
 	}
 
+
 	// Layout Tata Letak
 
 	public function layout(){
@@ -380,5 +412,7 @@ class Custom extends CI_Controller {
 		$data['sek'] = $this->cmodel->getIdentitas();
 		$this->load->view('cust/main', $data);
 	}
+
+
 
 }

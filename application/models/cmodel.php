@@ -12,11 +12,35 @@ class cmodel extends CI_Model {
 		$data = array('warna_tema' => $a, 'label' => $b);
 		$this->db->insert('tema', $data);
 	}
+	public function setGambar($a){
+		$id = uniqid();
+		$ab = $this->_uploadImage($id);
+		$data = array('link' => $ab, 'deskripsi' => $a->desk, 'tipe' => $a->tipe);
+		$this->db->insert('img', $data);
+	}
+	private function _uploadImage($id,$c)
+	{
+	    $config['upload_path']          = base_url('source/gambar/galery');
+	    $config['allowed_types']        = 'gif|jpg|png';
+	    $config['file_name']            = $id;
+	    $config['overwrite']			= true;
+	    $config['max_size']             = 1024; // 1MB
+	    // $config['max_width']            = 1024;
+	    // $config['max_height']           = 768;
+
+	    $this->load->library('upload', $config);
+
+	    if ($this->upload->do_upload('file')) {
+	        return $this->upload->data("file_name");
+	    }
+	    
+	    return "default.jpg";
+	}
 	public function delWarna($a){
 		$this->db->where('id_tema', $a);
 		$this->db->delete('tema');
 	}
-	public function getIdentitas(){
+		public function getIdentitas(){
 		$res = $this->db->get('identitas');
 		return $res->result();
 	}
@@ -70,7 +94,17 @@ class cmodel extends CI_Model {
 		$this->db->insert('post', $data);
 	}
 
-	public function saveGurunow($nama,$jabatan,$alamat,$mapel){
+	function simpan_upload($judul,$image,$tipe){
+        $data = array(
+                'deskripsi' => $judul,
+                'link' => $image,
+                'tipe' => $tipe
+            );  
+        $result= $this->db->insert('img',$data);
+        return $result;
+    }
+
+    public function saveGurunow($nama,$jabatan,$alamat,$mapel){
 		$data = array('nama_guru' => $nama, 'id_jabatan' => $jabatan, 'alamat' => $alamat, 'id_mapel' => $mapel, 'id_user' => $this->session->userdata('id'));
 		$this->db->insert('post', $data);
 	}
