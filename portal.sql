@@ -179,8 +179,9 @@ CREATE TABLE `img` (
   `id_img` int(4) NOT NULL AUTO_INCREMENT,
   `link` text NOT NULL,
   `deskripsi` text NOT NULL,
+  `tipe` enum('public','private') DEFAULT NULL,
   PRIMARY KEY (`id_img`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -189,6 +190,7 @@ CREATE TABLE `img` (
 
 LOCK TABLES `img` WRITE;
 /*!40000 ALTER TABLE `img` DISABLE KEYS */;
+INSERT INTO `img` VALUES (8,'3053546ffb15ee0aa5fb558792a08b44.PNG','DMEO','public'),(9,'1504fc5f7c6de5764416d48fdc0e4ed0.png','DMEO','public'),(10,'6ebfa961a1e8bfa9e2173d313571d53f.png','DMEO','public'),(11,'5ca7b43ac177d97000b5f6fe1230661f.png','DMEO','private');
 /*!40000 ALTER TABLE `img` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -787,4 +789,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-15 15:48:44
+-- Dump completed on 2019-06-17  9:23:30

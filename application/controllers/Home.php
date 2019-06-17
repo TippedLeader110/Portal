@@ -30,4 +30,13 @@ class Home extends CI_Controller {
 		$data['vnav'] = "nav/home_v";
 		$this->load->view('layout/home_v', $data);
 	}
+
+	public function cekweb(){
+		$this->db->where('tipe', 'public');
+		$data['carousel'] = $this->db->get('img')->result();
+		$data['datanav'] = $this->db->get('navitem')->result();
+		$data['v1'] = "fitur/carousel";
+		$data['vnav'] = "nav/home_v";
+		$this->load->view('layout/home_v', $data);
+	}
 }

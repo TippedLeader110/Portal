@@ -20,6 +20,17 @@
 
 	<script type="text/javascript">
 		function delImg(a){
+			Swal.fire({
+    	title: 'Hapus Warna',
+    	text: 'Apakah anda ingin menghapus Gambar ini ?',
+    	type: "question",
+		showCancelButton: true,
+		confirmButtonText: 'Ya, Hapus',
+		cancelButtonText: 'Batal',
+		cancelButtonColor: 'red',
+		showLoaderOnConfirm: true
+    }).then(result => {
+  	if (result.value) {
 			$.ajax({
 				url: '<?php echo base_url('Custom/delImg') ?>',
 				type: 'post',
@@ -35,7 +46,7 @@
 			success: function(){
 				Swal.fire({
                  	title: 'Sukses',
-                 	text: 'Warna berhasil disimpan !!',
+                 	text: 'Gambar  berhasil dihapus !!',
                  	type: "success",
                  	timer: 3000
                  });
@@ -43,4 +54,9 @@
 			}
 			});
 		}
+		else{
+		Swal.fire('Kesalahan !!','Gambar tidak jadi dihapus !!', "error");
+	}
+	})
+}
 	</script>

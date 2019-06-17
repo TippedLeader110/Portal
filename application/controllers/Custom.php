@@ -253,7 +253,7 @@ class Custom extends CI_Controller {
 		$data['home'] = 1;	
 		$data['cmain'] = "page/cgalery";
 		$data['ac'] = 3;
-		$data['nav'] = 'nav/custkiri';
+		$data['nav'] = 'nav/custkiri2';
 		$data['navact'] = 1;
 		$this->load->view('cust/main', $data);
 	}
