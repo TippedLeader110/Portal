@@ -25,6 +25,11 @@ class Custom extends CI_Controller {
 			redirect(base_url("login"));
 		}
 	}
+
+	public function daftar()
+	{
+		$this->load->view('Daftarsiswa');
+	}
 	public function index()
 	{
 		$data['cmain'] = "page/cmain";
