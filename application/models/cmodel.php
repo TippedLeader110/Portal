@@ -89,8 +89,8 @@ class cmodel extends CI_Model {
 		$this->db->update('navitem');
 	}	
 
-	public function savePostnow($title,$waktu,$Kategori,$isi, $stat){
-		$data = array('judul' => $title, 'tanggal' => $waktu, 'id_kategori' => $Kategori, 'isi' => $isi, 'status' => $stat, 'id_user' => $this->session->userdata('id'));
+	public function savePostnow($title,$waktu,$Kategori,$isi, $stat, $cover){
+		$data = array('judul' => $title, 'tanggal' => $waktu, 'id_kategori' => $Kategori, 'isi' => $isi, 'status' => $stat, 'id_user' => $this->session->userdata('id'), 'cover' => $cover);
 		$this->db->insert('post', $data);
 	}
 
@@ -102,6 +102,12 @@ class cmodel extends CI_Model {
             );  
         $result= $this->db->insert('img',$data);
         return $result;
+    }
+
+    function simpan_cover($image, $ii){
+        $this->db->set('cover', $image);
+		$this->db->where('id_post', $ii);
+		$this->db->update('post');
     }
 
     public function saveGurunow($nama,$jabatan,$alamat,$mapel){
@@ -128,6 +134,7 @@ class cmodel extends CI_Model {
 	function kate($number,$offset){
 		return $query = $this->db->get('kategori',$number,$offset)->result();
 	}
+
 }
 
 ?>

@@ -25,11 +25,6 @@ class Custom extends CI_Controller {
 			redirect(base_url("login"));
 		}
 	}
-
-	public function daftar()
-	{
-		$this->load->view('Daftarsiswa');
-	}
 	public function index()
 	{
 		$data['cmain'] = "page/cmain";
@@ -323,6 +318,26 @@ class Custom extends CI_Controller {
         	return 0;
         }
 	}
+
+	public function do_upload_cover($ii){
+        $config['upload_path']="./source/gambar/post"; //path folder file upload
+        $config['allowed_types']='gif|jpg|png'; //type file yang boleh di upload
+        $config['encrypt_name'] = TRUE; //enkripsi file name upload
+         
+        $this->load->library('upload',$config); //call library upload 
+        if($this->upload->do_upload("file")){ //upload file
+            $data = array('upload_data' => $this->upload->data()); //ambil file name yang diupload
+ 
+            $image= $data['upload_data']['file_name']; //set file name ke variable image
+             
+            $result= $this->cmodel->simpan_cover($image,$ii); //kirim value ke model m_upload
+            echo json_decode($result);
+            return 1;
+        }
+        else{
+        	return 0;
+        }
+	}
 	#################################################
 
 	public function artikel(){
@@ -376,12 +391,33 @@ class Custom extends CI_Controller {
 		$this->load->view('page/ajax/showpost', $data);
 	}
 	public function savePost(){
-		$title = $this->input->post('t');
-		$stat = $this->input->post('stat');
+		$title = $this->input->post('title');
+		$stat = $this->input->post('tipe');
 		$waktu = $this->input->post('waktu');
-		$Kategori = $this->input->post('kat');
-		$isi = $this->input->post('is');
-		$this->cmodel->savePostnow($title,$waktu,$Kategori,$isi,$stat);
+		$Kategori = $this->input->post('select');
+		$isi = $this->input->post('isi');
+
+		$config['upload_path']="./source/gambar/post"; //path folder file upload
+        $config['allowed_types']='gif|jpg|png'; //type file yang boleh di upload
+        $config['encrypt_name'] = TRUE; //enkripsi file name upload
+         
+        $this->load->library('upload',$config); //call library upload 
+        if($this->upload->do_upload("file")){ //upload file
+            $data = array('upload_data' => $this->upload->data()); //ambil file name yang diupload
+ 
+            $cover= $data['upload_data']['file_name']; //set file name ke variable image
+             
+            $result= $this->cmodel->savePostnow($title,$waktu,$Kategori,$isi,$stat,$cover); //kirim value ke model m_upload
+            echo json_decode($result);
+        }
+
+
+		
+		$query = $this->db->query("select * from post where isi =  '".$isi."' and judul = '".$title."' ")->result();
+		foreach ($query as $key => $value) {
+		echo $value->id_post;
+		}
+
 	}
 	public function postKate(){
 		$r = $this->db->get('kategori');
@@ -433,6 +469,28 @@ class Custom extends CI_Controller {
 		$data['navact'] = 2;	
 		$this->load->view('cust/main', $data);
 	}
+	public function guruCreate(){
+		$ali = $this->db->get('guru');
+		$data['m'] = $ali->result();
+		$this->load->view('page/ajax/createguru', $data);
+	}
+	public function guruShow(){
+		$r = $this->db->query('select * from ket_guru');
+		$data['quer'] = $r->result();
+		$this->load->view('page/ajax/showguru', $data);
+	}
+	public function saveGuru(){
+		$nama = $this->input->post('n');
+		$jabatan = $this->input->post('jabatan');
+		$alamat = $this->input->post('alamat');
+		$mapel = $this->input->post('mapel');
+		$this->cmodel->savePostnow($title,$waktu,$Kategori,$isi,$stat);
+	}
+	public function delGuru(){
+		$id = $this->input->post('id');
+		$this->db->where('id_guru',$id);
+		$this->db->delete('guru');
+	}
 	public function sJabatan(){
 		$r = $this->db->get('jabatan_guru');
 		$data['quer'] = $r->result();
@@ -464,33 +522,6 @@ class Custom extends CI_Controller {
 		$data['quer'] = $this->cmodel->jabat_guru($config['per_page'],$from);
 		$this->load->view('page/ajax/showJabatan', $data);	
 	}
-	public function guruCreate(){
-		$ali = $this->db->get('guru');
-		$data['m'] = $ali->result();
-		$this->load->view('page/ajax/createguru', $data);
-	}
-	public function guruShow(){
-		$r = $this->db->query('select * from ket_guru');
-		$data['quer'] = $r->result();
-		$this->load->view('page/ajax/showguru', $data);
-	}
-	public function saveGuru(){
-		$nama = $this->input->post('n');
-		$jabatan = $this->input->post('jabatan');
-		$alamat = $this->input->post('alamat');
-		$mapel = $this->input->post('mapel');
-		$this->cmodel->savePostnow($title,$waktu,$Kategori,$isi,$stat);
-	}
-	public function delGuru(){
-		$id = $this->input->post('id');
-		$this->db->where('id_guru',$id);
-		$this->db->delete('guru');
-	}
-	// public function sJabatan(){
-	// 	$r = $this->db->get('jabatan_guru');
-	// 	$data['quer'] = $r->result();
-	// 	$this->load->view('page/ajax/showJabatan', $data);
-	// }
 	public function delJabat(){
 		$id = $this->input->post('id');
 		$this->db->where('id_jabatan', $id);
@@ -554,6 +585,31 @@ class Custom extends CI_Controller {
 		$data['navact'] = 3;
 		$data['sek'] = $this->cmodel->getIdentitas();
 		$this->load->view('cust/main', $data);
+	}
+
+	public function layoutView(){
+		$data['konten'] = $this->db->get('nofitur')->result();
+		$this->load->view('page/ajax/layout', $data);	
+	}
+
+	public function layoutView2(){
+		$data['konten'] = $this->db->query('SELECT a.id_fitur, b.label, b.link from main a inner join fitur b on a.id_fitur = b.id_fitur ')->result();
+		$this->load->view('page/ajax/layout2', $data);	
+	}
+
+	public function pindahLayout(){
+		$val = $this->input->post('a');
+		$tipe = $this->input->post('b');
+		echo $val;
+		echo $tipe;
+		if ($tipe=='tambah') {
+			$data = array('id_fitur' => $val);
+			$this->db->insert('main', $data);
+		}
+		elseif ($tipe='hapus') {
+			$this->db->where('id_fitur', $val);
+			$this->db->delete('main');
+		}
 	}
 
 

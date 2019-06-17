@@ -1,3 +1,7 @@
+
+MariaDB [portal]> create or replace view nofitur as  select fitur.id_fitur, fitur.label, fitur.link from fitur inner joi
+n main on fitur.id_fitur <> main.id_fitur;
+
 delimiter !
 create or replace procedure mypost(A INT)
 BEGIN

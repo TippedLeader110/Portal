@@ -1,3 +1,5 @@
+<?php $carousel =  $this->db->get('img')->result() ?>
+
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <?php $a=1; ?>

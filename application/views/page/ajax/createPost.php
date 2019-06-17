@@ -25,13 +25,18 @@
 		</div> -->
 		<div class="row">
 			<div class="col-4">
+				<form id="submit">
+				<div class="form-group">
+					Gambar Sampul
+					<input type="file" name="file" >
+				</div>
 				<div class="form-group">
 				Judul 
 				<input type="text" class="form-control" name="title" id="title">
 				<hr>
 				Kategori 
 				<span id="errorkat"></span>
-				<select  id="select" class="form-control"> 
+				<select name="select" id="select" class="form-control"> 
 					<option id="null" value="null">Pilih Kategori</option>
 					<?php foreach ($m as $key => $v): ?>
 						<option id="<?php echo $v->id_kategori ?>" value="<?php echo $v->id_kategori ?>">
@@ -42,19 +47,20 @@
 				<hr>
 				Tipe Publikasi
 				<span id="errorpub"></span>
-				<select id="select2" class="form-control">
+				<select name="tipe" id="select2" class="form-control">
 					<option>Pilih tipe publikasi</option>
 					<option value="public">Public</option>
 					<option value="private">Private</option>
 				</select>
 				<hr>
 				Waktu <input type="text" class="form form-control" id="waktu" name="waktu" value="<?php echo date("Y-m-d") ?>">	
-				<button onclick="post();" style="margin-top: 20px;" class="btn btn-success">Post</button>
+				<button type="submit" style="margin-top: 20px;" class="btn btn-success">Post</button>
 				</div>
 			</div>
 			<div class="col-8">
 				Isi Artikel
-				<textarea name="createpost" id="createpost" style="max-height: 450px;"></textarea>
+				<textarea  name="isi" id="createpost" style="max-height: 450px;"></textarea>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -68,34 +74,53 @@
 			filebrowserImageUploadUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'); ?>', 
 			filebrowserFlashUploadUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'); ?>'
 	});
-		
+
+
+		$('#createpost').change(function () {
+   			var $textarea = $(this);
+   			console.log($textarea);
+   			$textarea.val(CKEDITOR.instances[$textarea.attr('name')].getData());
+		});
 		$('#select').change(function(){
 			var ab = $(this).val();
 			console.log(ab);
 		})
 
-	function post(){
-		var stat = $('#select2').val();
-		var t = $('#title').val();
-		var waktu = $('#waktu').val();
-		var Kategori = $('#select').val();
+	$('#submit').submit(function(e){		
+		e.preventDefault(); 
+		CKEDITOR.instances.createpost.updateElement();
+		// var stat = $('#select2').val();
+		// var t = $('#title').val();
+		// var waktu = $('#waktu').val();
+		// var Kategori = $('#select').val();
+
+
 		var isi = CKEDITOR.instances.createpost.getData();
-		console.log(t);
-		console.log(waktu);
-		console.log(Kategori);
-		console.log(isi);
+		var form = new FormData(this)
+		form.append('isi', isi);
+
+		// console.log(t);
+		// console.log(waktu);
+		// console.log(Kategori);
+
 		$.ajax({
 			url : '<?php echo base_url('Custom/savePost') ?>',
 			type: 'post',
-			data: {t:t, waktu:waktu, kat:Kategori, is:isi, stat:stat},
+			data:form,
+			processData:false,
+                     contentType:false,
+                     cache:false,
+                     async:false,
 			error: function(data){
 				Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
            		console.log(data);
 			},
 			success: function(data){
+			
 				Swal.fire('Sukses', 'Artikel berhasi disimpan !!!', 'success'),
 				console.log(data);
+
 			}
-		})
-	}
+		});
+	})
 </script>

@@ -12,5 +12,10 @@
 <body style="background: transparent;">
 	<?php $this->load->view($vnav) ?>
 	<?php $this->load->view($v1) ?>
+	<div class="container">
+		<div class="row">
+			<?php $v=1 ?>
+	</div>
+	</div>
 </body>
 </html>

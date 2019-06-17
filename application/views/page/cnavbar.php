@@ -73,7 +73,6 @@
 		axis : "y",
 		update: function(event, ui) {
             var iddrop = $('#droplist').sortable("toArray");
-            console.log("idDROP");
             console.log(iddrop);
         }
 	});

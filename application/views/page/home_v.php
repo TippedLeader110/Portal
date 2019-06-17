@@ -1,60 +1,102 @@
-<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>/source/css/main.css">
-<div class="container-fluid bb" style="color: white">
-	<h1 class="font-weight-bold c">
-		SMA ISLAM ULUN NUHA
-	</h1>
-	<h2 class="c">Sekolah ...... </h2>
-</div>
-<div class="container-fluid" style="background: white">
-	<div class="container">
-		<h1 class="c">Selamat Datang di SMA ISLAM ULUN NUHA</h1>
-		<h2>MOTO</h2>
-		<h3>INFO</h3>	
-	</div>
-</div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<div class="container">
-	<h1>News</h1>
-  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="<?php echo base_url() ?>/source/img/back.jpg" class=" w-100 car" alt="...">
-        <div class="carousel-caption d-inline ">
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+
+<div class="containerss ">
+<div class="row">
+  <div class="col-12">
+    <div style="border-style: solid;border-color: black;border-width: 2px">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <?php $i=1 ?>
+        <?php foreach ($img as $key => $val): ?>
+        <?php if ($i==1): ?>
+          <div class="carousel-item active">
+          <img class="d-block w-100" src="<?php echo base_url('source/gambar/galery/');echo $val->link; ?>" alt="<?php echo $val->deskripsi ?>">
+            <div style="position:absolute;top:0;left:0;height:0;bottom:0;width:100%;height:100%;background:rgba(0,0,0,0.4);"></div>
+          <div class="carousel-caption d-none d-md-block">
+            <h5><?php echo $val->deskripsi ?></h5>
+          </div>
         </div>
-      </div>
-      <div class="carousel-item">
-        <img src="<?php echo base_url() ?>/source/img/back1.jpg" class="d-block w-100 car" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <?php endif ?>
+        <?php if ($i!=1): ?>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="<?php echo base_url('source/gambar/galery/');echo $val->link; ?>" alt="<?php echo $val->deskripsi ?>">
         </div>
+        <?php endif ?>
+        <?php $i++; ?>
+        <?php if ($i==4): ?>
+          <?php break; ?>
+        <?php endif ?>
+        <?php endforeach ?>
       </div>
-      <div class="carousel-item">
-        <img src="<?php echo base_url() ?>/source/img/back2.jpg" class="d-block w-100 car" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-        </div>
-      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+    </div>
   </div>
 </div>
-<div class="container-fluid">
-	<h1>HAHAH</h1>
+    
 </div>
-<!-- <div class="parallax"><h1>Parallax</h1></div> -->
+<?php foreach ($id as $key => $idv): ?>
+  
+<?php endforeach ?>
+<div class="row" style="margin-top: 40px;"> 
+  <div class="container">
+    <div class="col-12">
+      <hr>
+      <center><h2>Selamat Datang Di Website Sekolah</h2></center>  
+      <center><h2><?php echo $idv->nama_sekolah ?></h2></center>
+      <center><?php echo $idv->sejarah ?></center>
+      <hr>
+    </div>
+  </div>
+</div>
+<div class="row" style="background: #335C81;margin-top: 40px;padding-bottom: 50px;">
+  <div class="col-6">
+    <div class="container" style="padding-top: 50px;">
+      <center><h3 style="color: white">Visi Sekolah</h3></center>
+      <center><p style="color: white"><?php echo $idv->visi ?></p></center>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="container" style="padding-top: 50px;">
+      <center><h3 style="color: white">Misi Sekolah</h3></center>
+      <center><p style="color: white"><?php echo $idv->misi ?></p></center>
+    </div>
+  </div>
+  <div class="col-12">
+    <center><button class="btn btn-primary">Daftar Sekarang</button></center>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="container" style="margin-top: 50px;margin-bottom: 50px">
+      <hr>
+      <center><h2>Artikel Sekolah</h2></center>
+      <hr>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <?php foreach ($post as $key => $valp): ?>
+    <div class="col-3">
+    <div class="container" style="height: 200px;background-image: url(<?php echo base_url('source/gambar/post/'); echo $valp->cover; ?>);background-position: center center">
+    </div>
+    <div class="container" style="padding-top: 10px;padding-bottom: 10px;background: #335C81">
+      <center><span style="overflow: hidden;max-width: 0px;color: white"><?php echo $valp->judul ?></span></center>
+    </div>
+  </div>
+  <?php endforeach ?>
+</div>
+<div class="row">
+  
+</div>
