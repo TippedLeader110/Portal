@@ -3,18 +3,12 @@
 	<div class="table table-responsive">
 		<table class="table table-striped">
 			<tr class="table-active">
-				<th>
-					Nomor
-				</th>
+
 				<th>Mata Pelajaran</th>
 				<th>Aksi</th>
 			</tr>
-			<?php $i=1; ?>
 			<?php foreach ($quer as $key => $value): ?>
 				<tr>
-					<td>
-						<?php echo $i; $i++; ?>
-					</td>
 					<td>
 						<?php echo $value->mapel ?>
 					</td>
@@ -24,4 +18,22 @@
 		</table>
 	</div>
 </div>
+</div>
+	<div class="row" style="padding-left: 18px">
+		<div class="col-12">
+			<?php echo $this->pagination->create_links(); ?>
+		</div>
+	</div>
+	<script type="text/javascript">
+
+		var numberdude;
+	$("span.page-link a").click(function(e) {
+    	e.preventDefault();
+		var href = $(this).attr("href");
+		numberdude = href;
+		console.log(href);
+		$("#page").load('<?php echo base_url('Custom/smapel')?>' + href);
+
+	});
+	</script>
 

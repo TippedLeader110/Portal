@@ -105,8 +105,8 @@ class cmodel extends CI_Model {
     }
 
     public function saveGurunow($nama,$jabatan,$alamat,$mapel){
-		$data = array('nama_guru' => $nama, 'id_jabatan' => $jabatan, 'alamat' => $alamat, 'id_mapel' => $mapel, 'id_user' => $this->session->userdata('id'));
-		$this->db->insert('post', $data);
+		$data = array('nama_guru' => $nama, 'id_jabatan' => $jabatan, 'alamat' => $alamat, 'id_mapel' => $mapel);
+		$this->db->insert('guru', $data);
 	}
 
 	public function jumlah_data($data){
@@ -116,7 +116,18 @@ class cmodel extends CI_Model {
 	function data($number,$offset){
 		return $query = $this->db->get('img',$number,$offset)->result();		
 	}
-
+	function jabat_guru($number,$offset){
+		return $query = $this->db->get('jabatan_guru',$number,$offset)->result();
+	}
+	function mapel($number,$offset){
+		return $query = $this->db->get('mapel',$number,$offset)->result();
+	}
+	function allpost($number,$offset){
+		return $query = $this->db->get('allpost',$number,$offset)->result();
+	}
+	function kate($number,$offset){
+		return $query = $this->db->get('kategori',$number,$offset)->result();
+	}
 }
 
 ?>
