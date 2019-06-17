@@ -26,14 +26,30 @@
 					<td>
 						<?php echo $value->nama_kategori; ?>
 					</td>
-					<td><button class="btn btn-danger" onclick="Gdel(<?php echo $value->id_post ?>);">Hapus</button></td>s
+					<td><button class="btn btn-danger" onclick="Gdel(<?php echo $value->id_post ?>);">Hapus</button></td>
 				</tr>
 			<?php endforeach ?>
 		</table>
 	</div>
 </div>
+<div class="row" style="padding-left: 18px">
+		<div class="col-12">
+			<?php echo $this->pagination->create_links(); ?>
+		</div>
+	</div>
 
 <script type="text/javascript">
+
+	var numberdude;
+	$("span.page-link a").click(function(e) {
+    	e.preventDefault();
+		var href = $(this).attr("href");
+		numberdude = href;
+		console.log(href);
+		$("#page").load('<?php echo base_url('Custom/postShow')?>' + href);
+
+	});
+
 function Gdel(ab) {
     Swal.fire({
     	title: 'Hapus Post',

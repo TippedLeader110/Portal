@@ -79,47 +79,28 @@
 }
 
 	function tambahguru() {
-    Swal.fire({
-    	title: 'Tambah Guru',
-		html:
-		  	'<form method="post" class="form-user">'+
-		    '<input id="s1" name="kode" class="swal2-input" placeholder="Nama Mata Pelajaran">' +
-		    '</form>',
-		showCancelButton: true,
-		confirmButtonText: 'Tambah',
-		cancelButtonText: 'Batal',
-		cancelButtonColor: 'red',
-		showLoaderOnConfirm: true
-    }).then(result => {
-  	if (result.value) {
-  		var data = $('.form-user').serialize();
-  		var ab = $('#s2').val();
-  		var aa = $('#s1').val();
-  		// alert(ab + " " + aa);
-		$.ajax({
-        	url: '<?php echo base_url('Custom/mapelTambah') ?>',
-            type: 'POST',
-            data: {kode: aa},
-            error: function() {
-           		Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
-           		alert(data);
-           	},
-           	success: function() {
-                Swal.fire({
-                 	title: 'Sukses',
-                 	text: 'Nama Mata Pelajaran berhasil disimpan !!',
-                 	type: "success",
-                 	timer: 3000
-                 });
-                guru();
-           }
-        });
-  	}
-	else{
-		Swal.fire('Kesalahan !!','Nama Mata Pelajaran tidak disimpan !!', "error");
-	}
-	})
-}
+    var n = $('#title').val();
+    var jabatan = $('#select').val();
+    var alamat = $('#title2').val();
+    var mapel = $('#select2').val();
+    console.log(n);
+    console.log(jabatan);
+    console.log(alamat);
+    console.log(mapel);
+    $.ajax({
+      url : '<?php echo base_url('Custom/saveGuru') ?>',
+      type: 'post',
+      data: {n:n, jabatan:jabatan, alamat:alamat, mapel:mapel},
+      error: function(data){
+        Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
+              console.log(data);
+      },
+      success: function(data){
+        Swal.fire('Sukses', 'Artikel berhasi disimpan !!!', 'success'),
+        console.log(data);
+      }
+    })
+  }
 	function Jdel(ab) {
     Swal.fire({
     	title: 'Hapus Jabatan',
