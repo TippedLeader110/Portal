@@ -1,4 +1,5 @@
-  
+
+
   <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>source/css/customNav.css">
 	<div class="row">
 		<div class="col-12">
@@ -26,6 +27,7 @@
 	</center>
 	<div id="warna">
 	</div>
+
 </div>
 
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -64,10 +66,13 @@
 </div>
 
 <script type="text/javascript">
-	$(document).ready(function(){
+$(document).ready(function(){
     // alert('yeah');
     $("#warna").load('<?php echo base_url('Custom/egalery')?>');
-       $('#submit').submit(function(e){
+       
+    
+	});	
+	$('#submit').submit(function(e){
             e.preventDefault(); 
                  $.ajax({
                      url:'<?php echo base_url('Custom/do_upload');?>',
@@ -78,23 +83,31 @@
                      cache:false,
                      async:false,
                       success: function(data){
-                            Swal.fire({
+                           	if (data==1) {
+                           		Swal.fire({
 			                 	title: 'Sukses',
 			                 	text: 'Gambar berhasil disimpan !!',
 			                 	type: "success",
 			                 	timer: 3000
 			                 });
-                            $("#warna").load('<?php echo base_url('Custom/egalery')?>');
+                            $("#warna").load('<?php echo base_url('Custom/egalery')?>'+numberdude);
                             $('#modal').modal('hide');
+                           	}
+                           	else{
+                           		Swal.fire({
+			                 	title: 'Gagal',
+			                 	text: 'Tidak ada gambar yg di pilih !!',
+			                 	type: "error",
+			                 	timer: 3000
+			                 });
+                           		$('#modal').modal('hide');
+                           	}
                    },
                    error: function(data){
                    	console.log(data);
                    }
                  });
             });
-         
-	});
-
 // 	function swimg() {
 //     Swal.fire({
 //     	title: 'Upload Gambar',

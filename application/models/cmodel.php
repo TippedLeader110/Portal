@@ -109,6 +109,14 @@ class cmodel extends CI_Model {
 		$this->db->insert('post', $data);
 	}
 
+	public function jumlah_data($data){
+		return $this->db->get($data)->num_rows();
+	}
+
+	function data($number,$offset){
+		return $query = $this->db->get('img',$number,$offset)->result();		
+	}
+
 }
 
 ?>

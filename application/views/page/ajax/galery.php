@@ -1,3 +1,5 @@
+<?php $no = $this->uri->segment('3') + 1;    ?>
+
 <div class="row" style="padding-left: 18px">
 	<?php if (!empty($galery)): ?>
 		<?php foreach ($galery as $key => $value): ?>
@@ -16,9 +18,28 @@
 		</div>
 		<?php endforeach ?>
 	<?php endif ?>
+	<?php 
+	
+	?>
 	</div>
-
+	<div class="row" style="padding-left: 18px">
+		<div class="col-12">
+			<?php echo $this->pagination->create_links(); ?>
+		</div>
+	</div>
 	<script type="text/javascript">
+
+		var numberdude;
+	$("span.page-link a").click(function(e) {
+    	e.preventDefault();
+		var href = $(this).attr("href");
+		numberdude = href;
+		console.log(href);
+		$("#warna").load('<?php echo base_url('Custom/egalery')?>' + href);
+
+	});
+	
+
 		function delImg(a){
 			Swal.fire({
     	title: 'Hapus Warna',
@@ -50,7 +71,7 @@
                  	type: "success",
                  	timer: 3000
                  });
-				$("#warna").load('<?php echo base_url('Custom/egalery')?>');
+				$("#warna").load('<?php echo base_url('Custom/egalery')?>' +numberdude);
 			}
 			});
 		}
@@ -59,4 +80,8 @@
 	}
 	})
 }
+
+
+
+	
 	</script>
