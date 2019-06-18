@@ -16,6 +16,21 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Temporary table structure for view `allcount`
+--
+
+DROP TABLE IF EXISTS `allcount`;
+/*!50001 DROP VIEW IF EXISTS `allcount`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `allcount` (
+  `jumlah_guru` tinyint NOT NULL,
+  `jumlah_post` tinyint NOT NULL,
+  `jumlah_navbar` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary table structure for view `allnavitem`
 --
 
@@ -48,22 +63,6 @@ SET character_set_client = utf8;
   `tanggal` tinyint NOT NULL,
   `status` tinyint NOT NULL,
   `nama_kategori` tinyint NOT NULL
-) ENGINE=MyISAM */;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary table structure for view `dropdown`
---
-
-DROP TABLE IF EXISTS `dropdown`;
-/*!50001 DROP VIEW IF EXISTS `dropdown`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE TABLE `dropdown` (
-  `id_item` tinyint NOT NULL,
-  `label` tinyint NOT NULL,
-  `link` tinyint NOT NULL,
-  `id_sub` tinyint NOT NULL
 ) ENGINE=MyISAM */;
 SET character_set_client = @saved_cs_client;
 
@@ -328,7 +327,8 @@ DROP TABLE IF EXISTS `nilai`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `nilai` (
-  `id_nilai` int(11) NOT NULL,
+  `id_nilai` int(11) NOT NULL AUTO_INCREMENT,
+  `nis` int(11) NOT NULL,
   `matematika` int(11) NOT NULL,
   `b_inggris` int(11) NOT NULL,
   `b_indonesia` int(11) NOT NULL,
@@ -346,24 +346,32 @@ LOCK TABLES `nilai` WRITE;
 /*!40000 ALTER TABLE `nilai` DISABLE KEYS */;
 /*!40000 ALTER TABLE `nilai` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Temporary table structure for view `nilai_siswa`
---
-
-DROP TABLE IF EXISTS `nilai_siswa`;
-/*!50001 DROP VIEW IF EXISTS `nilai_siswa`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE TABLE `nilai_siswa` (
-  `nis` tinyint NOT NULL,
-  `nama_siswa` tinyint NOT NULL,
-  `matematika` tinyint NOT NULL,
-  `b_inggris` tinyint NOT NULL,
-  `b_indonesia` tinyint NOT NULL,
-  `ipa` tinyint NOT NULL
-) ENGINE=MyISAM */;
-SET character_set_client = @saved_cs_client;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = cp932 */ ;
+/*!50003 SET character_set_results = cp932 */ ;
+/*!50003 SET collation_connection  = cp932_japanese_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER ubah_nilai
+AFTER UPDATE ON nilai
+FOR EACH ROW
+BEGIN
+INSERT INTO log_nilai
+SET nis=old.nis,
+matematika=old.matematika,
+b_indonesia=old.b_indonesia,
+b_inggris=old.b_inggris,
+ipa=old.ipa,
+waktu=NOW();
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `post`
@@ -408,7 +416,6 @@ DROP TABLE IF EXISTS `siswa`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `siswa` (
   `nis` int(11) NOT NULL,
-  `id_nilai` int(11) NOT NULL,
   `nama_siswa` varchar(50) NOT NULL,
   `alamat` varchar(50) NOT NULL,
   `tgl_lahir` date NOT NULL,
@@ -428,9 +435,7 @@ CREATE TABLE `siswa` (
   `alamat_sekolah` varchar(50) NOT NULL,
   `tahun_lulus` int(7) NOT NULL,
   `status` enum('aktif','tidak aktif','pending') NOT NULL,
-  PRIMARY KEY (`nis`),
-  KEY `nilai_id` (`id_nilai`),
-  CONSTRAINT `nilai_id` FOREIGN KEY (`id_nilai`) REFERENCES `nilai` (`id_nilai`) ON UPDATE CASCADE
+  PRIMARY KEY (`nis`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -579,10 +584,31 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `allpost`(IN `ID` INT(11))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `allpost`(IN `AN` INT(11))
 BEGIN
 SELECT 
-a.id_post, a.judul, c.nama ,a.id_kategori, a.status , b.nama_kategori FROM post a inner join kategori b on a.id_kategori=b.id_kategori inner join user c on c.id_user = a.id_user where a.id_kategori=ID;
+a.id_post, a.judul, c.nama ,a.id_kategori, a.status , b.nama_kategori FROM post a inner join kategori b on a.id_kategori=b.id_kategori inner join user c on c.id_user = a.id_user where a.id_kategori = AN;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `mypost` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mypost`(IN `A` INT)
+    NO SQL
+BEGIN
+SELECT 
+a.id_post, a.judul, c.nama ,a.id_kategori, a.status , b.nama_kategori FROM post a inner join kategori b on a.id_kategori=b.id_kategori inner join user c on c.id_user = a.id_user where c.id_user=A;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -612,6 +638,25 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
+-- Final view structure for view `allcount`
+--
+
+/*!50001 DROP TABLE IF EXISTS `allcount`*/;
+/*!50001 DROP VIEW IF EXISTS `allcount`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = cp932 */;
+/*!50001 SET character_set_results     = cp932 */;
+/*!50001 SET collation_connection      = cp932_japanese_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `allcount` AS select (select count(0) from `guru`) AS `jumlah_guru`,(select count(0) from `post`) AS `jumlah_post`,(select count(0) from `navitem`) AS `jumlah_navbar` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
 -- Final view structure for view `allnavitem`
@@ -652,25 +697,6 @@ DELIMITER ;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
--- Final view structure for view `dropdown`
---
-
-/*!50001 DROP TABLE IF EXISTS `dropdown`*/;
-/*!50001 DROP VIEW IF EXISTS `dropdown`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `dropdown` AS select `navitem`.`id_item` AS `id_item`,`subnavitem`.`label` AS `label`,`subnavitem`.`link` AS `link`,`subnavitem`.`id_sub` AS `id_sub` from (`navitem` join `subnavitem`) where (`subnavitem`.`id_item` = `navitem`.`id_item`) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
 -- Final view structure for view `ket_guru`
 --
 
@@ -688,25 +714,6 @@ DELIMITER ;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `nilai_siswa`
---
-
-/*!50001 DROP TABLE IF EXISTS `nilai_siswa`*/;
-/*!50001 DROP VIEW IF EXISTS `nilai_siswa`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `nilai_siswa` AS select `siswa`.`nis` AS `nis`,`siswa`.`nama_siswa` AS `nama_siswa`,`nilai`.`matematika` AS `matematika`,`nilai`.`b_inggris` AS `b_inggris`,`nilai`.`b_indonesia` AS `b_indonesia`,`nilai`.`ipa` AS `ipa` from (`nilai` join `siswa` on((`siswa`.`id_nilai` = `nilai`.`id_nilai`))) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -717,4 +724,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-18  8:06:52
+-- Dump completed on 2019-06-18  9:17:47

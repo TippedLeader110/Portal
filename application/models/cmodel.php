@@ -94,6 +94,17 @@ class cmodel extends CI_Model {
 		$this->db->insert('post', $data);
 	}
 
+	public function updatePostnow($title,$waktu,$Kategori,$isi, $stat, $cover, $id){
+		$this->db->set('judul', $title);
+		$this->db->set('waktu', $waktu);
+		$this->db->set('kategori', $kategori);
+		$this->db->set('isi', $isi);
+		$this->db->set('cover', $cover);
+		$this->db->set('stat', $stat);
+		$this->db->where('id_post', $id);
+		$this->db->update('navitem');
+	}
+
 	function simpan_upload($judul,$image,$tipe){
         $data = array(
                 'deskripsi' => $judul,

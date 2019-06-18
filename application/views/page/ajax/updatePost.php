@@ -1,8 +1,11 @@
 <script type="text/javascript" src="<?php echo base_url('plugins/ckeditor/ckeditor.js') ?>"></script>
 <!-- <script type="text/javascript" src="<?php echo base_url('plugins/ckeditor/CKFinder/ckfinder.js') ?>"></script> -->
 	<div class="container-fluid menupage">
-		<center><h2 style="font-weight: bold;">Formulir Posting Artikel</h2></center>
+		<center><h2 style="font-weight: bold;">Formulir Update Posting Artikel</h2></center>
 		<hr>
+		<?php foreach ($post as $key => $value): ?>
+			
+		<?php endforeach ?>
 		<!-- <nav>
 		  <div class="nav nav-tabs" id="nav-tab" role="tablist">
 		    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Identitas Artikel</a>
@@ -32,7 +35,7 @@
 				</div>
 				<div class="form-group">
 				Judul 
-				<input type="text" class="form-control" name="title" id="title">
+				<input value="<?php echo $value->judul; ?>" type="text" class="form-control" name="title" id="title">
 				<hr>
 				Kategori 
 				<span id="errorkat"></span>
@@ -48,25 +51,31 @@
 				Tipe Publikasi
 				<span id="errorpub"></span>
 				<select  name="tipe" id="select2" class="form-control">
-					<option value="null">Pilih tipe publikasi</option>
+					<?php if ($value->status=='public'): ?>
 					<option value="public">Public</option>
 					<option value="private">Private</option>
+					<?php endif ?>
+					<?php if ($value->status=='pirvate'): ?>
+					<option value="private">Private</option>
+						<option value="public">Public</option>
+					<?php endif ?>
 				</select>
 				<hr>
 				Waktu <input type="text" class="form form-control" id="waktu" name="waktu" value="<?php echo date("Y-m-d") ?>">	
-				<button type="submit" style="margin-top: 20px;" class="btn btn-success">Post</button>
+				<button type="submit" style="margin-top: 20px;" class="btn btn-success">Perbaharui</button>
 				</div>
 			</div>
 			<div class="col-8">
 				Isi Artikel
-				<textarea  name="isi" id="createpost" style="max-height: 450px;"></textarea>
+				<textarea  name="isi" id="uppost" style="max-height: 450px;"></textarea>
+				<input type="text" hidden id="temp" value="<?php echo $value->isi ?>" name="">
 				</form>
 			</div>
 		</div>
 	</div>
-
+<?php $visi = $value->isi; ?>
 <script type="text/javascript">
-		var editor = CKEDITOR.replace( 'createpost', {
+		var editor = CKEDITOR.replace( 'uppost', {
 		height:500, removePlugins : 'resize', filebrowserBrowseUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/ckfinder.html'); ?>', filebrowserImageBrowseUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/ckfinder.html?type=Images'); ?>', 
 		filebrowserFileBrowseUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/ckfinder.html?type=File'); ?>', 
 			filebrowserFlashBrowseUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/ckfinder.html?type=Flash'); ?>', 
@@ -75,13 +84,10 @@
 			filebrowserFlashUploadUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'); ?>'
 	});
 
+		var sheet = $('#temp').val();
+		CKEDITOR.instances.uppost.setData(sheet);
 
-		$('#createpost').change(function () {
-   			var $textarea = $(this);
-   			console.log($textarea);
-   			$textarea.val(CKEDITOR.instances[$textarea.attr('name')].getData());
-		});
-		$('#select').change(function(){
+			$('#select').change(function(){
 			var ab = $(this).val();
 			console.log(ab);
 		})
@@ -96,21 +102,25 @@
 		}
 		else{
 
-		CKEDITOR.instances.createpost.updateElement();
+		CKEDITOR.instances.uppost.updateElement();
 		// var t = $('#title').val();
 		// var waktu = $('#waktu').val();
 
 
-		var isi = CKEDITOR.instances.createpost.getData();
+		var isi = CKEDITOR.instances.uppost.getData();
 		var form = new FormData(this)
+		var old = '<?php echo $value->cover ?>'
+		var id = '<?php echo $value->id_post ?>'
 		form.append('isi', isi);
+		form.append('old', old);
+		form.append('id', id);
 
 		// console.log(t);
 		// console.log(waktu);
 		// console.log(Kategori);
 
 		$.ajax({
-			url : '<?php echo base_url('Custom/savePost') ?>',
+			url : '<?php echo base_url('Custom/updatePost') ?>',
 			type: 'post',
 			data:form,
 			processData:false,
