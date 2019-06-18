@@ -1,9 +1,12 @@
+
 <div class="row">
 	<div class="container">
 		<div class="row" style="margin-top: 20px;">
 		<div class="col-4">
 			<div class="container kolmenu" >
-				<center><h1>50</h1></center>
+			<?php foreach ($blabla as $key => $value): ?>
+				<center><h1><?php echo $value->jumlah_post?></h1></center>
+			<?php endforeach?>
 			</div>
 								
 			
