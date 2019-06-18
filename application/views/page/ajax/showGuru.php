@@ -62,8 +62,8 @@
         <select  id="select" class="form-control"> 
           <option id="null" value="null">Pilih Jabatan</option>
           <?php foreach ($m as $key => $v): ?>
-            <option id="<?php echo $v->id_guru ?>" value="<?php echo $v->id_guru ?>">
-              <?php echo $v->nama_guru ?>
+            <option id="<?php echo $v->id_jabatan ?>" value="<?php echo $v->id_jabatan?>">
+              <?php echo $v->jabatan ?>
             </option>
           <?php endforeach ?>
         </select>
@@ -73,9 +73,9 @@
         <span id="errorkat"></span>
         <select  id="select2" class="form-control"> 
           <option id="null" value="null">Pilih Mata Pelajaran</option>
-          <?php foreach ($m as $key => $v): ?>
-            <option id="<?php echo $v->id_kategori ?>" value="<?php echo $v->id_kategori ?>">
-              <?php echo $v->nama_kategori ?>
+          <?php foreach ($k as $key => $v): ?>
+            <option id="<?php echo $v->id_mapel ?>" value="<?php echo $v->id_mapel ?>">
+              <?php echo $v->mapel ?>
             </option>
           <?php endforeach ?>
         </select>

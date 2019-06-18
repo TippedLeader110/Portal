@@ -48,6 +48,11 @@ class Custom extends CI_Controller {
 			# code...
 		}
 	}
+	public function count(){
+		$bay = $this->db->query('select * from allcount2');
+		$k['blabla'] = $bay->result();
+		$this->load->view('page/ajax/mainReport', $k);
+	}
 
 	public function KWeb(){
 		$data['home'] = 2;	
@@ -417,7 +422,11 @@ class Custom extends CI_Controller {
 		foreach ($query as $key => $value) {
 		echo $value->id_post;
 		}
-
+	}
+		public function getKate(){
+			$response = $this->db->get('kategori');
+			$response = $response->result();
+			echo json_encode($response);
 	}
 	public function postKate(){
 		$r = $this->db->get('kategori');
@@ -470,15 +479,21 @@ class Custom extends CI_Controller {
 		$this->load->view('cust/main', $data);
 	}
 	public function guruCreate(){
-		$ali = $this->db->get('guru');
+		$ali = $this->db->get('jabatan_guru');
 		$data['m'] = $ali->result();
-		$this->load->view('page/ajax/createguru', $data);
+		$this->load->view('page/ajax/showGuru', $data);
 	}
 	public function guruShow(){
 		$r = $this->db->query('select * from ket_guru');
 		$data['quer'] = $r->result();
 		$this->load->view('page/ajax/showguru', $data);
 	}
+	public function gurumapel(){
+		$ali = $this->db->get('mapel');
+		$data['k'] = $ali->result();
+		$this->load->view('page/ajax/showGuru', $data);
+	}
+
 	public function saveGuru(){
 		$nama = $this->input->post('n');
 		$jabatan = $this->input->post('jabatan');
