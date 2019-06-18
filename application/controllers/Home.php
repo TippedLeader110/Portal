@@ -26,6 +26,7 @@ class Home extends CI_Controller {
 		$data['img'] = $this->db->get('img')->result();
 		$data['vnav'] = "nav/home_v";
 		$data['id'] = $this->db->get('identitas')->result();
+		$data['rand'] = $this->db->query('SELECT link FROM img ORDER BY RAND() LIMIT 1')->result();
 		$this->load->view('layout/home_v', $data);
 	}
 	public function portal(){

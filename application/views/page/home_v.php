@@ -1,4 +1,25 @@
+<style type="text/css">
+  
+  .paral { 
+  /* The image used */
+  /*background-image: url("../img/back.jpg");*/
 
+  /* Set a specific height */
+    min-height: 500px; 
+
+  /* Create the paral scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+  @media only screen and (max-device-width: 1366px) {
+  .paral {
+    /*background-attachment: scroll;*/
+  }
+}
+
+</style>
 <div class="containerss ">
 <div class="row">
   <div class="col-12">
@@ -24,6 +45,7 @@
         <?php if ($i!=1): ?>
         <div class="carousel-item">
           <img class="d-block w-100" src="<?php echo base_url('source/gambar/galery/');echo $val->link; ?>" alt="<?php echo $val->deskripsi ?>">
+          <div style="position:absolute;top:0;left:0;height:0;bottom:0;width:100%;height:100%;background:rgba(0,0,0,0.4);"></div>
         </div>
         <?php endif ?>
         <?php $i++; ?>
@@ -47,6 +69,9 @@
     
 </div>
 <?php foreach ($id as $key => $idv): ?>
+  
+<?php endforeach ?>
+<?php foreach ($rand as $key => $vrand): ?>
   
 <?php endforeach ?>
 <div class="row" style="margin-top: 40px;"> 
@@ -81,12 +106,31 @@
   <div class="col-12">
     <div class="container" style="margin-top: 50px;margin-bottom: 50px">
       <hr>
+      <center><h2>Galeri Sekolah</h2></center>
+      <hr>
+    </div>
+  </div>
+</div>
+<div class="row  paral"  style="background-image: url(<?php echo base_url('source/gambar/galery/'); echo $vrand->link; ?>);height: 320px">
+  <div class="col-12">
+    <div class="container" style="margin-top: 50px;margin-bottom: 50px;">
+      <hr>
+      <center><h2 style="color: white">Jelajah Galeri Sekolah</h2></center>
+      <hr>
+    </div>
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="container" style="margin-top: 50px;margin-bottom: 50px">
+      <hr>
       <center><h2>Artikel Sekolah</h2></center>
       <hr>
     </div>
   </div>
 </div>
-<div class="row">
+<div class="row" style="background: $">
   <?php foreach ($post as $key => $valp): ?>
     <div class="col-3">
     <div class="container" style="height: 200px;background-image: url(<?php echo base_url('source/gambar/post/'); echo $valp->cover; ?>);background-position: center center">
@@ -97,6 +141,10 @@
   </div>
   <?php endforeach ?>
 </div>
-<div class="row">
-  
+<div class="row" style="margin-top: 20px;">
+  <div class="col-12" style="background: #384A62">
+    Sekolah
+  </div>
 </div>
+
+

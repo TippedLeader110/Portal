@@ -1,19 +1,19 @@
 
-.parallax { 
+.paral { 
   /* The image used */
-  background-image: url("../img/back.jpg");
+  /*background-image: url("../img/back.jpg");*/
 
   /* Set a specific height */
-  height: 500px; 
+    min-height: 500px; 
 
-  /* Create the parallax scrolling effect */
+  /* Create the paral scrolling effect */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 @media only screen and (max-device-width: 1366px) {
-  .parallax {
+  .paral {
     /*background-attachment: scroll;*/
   }
 }
@@ -25,7 +25,7 @@
   /* Set a specific height */
   height: 300px; 
 
-  /* Create the parallax scrolling effect */
+  /* Create the paral scrolling effect */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -33,7 +33,7 @@
 }
 .navmod{
   border-radius: 0px;
-  background-color: white;
+  background-color: #335C81;
   text-align: center;
 }
 .con{

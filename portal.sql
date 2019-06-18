@@ -16,24 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Temporary table structure for view `allcount`
---
-
-DROP TABLE IF EXISTS `allcount`;
-/*!50001 DROP VIEW IF EXISTS `allcount`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE TABLE `allcount` (
-  `COUNT(*)` tinyint NOT NULL,
-  `jumlah_fitur` tinyint NOT NULL,
-  `jumlah_guru` tinyint NOT NULL,
-  `jumlah_navbar` tinyint NOT NULL,
-  `jumlah_post` tinyint NOT NULL,
-  `jumlah_siswa` tinyint NOT NULL
-) ENGINE=MyISAM */;
-SET character_set_client = @saved_cs_client;
-
---
 -- Temporary table structure for view `allnavitem`
 --
 
@@ -84,31 +66,6 @@ SET character_set_client = utf8;
   `id_sub` tinyint NOT NULL
 ) ENGINE=MyISAM */;
 SET character_set_client = @saved_cs_client;
-
---
--- Table structure for table `fitur`
---
-
-DROP TABLE IF EXISTS `fitur`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `fitur` (
-  `id_fitur` int(10) NOT NULL,
-  `link` text NOT NULL,
-  `label` text NOT NULL,
-  PRIMARY KEY (`id_fitur`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `fitur`
---
-
-LOCK TABLES `fitur` WRITE;
-/*!40000 ALTER TABLE `fitur` DISABLE KEYS */;
-INSERT INTO `fitur` VALUES (10,'about',''),(11,'pict','');
-/*!40000 ALTER TABLE `fitur` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `guru`
@@ -313,31 +270,6 @@ LOCK TABLES `log_siswa` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `main`
---
-
-DROP TABLE IF EXISTS `main`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `main` (
-  `id_container` int(10) NOT NULL,
-  `id_fitur` int(10) NOT NULL,
-  `weight` text NOT NULL,
-  `height` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `main`
---
-
-LOCK TABLES `main` WRITE;
-/*!40000 ALTER TABLE `main` DISABLE KEYS */;
-INSERT INTO `main` VALUES (10,10,'300px','200px');
-/*!40000 ALTER TABLE `main` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `mapel`
 --
 
@@ -384,7 +316,7 @@ CREATE TABLE `navitem` (
 
 LOCK TABLES `navitem` WRITE;
 /*!40000 ALTER TABLE `navitem` DISABLE KEYS */;
-INSERT INTO `navitem` VALUES (1,1,'item','green','pertama','http://localhost/Portal/Artikel/5'),(3,3,'item','kedua','kedua','kuda'),(4,4,'item','green','ketiga','pertama'),(2,2,'drop','kedua','keempat','kuda');
+INSERT INTO `navitem` VALUES (1,1,'item','green','pertama','http://localhost/Portal/Artikel/5'),(3,3,'item','kedua','kedua','http://localhost/Portal/Artikel/5'),(4,4,'item','green','ketiga','pertama'),(5,5,'drop','','Unamed','');
 /*!40000 ALTER TABLE `navitem` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -434,20 +366,6 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary table structure for view `nofitur`
---
-
-DROP TABLE IF EXISTS `nofitur`;
-/*!50001 DROP VIEW IF EXISTS `nofitur`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE TABLE `nofitur` (
-  `id_fitur` tinyint NOT NULL,
-  `link` tinyint NOT NULL
-) ENGINE=MyISAM */;
-SET character_set_client = @saved_cs_client;
-
---
 -- Table structure for table `post`
 --
 
@@ -462,12 +380,13 @@ CREATE TABLE `post` (
   `tanggal` date NOT NULL,
   `status` text NOT NULL,
   `id_user` int(11) DEFAULT NULL,
+  `cover` text,
   PRIMARY KEY (`id_post`),
   KEY `user_id` (`id_user`),
   KEY `kategori_id` (`id_kategori`),
   CONSTRAINT `post_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE SET NULL ON UPDATE NO ACTION,
   CONSTRAINT `user_id` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -476,7 +395,7 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (1,'PENGUMUMAN PEMENANG',1,'ALI MEMENANGKAN KEJUARAAN KENIGAAN DENGAN TOTAL KEMENANGAN 10-0 MELAWAN NIGERIA','2019-05-01','WOW',1),(2,'ali rafid',1,'<p>dwwad</p>\n','2019-06-12','public',NULL),(5,'DEMO',2,'<p>ALI</p>\n','2019-06-13','public',2),(6,'   n nn',3,'<p>bjbjkbkj</p>\n','2019-06-13','public',2),(7,'dwad',1,'<p>wd</p>\n','2019-06-13','public',2),(8,'dwadww',1,'<p>wd</p>\n','2019-06-13','public',2),(9,'dwadww',1,'<p>wd</p>\n','2019-06-13','public',2),(10,'dwadww',1,'<p>wd</p>\n','2019-06-13','public',2),(11,'dwadww',1,'<p>wd</p>\n','2019-06-13','public',2);
+INSERT INTO `post` VALUES (15,'Forum Penerimaan Siswa Baru Sebentar Lagi Dibuka',2,'<p>Penerimaan siswa didik baru&nbsp;</p>\n','2019-06-17','public',3,'bf3968965c2329d9d9f3ab0e5cba9e44.png');
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -695,25 +614,6 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
--- Final view structure for view `allcount`
---
-
-/*!50001 DROP TABLE IF EXISTS `allcount`*/;
-/*!50001 DROP VIEW IF EXISTS `allcount`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `allcount` AS select count(0) AS `COUNT(*)`,(select count(0) from `fitur`) AS `jumlah_fitur`,(select count(0) from `guru`) AS `jumlah_guru`,(select count(0) from `navitem`) AS `jumlah_navbar`,(select count(0) from `post`) AS `jumlah_post`,(select count(0) from `siswa`) AS `jumlah_siswa` from `tema` `jumlah_tema` */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
 -- Final view structure for view `allnavitem`
 --
 
@@ -807,25 +707,6 @@ DELIMITER ;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `nofitur`
---
-
-/*!50001 DROP TABLE IF EXISTS `nofitur`*/;
-/*!50001 DROP VIEW IF EXISTS `nofitur`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`portal`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `nofitur` AS select `fitur`.`id_fitur` AS `id_fitur`,`fitur`.`link` AS `link` from `fitur` where (not(exists(select 1 from `main` where (`fitur`.`id_fitur` = `main`.`id_fitur`)))) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -836,4 +717,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-17 16:50:13
+-- Dump completed on 2019-06-18  8:06:52

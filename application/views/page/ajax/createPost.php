@@ -47,8 +47,8 @@
 				<hr>
 				Tipe Publikasi
 				<span id="errorpub"></span>
-				<select name="tipe" id="select2" class="form-control">
-					<option>Pilih tipe publikasi</option>
+				<select  name="tipe" id="select2" class="form-control">
+					<option value="null">Pilih tipe publikasi</option>
 					<option value="public">Public</option>
 					<option value="private">Private</option>
 				</select>
@@ -88,11 +88,17 @@
 
 	$('#submit').submit(function(e){		
 		e.preventDefault(); 
+		var stat = $('#select2').val();
+		var Kategori = $('#select').val();
+
+		if (stat=='null'||Kategori=='null') {
+			Swal.fire('Kesalahan !!','Tolong isi kategori atau tipe publikasi !!', "error");
+		}
+		else{
+
 		CKEDITOR.instances.createpost.updateElement();
-		// var stat = $('#select2').val();
 		// var t = $('#title').val();
 		// var waktu = $('#waktu').val();
-		// var Kategori = $('#select').val();
 
 
 		var isi = CKEDITOR.instances.createpost.getData();
@@ -122,5 +128,6 @@
 
 			}
 		});
+		}
 	})
 </script>

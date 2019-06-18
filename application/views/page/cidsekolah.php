@@ -11,7 +11,7 @@
 		</div>
 	</div>
 	<div class="row" style="margin-top: 20px;">
-		<div class="col-3 ">
+		<!-- <div class="col-3 ">
 			<div class="container-fluid" > 
 				<div class="row">
 					<div class="cc">
@@ -29,11 +29,11 @@
 				</div>
 			</div>
 		</div>
-		<!-- <div class="col-1">
+		 --><!-- <div class="col-1">
 			
 		</div> -->
 <!-- <div class="ccontainer"> -->
-		<div class="col-9">
+		<div class="col-12">
 			<!-- // <?php $this->load->view('nav/cidnav') ?> -->
 			<hr>
 			<table>
@@ -117,7 +117,7 @@
             // dataType: 'json',
             error: function() {
            		// alert('Something is wrong');
-           		Swal.fire('Galat !!','Ada yang salah dengan controller', "error");
+           		Swal.fire('Kesalahan !!','Ada yang salah dengan controller', "error");
            	},
            	success: function(data) {	
            		var result = $.parseJSON(data);
@@ -149,7 +149,7 @@
             // dataType: 'json',
             error: function() {
            		// alert('Something is wrong');
-           		Swal.fire('Galat !!','Ada yang salah dengan controller', "error");
+           		Swal.fire('Kesalahan !!','Ada yang salah dengan controller', "error");
            	},
            	success: function(data) {	
            		var result = $.parseJSON(data);
@@ -180,7 +180,7 @@
             // dataType: 'json',
             error: function() {
            		// alert('Something is wrong');
-           		Swal.fire('Galat !!','Ada yang salah dengan controller', "error");
+           		Swal.fire('Kesalahan !!','Ada yang salah dengan controller', "error");
            	},
            	success: function(data) {	
            		var result = $.parseJSON(data);
@@ -210,7 +210,7 @@
             // dataType: 'json',
             error: function() {
            		// alert('Something is wrong');
-           		Swal.fire('Galat !!','Ada yang salah dengan controller', "error");
+           		Swal.fire('Kesalahan !!','Ada yang salah dengan controller', "error");
            	},
            	success: function(data) {	
            		var result = $.parseJSON(data);
@@ -240,7 +240,7 @@
 			type: "post",
 			data: {data: a},
 			error: function(){
-				Swal.fire('Galat !', 'Sesuatu tidak beres !!!', 'error');
+				Swal.fire('Kesalahan !', 'Sesuatu tidak beres !!!', 'error');
 			},
 			success: function(){
 				getVisi();
@@ -256,7 +256,7 @@
 			type: "post",
 			data: {data: a},
 			error: function(){
-				Swal.fire('Galat !', 'Sesuatu tidak beres !!!', 'error');
+				Swal.fire('Kesalahan !', 'Sesuatu tidak beres !!!', 'error');
 			},
 			success: function(){
 				getSejarah();
@@ -272,7 +272,7 @@
 			type: "post",
 			data: {data: a},
 			error: function(){
-				Swal.fire('Galat !', 'Sesuatu tidak beres !!!', 'error');
+				Swal.fire('Kesalahan !', 'Sesuatu tidak beres !!!', 'error');
 			},
 			success: function(){
 				getMisi();
@@ -288,7 +288,7 @@
 	// 		type: "post",
 	// 		data: {data: a},
 	// 		error: function(){
-	// 			Swal.fire('Galat !', 'Sesuatu tidak beres !!!', 'error');
+	// 			Swal.fire('Kesalahan !', 'Sesuatu tidak beres !!!', 'error');
 	// 		},
 	// 		success: function(){
 	// 			getMisi();
