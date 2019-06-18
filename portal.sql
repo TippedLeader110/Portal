@@ -58,11 +58,13 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 /*!50001 CREATE TABLE `allpost` (
   `id_post` tinyint NOT NULL,
+  `isi` tinyint NOT NULL,
   `nama` tinyint NOT NULL,
   `judul` tinyint NOT NULL,
   `tanggal` tinyint NOT NULL,
   `status` tinyint NOT NULL,
-  `nama_kategori` tinyint NOT NULL
+  `nama_kategori` tinyint NOT NULL,
+  `id_kategori` tinyint NOT NULL
 ) ENGINE=MyISAM */;
 SET character_set_client = @saved_cs_client;
 
@@ -120,7 +122,7 @@ CREATE TABLE `identitas` (
 
 LOCK TABLES `identitas` WRITE;
 /*!40000 ALTER TABLE `identitas` DISABLE KEYS */;
-INSERT INTO `identitas` VALUES (1,'ALI MTFCKER 4EVE','MENJADI SEKOLAH YANG TERBELAKANG DAN DIPENUHI WIBU','-MENJADI SEKOLAH TERBELAKANG\r\n-LULUSAN MENJADI WIBU\r\n-MENCINTAI GRAND BLUE SEGENAP HATI\r\n-HANYA NIGGA YANG DAPAT MASUK','SEKOLAH INI DICIPTAKAN OLEH ALI HIDAYAT SETELAH DIUSIR DARI WAKANDA');
+INSERT INTO `identitas` VALUES (1,'DEMO SCHOOL','<p>&nbsp;&nbsp;&ldquo;Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global&rdquo;</p>\n','<p>1.&nbsp; &nbsp;Mewujudkan pendidikan untuk menghasilkan prestasi dan lulusa berkwalitas tinggi yang peduli dengan lingkungan hidup</p>\n\n<p>2. &nbsp; Mewujudkan sumber daya manusia yang beriman, produktif, kreatif, inofatif dan efektif</p>\n\n<p>3. &nbsp; Mewujudkan pengembangan inovasi pembelajaran sesuai tuntutan</p>\n\n<p>4. &nbsp; Mewujudkan sumber daya manusia yang peduli dalam mencegahan pencemaran, mencegahan kerusakan lingkungan dan melestarikan lingkungan hidup</p>\n\n<p>5. &nbsp; Mewujudkan sarana prasarana reprensentatif dan up to date</p>\n\n<p>6. &nbsp; Mewujudkan pengelolaan pendidikan yang professional</p>\n\n<p>7. &nbsp; Mewujudkan sistim penilaian yang berafiliasi</p>\n\n<p>8. &nbsp; Mewujudkan budaya yang berkualifikasi</p>\n\n<p>9. &nbsp; Mewujudkan Sekolah yang bersih,hijau dan meminimalis hasil sampah yang tidak bermanfaat</p>\n\n<p>10. Mewujudkan manusia Indonesia yang mampu berkontribusi pada kehidupan bermasyarakat, berbangsa, bernegara dalam peradaban dunia</p>\n\n<p>11. Mewujudkan generasi emas, sehat tanpa narkoba</p>\n','SEKOLAH INI DICIPTAKAN OLEH ALI HIDAYAT SETELAH DIUSIR DARI WAKANDA');
 /*!40000 ALTER TABLE `identitas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -686,12 +688,12 @@ DELIMITER ;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET character_set_client      = cp932 */;
+/*!50001 SET character_set_results     = cp932 */;
+/*!50001 SET collation_connection      = cp932_japanese_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `allpost` AS select `a`.`id_post` AS `id_post`,`b`.`nama` AS `nama`,`a`.`judul` AS `judul`,`a`.`tanggal` AS `tanggal`,`a`.`status` AS `status`,`c`.`nama_kategori` AS `nama_kategori` from ((`post` `a` join `user` `b` on((`a`.`id_user` = `b`.`id_user`))) join `kategori` `c` on((`a`.`id_kategori` = `c`.`id_kategori`))) */;
+/*!50001 VIEW `allpost` AS select `a`.`id_post` AS `id_post`,`a`.`isi` AS `isi`,`c`.`nama` AS `nama`,`a`.`judul` AS `judul`,`a`.`tanggal` AS `tanggal`,`a`.`status` AS `status`,`b`.`nama_kategori` AS `nama_kategori`,`b`.`id_kategori` AS `id_kategori` from ((`post` `a` join `kategori` `b` on((`a`.`id_kategori` = `b`.`id_kategori`))) join `user` `c` on((`a`.`id_user` = `c`.`id_user`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -724,4 +726,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-18  9:17:47
+-- Dump completed on 2019-06-18 10:09:56
