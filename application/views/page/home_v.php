@@ -81,26 +81,29 @@
       <center><h2>Selamat Datang Di Website Sekolah</h2></center>  
       <center><h2><?php echo $idv->nama_sekolah ?></h2></center>
       <center><?php echo $idv->sejarah ?></center>
+      <center><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Visi Misi</button></center>
       <hr>
     </div>
   </div>
 </div>
+<div id="demo" class="collapse">
 <div class="row" style="background: #335C81;margin-top: 40px;padding-bottom: 50px;">
   <div class="col-6">
     <div class="container" style="padding-top: 50px;">
       <center><h3 style="color: white">Visi Sekolah</h3></center>
-      <center><p style="color: white"><?php echo $idv->visi ?></p></center>
+      <div class="white" style="color: white"><?php echo $idv->visi ?></div>
     </div>
   </div>
   <div class="col-6">
     <div class="container" style="padding-top: 50px;">
       <center><h3 style="color: white">Misi Sekolah</h3></center>
-      <center><p style="color: white"><?php echo $idv->misi ?></p></center>
+      <div class="white" style="color: white"><?php echo $idv->misi ?></div>
     </div>
   </div>
   <div class="col-12">
     <center><button class="btn btn-primary">Daftar Sekarang</button></center>
   </div>
+</div>
 </div>
 <div class="row">
   <div class="col-12">

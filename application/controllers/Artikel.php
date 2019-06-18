@@ -30,4 +30,12 @@ class Artikel extends CI_Controller {
 		$data['vnav'] = "nav/Artikel_v";
 		$this->load->view('layout/Artikel_v', $data);
 	}
+	public function Sekolah($a){
+		$data['datanav'] = $this->db->get('navitem')->result();
+		$data['v1'] = "page/artikel_v";
+		$data['post'] = $this->db->query("select * from allpost where id_post = ".$a."")->result();
+		$data['vnav'] = "nav/home_v";
+		$data['post2'] = $this->db->query("select * from allpost where id_post = ".$a." ORDER BY RAND() limit 5")->result();
+		$this->load->view('layout/home_v2', $data);
+	}
 }

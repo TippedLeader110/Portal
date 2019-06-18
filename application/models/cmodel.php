@@ -96,7 +96,7 @@ class cmodel extends CI_Model {
 
 	public function updatePostnow($title,$waktu,$Kategori,$isi, $stat, $cover, $id){
 		$this->db->set('judul', $title);
-		$this->db->set('waktu', $waktu);
+		$this->db->set('tanggal', $waktu);
 		$this->db->set('kategori', $kategori);
 		$this->db->set('isi', $isi);
 		$this->db->set('cover', $cover);

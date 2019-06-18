@@ -9,11 +9,11 @@
   <?php endif ?>" href="<?php echo base_url() ?>Custom/artikel">Kelolah Artikel</a>
   <a class="<?php if ($navact==3): ?>
   	actnav
-     <?php endif ?>" href="<?php echo base_url() ?>Custom/guru">Kelolah Data Guru</a>
+     <?php endif ?>" href="<?php echo base_url() ?>Custom/guru">Data Guru</a>
   <a class="<?php if ($navact==3): ?>
     actnav
-  <?php endif ?>" href="<?php echo base_url() ?>Custom/layout">Tata Letak</a>
-  <a class="<?php if ($navact==4): ?>
+  <?php endif ?>" href="<?php echo base_url() ?>Custom/layout">Data Siswa</a>
+  <!-- <a class="<?php if ($navact==4): ?>
   	actnav
-  <?php endif ?>" href="<?php echo base_url() ?>Custom/warna">Warna</a>
+  <?php endif ?>" href="<?php echo base_url() ?>Custom/warna">Warna</a> -->
 </div>
