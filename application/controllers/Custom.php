@@ -27,6 +27,7 @@ class Custom extends CI_Controller {
 	}
 	public function index()
 	{
+		$data['title'] = "Custom Admin";
 		$data['cmain'] = "page/cmain";
 		$data['home'] = 0;	 //Navbar ada apa ga
 		$data['ac'] = 1;     //Posisi aktif nav bar
@@ -38,10 +39,12 @@ class Custom extends CI_Controller {
 	public function getCmain(){
 		$id = $this->input->post('id');
 		if ($id=='report') {
+			$bay = $this->db->query('select * from allcount');
+			$k['blabla'] = $bay->result();
+			$this->load->view('page/ajax/mainReport', $k);
 			// $data['ret'] = $this->cmodel->getAllcount();
-			$this->load->view('page/ajax/mainReport');
 		}
-		elseif ($id=='user') {
+		elseif ($id=='log') {
 			# code...
 		}
 		elseif ($id=='pintas') {
@@ -317,10 +320,10 @@ class Custom extends CI_Controller {
              
             $result= $this->cmodel->simpan_upload($judul,$image,$tipe); //kirim value ke model m_upload
             echo json_decode($result);
-            return 1;
+            echo "1";
         }
         else{
-        	return 0;
+        	echo "0";
         }
 	}
 
@@ -450,10 +453,10 @@ class Custom extends CI_Controller {
             $cover= $data['upload_data']['file_name']; //set file name ke variable image
              
             $result= $this->cmodel->savePostnow($title,$waktu,$Kategori,$isi,$stat,$cover); //kirim value ke model m_upload
-            return 1;
+            echo "1";
         }
         else{
-        	return 0;
+        	echo "0";
         }
 
 
@@ -467,7 +470,7 @@ class Custom extends CI_Controller {
 		$title = $this->input->post('title');
 		$stat = $this->input->post('tipe');
 		$waktu = $this->input->post('waktu');
-		$Kategori = $this->input->post('select');
+		$Kategori = $this->input->post('kategori');
 		$isi = $this->input->post('isi');
 
 		$config['upload_path']="./source/gambar/post"; //path folder file upload
@@ -490,10 +493,10 @@ class Custom extends CI_Controller {
 		        unlink($file); // delete file
 		        //echo $file.'file deleted';
 		    }  
-         return 1;
+         echo "1";
         }
         else{
-        	return 0;
+        	echo "0";
         }
 
 

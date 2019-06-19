@@ -88,13 +88,13 @@
 </div>
 <div id="demo" class="collapse">
 <div class="row" style="background: #335C81;margin-top: 40px;padding-bottom: 50px;">
-  <div class="col-6">
+  <div class="col-12">
     <div class="container" style="padding-top: 50px;">
       <center><h3 style="color: white">Visi Sekolah</h3></center>
       <div class="white" style="color: white"><?php echo $idv->visi ?></div>
     </div>
   </div>
-  <div class="col-6">
+  <div class="col-12">
     <div class="container" style="padding-top: 50px;">
       <center><h3 style="color: white">Misi Sekolah</h3></center>
       <div class="white" style="color: white"><?php echo $idv->misi ?></div>
@@ -135,11 +135,12 @@
 </div>
 <div class="row" style="background: $">
   <?php foreach ($post as $key => $valp): ?>
-    <div class="col-3">
+    <div class="col-3"><a href="<?php echo base_url('Artikel/sekolah/'); echo $valp->id_post; ?>">
+    
+    <div class="container" style="padding-top: 10px;padding-bottom: 10px;background: #335C81">
     <div class="container" style="height: 200px;background-image: url(<?php echo base_url('source/gambar/post/'); echo $valp->cover; ?>);background-position: center center">
     </div>
-    <div class="container" style="padding-top: 10px;padding-bottom: 10px;background: #335C81">
-      <center><span style="overflow: hidden;max-width: 0px;color: white"><?php echo $valp->judul ?></span></center>
+      <center><span style="overflow: hidden;max-width: 0px;color: white"><?php echo $valp->judul ?></a></span></center>
     </div>
   </div>
   <?php endforeach ?>

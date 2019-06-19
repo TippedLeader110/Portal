@@ -108,12 +108,15 @@
 
 
 		var isi = CKEDITOR.instances.uppost.getData();
-		var form = new FormData(this)
-		var old = '<?php echo $value->cover ?>'
-		var id = '<?php echo $value->id_post ?>'
+		var form = new FormData(this);
+		var old = '<?php echo $value->cover ?>';
+		var id = '<?php echo $value->id_post ?>';
+		var kategori = $('#select').val();
+		console.log(kategori);
 		form.append('isi', isi);
 		form.append('old', old);
 		form.append('id', id);
+		form.append('kategori', kategori);
 
 		// console.log(t);
 		// console.log(waktu);
@@ -132,7 +135,7 @@
            		console.log(data);
 			},
 			success: function(data){
-				if (data==1) {
+				if (data!=0) {
 				Swal.fire('Sukses', 'Artikel berhasi disimpan !!!', 'success');
 				console.log(data);
 				$("#page").load('<?php echo base_url('Custom/postshow') ?>').hide().fadeIn('slow');

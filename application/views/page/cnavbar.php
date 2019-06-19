@@ -224,7 +224,7 @@
 		}).queue([
   		{
     		title: 'Tips 1 (Posisi Navbar)',
-    		imageUrl: '<?php echo base_url("source/img/tutor1.gif") ?>',
+    		imageUrl: '<?php echo base_url("source/img/a.gif") ?>',
   			imageWidth: 400,
   			imageHeight: 200,
   			imageAlt: 'Tutorial',
