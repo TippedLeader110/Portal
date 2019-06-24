@@ -559,7 +559,18 @@ class Custom extends CI_Controller {
 		$data['ac'] = 3;
 		$data['nav'] = 'nav/custkiri2';
 		$data['navact'] = 3;	
+		$data['siswa'] = $this->db->get('siswa')->result();
 		$this->load->view('cust/main', $data);
+	}
+
+	public function siswaBaru(){
+		$data['siswa'] = $this->db->get('siswa')->result();
+		$this->load->view('page/ajax/siswaBaru', $data);
+	}
+
+	public function siswaFull(){
+		$data['siswa'] = $this->db->get('siswa')->result();
+		$this->load->view('page/ajax/siswa', $data);
 	}
 
 	###############################################

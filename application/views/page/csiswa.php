@@ -1,3 +1,67 @@
+<style type="text/css">
+  .switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 27px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 17px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(19px);
+  -ms-transform: translateX(19px);
+  transform: translateX(19px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 17px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+
   
   <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>source/css/customNav.css">
 	<div class="row">
@@ -12,9 +76,9 @@
   <div class="col-2" style="margin-top: 50px;">
     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Laporan</a>
-      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Daftar Siswa</a>
-      <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Siswa Baru</a>
-      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" onclick="siswa();" role="tab" aria-controls="v-pills-profile" aria-selected="false">Daftar Siswa</a>
+      <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" onclick="siswab()" aria-controls="v-pills-messages" aria-selected="false">Siswa Baru</a>
+      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Penerimaan</a>
     </div>
   </div>
   <div class="col-10">
@@ -73,9 +137,36 @@
   </div>
 </div>
     </div>
-    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
-    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+      <div id="siswa">
+        
+      </div>
+    </div>
+    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+      <div id="siswabaru">
+        
+      </div>
+    </div>
+    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+      <div class="row" style="margin-top: 50px;">
+        <div class="col-12">
+          <div class="container-fluid menupage">
+            <div class="row">
+              <div class="col-12">
+                <center><h3>Pengaturan Penerimaan Murid Baru</h3></center>
+              <hr>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <span>Status Penerimaan :</span><label class="switch"><input type="checkbox"><span class="slider round"></span></label>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   </div>
 </div>
@@ -85,3 +176,14 @@
 		    
 		</div>
 	</div>
+
+  <script type="text/javascript">
+    function siswab(){
+      $('#siswabaru').load('<?php echo base_url('Custom/siswaBaru') ?>')
+    }
+
+    function siswa(){
+      $('#siswa').load('<?php echo base_url('Custom/siswaFull') ?>')
+    }
+
+  </script>
