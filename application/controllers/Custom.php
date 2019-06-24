@@ -564,6 +564,14 @@ class Custom extends CI_Controller {
 		$this->load->view('cust/main', $data);
 	}
 
+	public function siswaupdateSetting(){
+		$a = $this->input->post('thn');
+		$b = $this->input->post('jumlah');
+		$this->db->set('tahun_penerimaan', $a);
+		$this->db->set('maks', $b);
+		$this->db->update('identitas');
+	}
+
 	public function sisSetting(){
 		$data['set'] = $this->db->get('identitas')->result();
 		$this->load->view('page/ajax/akreak', $data);

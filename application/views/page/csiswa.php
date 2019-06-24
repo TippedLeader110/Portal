@@ -54,11 +54,11 @@ input:checked + .slider:before {
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: 17px;
+  border-radius: 4px;
 }
 
 .slider.round:before {
-  border-radius: 50%;
+  border-radius: 4px;
 }
 </style>
 
@@ -164,15 +164,15 @@ input:checked + .slider:before {
 
   <script type="text/javascript">
     function siswab(){
-      $('#siswabaru').load('<?php echo base_url('Custom/siswaBaru') ?>')
+      $('#siswabaru').load('<?php echo base_url('Custom/siswaBaru') ?>').hide().fadeIn('slow');
     }
 
     function siswa(){
-      $('#siswa').load('<?php echo base_url('Custom/siswaFull') ?>')
+      $('#siswa').load('<?php echo base_url('Custom/siswaFull') ?>').hide().fadeIn('slow');
     }
 
     function setting(){
-      $('#akreak').load('<?php echo base_url('Custom/sisSetting') ?>')
+      $('#akreak').load('<?php echo base_url('Custom/sisSetting') ?>').hide().fadeIn('slow');
     }
 
     
@@ -196,7 +196,7 @@ input:checked + .slider:before {
           //           type: "success",
           //           timer: 3000
           //          });  
-          $('#akreak').load('<?php echo base_url('Custom/sisSetting') ?>')
+          $('#akreak').load('<?php echo base_url('Custom/sisSetting') ?>').hide().fadeIn('slow');
         }
       });
     }

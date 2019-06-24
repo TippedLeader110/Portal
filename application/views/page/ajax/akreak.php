@@ -27,9 +27,9 @@
                   <form id="datapenerimaan">
                   <div class="form-group">
                     Tahun Penerimaan
-                    <input type="number" name="thn" class="form-control">
+                    <input value="<?php echo $setval->tahun_penerimaan ?>" type="number" name="thn" class="form-control">
                     Jumlah Maksismum Peserta Didik
-                    <input type="number" name="jumlah" class="form-control">
+                    <input type="number" value="<?php echo $setval->maks ?>" name="jumlah" class="form-control">
 
                   </div>
                   <div class="form-group">
@@ -63,7 +63,7 @@
           },
           success: function(data){
             Swal.fire('Suskses !!','Pengaturan tersimpan  !!', "success");
-            $('#akreak').load('<?php echo base_url('Custom/sisSetting') ?>')
+            $('#akreak').load('<?php echo base_url('Custom/sisSetting') ?>').hide().fadeIn('slow');
           }
         });
 
