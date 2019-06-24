@@ -20,13 +20,15 @@
 	<div id="main">
 	<?php $this->load->view('nav/cust'); ?>
 	<?php $data['navact'] = $navact; $this->load->view($nav, $data); ?>
-		<div class="container" style="border-radius: 0px;margin-top: 20px;">
+		<div class="container-fluid" style="padding: 0px 50px 0px 50px">
+			<div class="container-fluid" style="border-radius: 0px;margin-top: 20px;">
 		<div class="row" style="background: transparent;">
 			<div class="col-12" onmouseover="closeNav();">
 					<?php $this->load->view($cmain); ?>
 			</div>
 		</div>
 	</div>
+		</div>
 	</div>
 	<?php $this->load->view('nav/script'); ?>
 </body>

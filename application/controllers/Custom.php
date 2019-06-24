@@ -551,6 +551,16 @@ class Custom extends CI_Controller {
 		$data = array('nama_kategori' => $a);
 		$this->db->insert('kategori', $data);
 	}
+	###############################################
+
+	public function siswa(){
+		$data['home'] = 1;	
+		$data['cmain'] = "page/csiswa";
+		$data['ac'] = 3;
+		$data['nav'] = 'nav/custkiri2';
+		$data['navact'] = 3;	
+		$this->load->view('cust/main', $data);
+	}
 
 	###############################################
 	public function guru(){
@@ -675,13 +685,30 @@ class Custom extends CI_Controller {
 
 	// Layout Tata Letak
 
+	public function layKonten(){
+		if ($this->input->post('art')) {
+		$art = $this->input->post('art');
+		$this->db->set('lartikel', $art);
+		}
+
+		if ($this->input->post('awl')) {
+		$awl=$this->input->post('awl');
+		$this->db->set('lhome', $awl);
+		}
+		$this->db->update('identitas');
+	}
+
 	public function layout(){
 		$data['home'] = 1;	
 		$data['cmain'] = "page/clayout";
 		$data['ac'] = 2;
 		$data['nav'] = 'nav/custkiri';
 		$data['navact'] = 3;
-		$data['sek'] = $this->cmodel->getIdentitas();
+		$q = $this->db->get('identitas')->result();
+		foreach ($q as $key => $value) {
+		}
+		$data['awal'] = $value->lhome;
+		$data['art'] =  $value->lartikel;
 		$this->load->view('cust/main', $data);
 	}
 
