@@ -560,7 +560,19 @@ class Custom extends CI_Controller {
 		$data['nav'] = 'nav/custkiri2';
 		$data['navact'] = 3;	
 		$data['siswa'] = $this->db->get('siswa')->result();
+		$data['set'] = $this->db->get('identitas')->result();
 		$this->load->view('cust/main', $data);
+	}
+
+	public function sisSetting(){
+		$data['set'] = $this->db->get('identitas')->result();
+		$this->load->view('page/ajax/akreak', $data);
+	}
+
+	public function akreak(){
+		$val = $this->input->post('awl');
+		$this->db->set('penerimaan', $val);
+		$this->db->update('identitas');
 	}
 
 	public function siswaBaru(){

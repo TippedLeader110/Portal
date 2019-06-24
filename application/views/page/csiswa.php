@@ -78,7 +78,7 @@ input:checked + .slider:before {
       <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Laporan</a>
       <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" onclick="siswa();" role="tab" aria-controls="v-pills-profile" aria-selected="false">Daftar Siswa</a>
       <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" onclick="siswab()" aria-controls="v-pills-messages" aria-selected="false">Siswa Baru</a>
-      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Penerimaan</a>
+      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" onclick="setting();" role="tab" aria-controls="v-pills-settings" aria-selected="false">Penerimaan</a>
     </div>
   </div>
   <div class="col-10">
@@ -148,23 +148,8 @@ input:checked + .slider:before {
       </div>
     </div>
     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-      <div class="row" style="margin-top: 50px;">
-        <div class="col-12">
-          <div class="container-fluid menupage">
-            <div class="row">
-              <div class="col-12">
-                <center><h3>Pengaturan Penerimaan Murid Baru</h3></center>
-              <hr>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-6">
-                <span>Status Penerimaan :</span><label class="switch"><input type="checkbox"><span class="slider round"></span></label>
-              </div>
-            </div>
-
-          </div>
-        </div>
+      <div id="akreak">
+        
       </div>
     </div>
   </div>
@@ -184,6 +169,36 @@ input:checked + .slider:before {
 
     function siswa(){
       $('#siswa').load('<?php echo base_url('Custom/siswaFull') ?>')
+    }
+
+    function setting(){
+      $('#akreak').load('<?php echo base_url('Custom/sisSetting') ?>')
+    }
+
+    
+    function akreak(a){
+      $.ajax({
+        url: '<?php echo base_url('Custom/akreak') ?>',
+        type: 'post',
+        data: {awl: a},
+        error: function(){
+          Swal.fire({
+                    title: 'Kesalahan',
+                    text: 'Penerimaan gagal diganti !!',
+                    type: "error",
+                    timer: 3000
+                   });  
+        },
+        success: function(){
+          // Swal.fire({
+          //           title: 'Sukses',
+          //           text: 'Layout berhasil diganti !!',
+          //           type: "success",
+          //           timer: 3000
+          //          });  
+          $('#akreak').load('<?php echo base_url('Custom/sisSetting') ?>')
+        }
+      });
     }
 
   </script>
