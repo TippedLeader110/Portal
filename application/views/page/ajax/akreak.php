@@ -63,7 +63,7 @@
           },
           success: function(data){
             Swal.fire('Suskses !!','Pengaturan tersimpan  !!', "success");
-            $('#akreak').load('<?php echo base_url('Custom/sisSetting') ?>').hide().fadeIn('slow');
+            $('#akreak').load('<?php echo base_url('Custom/sisSetting') ?>');
           }
         });
 

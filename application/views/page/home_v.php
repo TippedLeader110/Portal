@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 <style type="text/css">
   
   .paral { 
@@ -81,7 +82,7 @@
       <center><h2>Selamat Datang Di Website Sekolah</h2></center>  
       <center><h2><?php echo $idv->nama_sekolah ?></h2></center>
       <center><?php echo $idv->sejarah ?></center>
-      <center><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Visi Misi</button></center>
+      <center><a data-toggle="collapse" data-target="#demo" href="javascript:void(0);"><h4><span><i class="fas fa-arrow-down"></i></span><span style="text-decoration: none;">Visi Misi</span> <span><i class="fas fa-arrow-down"></i></span></h4></a></center>
       <hr>
     </div>
   </div>
@@ -101,7 +102,9 @@
     </div>
   </div>
   <div class="col-12">
-    <center><button class="btn btn-primary">Daftar Sekarang</button></center>
+    <?php if ($idv->penerimaan==1): ?>
+      <center><a href="<?php echo base_url('User') ?>"><h3 style="color: white">Daftar Sekarang</h3></a></button></center>
+    <?php endif ?>
   </div>
 </div>
 </div>
