@@ -8,6 +8,7 @@ public function daftar()
 		$data['datanav'] = $this->db->get('navitem')->result();
 		$data['vnav'] = "nav/home_v";
 		$data['view'] = 'Users/Daftarsiswa';
+		$data['id'] = $this->db->get('identitas')->result();
 		$this->load->view('layout/User', $data);
 }
 

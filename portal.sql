@@ -475,6 +475,7 @@ CREATE TABLE `siswa` (
   `tahun_lulus` int(7) DEFAULT NULL,
   `status` enum('aktif','tidak aktif','pending','gagal','seleksi') NOT NULL,
   `jurusan` enum('ipa','ips') DEFAULT NULL,
+  `agama` enum('Islam','Budha','Kristen') DEFAULT NULL,
   PRIMARY KEY (`nis`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -485,7 +486,7 @@ CREATE TABLE `siswa` (
 
 LOCK TABLES `siswa` WRITE;
 /*!40000 ALTER TABLE `siswa` DISABLE KEYS */;
-INSERT INTO `siswa` VALUES (1,'1','1','1111-01-01','Laki-laki','','1','1','1','1','1','1','1','1','1',NULL,'1','1','1',1,'aktif',NULL),(2,'2','22','0022-02-02','Laki-laki','','2','2','2','2','2','2','2','2','2',NULL,'2','2','2',2,'aktif',NULL),(3,'3','3','0003-03-03','Laki-laki','','3','3','3','3','3','3','3','3','3',NULL,'3','33','3',3,'aktif',NULL);
+INSERT INTO `siswa` VALUES (1,'1','1','1111-01-01','Laki-laki','','1','1','1','1','1','1','1','1','1',NULL,'1','1','1',1,'aktif',NULL,NULL),(2,'2','22','0022-02-02','Laki-laki','','2','2','2','2','2','2','2','2','2',NULL,'2','2','2',2,'aktif',NULL,NULL),(3,'3','3','0003-03-03','Laki-laki','','3','3','3','3','3','3','3','3','3',NULL,'3','33','3',3,'aktif',NULL,NULL);
 /*!40000 ALTER TABLE `siswa` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -853,4 +854,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-25 11:19:32
+-- Dump completed on 2019-06-26  0:42:26

@@ -567,8 +567,12 @@ class Custom extends CI_Controller {
 	public function siswaupdateSetting(){
 		$a = $this->input->post('thn');
 		$b = $this->input->post('jumlah');
+		$c = $this->input->post('isi');
+		$d = $this->input->post('tutup');
 		$this->db->set('tahun_penerimaan', $a);
 		$this->db->set('maks', $b);
+		$this->db->set('note', $c);
+		$this->db->set('tutup_pendaftaran', $d);
 		$this->db->update('identitas');
 	}
 
@@ -589,7 +593,7 @@ class Custom extends CI_Controller {
 	}
 
 	public function siswaFull(){
-		$data['siswa'] = $this->db->get('siswa')->result();
+		$data['siswa1'] = $this->db->get('siswa')->result();
 		$this->load->view('page/ajax/siswa', $data);
 	}
 

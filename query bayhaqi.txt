@@ -9,3 +9,13 @@ BEGIN
 END !
 
 create or replace view allpost as select a.judul, a.kategori, a.status ,a.tanggal from  post a inner join  user b where b.id = a.id_user;
+
+
+CREATE EVENT IF NOT EXISTS `portal`.`verifikasi_expired`
+ON SCHEDULE
+EVERY 1 DAY 
+COMMENT 'Auto Hapus verifikasi yang tenggat waktu'
+DO
+BEGIN
+DELETE FROM verifikasi WHERE habis_waktu < curedate() - INTERVAL 7 DAY;
+END;

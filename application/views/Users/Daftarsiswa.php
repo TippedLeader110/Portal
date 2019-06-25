@@ -113,6 +113,10 @@
 						
 						<label>Alamat</label>
 						<textarea type="text" id="alamat" name="alamat" class="form-control required" cols="40" rows="5"></textarea><br>
+						<?php foreach ($id as $key => $valid): ?>
+              
+            			<?php endforeach ?>
+            			<input type="text" hidden name="tahun_p" value="<?php echo $valid->tahun_penerimaan ?>">
 
 						<label>Tanggal Lahir</label>
 						<input type="date" id="tanggal_lahir" name="tanggal_lahir"class="form-control required"><br>

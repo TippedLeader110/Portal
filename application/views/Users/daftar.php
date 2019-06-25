@@ -25,9 +25,12 @@
 			<ol>
 				<li>Daftar akun pada halaman ini <a href="user/daftar">link</a></li>
 				<li>Setelah mengisi semua form pendaftaran , peserta didik baru diharapkan mengantarkan berkas yang diminta ke sekolah untuk verifikasi</li>
-				<li>Setelah verifikasi peserta didik baru dapat menunggu hasil seleksi di tanggal yang di tentukan yaitu ( ) </li>
+				<li>Setelah verifikasi peserta didik baru dapat menunggu hasil seleksi di tanggal yang di tentukan yaitu ( <?php echo $setval->tutup_pendaftaran ?> ) </li>
 			</ol>
-
+			<h4>Catatan Tambahan</h4>
+				<?php foreach ($id as $key => $vlist): ?>
+					<?php echo $vlist->note ?>
+				<?php endforeach ?>
 		</div>
 	</div>
 </div>
