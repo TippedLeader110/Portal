@@ -21,3 +21,6 @@ kalo kau nanya kenapa ga kau aja yg buat bay jawab ku = karna aku rajin ga kaya 
 query view allpost
 
 create or replace view allpost as select b.nama , a.judul, a.tanggal, a.status, a.kategori from post a inner join user on a.id_user = b.id_user ;
+
+
+create or replace view allpost as select a.id_post, a.isi, a.judul, b.nama, a.tanggal, a.status, d.nama_kategori, a.cover from post a inner join user b on a.id_user = b.id_user inner join kategori d on a.id_kategori = d.id_kategori 

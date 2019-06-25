@@ -79,6 +79,7 @@ input:checked + .slider:before {
       <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" onclick="siswa();" role="tab" aria-controls="v-pills-profile" aria-selected="false">Daftar Siswa</a>
       <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" onclick="siswab()" aria-controls="v-pills-messages" aria-selected="false">Siswa Baru</a>
       <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" onclick="setting();" role="tab" aria-controls="v-pills-settings" aria-selected="false">Penerimaan</a>
+      <a class="nav-link" id="v-pills-ver-tab" data-toggle="pill" href="#v-pills-ver" onclick="verifikasi();" role="tab" aria-controls="v-pills-ver" aria-selected="false">Verifikasi</a>
     </div>
   </div>
   <div class="col-10">
@@ -152,6 +153,11 @@ input:checked + .slider:before {
         
       </div>
     </div>
+    <div class="tab-pane fade" id="v-pills-ver" role="tabpanel" aria-labelledby="v-pills-ver-tab">
+      <div id="verifi">
+        
+      </div>
+    </div>
   </div>
   </div>
 </div>
@@ -175,6 +181,9 @@ input:checked + .slider:before {
       $('#akreak').load('<?php echo base_url('Custom/sisSetting') ?>').hide().fadeIn('slow');
     }
 
+    function verifikasi(){
+      $('#verifi').load('<?php echo base_url('Custom/sisVerifikasi') ?>').hide().fadeIn('slow');
+    }
     
     function akreak(a){
       $.ajax({

@@ -59,12 +59,12 @@ SET character_set_client = utf8;
 /*!50001 CREATE TABLE `allpost` (
   `id_post` tinyint NOT NULL,
   `isi` tinyint NOT NULL,
-  `nama` tinyint NOT NULL,
   `judul` tinyint NOT NULL,
+  `nama` tinyint NOT NULL,
   `tanggal` tinyint NOT NULL,
   `status` tinyint NOT NULL,
   `nama_kategori` tinyint NOT NULL,
-  `id_kategori` tinyint NOT NULL
+  `cover` tinyint NOT NULL
 ) ENGINE=MyISAM */;
 SET character_set_client = @saved_cs_client;
 
@@ -129,7 +129,7 @@ CREATE TABLE `identitas` (
 
 LOCK TABLES `identitas` WRITE;
 /*!40000 ALTER TABLE `identitas` DISABLE KEYS */;
-INSERT INTO `identitas` VALUES (1,'DEMO SCHOOL','<p>&nbsp;&nbsp;&ldquo;Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global&rdquo;</p>\n','<p>1.&nbsp; &nbsp;Mewujudkan pendidikan untuk menghasilkan prestasi dan lulusa berkwalitas tinggi yang peduli dengan lingkungan hidup</p>\n\n<p>2. &nbsp; Mewujudkan sumber daya manusia yang beriman, produktif, kreatif, inofatif dan efektif</p>\n\n<p>3. &nbsp; Mewujudkan pengembangan inovasi pembelajaran sesuai tuntutan</p>\n\n<p>4. &nbsp; Mewujudkan sumber daya manusia yang peduli dalam mencegahan pencemaran, mencegahan kerusakan lingkungan dan melestarikan lingkungan hidup</p>\n\n<p>5. &nbsp; Mewujudkan sarana prasarana reprensentatif dan up to date</p>\n\n<p>6. &nbsp; Mewujudkan pengelolaan pendidikan yang professional</p>\n\n<p>7. &nbsp; Mewujudkan sistim penilaian yang berafiliasi</p>\n\n<p>8. &nbsp; Mewujudkan budaya yang berkualifikasi</p>\n\n<p>9. &nbsp; Mewujudkan Sekolah yang bersih,hijau dan meminimalis hasil sampah yang tidak bermanfaat</p>\n\n<p>10. Mewujudkan manusia Indonesia yang mampu berkontribusi pada kehidupan bermasyarakat, berbangsa, bernegara dalam peradaban dunia</p>\n\n<p>11. Mewujudkan generasi emas, sehat tanpa narkoba</p>\n','SEKOLAH INI DICIPTAKAN OLEH ALI HIDAYAT SETELAH DIUSIR DARI WAKANDA',1,2,1,2019,250,NULL,NULL);
+INSERT INTO `identitas` VALUES (1,'DEMO SCHOOL','<p>&nbsp;&nbsp;&ldquo;Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global&rdquo;</p>\n','<p>1.&nbsp; &nbsp;Mewujudkan pendidikan untuk menghasilkan prestasi dan lulusa berkwalitas tinggi yang peduli dengan lingkungan hidup</p>\n\n<p>2. &nbsp; Mewujudkan sumber daya manusia yang beriman, produktif, kreatif, inofatif dan efektif</p>\n\n<p>3. &nbsp; Mewujudkan pengembangan inovasi pembelajaran sesuai tuntutan</p>\n\n<p>4. &nbsp; Mewujudkan sumber daya manusia yang peduli dalam mencegahan pencemaran, mencegahan kerusakan lingkungan dan melestarikan lingkungan hidup</p>\n\n<p>5. &nbsp; Mewujudkan sarana prasarana reprensentatif dan up to date</p>\n\n<p>6. &nbsp; Mewujudkan pengelolaan pendidikan yang professional</p>\n\n<p>7. &nbsp; Mewujudkan sistim penilaian yang berafiliasi</p>\n\n<p>8. &nbsp; Mewujudkan budaya yang berkualifikasi</p>\n\n<p>9. &nbsp; Mewujudkan Sekolah yang bersih,hijau dan meminimalis hasil sampah yang tidak bermanfaat</p>\n\n<p>10. Mewujudkan manusia Indonesia yang mampu berkontribusi pada kehidupan bermasyarakat, berbangsa, bernegara dalam peradaban dunia</p>\n\n<p>11. Mewujudkan generasi emas, sehat tanpa narkoba</p>\n','SEKOLAH INI DICIPTAKAN OLEH ALI HIDAYAT SETELAH DIUSIR DARI WAKANDA',1,2,0,2019,250,'2019-07-15','<ol>\n	<li>Saat verifikasi di kenakan biaya pendaftaran sebesar Rp.100.000,00</li>\n</ol>\n');
 /*!40000 ALTER TABLE `identitas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -303,6 +303,30 @@ INSERT INTO `mapel` VALUES (1,'MateMatika'),(2,'Fisika'),(3,'Kimia'),(4,'Biologi
 UNLOCK TABLES;
 
 --
+-- Table structure for table `mapelujian`
+--
+
+DROP TABLE IF EXISTS `mapelujian`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `mapelujian` (
+  `id_mujian` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_mujian` varchar(40) NOT NULL,
+  PRIMARY KEY (`id_mujian`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `mapelujian`
+--
+
+LOCK TABLES `mapelujian` WRITE;
+/*!40000 ALTER TABLE `mapelujian` DISABLE KEYS */;
+INSERT INTO `mapelujian` VALUES (1,'Matematika'),(2,'Bahasa Indonesia'),(3,'Bahasa Ingriss'),(4,'Ilmu Pengetahuan Alam');
+/*!40000 ALTER TABLE `mapelujian` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `navitem`
 --
 
@@ -339,14 +363,12 @@ DROP TABLE IF EXISTS `nilai`;
 CREATE TABLE `nilai` (
   `id_nilai` int(11) NOT NULL AUTO_INCREMENT,
   `nis` int(11) NOT NULL,
-  `matematika` int(11) NOT NULL,
-  `b_inggris` int(11) NOT NULL,
-  `b_indonesia` int(11) NOT NULL,
-  `ipa` int(11) NOT NULL,
-  `foto_skhun` text NOT NULL,
+  `id_mujian` int(11) NOT NULL,
+  `nilai` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_nilai`),
-  KEY `nis` (`nis`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `nis` (`nis`),
+  KEY `id_mujian` (`id_mujian`)
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -355,38 +377,9 @@ CREATE TABLE `nilai` (
 
 LOCK TABLES `nilai` WRITE;
 /*!40000 ALTER TABLE `nilai` DISABLE KEYS */;
+INSERT INTO `nilai` VALUES (53,1,2,100),(54,1,4,100),(55,1,1,100),(56,1,3,100),(57,2,2,40),(58,2,3,404),(59,2,1,40),(60,2,4,40),(61,3,3,4),(62,3,4,4),(63,3,1,4),(64,3,2,4);
 /*!40000 ALTER TABLE `nilai` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `verifikasi_done_2` BEFORE INSERT ON `nilai` FOR EACH ROW UPDATE verifikasi SET habis_waktu = null where nis = new.nis */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `verifikasi_done` AFTER INSERT ON `nilai` FOR EACH ROW DELETE from verifikasi WHERE nis = new.nis */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -476,8 +469,9 @@ CREATE TABLE `siswa` (
   `status` enum('aktif','tidak aktif','pending','gagal','seleksi') NOT NULL,
   `jurusan` enum('ipa','ips') DEFAULT NULL,
   `agama` enum('Islam','Budha','Kristen') DEFAULT NULL,
+  `foto_skhun` text,
   PRIMARY KEY (`nis`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -486,7 +480,7 @@ CREATE TABLE `siswa` (
 
 LOCK TABLES `siswa` WRITE;
 /*!40000 ALTER TABLE `siswa` DISABLE KEYS */;
-INSERT INTO `siswa` VALUES (1,'1','1','1111-01-01','Laki-laki','','1','1','1','1','1','1','1','1','1',NULL,'1','1','1',1,'aktif',NULL,NULL),(2,'2','22','0022-02-02','Laki-laki','','2','2','2','2','2','2','2','2','2',NULL,'2','2','2',2,'aktif',NULL,NULL),(3,'3','3','0003-03-03','Laki-laki','','3','3','3','3','3','3','3','3','3',NULL,'3','33','3',3,'aktif',NULL,NULL);
+INSERT INTO `siswa` VALUES (1,'1','1','1111-01-01','Laki-laki','','1','1','1','1','1','1','1','1','1',NULL,'1','1','1',1,'aktif',NULL,NULL,'76189825affd210ae1f66d9a44a5713c.jpg'),(2,'2','22','0022-02-02','Laki-laki','','2','2','2','2','2','2','2','2','2',NULL,'2','2','2',2,'pending',NULL,NULL,'5f2e202b9b90d66a54936dd77e68c288.jpg'),(3,'3','3','0003-03-03','Laki-laki','','3','3','3','3','3','3','3','3','3',NULL,'3','33','3',3,'seleksi',NULL,NULL,'10481ac2004ed862c5c622bbb7190926.jpg'),(4,'3','3','3333-03-31','Laki-laki','','3','3','3','3','3','3','3','3','3',NULL,'3','3','3',3,'aktif',NULL,NULL,'test');
 /*!40000 ALTER TABLE `siswa` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -499,29 +493,6 @@ UNLOCK TABLES;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `verifikasi_data` AFTER INSERT ON `siswa` FOR EACH ROW INSERT INTO verifikasi (habis_waktu, nis) VALUES (curdate(), new.nis) */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `update_siswa_log` AFTER UPDATE ON `siswa` FOR EACH ROW BEGIN
-INSERT INTO log_siswa
-set nis = OLD.nis,
-nama_siswa = OLD.nama_siswa,
-jenis_kel = OLD.jenis_kel,
-alamat = old.alamat,
-waktu = curdate(),
-status = 'ubah';
-END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -665,7 +636,7 @@ CREATE TABLE `verifikasi` (
   `nis` int(11) NOT NULL,
   PRIMARY KEY (`nomor_verifikasi`),
   KEY `nis` (`nis`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -674,7 +645,7 @@ CREATE TABLE `verifikasi` (
 
 LOCK TABLES `verifikasi` WRITE;
 /*!40000 ALTER TABLE `verifikasi` DISABLE KEYS */;
-INSERT INTO `verifikasi` VALUES (1,'2019-06-11',1),(2,'2019-06-25',2),(3,'2019-06-25',3);
+INSERT INTO `verifikasi` VALUES (4,'2019-06-26',4);
 /*!40000 ALTER TABLE `verifikasi` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -687,9 +658,9 @@ UNLOCK TABLES;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `ver_success_1` AFTER DELETE ON `verifikasi` FOR EACH ROW BEGIN
-IF(old.habis_waktu=null)
+IF(old.habis_waktu='0000-00-00')
 THEN
-UPDATE siswa SET STATUS = 'aktif' WHERE nis = old.nis;
+UPDATE siswa SET STATUS = 'seleksi' WHERE nis = old.nis;
 ELSEIF(old.habis_waktu<>null)
 THEN
 DELETE from siswa WHERE nis = old.nis;
@@ -821,7 +792,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = cp932_japanese_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `allpost` AS select `a`.`id_post` AS `id_post`,`a`.`isi` AS `isi`,`c`.`nama` AS `nama`,`a`.`judul` AS `judul`,`a`.`tanggal` AS `tanggal`,`a`.`status` AS `status`,`b`.`nama_kategori` AS `nama_kategori`,`b`.`id_kategori` AS `id_kategori` from ((`post` `a` join `kategori` `b` on((`a`.`id_kategori` = `b`.`id_kategori`))) join `user` `c` on((`a`.`id_user` = `c`.`id_user`))) */;
+/*!50001 VIEW `allpost` AS select `a`.`id_post` AS `id_post`,`a`.`isi` AS `isi`,`a`.`judul` AS `judul`,`b`.`nama` AS `nama`,`a`.`tanggal` AS `tanggal`,`a`.`status` AS `status`,`d`.`nama_kategori` AS `nama_kategori`,`a`.`cover` AS `cover` from ((`post` `a` join `user` `b` on((`a`.`id_user` = `b`.`id_user`))) join `kategori` `d` on((`a`.`id_kategori` = `d`.`id_kategori`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -854,4 +825,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-26  0:42:26
+-- Dump completed on 2019-06-26  3:52:21

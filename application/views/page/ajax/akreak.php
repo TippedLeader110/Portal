@@ -38,7 +38,6 @@
                   </div>
                   
                   
-                <?php endif ?>
               </div>
               <div class="col-7">
                   <div class="form-group">
@@ -52,6 +51,7 @@
                     <button type="submit" class="btn btn-group-vertical btn-outline-primary">Simpan</button>
                   </div>
               </div>
+                <?php endif ?>
             </div>
 
           </div>

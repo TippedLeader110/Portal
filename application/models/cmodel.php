@@ -94,6 +94,13 @@ class cmodel extends CI_Model {
 		$this->db->insert('post', $data);
 	}
 
+	public function saveSKHU($SKHU,$nis){
+		$this->db->where('nis', $nis);
+		$this->db->set('foto_skhun', $SKHU);
+		$this->db->update('siswa');
+		// $this->db->query("UPDATE siswa set foto_skhun = '".$SKHU."' where nis = ".$nis."");
+	}
+
 	public function updatePostnow($title,$waktu,$Kategori,$isi, $stat, $cover, $id){
 		$this->db->set('judul', $title);
 		$this->db->set('tanggal', $waktu);
@@ -146,7 +153,7 @@ class cmodel extends CI_Model {
 		return $query = $this->db->get('kategori',$number,$offset)->result();
 	}
 	function sendit($post){
-		$data = array('nama_siswa' => $post['nama'], 'alamat' => $post['alamat'], 'jenis_kel' => $post['jeniskel'],'tgl_lahir' => $post['tanggal_lahir'], 'nama_ayah' => $post['nama_ayah'], 'pend_akhir_ayah' => $post['pend_ayah'], 'pekerjaan_ayah' => $post['pekerjaan_ayah'], 'nama_ibu' => $post['nama_ibu'], 'pekerjaan_ibu' => $post['pekerjaan_ibu'], 'pend_akhir_ibu' => $post['pend_ibu'], 'alamat_ortu' => $post['alamat_ortu'], 'nama_wali' => $post['nama_wali'], 'pend_akhir_wali' => $post['pend_wali'], 'alamat_wali' => $post['alamat_wali'], 'sekolah_asal' => $post['sekolah_asal'], 'alamat_sekolah' => $post['alamat_sekolah'], 'tahun_lulus' => $post['tahun_lulus'], 'thn_ajaran' => $post['tahun_p']);
+		$data = array('nama_siswa' => $post['nama'], 'alamat' => $post['alamat'], 'jenis_kel' => $post['jeniskel'],'tgl_lahir' => $post['tanggal_lahir'], 'nama_ayah' => $post['nama_ayah'], 'pend_akhir_ayah' => $post['pend_ayah'], 'pekerjaan_ayah' => $post['pekerjaan_ayah'], 'nama_ibu' => $post['nama_ibu'], 'pekerjaan_ibu' => $post['pekerjaan_ibu'], 'pend_akhir_ibu' => $post['pend_ibu'], 'alamat_ortu' => $post['alamat_ortu'], 'nama_wali' => $post['nama_wali'], 'pend_akhir_wali' => $post['pend_wali'], 'alamat_wali' => $post['alamat_wali'], 'sekolah_asal' => $post['sekolah_asal'], 'alamat_sekolah' => $post['alamat_sekolah'], 'tahun_lulus' => $post['tahun_lulus'], 'thn_ajaran' => $post['tahun_p'], 'status' => 'pending');
 		$this->db->insert('siswa', $data);
 		return $this->db->insert_id();
 	}

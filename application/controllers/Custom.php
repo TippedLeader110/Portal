@@ -576,10 +576,58 @@ class Custom extends CI_Controller {
 		$this->db->update('identitas');
 	}
 
+
 	public function sisSetting(){
 		$data['set'] = $this->db->get('identitas')->result();
 		$this->load->view('page/ajax/akreak', $data);
 	}
+
+	public function sisVerifikasi(){
+		$data['set'] = $this->db->get('identitas')->result();
+		$this->load->view('page/ajax/verifikasi', $data);
+	}
+
+	public function sisCari($nilai){
+		$this->db->where('nomor_verifikasi', $nilai);
+		$data['set'] = $this->db->get('verifikasi')->result();
+		$for = $data['set'];
+		foreach ($for as $key => $value) {
+			$nis = $value->nis;
+		}
+		$this->db->where('nis', $nis);
+		$data['siswa'] = $this->db->get('siswa')->result();
+		$data['pel'] = $this->db->get('mapelujian')->result();
+		$this->load->view('page/ajax/verifikasi_2', $data);
+	}
+
+	public function sisVerdo(){
+		$post = $this->input->post();
+		$data = array('nis' =>  $post['nis'], 'nilai' => $post['nilai'], 'id_mujian' => $post['id']);
+		$this->db->insert('nilai', $data);
+	}
+
+	public function sisVerdofile(){
+		$config['upload_path']="./source/gambar/berkas"; //path folder file upload
+        $config['allowed_types']='gif|jpg|png'; //type file yang boleh di upload
+        $config['encrypt_name'] = TRUE; //enkripsi file name upload
+         
+        $this->load->library('upload',$config); //call library upload 
+        if($this->upload->do_upload("file")){ //upload file
+            $data = array('upload_data' => $this->upload->data()); //ambil file name yang diupload
+ 
+            $skhu= $data['upload_data']['file_name']; //set file name ke variable image
+            $nis = $this->input->post('nis');
+            $result= $this->cmodel->saveSKHU($skhu, $nis); //kirim value ke model m_upload
+            echo "1";
+            $this->db->query("UPDATE verifikasi set habis_waktu = null where nis = ".$nis."");
+            // $this->db->where('nis', $nis);
+            // $this->db->delete('verifikasi');
+        }
+        else{
+        	echo "0";
+        }
+    }
+
 
 	public function akreak(){
 		$val = $this->input->post('awl');
