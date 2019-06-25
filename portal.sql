@@ -117,6 +117,8 @@ CREATE TABLE `identitas` (
   `penerimaan` int(11) DEFAULT NULL,
   `tahun_penerimaan` int(11) DEFAULT NULL,
   `maks` int(11) DEFAULT NULL,
+  `tutup_pendaftaran` date DEFAULT NULL,
+  `note` text,
   PRIMARY KEY (`id_identitas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -127,7 +129,7 @@ CREATE TABLE `identitas` (
 
 LOCK TABLES `identitas` WRITE;
 /*!40000 ALTER TABLE `identitas` DISABLE KEYS */;
-INSERT INTO `identitas` VALUES (1,'DEMO SCHOOL','<p>&nbsp;&nbsp;&ldquo;Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global&rdquo;</p>\n','<p>1.&nbsp; &nbsp;Mewujudkan pendidikan untuk menghasilkan prestasi dan lulusa berkwalitas tinggi yang peduli dengan lingkungan hidup</p>\n\n<p>2. &nbsp; Mewujudkan sumber daya manusia yang beriman, produktif, kreatif, inofatif dan efektif</p>\n\n<p>3. &nbsp; Mewujudkan pengembangan inovasi pembelajaran sesuai tuntutan</p>\n\n<p>4. &nbsp; Mewujudkan sumber daya manusia yang peduli dalam mencegahan pencemaran, mencegahan kerusakan lingkungan dan melestarikan lingkungan hidup</p>\n\n<p>5. &nbsp; Mewujudkan sarana prasarana reprensentatif dan up to date</p>\n\n<p>6. &nbsp; Mewujudkan pengelolaan pendidikan yang professional</p>\n\n<p>7. &nbsp; Mewujudkan sistim penilaian yang berafiliasi</p>\n\n<p>8. &nbsp; Mewujudkan budaya yang berkualifikasi</p>\n\n<p>9. &nbsp; Mewujudkan Sekolah yang bersih,hijau dan meminimalis hasil sampah yang tidak bermanfaat</p>\n\n<p>10. Mewujudkan manusia Indonesia yang mampu berkontribusi pada kehidupan bermasyarakat, berbangsa, bernegara dalam peradaban dunia</p>\n\n<p>11. Mewujudkan generasi emas, sehat tanpa narkoba</p>\n','SEKOLAH INI DICIPTAKAN OLEH ALI HIDAYAT SETELAH DIUSIR DARI WAKANDA',1,2,1,2019,250);
+INSERT INTO `identitas` VALUES (1,'DEMO SCHOOL','<p>&nbsp;&nbsp;&ldquo;Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global&rdquo;</p>\n','<p>1.&nbsp; &nbsp;Mewujudkan pendidikan untuk menghasilkan prestasi dan lulusa berkwalitas tinggi yang peduli dengan lingkungan hidup</p>\n\n<p>2. &nbsp; Mewujudkan sumber daya manusia yang beriman, produktif, kreatif, inofatif dan efektif</p>\n\n<p>3. &nbsp; Mewujudkan pengembangan inovasi pembelajaran sesuai tuntutan</p>\n\n<p>4. &nbsp; Mewujudkan sumber daya manusia yang peduli dalam mencegahan pencemaran, mencegahan kerusakan lingkungan dan melestarikan lingkungan hidup</p>\n\n<p>5. &nbsp; Mewujudkan sarana prasarana reprensentatif dan up to date</p>\n\n<p>6. &nbsp; Mewujudkan pengelolaan pendidikan yang professional</p>\n\n<p>7. &nbsp; Mewujudkan sistim penilaian yang berafiliasi</p>\n\n<p>8. &nbsp; Mewujudkan budaya yang berkualifikasi</p>\n\n<p>9. &nbsp; Mewujudkan Sekolah yang bersih,hijau dan meminimalis hasil sampah yang tidak bermanfaat</p>\n\n<p>10. Mewujudkan manusia Indonesia yang mampu berkontribusi pada kehidupan bermasyarakat, berbangsa, bernegara dalam peradaban dunia</p>\n\n<p>11. Mewujudkan generasi emas, sehat tanpa narkoba</p>\n','SEKOLAH INI DICIPTAKAN OLEH ALI HIDAYAT SETELAH DIUSIR DARI WAKANDA',1,2,1,2019,250,NULL,NULL);
 /*!40000 ALTER TABLE `identitas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +146,7 @@ CREATE TABLE `img` (
   `deskripsi` text NOT NULL,
   `tipe` enum('public','private') DEFAULT NULL,
   PRIMARY KEY (`id_img`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -262,7 +264,8 @@ CREATE TABLE `log_siswa` (
   `b_inggris` int(11) NOT NULL,
   `b.indonesia` int(11) NOT NULL,
   `ipa` int(11) NOT NULL,
-  `waktu` date NOT NULL
+  `waktu` date NOT NULL,
+  `status` enum('ubah','hapus') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -341,7 +344,8 @@ CREATE TABLE `nilai` (
   `b_indonesia` int(11) NOT NULL,
   `ipa` int(11) NOT NULL,
   `foto_skhun` text NOT NULL,
-  PRIMARY KEY (`id_nilai`)
+  PRIMARY KEY (`id_nilai`),
+  KEY `nis` (`nis`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -356,23 +360,50 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = cp932 */ ;
-/*!50003 SET character_set_results = cp932 */ ;
-/*!50003 SET collation_connection  = cp932_japanese_ci */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER ubah_nilai
-AFTER UPDATE ON nilai
-FOR EACH ROW
-BEGIN
-INSERT INTO log_nilai
-SET nis=old.nis,
-matematika=old.matematika,
-b_indonesia=old.b_indonesia,
-b_inggris=old.b_inggris,
-ipa=old.ipa,
-waktu=NOW();
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `verifikasi_done_2` BEFORE INSERT ON `nilai` FOR EACH ROW UPDATE verifikasi SET habis_waktu = null where nis = new.nis */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `verifikasi_done` AFTER INSERT ON `nilai` FOR EACH ROW DELETE from verifikasi WHERE nis = new.nis */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `ubah_nilai` AFTER UPDATE ON `nilai` FOR EACH ROW BEGIN
+INSERT INTO log_nilai
+SET nis=old.nis,
+matematika=old.matematika,
+b_indonesia=old.b_indonesia,
+b_inggris=old.b_inggris,
+ipa=old.ipa,
+waktu=CURDATE();
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -422,7 +453,7 @@ DROP TABLE IF EXISTS `siswa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `siswa` (
-  `nis` int(11) NOT NULL,
+  `nis` int(11) NOT NULL AUTO_INCREMENT,
   `nama_siswa` varchar(50) NOT NULL,
   `alamat` varchar(50) NOT NULL,
   `tgl_lahir` date NOT NULL,
@@ -436,15 +467,16 @@ CREATE TABLE `siswa` (
   `pekerjaan_ibu` varchar(20) NOT NULL,
   `alamat_ortu` varchar(50) NOT NULL,
   `nama_wali` varchar(50) DEFAULT NULL,
+  `pend_akhir_wali` varchar(50) DEFAULT NULL,
   `pekerjaan_wali` varchar(20) DEFAULT NULL,
   `alamat_wali` varchar(50) DEFAULT NULL,
   `sekolah_asal` varchar(30) NOT NULL,
   `alamat_sekolah` varchar(50) NOT NULL,
   `tahun_lulus` int(7) DEFAULT NULL,
-  `status` enum('aktif','tidak aktif','pending') NOT NULL,
+  `status` enum('aktif','tidak aktif','pending','gagal','seleksi') NOT NULL,
   `jurusan` enum('ipa','ips') DEFAULT NULL,
   PRIMARY KEY (`nis`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -453,6 +485,7 @@ CREATE TABLE `siswa` (
 
 LOCK TABLES `siswa` WRITE;
 /*!40000 ALTER TABLE `siswa` DISABLE KEYS */;
+INSERT INTO `siswa` VALUES (1,'1','1','1111-01-01','Laki-laki','','1','1','1','1','1','1','1','1','1',NULL,'1','1','1',1,'aktif',NULL),(2,'2','22','0022-02-02','Laki-laki','','2','2','2','2','2','2','2','2','2',NULL,'2','2','2',2,'aktif',NULL),(3,'3','3','0003-03-03','Laki-laki','','3','3','3','3','3','3','3','3','3',NULL,'3','33','3',3,'aktif',NULL);
 /*!40000 ALTER TABLE `siswa` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -460,17 +493,56 @@ UNLOCK TABLES;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `hapus_siswa` AFTER DELETE ON `siswa` FOR EACH ROW BEGIN
-INSERT INTO log_siswa
-set nis = OLD.nis,
-nama_siswa = OLD.nama_siswa,
-jenis_kel = OLD.jenis_kel,
-alamat = old.alamat,
-waktu = now();
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `verifikasi_data` AFTER INSERT ON `siswa` FOR EACH ROW INSERT INTO verifikasi (habis_waktu, nis) VALUES (curdate(), new.nis) */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `update_siswa_log` AFTER UPDATE ON `siswa` FOR EACH ROW BEGIN
+INSERT INTO log_siswa
+set nis = OLD.nis,
+nama_siswa = OLD.nama_siswa,
+jenis_kel = OLD.jenis_kel,
+alamat = old.alamat,
+waktu = curdate(),
+status = 'ubah';
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `hapus_siswa` AFTER DELETE ON `siswa` FOR EACH ROW BEGIN
+INSERT INTO log_siswa
+set nis = OLD.nis,
+nama_siswa = OLD.nama_siswa,
+jenis_kel = OLD.jenis_kel,
+alamat = old.alamat,
+waktu = curdate(),
+status = 'hapus';
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -578,6 +650,55 @@ LOCK TABLES `user` WRITE;
 INSERT INTO `user` VALUES (1,'admin','','admin'),(2,'Muhammad Bayhaqi Daulay','bayhaqi','5b75bd843edb24b0ace1d5eba6625272'),(3,'Demo Admin','admin','21232f297a57a5a743894a0e4a801fc3');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `verifikasi`
+--
+
+DROP TABLE IF EXISTS `verifikasi`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `verifikasi` (
+  `nomor_verifikasi` int(11) NOT NULL AUTO_INCREMENT,
+  `habis_waktu` date NOT NULL,
+  `nis` int(11) NOT NULL,
+  PRIMARY KEY (`nomor_verifikasi`),
+  KEY `nis` (`nis`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `verifikasi`
+--
+
+LOCK TABLES `verifikasi` WRITE;
+/*!40000 ALTER TABLE `verifikasi` DISABLE KEYS */;
+INSERT INTO `verifikasi` VALUES (1,'2019-06-11',1),(2,'2019-06-25',2),(3,'2019-06-25',3);
+/*!40000 ALTER TABLE `verifikasi` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `ver_success_1` AFTER DELETE ON `verifikasi` FOR EACH ROW BEGIN
+IF(old.habis_waktu=null)
+THEN
+UPDATE siswa SET STATUS = 'aktif' WHERE nis = old.nis;
+ELSEIF(old.habis_waktu<>null)
+THEN
+DELETE from siswa WHERE nis = old.nis;
+end if;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Dumping routines for database 'portal'
@@ -732,4 +853,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-24 19:04:26
+-- Dump completed on 2019-06-25 11:19:32

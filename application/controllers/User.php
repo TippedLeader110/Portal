@@ -12,9 +12,19 @@ public function daftar()
 }
 
 public function daftarsave()
+{		
+            $post = $this->input->post();
+			$data = $this->cmodel->sendit($post);
+			redirect(base_url("user/Sukses/".$data.""), 'refresh');
+}
+
+public function Sukses($d)
 {
-		$post = $this->input->post();
-		$this->cmodel->sendit($post);
+		$data['datanav'] = $this->db->get('navitem')->result();
+		$data['vnav'] = "nav/home_v";
+		$data['view'] = 'Users/success';
+		$data['val'] = $d;
+		$this->load->view('layout/User', $data);
 }
 
 public function daftarAkun()

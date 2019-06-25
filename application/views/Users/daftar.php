@@ -23,11 +23,9 @@
 			</ol>
 			<h4>Cara Mendaftar</h4>
 			<ol>
-				<li>Daftar akun pada halaman ini <a href="daftar">link</a></li>
-				<li>
-					Setelah mendaftar akun , peserta didik diharapkan login lalu menambah data pada form yang ditampilkan
-				</li>
-				<li>Setelah mengisi semua form pendaftaran , peserta didik baru dapat menunggu hasil seleksi di halaman utama pada profile pada tanggal yang di tentukan</li>
+				<li>Daftar akun pada halaman ini <a href="user/daftar">link</a></li>
+				<li>Setelah mengisi semua form pendaftaran , peserta didik baru diharapkan mengantarkan berkas yang diminta ke sekolah untuk verifikasi</li>
+				<li>Setelah verifikasi peserta didik baru dapat menunggu hasil seleksi di tanggal yang di tentukan yaitu ( ) </li>
 			</ol>
 
 		</div>
