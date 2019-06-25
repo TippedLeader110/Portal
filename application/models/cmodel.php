@@ -94,6 +94,17 @@ class cmodel extends CI_Model {
 		$this->db->insert('post', $data);
 	}
 
+	public function updatePostnow($title,$waktu,$Kategori,$isi, $stat, $cover, $id){
+		$this->db->set('judul', $title);
+		$this->db->set('tanggal', $waktu);
+		$this->db->set('id_kategori', $Kategori);
+		$this->db->set('isi', $isi);
+		$this->db->set('cover', $cover);
+		$this->db->set('status', $stat);
+		$this->db->where('id_post', $id);
+		$this->db->update('post');
+	}
+
 	function simpan_upload($judul,$image,$tipe){
         $data = array(
                 'deskripsi' => $judul,
@@ -133,6 +144,10 @@ class cmodel extends CI_Model {
 	}
 	function kate($number,$offset){
 		return $query = $this->db->get('kategori',$number,$offset)->result();
+	}
+	function sendit($post){
+		$data = array('nama_siswa' => $post['nama'], 'alamat' => $post['alamat'], 'jenis_kel' => $post['jeniskel'],'tgl_lahir' => $post['tanggal_lahir'], 'nama_ayah' => $post['nama_ayah'], 'pend_akhir_ayah' => $post['pend_ayah'], 'pekerjaan_ayah' => $post['pekerjaan_ayah'], 'nama_ibu' => $post['nama_ibu'], 'pekerjaan_ibu' => $post['pekerjaan_ibu'], 'pend_akhir_ibu' => $post['pend_ibu'], 'alamat_ortu' => $post['alamat_ortu'], 'nama_wali' => $post['nama_wali'], 'pend_akhir_wali' => $post['pend_wali'], 'alamat_wali' => $post['alamat_wali'], 'sekolah_asal' => $post['sekolah_asal'], 'alamat_sekolah' => $post['alamat_sekolah'], 'tahun_lulus' => $post['tahun_lulus']);
+		$this->db->insert('siswa', $data);
 	}
 
 }

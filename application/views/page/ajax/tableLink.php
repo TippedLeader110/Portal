@@ -6,7 +6,7 @@
 		    				<td>Judul</td><td>Author</td><td>Status</td>
 		    			</tr>
 	<?php foreach ($post as $key => $p): ?>
-		    			<tr value="<?php echo base_url('Artikel/') ?><?php echo $p->id_post ?>">
+		    			<tr value="<?php echo base_url('Artikel/sekolah/') ?><?php echo $p->id_post ?>">
 		    				<td>
 		    					<?php echo $p->judul ?>
 		    				</td>

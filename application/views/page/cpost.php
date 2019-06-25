@@ -13,7 +13,7 @@
 			<hr>
 				<button class="btn btn-primary" onclick="create();"><div style="color: white">Buat Artikel</div><span><h2><i class="fas fa-pen"></i></h2></span></button>&nbsp;
 							<button onclick="show();" class="btn btn-info"><div style="color: white">Semua Artikel</div><span><h2><i class="fas fa-table" style="color: white"></i></h2></span></button>&nbsp;
-				<button class="btn btn-primary" onclick="create();"><div style="color: white">Artikel Saya</div><span><h2><i class="fas fa-pen"></i></h2></span></button>&nbsp;								 	
+				<button class="btn btn-primary" onclick="show2();"><div style="color: white">Artikel Saya</div><span><h2><i class="fas fa-pen"></i></h2></span></button>&nbsp;								 	
 							<button class="btn btn-primary" onclick="kate();"><div style="color: white">Kategori</div><span><h2><i class="fas fa-pen"></i></h2></span></button>&nbsp;	
 		</div>
 	</div>
@@ -30,6 +30,10 @@
 	function show(){
 		// alert('go');
 		$("#page").load('<?php echo base_url('Custom/postShow') ?>').hide().fadeIn('slow');
+	}
+	function show2(){
+		// alert('go');
+		$("#page").load('<?php echo base_url('Custom/postShow2') ?>').hide().fadeIn('slow');
 	}
 	function kate(){
 		// alert('go');

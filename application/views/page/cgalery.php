@@ -90,7 +90,12 @@ $(document).ready(function(){
 			                 	type: "success",
 			                 	timer: 3000
 			                 });
-                            $("#warna").load('<?php echo base_url('Custom/egalery')?>'+numberdude);
+                              if (numberdude=='undefined') {
+                              $("#warna").load('<?php echo base_url('Custom/egalery')?>'+numberdude);
+                              }
+                              else{
+                               $("#warna").load('<?php echo base_url('Custom/egalery')?>'); 
+                              }
                             $('#modal').modal('hide');
                            	}
                            	else{

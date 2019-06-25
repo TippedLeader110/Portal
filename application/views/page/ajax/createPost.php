@@ -122,10 +122,13 @@
            		console.log(data);
 			},
 			success: function(data){
-			
-				Swal.fire('Sukses', 'Artikel berhasi disimpan !!!', 'success'),
+				if (data!=0) {
+				Swal.fire('Sukses', 'Artikel berhasi disimpan !!!', 'success');
 				console.log(data);
-
+				$("#page").load('<?php echo base_url('Custom/postshow') ?>').hide().fadeIn('slow');
+			}else
+				Swal.fire('Error', 'Tolong upload cover !!!', 'error');
+				console.log(data);
 			}
 		});
 		}

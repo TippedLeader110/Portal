@@ -16,6 +16,21 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Temporary table structure for view `allcount`
+--
+
+DROP TABLE IF EXISTS `allcount`;
+/*!50001 DROP VIEW IF EXISTS `allcount`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `allcount` (
+  `jumlah_guru` tinyint NOT NULL,
+  `jumlah_post` tinyint NOT NULL,
+  `jumlah_navbar` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary table structure for view `allnavitem`
 --
 
@@ -43,27 +58,13 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 /*!50001 CREATE TABLE `allpost` (
   `id_post` tinyint NOT NULL,
+  `isi` tinyint NOT NULL,
   `nama` tinyint NOT NULL,
   `judul` tinyint NOT NULL,
   `tanggal` tinyint NOT NULL,
   `status` tinyint NOT NULL,
-  `nama_kategori` tinyint NOT NULL
-) ENGINE=MyISAM */;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary table structure for view `dropdown`
---
-
-DROP TABLE IF EXISTS `dropdown`;
-/*!50001 DROP VIEW IF EXISTS `dropdown`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE TABLE `dropdown` (
-  `id_item` tinyint NOT NULL,
-  `label` tinyint NOT NULL,
-  `link` tinyint NOT NULL,
-  `id_sub` tinyint NOT NULL
+  `nama_kategori` tinyint NOT NULL,
+  `id_kategori` tinyint NOT NULL
 ) ENGINE=MyISAM */;
 SET character_set_client = @saved_cs_client;
 
@@ -111,6 +112,11 @@ CREATE TABLE `identitas` (
   `visi` text NOT NULL,
   `misi` text NOT NULL,
   `sejarah` text NOT NULL,
+  `lhome` int(11) DEFAULT NULL,
+  `lartikel` int(11) DEFAULT NULL,
+  `penerimaan` int(11) DEFAULT NULL,
+  `tahun_penerimaan` int(11) DEFAULT NULL,
+  `maks` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_identitas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -121,7 +127,7 @@ CREATE TABLE `identitas` (
 
 LOCK TABLES `identitas` WRITE;
 /*!40000 ALTER TABLE `identitas` DISABLE KEYS */;
-INSERT INTO `identitas` VALUES (1,'ALI MTFCKER 4EVE','MENJADI SEKOLAH YANG TERBELAKANG DAN DIPENUHI WIBU','-MENJADI SEKOLAH TERBELAKANG\r\n-LULUSAN MENJADI WIBU\r\n-MENCINTAI GRAND BLUE SEGENAP HATI\r\n-HANYA NIGGA YANG DAPAT MASUK','SEKOLAH INI DICIPTAKAN OLEH ALI HIDAYAT SETELAH DIUSIR DARI WAKANDA');
+INSERT INTO `identitas` VALUES (1,'DEMO SCHOOL','<p>&nbsp;&nbsp;&ldquo;Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global&rdquo;</p>\n','<p>1.&nbsp; &nbsp;Mewujudkan pendidikan untuk menghasilkan prestasi dan lulusa berkwalitas tinggi yang peduli dengan lingkungan hidup</p>\n\n<p>2. &nbsp; Mewujudkan sumber daya manusia yang beriman, produktif, kreatif, inofatif dan efektif</p>\n\n<p>3. &nbsp; Mewujudkan pengembangan inovasi pembelajaran sesuai tuntutan</p>\n\n<p>4. &nbsp; Mewujudkan sumber daya manusia yang peduli dalam mencegahan pencemaran, mencegahan kerusakan lingkungan dan melestarikan lingkungan hidup</p>\n\n<p>5. &nbsp; Mewujudkan sarana prasarana reprensentatif dan up to date</p>\n\n<p>6. &nbsp; Mewujudkan pengelolaan pendidikan yang professional</p>\n\n<p>7. &nbsp; Mewujudkan sistim penilaian yang berafiliasi</p>\n\n<p>8. &nbsp; Mewujudkan budaya yang berkualifikasi</p>\n\n<p>9. &nbsp; Mewujudkan Sekolah yang bersih,hijau dan meminimalis hasil sampah yang tidak bermanfaat</p>\n\n<p>10. Mewujudkan manusia Indonesia yang mampu berkontribusi pada kehidupan bermasyarakat, berbangsa, bernegara dalam peradaban dunia</p>\n\n<p>11. Mewujudkan generasi emas, sehat tanpa narkoba</p>\n','SEKOLAH INI DICIPTAKAN OLEH ALI HIDAYAT SETELAH DIUSIR DARI WAKANDA',1,2,1,2019,250);
 /*!40000 ALTER TABLE `identitas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -147,7 +153,7 @@ CREATE TABLE `img` (
 
 LOCK TABLES `img` WRITE;
 /*!40000 ALTER TABLE `img` DISABLE KEYS */;
-INSERT INTO `img` VALUES (8,'3053546ffb15ee0aa5fb558792a08b44.PNG','DMEO','public'),(11,'5ca7b43ac177d97000b5f6fe1230661f.png','DMEO','private'),(12,'809640fcddb6905385eb4986ed5270a9.PNG','demo','public'),(13,'432018ef1dfa918af243c31ff8694758.PNG','demo','public'),(14,'f40fad3f9b9fb8d2a4c7c8e7a7ff7374.PNG','ww','public'),(15,'bb6b2cf23d6f3603fa1553d0f9745c4f.PNG','ww','public'),(16,'8b57fad322bbd43149398588ae8c2932.PNG','ww','public'),(17,'9785e05b14941782972befd7ef939032.png','wwww','public'),(18,'c36b05881d40579c54e2f1d4a14022d3.png','wwww','public'),(19,'c228a489be7041a621221d5420b7d05c.png','wwww','public'),(20,'1c4fa5642eade641abdbbf36e393e1d5.png','wwww','public'),(21,'db28442f1fe70ac1271d0e5b42567b5d.png','www','public'),(22,'bfbc776c7a4056328ebec0cf581db09f.png','ww','public'),(23,'444b9dd2ff7a73bc1efe784099bab717.png','ww','public'),(24,'e3032b8172bda13f11f6a9463fc408cf.PNG','ww','public'),(29,'ca02a99be3a8df4df7e47cd863b7c574.png','www','public');
+INSERT INTO `img` VALUES (8,'3053546ffb15ee0aa5fb558792a08b44.PNG','DMEO','public'),(11,'5ca7b43ac177d97000b5f6fe1230661f.png','DMEO','private'),(12,'809640fcddb6905385eb4986ed5270a9.PNG','demo','public'),(13,'432018ef1dfa918af243c31ff8694758.PNG','demo','public'),(14,'f40fad3f9b9fb8d2a4c7c8e7a7ff7374.PNG','ww','public'),(15,'bb6b2cf23d6f3603fa1553d0f9745c4f.PNG','ww','public'),(16,'8b57fad322bbd43149398588ae8c2932.PNG','ww','public'),(17,'9785e05b14941782972befd7ef939032.png','wwww','public'),(18,'c36b05881d40579c54e2f1d4a14022d3.png','wwww','public'),(19,'c228a489be7041a621221d5420b7d05c.png','wwww','public'),(20,'1c4fa5642eade641abdbbf36e393e1d5.png','wwww','public'),(21,'db28442f1fe70ac1271d0e5b42567b5d.png','www','public'),(22,'bfbc776c7a4056328ebec0cf581db09f.png','ww','public'),(23,'444b9dd2ff7a73bc1efe784099bab717.png','ww','public'),(24,'e3032b8172bda13f11f6a9463fc408cf.PNG','ww','public');
 /*!40000 ALTER TABLE `img` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -328,7 +334,8 @@ DROP TABLE IF EXISTS `nilai`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `nilai` (
-  `id_nilai` int(11) NOT NULL,
+  `id_nilai` int(11) NOT NULL AUTO_INCREMENT,
+  `nis` int(11) NOT NULL,
   `matematika` int(11) NOT NULL,
   `b_inggris` int(11) NOT NULL,
   `b_indonesia` int(11) NOT NULL,
@@ -346,24 +353,32 @@ LOCK TABLES `nilai` WRITE;
 /*!40000 ALTER TABLE `nilai` DISABLE KEYS */;
 /*!40000 ALTER TABLE `nilai` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Temporary table structure for view `nilai_siswa`
---
-
-DROP TABLE IF EXISTS `nilai_siswa`;
-/*!50001 DROP VIEW IF EXISTS `nilai_siswa`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE TABLE `nilai_siswa` (
-  `nis` tinyint NOT NULL,
-  `nama_siswa` tinyint NOT NULL,
-  `matematika` tinyint NOT NULL,
-  `b_inggris` tinyint NOT NULL,
-  `b_indonesia` tinyint NOT NULL,
-  `ipa` tinyint NOT NULL
-) ENGINE=MyISAM */;
-SET character_set_client = @saved_cs_client;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = cp932 */ ;
+/*!50003 SET character_set_results = cp932 */ ;
+/*!50003 SET collation_connection  = cp932_japanese_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER ubah_nilai
+AFTER UPDATE ON nilai
+FOR EACH ROW
+BEGIN
+INSERT INTO log_nilai
+SET nis=old.nis,
+matematika=old.matematika,
+b_indonesia=old.b_indonesia,
+b_inggris=old.b_inggris,
+ipa=old.ipa,
+waktu=NOW();
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `post`
@@ -408,7 +423,6 @@ DROP TABLE IF EXISTS `siswa`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `siswa` (
   `nis` int(11) NOT NULL,
-  `id_nilai` int(11) NOT NULL,
   `nama_siswa` varchar(50) NOT NULL,
   `alamat` varchar(50) NOT NULL,
   `tgl_lahir` date NOT NULL,
@@ -421,16 +435,15 @@ CREATE TABLE `siswa` (
   `pend_akhir_ibu` varchar(50) NOT NULL,
   `pekerjaan_ibu` varchar(20) NOT NULL,
   `alamat_ortu` varchar(50) NOT NULL,
-  `nama_wali` varchar(50) NOT NULL,
-  `pekerjaan_wali` varchar(20) NOT NULL,
-  `alamat_wali` varchar(50) NOT NULL,
+  `nama_wali` varchar(50) DEFAULT NULL,
+  `pekerjaan_wali` varchar(20) DEFAULT NULL,
+  `alamat_wali` varchar(50) DEFAULT NULL,
   `sekolah_asal` varchar(30) NOT NULL,
   `alamat_sekolah` varchar(50) NOT NULL,
-  `tahun_lulus` int(7) NOT NULL,
+  `tahun_lulus` int(7) DEFAULT NULL,
   `status` enum('aktif','tidak aktif','pending') NOT NULL,
-  PRIMARY KEY (`nis`),
-  KEY `nilai_id` (`id_nilai`),
-  CONSTRAINT `nilai_id` FOREIGN KEY (`id_nilai`) REFERENCES `nilai` (`id_nilai`) ON UPDATE CASCADE
+  `jurusan` enum('ipa','ips') DEFAULT NULL,
+  PRIMARY KEY (`nis`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -579,10 +592,31 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `allpost`(IN `ID` INT(11))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `allpost`(IN `AN` INT(11))
 BEGIN
 SELECT 
-a.id_post, a.judul, c.nama ,a.id_kategori, a.status , b.nama_kategori FROM post a inner join kategori b on a.id_kategori=b.id_kategori inner join user c on c.id_user = a.id_user where a.id_kategori=ID;
+a.id_post, a.judul, c.nama ,a.id_kategori, a.status , b.nama_kategori FROM post a inner join kategori b on a.id_kategori=b.id_kategori inner join user c on c.id_user = a.id_user where a.id_kategori = AN;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `mypost` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mypost`(IN `A` INT)
+    NO SQL
+BEGIN
+SELECT 
+a.id_post, a.judul, c.nama ,a.id_kategori, a.status , b.nama_kategori FROM post a inner join kategori b on a.id_kategori=b.id_kategori inner join user c on c.id_user = a.id_user where c.id_user=A;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -614,6 +648,25 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
+-- Final view structure for view `allcount`
+--
+
+/*!50001 DROP TABLE IF EXISTS `allcount`*/;
+/*!50001 DROP VIEW IF EXISTS `allcount`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = cp932 */;
+/*!50001 SET character_set_results     = cp932 */;
+/*!50001 SET collation_connection      = cp932_japanese_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `allcount` AS select (select count(0) from `guru`) AS `jumlah_guru`,(select count(0) from `post`) AS `jumlah_post`,(select count(0) from `navitem`) AS `jumlah_navbar` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `allnavitem`
 --
 
@@ -641,31 +694,12 @@ DELIMITER ;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET character_set_client      = cp932 */;
+/*!50001 SET character_set_results     = cp932 */;
+/*!50001 SET collation_connection      = cp932_japanese_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `allpost` AS select `a`.`id_post` AS `id_post`,`b`.`nama` AS `nama`,`a`.`judul` AS `judul`,`a`.`tanggal` AS `tanggal`,`a`.`status` AS `status`,`c`.`nama_kategori` AS `nama_kategori` from ((`post` `a` join `user` `b` on((`a`.`id_user` = `b`.`id_user`))) join `kategori` `c` on((`a`.`id_kategori` = `c`.`id_kategori`))) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `dropdown`
---
-
-/*!50001 DROP TABLE IF EXISTS `dropdown`*/;
-/*!50001 DROP VIEW IF EXISTS `dropdown`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `dropdown` AS select `navitem`.`id_item` AS `id_item`,`subnavitem`.`label` AS `label`,`subnavitem`.`link` AS `link`,`subnavitem`.`id_sub` AS `id_sub` from (`navitem` join `subnavitem`) where (`subnavitem`.`id_item` = `navitem`.`id_item`) */;
+/*!50001 VIEW `allpost` AS select `a`.`id_post` AS `id_post`,`a`.`isi` AS `isi`,`c`.`nama` AS `nama`,`a`.`judul` AS `judul`,`a`.`tanggal` AS `tanggal`,`a`.`status` AS `status`,`b`.`nama_kategori` AS `nama_kategori`,`b`.`id_kategori` AS `id_kategori` from ((`post` `a` join `kategori` `b` on((`a`.`id_kategori` = `b`.`id_kategori`))) join `user` `c` on((`a`.`id_user` = `c`.`id_user`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -688,25 +722,6 @@ DELIMITER ;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `nilai_siswa`
---
-
-/*!50001 DROP TABLE IF EXISTS `nilai_siswa`*/;
-/*!50001 DROP VIEW IF EXISTS `nilai_siswa`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `nilai_siswa` AS select `siswa`.`nis` AS `nis`,`siswa`.`nama_siswa` AS `nama_siswa`,`nilai`.`matematika` AS `matematika`,`nilai`.`b_inggris` AS `b_inggris`,`nilai`.`b_indonesia` AS `b_indonesia`,`nilai`.`ipa` AS `ipa` from (`nilai` join `siswa` on((`siswa`.`id_nilai` = `nilai`.`id_nilai`))) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -717,4 +732,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-18  8:06:52
+-- Dump completed on 2019-06-24 19:04:26

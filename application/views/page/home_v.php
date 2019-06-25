@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 <style type="text/css">
   
   .paral { 
@@ -81,26 +82,31 @@
       <center><h2>Selamat Datang Di Website Sekolah</h2></center>  
       <center><h2><?php echo $idv->nama_sekolah ?></h2></center>
       <center><?php echo $idv->sejarah ?></center>
+      <center><a data-toggle="collapse" data-target="#demo" href="javascript:void(0);"><h4><span><i class="fas fa-arrow-down"></i></span><span style="text-decoration: none;">Visi Misi</span> <span><i class="fas fa-arrow-down"></i></span></h4></a></center>
       <hr>
     </div>
   </div>
 </div>
+<div id="demo" class="collapse">
 <div class="row" style="background: #335C81;margin-top: 40px;padding-bottom: 50px;">
-  <div class="col-6">
+  <div class="col-12">
     <div class="container" style="padding-top: 50px;">
       <center><h3 style="color: white">Visi Sekolah</h3></center>
-      <center><p style="color: white"><?php echo $idv->visi ?></p></center>
-    </div>
-  </div>
-  <div class="col-6">
-    <div class="container" style="padding-top: 50px;">
-      <center><h3 style="color: white">Misi Sekolah</h3></center>
-      <center><p style="color: white"><?php echo $idv->misi ?></p></center>
+      <div class="white" style="color: white"><?php echo $idv->visi ?></div>
     </div>
   </div>
   <div class="col-12">
-    <center><button class="btn btn-primary">Daftar Sekarang</button></center>
+    <div class="container" style="padding-top: 50px;">
+      <center><h3 style="color: white">Misi Sekolah</h3></center>
+      <div class="white" style="color: white"><?php echo $idv->misi ?></div>
+    </div>
   </div>
+  <div class="col-12">
+    <?php if ($idv->penerimaan==1): ?>
+      <center><a href="<?php echo base_url('User') ?>"><h3 style="color: white">Daftar Sekarang</h3></a></button></center>
+    <?php endif ?>
+  </div>
+</div>
 </div>
 <div class="row">
   <div class="col-12">
@@ -132,11 +138,12 @@
 </div>
 <div class="row" style="background: $">
   <?php foreach ($post as $key => $valp): ?>
-    <div class="col-3">
+    <div class="col-3"><a href="<?php echo base_url('Artikel/sekolah/'); echo $valp->id_post; ?>">
+    
+    <div class="container" style="padding-top: 10px;padding-bottom: 10px;background: #335C81">
     <div class="container" style="height: 200px;background-image: url(<?php echo base_url('source/gambar/post/'); echo $valp->cover; ?>);background-position: center center">
     </div>
-    <div class="container" style="padding-top: 10px;padding-bottom: 10px;background: #335C81">
-      <center><span style="overflow: hidden;max-width: 0px;color: white"><?php echo $valp->judul ?></span></center>
+      <center><span style="overflow: hidden;max-width: 0px;color: white"><?php echo $valp->judul ?></a></span></center>
     </div>
   </div>
   <?php endforeach ?>

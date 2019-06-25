@@ -27,6 +27,7 @@ class Custom extends CI_Controller {
 	}
 	public function index()
 	{
+		$data['title'] = "Custom Admin";
 		$data['cmain'] = "page/cmain";
 		$data['home'] = 0;	 //Navbar ada apa ga
 		$data['ac'] = 1;     //Posisi aktif nav bar
@@ -38,10 +39,12 @@ class Custom extends CI_Controller {
 	public function getCmain(){
 		$id = $this->input->post('id');
 		if ($id=='report') {
+			$bay = $this->db->query('select * from allcount');
+			$k['blabla'] = $bay->result();
+			$this->load->view('page/ajax/mainReport', $k);
 			// $data['ret'] = $this->cmodel->getAllcount();
-			$this->load->view('page/ajax/mainReport');
 		}
-		elseif ($id=='user') {
+		elseif ($id=='log') {
 			# code...
 		}
 		elseif ($id=='pintas') {
@@ -317,10 +320,10 @@ class Custom extends CI_Controller {
              
             $result= $this->cmodel->simpan_upload($judul,$image,$tipe); //kirim value ke model m_upload
             echo json_decode($result);
-            return 1;
+            echo "1";
         }
         else{
-        	return 0;
+        	echo "0";
         }
 	}
 
@@ -364,9 +367,46 @@ class Custom extends CI_Controller {
 		$data['m'] = $ali->result();
 		$this->load->view('page/ajax/createpost', $data);
 	}
+	public function postUpdate($a){
+		$ali = $this->db->get('kategori');
+		$data['m'] = $ali->result();
+		$this->db->where('id_post', $a);
+		$data['post'] = $this->db->get('post')->result();
+		$this->load->view('page/ajax/updatePost', $data);
+	}
+
 	public function postShow(){
 		$r = $this->db->get('allpost');
 		$data['quer'] = $r->result();
+		$this->load->library('pagination');
+		$jumlah_data = $this->cmodel->jumlah_data('allpost');
+		// $config['base_url'] = base_url('Custom/egalery');
+		$config['total_rows'] = $jumlah_data;
+		$config['per_page'] = 10;
+		$from = $this->uri->segment(3);
+		$config['first_link']       = 'First';
+        $config['last_link']        = 'Last';
+        $config['next_link']        = 'Next';
+        $config['prev_link']        = 'Prev';
+        $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+        $config['full_tag_close']   = '</ul></nav></div>';
+        $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close']    = '</span></li>';
+        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+        $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+        $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['prev_tagl_close']  = '</span>Next</li>';
+        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+        $config['first_tagl_close'] = '</span></li>';
+        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['last_tagl_close']  = '</span></li>';
+        $this->pagination->initialize($config);		
+		$data['quer'] = $this->cmodel->allpost($config['per_page'],$from);
+		$this->load->view('page/ajax/showpost', $data);
+	}
+	public function postShow2(){
 		$this->load->library('pagination');
 		$jumlah_data = $this->cmodel->jumlah_data('allpost');
 		// $config['base_url'] = base_url('Custom/egalery');
@@ -413,7 +453,50 @@ class Custom extends CI_Controller {
             $cover= $data['upload_data']['file_name']; //set file name ke variable image
              
             $result= $this->cmodel->savePostnow($title,$waktu,$Kategori,$isi,$stat,$cover); //kirim value ke model m_upload
-            echo json_decode($result);
+            echo "1";
+        }
+        else{
+        	echo "0";
+        }
+
+
+		
+		$query = $this->db->query("select * from post where isi =  '".$isi."' and judul = '".$title."' ")->result();
+		foreach ($query as $key => $value) {
+		echo $value->id_post;
+		}
+	}
+	public function updatePost(){
+		$title = $this->input->post('title');
+		$stat = $this->input->post('tipe');
+		$waktu = $this->input->post('waktu');
+		$Kategori = $this->input->post('kategori');
+		$isi = $this->input->post('isi');
+
+		$config['upload_path']="./source/gambar/post"; //path folder file upload
+        $config['allowed_types']='gif|jpg|png'; //type file yang boleh di upload
+        $config['encrypt_name'] = TRUE; //enkripsi file name upload
+         
+        $this->load->library('upload',$config); //call library upload 
+        if($this->upload->do_upload("file")){ //upload file
+            $data = array('upload_data' => $this->upload->data()); //ambil file name yang diupload
+ 
+            $cover= $data['upload_data']['file_name']; //set file name ke variable image
+             $id = $this->input->post('id');
+            $result= $this->cmodel->updatePostnow($title,$waktu,$Kategori,$isi,$stat,$cover,$id); //kirim value ke model m_upload
+            $oldfile = $this->input->post('old');
+            $path = base_url('source/gambar/post');
+            $path = "".$path."/".$oldfile."";
+		    $files = glob($path); // get all file names
+		    foreach($files as $file){ // iterate files
+		      if(is_file($file))
+		        unlink($file); // delete file
+		        //echo $file.'file deleted';
+		    }  
+         echo "1";
+        }
+        else{
+        	echo "0";
         }
 
 
@@ -467,6 +550,47 @@ class Custom extends CI_Controller {
 		$a = $this->input->post('kode');
 		$data = array('nama_kategori' => $a);
 		$this->db->insert('kategori', $data);
+	}
+	###############################################
+
+	public function siswa(){
+		$data['home'] = 1;	
+		$data['cmain'] = "page/csiswa";
+		$data['ac'] = 3;
+		$data['nav'] = 'nav/custkiri2';
+		$data['navact'] = 3;	
+		$data['siswa'] = $this->db->get('siswa')->result();
+		$data['set'] = $this->db->get('identitas')->result();
+		$this->load->view('cust/main', $data);
+	}
+
+	public function siswaupdateSetting(){
+		$a = $this->input->post('thn');
+		$b = $this->input->post('jumlah');
+		$this->db->set('tahun_penerimaan', $a);
+		$this->db->set('maks', $b);
+		$this->db->update('identitas');
+	}
+
+	public function sisSetting(){
+		$data['set'] = $this->db->get('identitas')->result();
+		$this->load->view('page/ajax/akreak', $data);
+	}
+
+	public function akreak(){
+		$val = $this->input->post('awl');
+		$this->db->set('penerimaan', $val);
+		$this->db->update('identitas');
+	}
+
+	public function siswaBaru(){
+		$data['siswa'] = $this->db->get('siswa')->result();
+		$this->load->view('page/ajax/siswaBaru', $data);
+	}
+
+	public function siswaFull(){
+		$data['siswa'] = $this->db->get('siswa')->result();
+		$this->load->view('page/ajax/siswa', $data);
 	}
 
 	###############################################
@@ -592,13 +716,30 @@ class Custom extends CI_Controller {
 
 	// Layout Tata Letak
 
+	public function layKonten(){
+		if ($this->input->post('art')) {
+		$art = $this->input->post('art');
+		$this->db->set('lartikel', $art);
+		}
+
+		if ($this->input->post('awl')) {
+		$awl=$this->input->post('awl');
+		$this->db->set('lhome', $awl);
+		}
+		$this->db->update('identitas');
+	}
+
 	public function layout(){
 		$data['home'] = 1;	
 		$data['cmain'] = "page/clayout";
 		$data['ac'] = 2;
 		$data['nav'] = 'nav/custkiri';
 		$data['navact'] = 3;
-		$data['sek'] = $this->cmodel->getIdentitas();
+		$q = $this->db->get('identitas')->result();
+		foreach ($q as $key => $value) {
+		}
+		$data['awal'] = $value->lhome;
+		$data['art'] =  $value->lartikel;
 		$this->load->view('cust/main', $data);
 	}
 

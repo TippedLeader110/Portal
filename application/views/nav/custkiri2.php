@@ -3,17 +3,17 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a style="margin-top: 5px" class="<?php if ($navact==1): ?>
   	actnav
-  <?php endif ?>" href="<?php echo base_url() ?>Custom/galery">Galery</a>
+  <?php endif ?>" href="<?php echo base_url() ?>Custom/galery/0">Galery</a>
   <a class="<?php if ($navact==2): ?>
   	actnav
   <?php endif ?>" href="<?php echo base_url() ?>Custom/artikel">Kelolah Artikel</a>
   <a class="<?php if ($navact==3): ?>
   	actnav
-     <?php endif ?>" href="<?php echo base_url() ?>Custom/guru">Kelolah Data Guru</a>
+     <?php endif ?>" href="<?php echo base_url() ?>Custom/guru">Data Guru</a>
   <a class="<?php if ($navact==3): ?>
     actnav
-  <?php endif ?>" href="<?php echo base_url() ?>Custom/layout">Tata Letak</a>
-  <a class="<?php if ($navact==4): ?>
+  <?php endif ?>" href="<?php echo base_url() ?>Custom/siswa">Data Siswa</a>
+  <!-- <a class="<?php if ($navact==4): ?>
   	actnav
-  <?php endif ?>" href="<?php echo base_url() ?>Custom/warna">Warna</a>
+  <?php endif ?>" href="<?php echo base_url() ?>Custom/warna">Warna</a> -->
 </div>

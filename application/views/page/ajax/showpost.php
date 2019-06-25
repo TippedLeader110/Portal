@@ -7,7 +7,7 @@
 				<th>Tanggal</th>
 				<th>Tipe Publikasi</th>
 				<th>Kategori</th>
-				<th>Aksi</th>
+				<th colspan="2">Aksi</th>
 			</tr>
 			<?php foreach ($quer as $key => $value): ?>
 				<tr>
@@ -27,6 +27,7 @@
 						<?php echo $value->nama_kategori; ?>
 					</td>
 					<td><button class="btn btn-danger" onclick="Gdel(<?php echo $value->id_post ?>);">Hapus</button></td>
+					<td><button class="btn btn-warning" onclick="Gedit(<?php echo $value->id_post ?>);">Edit</button></td>
 				</tr>
 			<?php endforeach ?>
 		</table>
@@ -39,6 +40,11 @@
 	</div>
 
 <script type="text/javascript">
+	function Gedit(a){
+		$("#page").load('<?php echo base_url('Custom/postUpdate/') ?>' + a).hide().fadeIn('slow');
+		
+
+	}
 
 	var numberdude;
 	$("span.page-link a").click(function(e) {

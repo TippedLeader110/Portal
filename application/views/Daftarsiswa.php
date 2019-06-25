@@ -16,7 +16,8 @@
 <div class="col-md-12" style="background: #335C81">
 	<div class="row">
 		<div class="col-md-7 offset-3" style="background: white; margin-top: 75px">
-		<h2 style="color: #335C81; margin-top: 10PX">Daftar Siswa</h2><br>
+		<center><h1 style="color: #335C81; margin-top: 10PX">Daftar Siswa</h1></center><hr><br>
+		<h4>Daftar Siswa -> Data Pribadi</h4>
 			<form>
 				<div class="form-group">
 					<label>Nama</label>
