@@ -16,26 +16,25 @@
 <div class="col-md-12" style="background: #335C81">
 	<div class="row">
 		<div class="col-md-7 offset-3" style="background: white; margin-top: 75px">
-		<h2 style="color: #335C81; margin-top: 10PX">Daftar Siswa</h2><br>
+			<h2 style="color: #335C81; margin-top: 10PX">Daftar Siswa</h2><br>
+			<h5 style="color: #E8C83C; margin-top: -15px;margin-bottom: -10px">Periksa data kembali!</h5><br>
+
 			<form>
 				<div class="form-group">
 					<label>Nama</label>
-					<input type="text" id="nama" name="nama" class="form-control"><br>
-				    
+					<input type="text" id="alamat" name="alamat" class="form-control" cols="40" rows="5" placeholder="Ali"><br>
+
 				    <label>Jenis Kelamin</label> 
-               	 	<select class="form-control" id="jk">
-               		<option>Pria</option>
-                	<option>Wanita</option>
-                    </select><br>
+               	 	<input type="text" id="jenis_kelamin" name="jenis_kelamin" class="form-control" cols="40" rows="5" placeholder="Lelaki Jantan"><br>
 					
 					<label>Alamat</label>
-					<textarea type="text" id="alamat" name="alamat" class="form-control" cols="40" rows="5"></textarea><br>
+					<textarea type="text" id="alamat" name="alamat" class="form-control" cols="40" rows="5" placeholder="Jl Akhir No 9"></textarea><br>
 
 					<label>Tanggal Lahir</label>
-					<input type="date" id="tanggal_lahir" name="tanggal_lahir"class="form-control"><br>
+					<input type="text" id="tanggal_lahir" name="tanggal_lahir"class="form-control" placeholder="08-08-1345"><br>
 
 					<label>Tahun Ajaran</label>
-					<input type="text" id="tahun_ajaran" name="tahun_ajaran" class="form-control"><br>
+					<input type="text" id="tahun_ajaran" name="tahun_ajaran" class="form-control" placeholder="1876"><br>
 					
 					<label>Nama Ayah</label>                  
                    	<input type="text" id="nama_ayah" name="nama_ayah" class="form-control"><br>
@@ -84,7 +83,7 @@
             
 
 
-
+					<h5 style="color: #E8C83C; margin-top: 10PX;margin-bottom: -10px">Jika sudah benar silahkan Simpan!</h5><br>
 					<button class="btn btn-danger" type="submit">Simpan</button>
 				</div>	
 			</form>
