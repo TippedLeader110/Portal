@@ -27,7 +27,7 @@
       <li class="nav-item <?php if ($ac==4): ?>
         active
       <?php endif ?>">
-        <a class="nav-link" href="<?php echo base_url() ?>Custom/KUser">Kelolah Pengguna</a>
+        <a class="nav-link" href="<?php echo base_url() ?>Custom/KUser">Kelolah Staff/Admin</a>
       </li>
     </ul>
     

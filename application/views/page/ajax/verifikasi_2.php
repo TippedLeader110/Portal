@@ -1,10 +1,9 @@
-<?php foreach ($set as $key => $setval): ?>
-<?php endforeach ?>
+<form id="formdoit">
 <?php foreach ($siswa as $key => $sisval): ?>
 <?php endforeach ?>
 
 <div class="row">
-	<div class="col-12">
+	<div class="col-6">
 		<div class="form-group">
 			<hr>
 			<h5>Info Data Singkat</h5>
@@ -21,6 +20,17 @@
 			</table>
 		</div>
 	</div>
+	<div class="col-4">
+		<hr>
+		<h5>Input Jurusan yang dituju</h5>
+		<div class="form-group">
+			Jurusan
+			<select name="jurusan" class="form-control">
+				<option value="IPA">IPA</option>
+				<option value="IPS">IPS</option>
+			</select>
+		</div>	
+	</div>
 </div>
 <div class="row">
 	<div class="col-12">
@@ -33,30 +43,59 @@
 		<div class="col-3">
 			<div class="form-group">
 				<?php echo $pelval->nama_mujian ?>
-				<input type="text" class="form-control nilai" name="<?php echo $pelval->id_mujian ?>">
+				<input type="text" class="required form-control nilai" name="<?php echo $pelval->id_mujian ?>">
 				
 			</div>
 		</div>
 	<?php endforeach ?>
 </div>	
 <div class="row">
-	<div class="col-5">
+	<div class="col-12">
 		<div class="form-group">
-		<form id="formdoit">
-			Upload Berkas
+		
+			Upload Berkas <br>
 			<input type="text" id="nis" hidden name="nis" value="<?php echo $sisval->nis ?>">
-		<input type="file" name="file">
-		<button type="submit"  class="btn btn-outline-primary">Verifikasi</button>
+		<input class="required" type="file" name="file">
+		Saya yakin sudah benar !!
+		<input type="checkbox" name="cek" onclick="EnableSubmit(this)">
+		<button type="submit"  id="cekcek" class="btn btn-outline-primary">Verifikasi</button>
 		</div>
 	</form>
 	</div>
 </div>
 
 <script type="text/javascript">
+	$('#cekcek').hide();
+
+	EnableSubmit = function(val)
+	{
+	    if (val.checked == true)
+	    {
+	        $('#cekcek').show('slow');
+	    }
+	    else
+	    {
+	        $('#cekcek').hide('slow');
+	    }	
+	}
+	var req = true;
+	function check() {
+    $('.required').each(function(){
+        if( $(this).val() == "" ){
+          // alert('Please fill all the fields');
+
+          req = false;
+        }
+    });
+	};
+
 	$('#formdoit').submit(function(e){
 		e.preventDefault(); 
-		alert('do');
-		var form = new FormData(this);
+		check();
+		// alert('do');
+		
+		if (req===true) {
+			var form = new FormData(this);
 		$('.nilai').each(function(){
         	var nilai = $(this).val();
         	var nis = $('#nis').val();
@@ -91,9 +130,14 @@
        		success: function(data){
        			console.log(data);
 				Swal.fire('Berhasil !!', 'Verifikasi berhasil !!', 'success');
-				// $('#pengaturan').empty();
-		  //       $('#show').hide();
+				// $('#pengaturan').load();
+		        $('#show').hide();
        		}
        	});
+		}
+		else if (req===false) {
+			Swal.fire('Kesalahan', 'Tolong isi semua form !!', 'error');
+			req = true;
+		}
 	})
 </script>

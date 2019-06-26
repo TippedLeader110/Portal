@@ -27,6 +27,9 @@
 							<tr>
 								<td>Tanggal Lahir</td><td>&nbsp;:&nbsp;<span id="vertanggal"></span></td>
 							</tr>
+							<tr>
+								<td>Agama</td><td>&nbsp;:&nbsp;<span id="veragama"></span></td>
+							</tr>
 						</table>
 						<br>
 						<h4>Data Asal Sekolah</h4>
@@ -111,6 +114,14 @@
 	                	<option value="Perempuan">Perempuan</option>
 	                    </select><br>
 						
+						<label>Agama</label> 
+	               	 	<select name="agama" class="form-control " id="agama">
+	               		<option value="Islam">Islam</option>
+	                	<option value="Kristen">Kristen</option>
+	                	<option value="Budha">Budha</option>
+	                	<option value="Hindu">Hndu</option>
+	                    </select><br>
+
 						<label>Alamat</label>
 						<textarea type="text" id="alamat" name="alamat" class="form-control required" cols="40" rows="5"></textarea><br>
 						<?php foreach ($id as $key => $valid): ?>
@@ -276,6 +287,7 @@
 			$('#versekolah').html($('#sekolah_asal').val());
 			$('#veralamatsekolah').html($('#alamat_sekolah').val());
 			$('#vertahunlulu').html($('#tahun_lulus').val());			
+			$('#veragama').html($('#agama').val());
 			// $(this).unbind('submit').submit();
 		}
 		else if (req===false) {

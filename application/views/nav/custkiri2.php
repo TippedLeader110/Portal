@@ -10,7 +10,7 @@
   <a class="<?php if ($navact==3): ?>
   	actnav
      <?php endif ?>" href="<?php echo base_url() ?>Custom/guru">Data Guru</a>
-  <a class="<?php if ($navact==3): ?>
+  <a class="<?php if ($navact==4): ?>
     actnav
   <?php endif ?>" href="<?php echo base_url() ?>Custom/siswa">Data Siswa</a>
   <!-- <a class="<?php if ($navact==4): ?>

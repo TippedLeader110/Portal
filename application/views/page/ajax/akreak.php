@@ -36,6 +36,9 @@
                     Waktu Tutup Pendaftaran
                     <input type="date" value="<?php echo $setval->tutup_pendaftaran ?>" name="tutup" class="form-control">
                   </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-group-vertical btn-outline-primary">Simpan</button>
+                  </div>
                   
                   
               </div>
@@ -47,9 +50,7 @@
                       <?php echo $setval->note ?>
                     </textarea>
                   </div>
-                    <div class="form-group">
-                    <button type="submit" class="btn btn-group-vertical btn-outline-primary">Simpan</button>
-                  </div>
+                    
               </div>
                 <?php endif ?>
             </div>

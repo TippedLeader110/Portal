@@ -558,7 +558,7 @@ class Custom extends CI_Controller {
 		$data['cmain'] = "page/csiswa";
 		$data['ac'] = 3;
 		$data['nav'] = 'nav/custkiri2';
-		$data['navact'] = 3;	
+		$data['navact'] = 4;	
 		$data['siswa'] = $this->db->get('siswa')->result();
 		$data['set'] = $this->db->get('identitas')->result();
 		$this->load->view('cust/main', $data);
@@ -594,10 +594,17 @@ class Custom extends CI_Controller {
 		foreach ($for as $key => $value) {
 			$nis = $value->nis;
 		}
-		$this->db->where('nis', $nis);
-		$data['siswa'] = $this->db->get('siswa')->result();
-		$data['pel'] = $this->db->get('mapelujian')->result();
-		$this->load->view('page/ajax/verifikasi_2', $data);
+		// echo count($for);
+		if (count($for)!=0) {
+			$this->db->where('nis', $nis);
+			$data['siswa'] = $this->db->get('siswa')->result();
+			$data['pel'] = $this->db->get('mapelujian')->result();
+			$this->load->view('page/ajax/verifikasi_2', $data);
+		}
+		elseif (count($for)==0) {
+			$this->load->view('page/ajax/nofound', $data);
+		}
+
 	}
 
 	public function sisVerdo(){
@@ -620,8 +627,8 @@ class Custom extends CI_Controller {
             $result= $this->cmodel->saveSKHU($skhu, $nis); //kirim value ke model m_upload
             echo "1";
             $this->db->query("UPDATE verifikasi set habis_waktu = null where nis = ".$nis."");
-            // $this->db->where('nis', $nis);
-            // $this->db->delete('verifikasi');
+            $this->db->where('nis', $nis);
+            $this->db->delete('verifikasi');
         }
         else{
         	echo "0";
