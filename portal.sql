@@ -380,29 +380,6 @@ LOCK TABLES `nilai` WRITE;
 INSERT INTO `nilai` VALUES (53,1,2,100),(54,1,4,100),(55,1,1,100),(56,1,3,100),(57,2,2,40),(58,2,3,404),(59,2,1,40),(60,2,4,40),(61,3,3,4),(62,3,4,4),(63,3,1,4),(64,3,2,4),(65,4,2,100),(66,4,1,100),(67,4,3,100),(68,4,4,100),(69,5,4,100),(70,5,3,100),(71,5,1,100),(72,5,2,100);
 /*!40000 ALTER TABLE `nilai` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `ubah_nilai` AFTER UPDATE ON `nilai` FOR EACH ROW BEGIN
-INSERT INTO log_nilai
-SET nis=old.nis,
-matematika=old.matematika,
-b_indonesia=old.b_indonesia,
-b_inggris=old.b_inggris,
-ipa=old.ipa,
-waktu=CURDATE();
-END */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `post`
@@ -824,4 +801,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-26  8:18:59
+-- Dump completed on 2019-06-26  8:29:26
