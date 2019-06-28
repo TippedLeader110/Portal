@@ -11,9 +11,9 @@
 		<div class="col-12">
 			<h2>Kelolah Data Guru</h2>
 			<hr>
-				<button class="btn btn-primary" onclick="guru();"><div style="color: white">Data Guru</div><span><h2><i class="fas fa-pen"></i></h2></span></button>&nbsp;
-							<button class="btn btn-primary" onclick="jabat();"><div style="color: white">Jabatan</div><span><h2><i class="fas fa-pen"></i></h2></span></button>&nbsp;	
-							<button class="btn btn-primary" onclick="mapel();"><div style="color: white">Mata Pelajaran</div><span><h2><i class="fas fa-pen"></i></h2></span></button>&nbsp;
+				<button class="btn btn-primary" onclick="guru();"><div style="color: white">Data Guru</div><span><h2><i class="far fa-id-card"></i></h2></span></button>&nbsp;
+							<button class="btn btn-primary" onclick="jabat();"><div style="color: white">Jabatan</div><span><h2><i class="fas fa-user-tag"></i></h2></span></button>&nbsp;	
+							<button class="btn btn-primary" onclick="mapel();"><div style="color: white">Mata Pelajaran</div><span><h2><i class="fas fa-book"></i></h2></span></button>&nbsp;
 		</div>
 	</div>
 	<div class="row" style="margin-top: 30px;">

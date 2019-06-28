@@ -684,7 +684,7 @@ class Custom extends CI_Controller {
 		$data['cmain'] = "page/cguru";
 		$data['ac'] = 3;
 		$data['nav'] = 'nav/custkiri2';
-		$data['navact'] = 2;	
+		$data['navact'] = 3;	
 		$this->load->view('cust/main', $data);
 	}
 	public function guruCreate(){
@@ -692,9 +692,16 @@ class Custom extends CI_Controller {
 		$data['m'] = $ali->result();
 		$this->load->view('page/ajax/showGuru', $data);
 	}
+	public function guruSave(){
+		$post = $this->input->post();
+		$data = array('nama_guru' => $post['nguru'], 'id_mapel' => $post['mapel'], 'id_jabatan' => $post['jabatan'], 'alamat' => $post['alamat'], 'id_guru' => $post['nip']);
+		$this->db->insert('guru', $data);
+	}
 	public function guruShow(){
 		$r = $this->db->query('select * from ket_guru');
 		$data['quer'] = $r->result();
+		$data['m'] = $this->db->get('jabatan_guru')->result();
+		$data['k'] = $this->db->get('mapel')->result();
 		$this->load->view('page/ajax/showguru', $data);
 	}
 	public function gurumapel(){
@@ -851,6 +858,11 @@ class Custom extends CI_Controller {
 			$this->db->where('id_fitur', $val);
 			$this->db->delete('main');
 		}
+	}
+
+	public function export(){
+		$this->db->where('status', 'aktif');
+		echo json_encode($this->db->get('siswa')->result());
 	}
 
 

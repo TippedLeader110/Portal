@@ -21,6 +21,7 @@
 }
 
 </style>
+<div  class="container" style="background: white;padding: 0px 0px 0px 0px">
   <div class="containerss  ">
 <div class="row">
   <div class="col-12">
@@ -139,12 +140,14 @@
     </div>
   </div>
 </div>
-<div class="row paral" style="background-image: url(<?php echo base_url('source/gambar/galery/'); echo $vrand->link; ?>);height: 320px">
+<div class="row " >
   <div class="col-12" >
-    <div class="container">
+    <div class="container paral" style="background-image: url(<?php echo base_url('source/gambar/galery/'); echo $vrand->link; ?>);height: 320px">
       <hr>
       <center><h2 style="color: white">Jelajah Galeri Sekolah</h2></center>
       <hr>
     </div>
   </div>
+</div>
+
 </div>

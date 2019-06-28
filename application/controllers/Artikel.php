@@ -31,7 +31,15 @@ class Artikel extends CI_Controller {
 	}
 	public function Sekolah($a){
 		$data['datanav'] = $this->db->get('navitem')->result();
+		$data['id'] = $this->db->get('identitas')->result();
+		$da = $data['id'];
+		foreach ($da as $key => $daval) {
+		}
+		if ($daval->lartikel==1) {
 		$data['v1'] = "page/artikel_v";
+		}elseif ($daval->lartikel==2) {
+			$data['v1'] = "page/artikel_v_2";
+		}
 		$data['post'] = $this->db->query("select * from allpost where id_post = ".$a."")->result();
 		$post = $data['post'];
 		foreach ($post as $key => $value) {

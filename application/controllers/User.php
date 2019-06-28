@@ -63,6 +63,11 @@ public function home(){
 	$this->load->view('layout/User', $data);
 }
 
+public function export(){
+		$this->db->where('status', 'aktif');
+		echo json_encode($this->db->get('siswa')->result());
+	}
+
 }
  ?>
 

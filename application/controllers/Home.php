@@ -21,14 +21,23 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = "Homepage";
-		$data['v1'] = "page/home_v";
+		
 		$data['datanav'] = $this->db->get('navitem')->result();
 		$data['post'] = $this->db->get('post')->result();
 		$data['img'] = $this->db->get('img')->result();
 		$data['vnav'] = "nav/home_v";
-		$data['id'] = $this->db->get('identitas')->result();
 		$data['rand'] = $this->db->query('SELECT link FROM img ORDER BY RAND() LIMIT 1')->result();
+		$data['id'] = $this->db->get('identitas')->result();
+		$da = $data['id'];
+		foreach ($da as $key => $daval) {
+		}
+		if ($daval->lhome==1) {
+			$data['v1'] = "page/home_v";
 		$this->load->view('layout/home_v', $data);
+		}elseif ($daval->lhome==2) {
+			$data['v1'] = "page/home_v_2";
+			$this->load->view('layout/home_v_2', $data);
+		}
 	}
 	public function portal(){
 		$data['title'] = "Homepage";
