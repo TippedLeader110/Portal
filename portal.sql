@@ -76,7 +76,8 @@ DROP TABLE IF EXISTS `guru`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `guru` (
-  `id_guru` int(11) NOT NULL,
+  `id_guru` int(4) NOT NULL AUTO_INCREMENT,
+  `nip` varchar(18) NOT NULL,
   `nama_guru` text NOT NULL,
   `id_jabatan` int(11) NOT NULL,
   `alamat` varchar(50) NOT NULL,
@@ -86,7 +87,7 @@ CREATE TABLE `guru` (
   KEY `mapel_id` (`id_mapel`),
   CONSTRAINT `jabatan_id` FOREIGN KEY (`id_jabatan`) REFERENCES `jabatan_guru` (`id_jabatan`) ON UPDATE CASCADE,
   CONSTRAINT `mapel_id` FOREIGN KEY (`id_mapel`) REFERENCES `mapel` (`id_mapel`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +96,7 @@ CREATE TABLE `guru` (
 
 LOCK TABLES `guru` WRITE;
 /*!40000 ALTER TABLE `guru` DISABLE KEYS */;
-INSERT INTO `guru` VALUES (1,'Suparno',1,'Jl Jangkar',8),(2,'Sumirna',2,'Jl Pensil',2),(3,'Edi',4,'Jl Rol',3),(4,'Indah',4,'Jl Penghapus',9),(5,'Endra',4,'Jl Pulpen',6),(6,'Putri',5,'Jl Kelir ',5),(7,'Nur',5,'Jl Beo',7),(8,'Alya',3,'Jl Garuda',1);
+INSERT INTO `guru` VALUES (1,'1231942141391','Ali Hidayat',1,'Patumbak',1),(2,'1924414812491','Ihsan Maulana',2,'SS',1),(3,'123213131','Guru A',5,'1231',2),(4,'213131313','Guru B',5,'1312321',3);
 /*!40000 ALTER TABLE `guru` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,7 +130,7 @@ CREATE TABLE `identitas` (
 
 LOCK TABLES `identitas` WRITE;
 /*!40000 ALTER TABLE `identitas` DISABLE KEYS */;
-INSERT INTO `identitas` VALUES (1,'DEMO SCHOOL','<p>&nbsp;&nbsp;&ldquo;Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global&rdquo;</p>\n','<p>1.&nbsp; &nbsp;Mewujudkan pendidikan untuk menghasilkan prestasi dan lulusa berkwalitas tinggi yang peduli dengan lingkungan hidup</p>\n\n<p>2. &nbsp; Mewujudkan sumber daya manusia yang beriman, produktif, kreatif, inofatif dan efektif</p>\n\n<p>3. &nbsp; Mewujudkan pengembangan inovasi pembelajaran sesuai tuntutan</p>\n\n<p>4. &nbsp; Mewujudkan sumber daya manusia yang peduli dalam mencegahan pencemaran, mencegahan kerusakan lingkungan dan melestarikan lingkungan hidup</p>\n\n<p>5. &nbsp; Mewujudkan sarana prasarana reprensentatif dan up to date</p>\n\n<p>6. &nbsp; Mewujudkan pengelolaan pendidikan yang professional</p>\n\n<p>7. &nbsp; Mewujudkan sistim penilaian yang berafiliasi</p>\n\n<p>8. &nbsp; Mewujudkan budaya yang berkualifikasi</p>\n\n<p>9. &nbsp; Mewujudkan Sekolah yang bersih,hijau dan meminimalis hasil sampah yang tidak bermanfaat</p>\n\n<p>10. Mewujudkan manusia Indonesia yang mampu berkontribusi pada kehidupan bermasyarakat, berbangsa, bernegara dalam peradaban dunia</p>\n\n<p>11. Mewujudkan generasi emas, sehat tanpa narkoba</p>\n','SEKOLAH INI DICIPTAKAN OLEH ALI HIDAYAT SETELAH DIUSIR DARI WAKANDA',1,2,1,2019,250,'2019-07-15','<h3>Syarat Pendaftaran</h3>\n\n<ol>\n	<li>Telah dinyatakan lulus dan memiliki Ijazah/SKL dari SMP/ MTs/ SMPLB/ Paket B;</li>\n	<li>Berusia paling tinggi 21 (dua puluh satu) ( awal Tahun Pelajaran 2017/2018).</li>\n</ol>\n\n<h3>Pemberkasan</h3>\n\n<ol>\n	<li>Foto Copy Ijazah/SHUN/Surat Keterangan Lulus dari sekolah asal dan dilegalisir sebanyak 1 lembar, serta menyerahkan aslinya pada sekolah tempat mendaftar ( dijadwal yang di tentukan ).</li>\n	<li>Pas foto berwarna ukuran 3 x 4 cm sebanyak 2 lembar.</li>\n</ol>\n\n<h3>Cara Mendaftar</h3>\n\n<ol>\n	<li>Daftar akun pada halaman daftar ( tombol daftar di atas )</li>\n	<li>Setelah mengisi semua form pendaftaran , peserta didik baru diharapkan mengantarkan berkas yang diminta ke sekolah untuk verifikasi</li>\n	<li>Setelah verifikasi peserta didik baru dapat menunggu hasil seleksi di tanggal yang di tentukan yaitu ( 2019-07-15 )</li>\n</ol>\n\n<h3>Catatan Tambahan</h3>\n\n<ol>\n	<li>Saat verifikasi di kenakan biaya pendaftaran sebesar Rp.100.000,00</li>\n</ol>\n');
+INSERT INTO `identitas` VALUES (1,'DEMO SCHOOL','<p>&nbsp;&nbsp;&ldquo;Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global&rdquo;</p>\n','<p>1.&nbsp; &nbsp;Mewujudkan pendidikan untuk menghasilkan prestasi dan lulusa berkwalitas tinggi yang peduli dengan lingkungan hidup</p>\n\n<p>2. &nbsp; Mewujudkan sumber daya manusia yang beriman, produktif, kreatif, inofatif dan efektif</p>\n\n<p>3. &nbsp; Mewujudkan pengembangan inovasi pembelajaran sesuai tuntutan</p>\n\n<p>4. &nbsp; Mewujudkan sumber daya manusia yang peduli dalam mencegahan pencemaran, mencegahan kerusakan lingkungan dan melestarikan lingkungan hidup</p>\n\n<p>5. &nbsp; Mewujudkan sarana prasarana reprensentatif dan up to date</p>\n\n<p>6. &nbsp; Mewujudkan pengelolaan pendidikan yang professional</p>\n\n<p>7. &nbsp; Mewujudkan sistim penilaian yang berafiliasi</p>\n\n<p>8. &nbsp; Mewujudkan budaya yang berkualifikasi</p>\n\n<p>9. &nbsp; Mewujudkan Sekolah yang bersih,hijau dan meminimalis hasil sampah yang tidak bermanfaat</p>\n\n<p>10. Mewujudkan manusia Indonesia yang mampu berkontribusi pada kehidupan bermasyarakat, berbangsa, bernegara dalam peradaban dunia</p>\n\n<p>11. Mewujudkan generasi emas, sehat tanpa narkoba</p>\n','SEKOLAH INI DICIPTAKAN OLEH ALI HIDAYAT SETELAH DIUSIR DARI WAKANDA',2,2,1,2019,250,'2019-07-15','<h3>Syarat Pendaftaran</h3>\n\n<ol>\n	<li>Telah dinyatakan lulus dan memiliki Ijazah/SKL dari SMP/ MTs/ SMPLB/ Paket B;</li>\n	<li>Berusia paling tinggi 21 (dua puluh satu) ( awal Tahun Pelajaran 2017/2018).</li>\n</ol>\n\n<h3>Pemberkasan</h3>\n\n<ol>\n	<li>Foto Copy Ijazah/SHUN/Surat Keterangan Lulus dari sekolah asal dan dilegalisir sebanyak 1 lembar, serta menyerahkan aslinya pada sekolah tempat mendaftar ( dijadwal yang di tentukan ).</li>\n	<li>Pas foto berwarna ukuran 3 x 4 cm sebanyak 2 lembar.</li>\n</ol>\n\n<h3>Cara Mendaftar</h3>\n\n<ol>\n	<li>Daftar akun pada halaman daftar ( tombol daftar di atas )</li>\n	<li>Setelah mengisi semua form pendaftaran , peserta didik baru diharapkan mengantarkan berkas yang diminta ke sekolah untuk verifikasi</li>\n	<li>Setelah verifikasi peserta didik baru dapat menunggu hasil seleksi di tanggal yang di tentukan yaitu ( 2019-07-15 )</li>\n</ol>\n\n<h3>Catatan Tambahan</h3>\n\n<ol>\n	<li>Saat verifikasi di kenakan biaya pendaftaran sebesar Rp.100.000,00</li>\n</ol>\n');
 /*!40000 ALTER TABLE `identitas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -194,7 +195,7 @@ CREATE TABLE `kategori` (
   `id_kategori` int(11) NOT NULL AUTO_INCREMENT,
   `nama_kategori` text,
   PRIMARY KEY (`id_kategori`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -203,7 +204,7 @@ CREATE TABLE `kategori` (
 
 LOCK TABLES `kategori` WRITE;
 /*!40000 ALTER TABLE `kategori` DISABLE KEYS */;
-INSERT INTO `kategori` VALUES (1,'ali'),(2,'Kesiswaan'),(3,'Olahraga'),(4,'Acara');
+INSERT INTO `kategori` VALUES (4,'Acara'),(6,'Kesiswaan');
 /*!40000 ALTER TABLE `kategori` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -411,7 +412,7 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (15,'Forum Penerimaan Siswa Baru Sebentar Lagi Dibuka',2,'<p>Penerimaan siswa didik baru&nbsp;</p>\n','2019-06-17','public',3,'bf3968965c2329d9d9f3ab0e5cba9e44.png');
+INSERT INTO `post` VALUES (15,'Forum Penerimaan Siswa Baru Sebentar Lagi Dibuka',NULL,'<p>Penerimaan siswa didik baru&nbsp;</p>\n','2019-06-17','public',3,'bf3968965c2329d9d9f3ab0e5cba9e44.png');
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -448,7 +449,7 @@ CREATE TABLE `siswa` (
   `agama` enum('Islam','Budha','Kristen') DEFAULT NULL,
   `foto_skhun` text,
   PRIMARY KEY (`nis`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -457,7 +458,7 @@ CREATE TABLE `siswa` (
 
 LOCK TABLES `siswa` WRITE;
 /*!40000 ALTER TABLE `siswa` DISABLE KEYS */;
-INSERT INTO `siswa` VALUES (1,'1','1','1111-01-01','Laki-laki','','1','1','1','1','1','1','1','1','1',NULL,'1','1','1',1,'aktif',NULL,NULL,'76189825affd210ae1f66d9a44a5713c.jpg'),(2,'2','22','0022-02-02','Laki-laki','','2','2','2','2','2','2','2','2','2',NULL,'2','2','2',2,'pending',NULL,NULL,'5f2e202b9b90d66a54936dd77e68c288.jpg'),(3,'3','3','0003-03-03','Laki-laki','','3','3','3','3','3','3','3','3','3',NULL,'3','33','3',3,'seleksi',NULL,NULL,'10481ac2004ed862c5c622bbb7190926.jpg'),(4,'3','3','3333-03-31','Laki-laki','','3','3','3','3','3','3','3','3','3',NULL,'3','3','3',3,'seleksi',NULL,NULL,'138c84cb4a06bc7d7fe5707bdebe341c.jpg'),(5,'Muhammad Bayhaqi Daulay','Jalan Profesor Doktor Hamka No.56','1999-04-04','Laki-laki','2019','Muhammad Sofyan Daulay','Sarjana Ekonomi','Wiraswasta','Rini Hartati','SMK','Ibu Rumah Tangga','Jalan Profesor Doktor Hamka No.56','-','-',NULL,'-','SMP Negeri 1 Tebing Tinggi','Jalan ',2015,'seleksi',NULL,'Islam','675442701f485c2cdd9d5afa15530bfd.jpg');
+INSERT INTO `siswa` VALUES (1,'1','1','1111-01-01','Laki-laki','','1','1','1','1','1','1','1','1','1',NULL,'1','1','1',1,'aktif',NULL,NULL,'76189825affd210ae1f66d9a44a5713c.jpg'),(2,'2','22','0022-02-02','Laki-laki','','2','2','2','2','2','2','2','2','2',NULL,'2','2','2',2,'pending',NULL,NULL,'5f2e202b9b90d66a54936dd77e68c288.jpg'),(3,'3','3','0003-03-03','Laki-laki','','3','3','3','3','3','3','3','3','3',NULL,'3','33','3',3,'seleksi',NULL,NULL,'10481ac2004ed862c5c622bbb7190926.jpg'),(4,'3','3','3333-03-31','Laki-laki','','3','3','3','3','3','3','3','3','3',NULL,'3','3','3',3,'seleksi',NULL,NULL,'138c84cb4a06bc7d7fe5707bdebe341c.jpg'),(5,'Muhammad Bayhaqi Daulay','Jalan Profesor Doktor Hamka No.56','1999-04-04','Laki-laki','2019','Muhammad Sofyan Daulay','Sarjana Ekonomi','Wiraswasta','Rini Hartati','SMK','Ibu Rumah Tangga','Jalan Profesor Doktor Hamka No.56','-','-',NULL,'-','SMP Negeri 1 Tebing Tinggi','Jalan ',2015,'seleksi',NULL,'Islam','675442701f485c2cdd9d5afa15530bfd.jpg'),(123,'','','0000-00-00','Laki-laki','','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'aktif',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `siswa` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -613,7 +614,7 @@ CREATE TABLE `verifikasi` (
   `nis` int(11) NOT NULL,
   PRIMARY KEY (`nomor_verifikasi`),
   KEY `nis` (`nis`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -622,6 +623,7 @@ CREATE TABLE `verifikasi` (
 
 LOCK TABLES `verifikasi` WRITE;
 /*!40000 ALTER TABLE `verifikasi` DISABLE KEYS */;
+INSERT INTO `verifikasi` VALUES (1,'2019-06-27',123);
 /*!40000 ALTER TABLE `verifikasi` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -801,4 +803,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-26  8:29:26
+-- Dump completed on 2019-06-28 10:49:28
