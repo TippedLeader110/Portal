@@ -1,6 +1,6 @@
 -- MySQL dump 10.16  Distrib 10.1.26-MariaDB, for Win32 (AMD64)
 --
--- Host: localhost    Database: portal
+-- Host: localhost    Database: sisko
 -- ------------------------------------------------------
 -- Server version	10.1.26-MariaDB
 
@@ -651,7 +651,32 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
--- Dumping routines for database 'portal'
+-- Dumping events for database 'sisko'
+--
+/*!50106 SET @save_time_zone= @@TIME_ZONE */ ;
+/*!50106 DROP EVENT IF EXISTS `auto_delete_exp_verifikasi` */;
+DELIMITER ;;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;;
+/*!50003 SET character_set_client  = utf8mb4 */ ;;
+/*!50003 SET character_set_results = utf8mb4 */ ;;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;;
+/*!50003 SET @saved_time_zone      = @@time_zone */ ;;
+/*!50003 SET time_zone             = 'SYSTEM' */ ;;
+/*!50106 CREATE*/ /*!50117 DEFINER=`root`@`localhost`*/ /*!50106 EVENT `auto_delete_exp_verifikasi` ON SCHEDULE EVERY 5 MINUTE STARTS '2019-06-28 10:57:46' ON COMPLETION NOT PRESERVE ENABLE COMMENT 'hapus yang kadaluarsa waktu verifikasi nya' DO DELETE FROM verifikasi WHERE habis_waktu < NOW() - INTERVAL 7 DAY */ ;;
+/*!50003 SET time_zone             = @saved_time_zone */ ;;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;;
+/*!50003 SET character_set_results = @saved_cs_results */ ;;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;;
+DELIMITER ;
+/*!50106 SET TIME_ZONE= @save_time_zone */ ;
+
+--
+-- Dumping routines for database 'sisko'
 --
 /*!50003 DROP PROCEDURE IF EXISTS `allpost` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -803,4 +828,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-28 10:49:28
+-- Dump completed on 2019-06-28 10:58:03
