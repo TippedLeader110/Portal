@@ -694,7 +694,7 @@ class Custom extends CI_Controller {
 	}
 	public function guruSave(){
 		$post = $this->input->post();
-		$data = array('nama_guru' => $post['nguru'], 'id_mapel' => $post['mapel'], 'id_jabatan' => $post['jabatan'], 'alamat' => $post['alamat'], 'id_guru' => $post['nip']);
+		$data = array('nama_guru' => $post['nguru'], 'id_mapel' => $post['mapel'], 'id_jabatan' => $post['jabatan'], 'alamat' => $post['alamat'], 'nip' => $post['nip']);
 		$this->db->insert('guru', $data);
 	}
 	public function guruShow(){

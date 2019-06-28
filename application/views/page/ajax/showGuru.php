@@ -1,4 +1,4 @@
-<div class="container-fluid menupage" >
+<div class="container-fluid menupage" style="margin-bottom: 50px;">
   <button class="btn btn-success" data-toggle="modal" data-target="#myModal" style="margin-bottom: 20px;"><div style="color: white">Tambah</div><span><h2><i class="fas fa-plus" style="color: white"></i></h2></span></button>&nbsp;
   <div class="table table-responsive">
     <table class="table table-striped">
@@ -87,7 +87,7 @@
         
         <!-- Modal footer -->
         <div class="modal-footer">
-          <center><button type="button" class="btn btn-primary" name="go" onclick="subGuru()" type="submit">Tambah</button></center>
+          <center><button type="button" class="btn btn-primary" name="go" data-dismiss="myModal" onclick="subGuru()" type="submit">Tambah</button></center>
         </div>
         </form>
 
@@ -116,9 +116,10 @@
               console.log(data);
         },
         success: function(){
-          Swal.fire('Berhasil !!','Guru berhasi ditambah !!', "success");
+          Swal.fire('Berhasil !!','Guru berhasi ditambah !!', 'success');
           $("#page").load('<?php echo base_url('Custom/guruShow') ?>');
-          $('#myModal').hide();
+          $('.modal-backdrop').remove();
+          // $('#myModal').hide();
         }
       });
       
