@@ -87,8 +87,9 @@
       <hr>
     </div>
   </div>
-</div>
-<div id="demo" class="collapse">
+  <div class="container">
+    <div class="container">
+      <div id="demo" class="collapse">
 <div class="row" style="background: #335C81;margin-top: 40px;padding-bottom: 50px;">
   <div class="col-12">
     <div class="container" style="padding-top: 50px;">
@@ -109,6 +110,10 @@
   </div>
 </div>
 </div>
+    </div>
+  </div>
+</div>
+
 <div class="row">
   <div class="col-12">
     <div class="container" style="margin-top: 50px;margin-bottom: 50px">

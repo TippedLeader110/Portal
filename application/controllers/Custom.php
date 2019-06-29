@@ -647,6 +647,12 @@ class Custom extends CI_Controller {
 		$this->load->view('page/ajax/siswaBaru', $data);
 	}
 
+	public function siswaBEDIT($nis){
+		$this->db->where('nis', $nis);
+		$data['siswaBEDIT'] = $this->db->get('siswa')->result();
+		$this->load->view('page/ajax/sisBEDIT', $data);
+	}
+
 	public function siswaFull(){
 		$data['siswa1'] = $this->db->get('siswa')->result();
 		$jumlah_data = $this->cmodel->jumlah_data('siswa');
