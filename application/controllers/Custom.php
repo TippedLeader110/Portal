@@ -607,6 +607,12 @@ class Custom extends CI_Controller {
 
 	}
 
+	public function sisTolak(){
+		$nis = $this->input->post('nis');
+		$this->db->where('nis', $nis);
+		$this->db->delete('verifikasi');
+	}
+
 	public function sisVerdo(){
 		$post = $this->input->post();
 		$data = array('nis' =>  $post['nis'], 'nilai' => $post['nilai'], 'id_mujian' => $post['id']);
@@ -626,7 +632,7 @@ class Custom extends CI_Controller {
             $nis = $this->input->post('nis');
             $result= $this->cmodel->saveSKHU($skhu, $nis); //kirim value ke model m_upload
             echo "1";
-            $this->db->query("UPDATE verifikasi set habis_waktu = null where nis = ".$nis."");
+            $this->db->query("UPDATE verifikasi set status = 'aktif' where nis = ".$nis."");
             $this->db->where('nis', $nis);
             $this->db->delete('verifikasi');
         }

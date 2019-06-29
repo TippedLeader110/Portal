@@ -17,6 +17,9 @@
 				<tr>
 					<td>Status</td><td>: <?php echo $sisval->status; ?></td>
 				</tr>
+				<tr>
+					<td><a onclick="infolb(<?php echo $sisval->nis ?>)" href="javascript:void(0);">Info Lebih Lanjut</a></td>
+				</tr>
 			</table>
 		</div>
 	</div>
@@ -52,20 +55,57 @@
 <div class="row">
 	<div class="col-12">
 		<div class="form-group">
-		
 			Upload Berkas <br>
 			<input type="text" id="nis" hidden name="nis" value="<?php echo $sisval->nis ?>">
+
 		<input class="required" type="file" name="file">
 		Saya yakin sudah benar !!
+
 		<input type="checkbox" name="cek" onclick="EnableSubmit(this)">
-		<button type="submit"  id="cekcek" class="btn btn-outline-primary">Verifikasi</button>
+		<button type="submit"  id="cekcek" class="btn btn-outline-primary">Terima Pendaftaran</button>&nbsp;|&nbsp;
+		<button class="btn btn-danger" onclick="tolak(<?php echo $sisval->nis ?>)">Tolak Pendaftaran</button>
 		</div>
 	</form>
 	</div>
 </div>
+<div class="modal fade" id="infoB" role="dialog">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Informasi Detail Siswa/i<span id="nismodal"></span></h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div id="modal-body">
+              
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div id="but"></div><button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+    </div>
+    </div>
 
 <script type="text/javascript">
 	$('#cekcek').hide();
+
+	function tolak(id){
+		$.ajax({
+			url: '<?php echo base_url('Custom/sisTolak/') ?>',
+			type: 'POST',
+			data: {nis: id},
+			error: function(){
+				Swal.fire('Kesalahan !!', 'Terjadi kesalahan saat mencoba terhubung ke server !!', 'error');
+			},
+			success: function(){
+				Swal.fire('Berhasil !!', 'Siswa berhasil di tolak !!', 'success');
+				$('#show').hide();		
+			}
+		})
+
+		
+	}
 
 	EnableSubmit = function(val)
 	{
@@ -140,4 +180,8 @@
 			req = true;
 		}
 	})
+	function infolb(nis){
+          $('#modal-body').load('<?php echo base_url('Custom/siswaBEDIT/') ?>' + nis);
+          $('#infoB').modal('show');
+        }
 </script>

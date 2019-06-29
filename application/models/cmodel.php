@@ -156,7 +156,7 @@ class cmodel extends CI_Model {
 		return $query = $this->db->get('siswa',$number,$offset)->result();
 	}
 	function sendit($post){
-		$data = array('nama_siswa' => $post['nama'], 'alamat' => $post['alamat'], 'jenis_kel' => $post['jeniskel'],'tgl_lahir' => $post['tanggal_lahir'], 'nama_ayah' => $post['nama_ayah'], 'pend_akhir_ayah' => $post['pend_ayah'], 'pekerjaan_ayah' => $post['pekerjaan_ayah'], 'nama_ibu' => $post['nama_ibu'], 'pekerjaan_ibu' => $post['pekerjaan_ibu'], 'pend_akhir_ibu' => $post['pend_ibu'], 'alamat_ortu' => $post['alamat_ortu'], 'nama_wali' => $post['nama_wali'], 'pend_akhir_wali' => $post['pend_wali'], 'alamat_wali' => $post['alamat_wali'], 'sekolah_asal' => $post['sekolah_asal'], 'alamat_sekolah' => $post['alamat_sekolah'], 'tahun_lulus' => $post['tahun_lulus'], 'thn_ajaran' => $post['tahun_p'], 'status' => 'pending', 'agama' => $post['agama']);
+		$data = array('nama_siswa' => $post['nama'], 'alamat' => $post['alamat'], 'jenis_kel' => $post['jeniskel'],'tgl_lahir' => $post['tanggal_lahir'], 'nama_ayah' => $post['nama_ayah'], 'pend_akhir_ayah' => $post['pend_ayah'], 'pekerjaan_ayah' => $post['pekerjaan_ayah'], 'nama_ibu' => $post['nama_ibu'], 'pekerjaan_ibu' => $post['pekerjaan_ibu'], 'pend_akhir_ibu' => $post['pend_ibu'], 'alamat_ortu' => $post['alamat_ortu'], 'nama_wali' => $post['nama_wali'], 'pend_akhir_wali' => $post['pend_wali'], 'alamat_wali' => $post['alamat_wali'], 'sekolah_asal' => $post['sekolah_asal'], 'alamat_sekolah' => $post['alamat_sekolah'], 'tahun_lulus' => $post['tahun_lulus'], 'thn_ajaran' => $post['tahun_p'], 'status' => 'pending', 'agama' => $post['agama'], 'pekerjaan_wali' => $post['pekerjaan_wali']);
 		$this->db->insert('siswa', $data);
 		return $this->db->insert_id();
 	}
