@@ -30,6 +30,9 @@
         <a class="nav-link" href="<?php echo base_url() ?>Custom/KUser">Kelolah Staff/Admin</a>
       </li>
     </ul>
+    <div class="form-inline">
+      <button onclick="location.href='<?php echo base_url('login/logout') ?>';" class="btn btn-outline-warning"><span style="">Logout</span></button>
+    </div>
     
   </div>
 </nav>

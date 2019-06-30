@@ -66,10 +66,14 @@ class Custom extends CI_Controller {
 		$this->load->view('cust/main_fluid', $data);
 	}
 	public function KUser(){
-		$data['home'] = 1;	
-		$data['cmain'] = "page/cmain";
-		$data['ac'] = 4;
-		$data['navact'] = 0;
+		$data['nav'] = 'nav/custkiri';
+		$data['home'] = 0;	 //Navbar ada apa ga
+		$data['cmain'] = "page/admin";
+		$data['ac'] = 4;     //Posisi aktif nav bar
+		$data['navact'] = 0; //Posisi sidenav aktif
+		$id = $this->session->userdata('id');
+		$this->db->where('id_user', $id);
+		$data['ids'] = $this->db->get('user')->result();
 		$this->load->view('cust/main', $data);
 	}
 	// --------------------EWeb----------------------
@@ -877,6 +881,37 @@ class Custom extends CI_Controller {
 		echo json_encode($this->db->get('siswa')->result());
 	}
 
+	// /////////// ADMIN USER CONFIG 
 
+	public function savePass()	{
+		$p = $this->input->post();
+		$this->db->where('id_user', $p['id']);
+		$pass = md5($p['pass']);
+		$this->db->set('password', $pass);
+		$this->db->update('user');
+	}
+
+	public function saveNama()	{
+		$p = $this->input->post();
+		$this->db->where('id_user', $p['id']);
+		$this->db->set('nama', $p['pass']);
+		$this->db->update('user');
+	}
+
+	public function otoAkun()	{
+		$p = $this->input->post();
+		$this->db->where('id_user', $p['id']);
+		$this->db->set('level', $p['level']);
+		$this->db->update('user');
+	}
+	public function adminlist(){
+		$data['data'] = $this->db->get('user')->result();
+		$this->load->view('page/ajax/adminlist', $data);
+	}
+	public function remAkun(){
+		$id = $this->input->post('id');
+		$this->db->where('id_user', $id);
+		$this->db->delete('user');
+	}
 
 }
