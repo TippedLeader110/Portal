@@ -11,7 +11,6 @@
 
   </div>
 </div>
-<div style="background: ">
   <div class="row">
   <div class="col-12">
     <?php $this->load->view($vnav) ?>
@@ -24,11 +23,11 @@
 
   <?php $this->load->view('first', $data)?>
 </div>
-<div class="row" style="margin-top: 50px;">
+<div class="row" style="margin-top: 50px;margin-bottom: 20px;">
   <div class="col-8">
     <h4 class="bold">TENTANG KAMI</h4>
           <hr>
-    <div class="row">
+    <div class="row" style="margin-top: 10px;">
       <div class="col-12">
         <div class="row">
             <div class="col-12">
@@ -39,7 +38,7 @@
             </div>
             <?php endif ?>
         </div>
-        <div class="row" style="margin-top: 30px;">
+        <div class="row" style="margin-top: 50px;">
           <div class="col-12">
             <h4 class="bold">GALERI KAMI</h4>
             <hr>
@@ -74,8 +73,8 @@
       <?php foreach ($postmain2 as $key => $vpostmain): ?>
         <div class="row" style="margin-top: 10px;">
           <div class="col-12">
-            <img style="width: 100%;height: 100px;object-position: center;object-fit: cover;background-image: linear-gradient(transparent, rgba(0,0,0,0.2))" class="card-img-top" src="<?php echo base_url('source/gambar/post/'); echo $vpostmain->cover ?>" alt="Card image cap">
-            <h5><?php echo $vpostmain->judul ?></h5>
+           <a href="<?php echo base_url('Artikel/sekolah/'); echo $vpostmain->id_post ?>"> <img style="width: 100%;height: 100px;object-position: center;object-fit: cover;background-image: linear-gradient(transparent, rgba(0,0,0,0.2))" class="card-img-top" src="<?php echo base_url('source/gambar/post/'); echo $vpostmain->cover ?>" alt="Card image cap">
+            <h5><?php echo $vpostmain->judul ?></h5></a>
             <span style="max-width: 50px;"><?php echo $vpostmain->nama ?></span>&nbsp;<span><?php echo $vpostmain->tanggal ?></span>
             <hr>
           </div>
@@ -89,7 +88,7 @@
       <hr>
   </div>
   </div>  
-  <div class="row">
+  <div class="row" style="margin-bottom: 30px;">
     <?php foreach ($postmain3 as $key => $post3): ?>
       <div class="col-4">
             <div class="card mb-4 box-shadow">
@@ -102,16 +101,19 @@
           </div>
     <?php endforeach ?>
   </div>
-    <?php foreach ($kate as $key => $vkate): ?>
   <div class="row">
+    <?php foreach ($kate as $key => $vkate): ?>
       <div class="col-4">
       <h4 class="bold"><?php echo $vkate->nama_kategori ?></h4>
       <hr>
       <?php $this->db->where('id_kategori', $vkate->id_kategori);$this->db->limit(6);$query = $this->db->get("allpost")->result(); ?>
       <?php foreach ($query as $key => $vkate2): ?>
-        <a href="<?php echo base_url('Artikel/sekolah/'); echo $vkate2->id_post; ?>"><h5><?php echo $vkate2->judul ?></h5>
-        <p><?php echo $vkate2->nama ?>&nbsp;|&nbsp;<span><?php echo $vkate2->tanggal ?></p></a>
+        <a href="<?php echo base_url('Artikel/sekolah/'); echo $vkate2->id_post; ?>"><h5><?php echo $vkate2->judul ?></h5></a>
+        <p><?php echo $vkate2->nama ?>&nbsp;|&nbsp;<?php echo $vkate2->tanggal ?></p>
+          <hr>
       <?php endforeach ?>
+      <center><a href="<?php echo base_url('Artikel/kategori/'); echo $vkate2->id_kategori ?>">Lihat Semua</a></center>
   </div>
+
     <?php endforeach ?>
-</div>
+  </div>

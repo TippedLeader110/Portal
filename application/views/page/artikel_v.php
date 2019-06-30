@@ -28,21 +28,15 @@
 		    <h3>Artikel Lainnya</h3>
 				<div class="row">
 				<?php foreach ($post2 as $key => $value): ?>
-					<div class="col-3">
-						<div class="row">
-							<div class="col-12" >
-								<div class="container-fluid" style="background-image: url(<?php echo base_url('source/gambar/post/'); echo $value->cover; ?>);height: 180px;background-position: center center;border-style: solid;border-width: 1px;border-color: black;">
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-12">
-								<div class="container-fluid" style="border-style: solid;border-width: 1px;border-color: black;border-top-width: 0px;max-height: 50px;overflow: hidden;">
-									<a href="<?php echo base_url('Artikel/'); echo $value->slug ?>"><?php echo $value->judul ?></a>
-								</div>
-							</div>
-						</div>
-					</div>	
+					<div class="col-4">
+		            <div class="card mb-4 box-shadow">
+		                    <a href="<?php echo base_url('Artikel/sekolah/'); echo $value->id_post; ?>"><img style="width: 100%;max-height: 160px;object-position: center;object-fit: cover;" class="card-img-top" src="<?php echo base_url('source/gambar/post/'); echo $value->cover ?>" alt="Card image cap">
+		                    <div class="card-body" style="max-height: 100px;">
+		                      <div style="width: 300px;height: 50px;overflow: hidden;"><?php echo $value->judul ?></div>
+		                        <span style="max-width: 50px;"><?php echo $value->nama ?></span>&nbsp;<span><?php echo $value->tanggal ?></span></a>
+		                </div>
+		            </div>
+		          </div>
 				<?php endforeach ?>
 				</div>
 			</div>

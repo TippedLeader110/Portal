@@ -76,10 +76,12 @@
             console.log(iddrop);
         }
 	});
+
 	$('#navlist').sortable({
 		update: function(event, ui) {
             var beforeidsInOrder = $('#navlist').sortable("toArray");
             console.log(beforeidsInOrder);
+            console.log(beforeidsInOrder.length);
         }
 
 	});
@@ -153,6 +155,7 @@
 }
 
 	function tam(){
+		if (beforeidsInOrder.length<6) {
 		$.ajax({
 			url: '<?php echo base_url('Custom/addNav') ?>',
 			type: "post",
@@ -171,6 +174,15 @@
                  });
            }
 		})
+		}
+		else{
+			Swal.fire({
+                 	title: 'Error',
+                 	text: 'Navbar sudah maksimal !!',
+                 	type: "error",
+                 	timer: 3000
+                 });
+		}
 	}
 
 	function dude(){

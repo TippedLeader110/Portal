@@ -19,9 +19,16 @@
   </div>
   <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item nav-item-c mr-auto">
-              <a class="nav-link cl" href="<?php echo base_url('login') ?>" style="">Login</a>
+            <?php if ($this->session->userdata('status') != "login"): ?>
+              <li class="nav-item nav-item-c mr-auto">
+              <a class="nav-link cl" href="<?php echo base_url('login') ?>" style="">Login <i class="fas fa-sign-in-alt"></i></a>
             </li>
+            <?php endif ?>
+            <?php if ($this->session->userdata('status') == "login"): ?>
+              <li class="nav-item nav-item-c mr-auto">
+              <a class="nav-link cl" href="<?php echo base_url('Custom') ?>" style="">Admin <i class="fas fa-columns"></i></a>
+            </li>
+            <?php endif ?>
         </ul>
     </div>
 </nav>
