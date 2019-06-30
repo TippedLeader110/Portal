@@ -1,158 +1,117 @@
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-<style type="text/css">
-  
-  .paral { 
-  /* The image used */
-  /*background-image: url("../img/back.jpg");*/
 
-  /* Set a specific height */
-    min-height: 500px; 
-
-  /* Create the paral scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-  @media only screen and (max-device-width: 1366px) {
-  .paral {
-    /*background-attachment: scroll;*/
-  }
-}
-
-</style>
-<div  class="container" style="background: white;padding: 0px 0px 0px 0px">
-  <div class="containerss  ">
-<div class="row">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('source/css/sekolah.css') ?>">
+<?php foreach ($id as $key => $vid): ?>
+<?php endforeach ?>
+<?php foreach ($post as $key => $vpost): ?>
+<?php endforeach ?>
+<?php $data['post'] = $post ?>
+<div class="row" style="margin-top: 10px;margin-bottom: 10px;">
   <div class="col-12">
-    <div style="border-style: solid;border-color: black;border-width: 2px">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-        <?php $i=1 ?>
-        <?php foreach ($img as $key => $val): ?>
-        <?php if ($i==1): ?>
-          <div class="carousel-item active">
-          <img class="d-block w-100" src="<?php echo base_url('source/gambar/galery/');echo $val->link; ?>" alt="<?php echo $val->deskripsi ?>">
-            <div style="position:absolute;top:0;left:0;height:0;bottom:0;width:100%;height:100%;background:rgba(0,0,0,0.4);"></div>
-          <div class="carousel-caption d-none d-md-block">
-            <h5><?php echo $val->deskripsi ?></h5>
+    <img class="img2" src="<?php echo base_url('source/gambar/logo/'); echo $vid->logo ?>"><span class="bottomright" style="color: #335C81;font-weight: bolder;font-size: 40px;"><?php echo $vid->nama_sekolah ?></span>
+
+  </div>
+</div>
+<div style="background: ">
+  <div class="row">
+  <div class="col-12">
+    <?php $this->load->view($vnav) ?>
+  </div>
+</div>
+<div class="row" style="margin-top: 20px;">
+  
+</div>
+<div class="row">
+
+  <?php $this->load->view('first', $data)?>
+</div>
+<div class="row" style="margin-top: 50px;">
+  <div class="col-8">
+    <h4 class="bold">TENTANG KAMI</h4>
+          <hr>
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+            <div class="col-12">
+              <button class="btn btn-info" ><div style="color: white">Guru Kami</div><span><h2><i class="fas fa-user-tie"></i></h2></span></button>
+              <button class="btn btn-info" ><div style="color: white">Informasi Sekolah</div><span><h2><i class="fas fa-info"></i></h2></span></button>
+              <?php if ($vid->penerimaan==1): ?>
+              <button class="btn btn-info" ><div style="color: white">Daftar Online</div><span><h2><i class="fas fa-door-open"></i></h2></span></button>
+            </div>
+            <?php endif ?>
+        </div>
+        <div class="row" style="margin-top: 30px;">
+          <div class="col-12">
+            <h4 class="bold">GALERI KAMI</h4>
+            <hr>
           </div>
         </div>
-        <?php endif ?>
-        <?php if ($i!=1): ?>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="<?php echo base_url('source/gambar/galery/');echo $val->link; ?>" alt="<?php echo $val->deskripsi ?>">
-          <div style="position:absolute;top:0;left:0;height:0;bottom:0;width:100%;height:100%;background:rgba(0,0,0,0.4);"></div>
+        <div class="row">
+          
+          <?php foreach ($img as $key => $vimg): ?>
+            <div class="col-md-4">
+                  <div class="card mb-4 box-shadow">
+                    <img style="width: 100%;height: 100px;object-position: center;object-fit: cover;" class="card-img-top" src="<?php echo base_url('source/gambar/galery/'); echo $vimg->link ?>" alt="Card image cap">
+                    <div class="card-body" style="max-height: 50px;">
+                      <p class="card-text"><?php echo $vimg->deskripsi ?></p>
+                    </div>
+                  </div>
+            </div>
+     
+          <?php endforeach ?>
+          
         </div>
-        <?php endif ?>
-        <?php $i++; ?>
-        <?php if ($i==4): ?>
-          <?php break; ?>
-        <?php endif ?>
-        <?php endforeach ?>
+        <div class="row">
+            <div class="container">
+              <center><a href="">Lihat Semua Galeri</a></center>
+            </div>
+          </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
     </div>
+    </div>
+    <div class="col-4">
+      <h4 class="bold">BERITA ACAK</h4>
+      <hr>
+      <?php foreach ($postmain2 as $key => $vpostmain): ?>
+        <div class="row" style="margin-top: 10px;">
+          <div class="col-12">
+            <img style="width: 100%;height: 100px;object-position: center;object-fit: cover;background-image: linear-gradient(transparent, rgba(0,0,0,0.2))" class="card-img-top" src="<?php echo base_url('source/gambar/post/'); echo $vpostmain->cover ?>" alt="Card image cap">
+            <h5><?php echo $vpostmain->judul ?></h5>
+            <span style="max-width: 50px;"><?php echo $vpostmain->nama ?></span>&nbsp;<span><?php echo $vpostmain->tanggal ?></span>
+            <hr>
+          </div>
+        </div>
+      <?php endforeach ?>
     </div>
   </div>
-</div>
-    
-</div>
-<?php foreach ($id as $key => $idv): ?>
-  
-<?php endforeach ?>
-<?php foreach ($rand as $key => $vrand): ?>
-  
-<?php endforeach ?>
-<div class="row" style="margin-top: 10px;"> 
-  <div class="container">
+  <div class="row">
     <div class="col-12">
+      <h4 class="bold">BERITA LAINNYA</h4>
       <hr>
-      <center><h2>Selamat Datang Di Website Sekolah</h2></center>  
-      <center><h2><?php echo $idv->nama_sekolah ?></h2></center>
-      <center><?php echo $idv->sejarah ?></center>
-      <center><a data-toggle="collapse" data-target="#demo" href="javascript:void(0);"><h4><span><i class="fas fa-arrow-down"></i></span><span style="text-decoration: none;">Visi Misi</span> <span><i class="fas fa-arrow-down"></i></span></h4></a></center>
+  </div>
+  </div>  
+  <div class="row">
+    <?php foreach ($postmain3 as $key => $post3): ?>
+      <div class="col-4">
+            <div class="card mb-4 box-shadow">
+                    <a href="<?php echo base_url('Artikel/sekolah/'); echo $post3->id_post; ?>"><img style="width: 100%;max-height: 160px;object-position: center;object-fit: cover;" class="card-img-top" src="<?php echo base_url('source/gambar/post/'); echo $post3->cover ?>" alt="Card image cap">
+                    <div class="card-body" style="max-height: 100px;">
+                      <div style="width: 300px;height: 50px;overflow: hidden;"><?php echo $post3->judul ?></div>
+                        <span style="max-width: 50px;"><?php echo $post3->nama ?></span>&nbsp;<span><?php echo $post3->tanggal ?></span></a>
+                </div>
+            </div>
+          </div>
+    <?php endforeach ?>
+  </div>
+    <?php foreach ($kate as $key => $vkate): ?>
+  <div class="row">
+      <div class="col-4">
+      <h4 class="bold"><?php echo $vkate->nama_kategori ?></h4>
       <hr>
-    </div>
+      <?php $this->db->where('id_kategori', $vkate->id_kategori);$this->db->limit(6);$query = $this->db->get("allpost")->result(); ?>
+      <?php foreach ($query as $key => $vkate2): ?>
+        <a href="<?php echo base_url('Artikel/sekolah/'); echo $vkate2->id_post; ?>"><h5><?php echo $vkate2->judul ?></h5>
+        <p><?php echo $vkate2->nama ?>&nbsp;|&nbsp;<span><?php echo $vkate2->tanggal ?></p></a>
+      <?php endforeach ?>
   </div>
-  <div class="container">
-    <div class="container">
-      <div id="demo" class="collapse">
-<div class="row" style="background: #335C81;margin-top: 40px;padding-bottom: 50px;">
-  <div class="col-12">
-    <div class="container" style="padding-top: 50px;">
-      <center><h3 style="color: white">Visi Sekolah</h3></center>
-      <div class="white" style="color: white"><?php echo $idv->visi ?></div>
-    </div>
-  </div>
-  <div class="col-12">
-    <div class="container" style="padding-top: 50px;">
-      <center><h3 style="color: white">Misi Sekolah</h3></center>
-      <div class="white" style="color: white"><?php echo $idv->misi ?></div>
-    </div>
-  </div>
-  <div class="col-12">
-    <?php if ($idv->penerimaan==1): ?>
-      <center><a href="<?php echo base_url('User') ?>"><h3 style="color: white">Daftar Sekarang</h3></a></button></center>
-    <?php endif ?>
-  </div>
-</div>
-</div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-12">
-    <div class="container" style="margin-top: 50px;margin-bottom: 50px">
-      <hr>
-      <center><h2>Artikel Sekolah</h2></center>
-      <hr>
-    </div>
-  </div>
-</div>
-<div class="row" style="background: $">
-  <?php foreach ($post as $key => $valp): ?>
-    <div class="col-3"><a href="<?php echo base_url('Artikel/sekolah/'); echo $valp->id_post; ?>">
-    
-    <div class="container" style="border-style: solid;border-width: 1px;border-color: black;padding: 0px 0px 0px 0px;background: #335C81">
-    <div class="container" style="height: 200px;background-image: url(<?php echo base_url('source/gambar/post/'); echo $valp->cover; ?>);background-position: center center">
-    </div>
-      <center><span style="overflow: hidden;max-width: 0px;color: white"><?php echo $valp->judul ?></a></span></center>
-    </div>
-
-  </div>
-</div>
-  <?php endforeach ?>
-<div class="row">
-  <div class="col-12">
-    <div class="container" style="margin-top: 50px;margin-bottom: 50px">
-      <hr>
-      <center><h2>Galeri Sekolah</h2></center>
-      <hr>
-    </div>
-  </div>
-</div>
-<div class="row " >
-  <div class="col-12" >
-    <div class="container paral" style="background-image: url(<?php echo base_url('source/gambar/galery/'); echo $vrand->link; ?>);height: 320px">
-      <hr>
-      <center><h2 style="color: white">Jelajah Galeri Sekolah</h2></center>
-      <hr>
-    </div>
-  </div>
-</div>
-
+    <?php endforeach ?>
 </div>

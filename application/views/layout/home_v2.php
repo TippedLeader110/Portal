@@ -9,8 +9,8 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>/source/css/main.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>/source/css/style.css">
 </head>
-<body style="background: #F0F1F6;">
-	<?php $this->load->view($vnav) ?>
+<body >
+	
 	<?php $this->load->view($v1) ?>
 	<div class="container">
 		<div class="row">

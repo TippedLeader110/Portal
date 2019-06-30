@@ -30,6 +30,8 @@
 	</div>
 		</div>
 	</div>
+	<footer>
+	</footer>
 	<?php $this->load->view('nav/script'); ?>
 </body>
 </html>	

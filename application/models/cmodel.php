@@ -90,7 +90,7 @@ class cmodel extends CI_Model {
 	}	
 
 	public function savePostnow($title,$waktu,$Kategori,$isi, $stat, $cover){
-		$data = array('judul' => $title, 'tanggal' => $waktu, 'id_kategori' => $Kategori, 'isi' => $isi, 'status' => $stat, 'id_user' => $this->session->userdata('id'), 'cover' => $cover);
+		$data = array('judul' => $title, 'tanggal' => $waktu, 'id_kategori' => $Kategori, 'isi' => $isi, 'status' => $stat, 'id_user' => $this->session->userdata('id'), 'cover' => $cover, 'slug' => url_title($title));
 		$this->db->insert('post', $data);
 	}
 
@@ -103,6 +103,7 @@ class cmodel extends CI_Model {
 
 	public function updatePostnow($title,$waktu,$Kategori,$isi, $stat, $cover, $id){
 		$this->db->set('judul', $title);
+		$this->db->set('slug', url_title($title));
 		$this->db->set('tanggal', $waktu);
 		$this->db->set('id_kategori', $Kategori);
 		$this->db->set('isi', $isi);

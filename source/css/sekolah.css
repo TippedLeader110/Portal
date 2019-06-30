@@ -1,0 +1,13 @@
+h4.bold{
+	color: #335C81;
+	font-weight: bold;
+}
+.menupage{
+  border-radius: 4px;border-color: #26435E;border-width: 1px;border-style: solid;padding: 20px 10px 20px 10px;
+  
+}
+.bottomright {
+position: absolute;
+bottom: 15px;
+left:130px;
+}

@@ -1,9 +1,19 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('source/css/customNav.css') ?>">
+<?php foreach ($ids as $key => $vid): ?>
+	
+<?php endforeach ?>
 <?php foreach ($post as $key => $v): ?>
 <?php endforeach ?>
 <div class="container" >
+	<div class="row" style="margin-top: 10px;margin-bottom: 10px;">
+	  <div class="col-12">
+	    <img class="img2" src="<?php echo base_url('source/gambar/logo/'); echo $vid->logo ?>"><span class="bottomright" style="color: #335C81;font-weight: bolder;font-size: 40px;"><?php echo $vid->nama_sekolah ?></span>
+
+	  </div>
+	</div>
+	<?php $this->load->view($vnav) ?>
 	<div class="row">
-			<div class="col-8" style="background: white;margin-top: 50px;padding: 0px 10px 10px 0px">
+			<div class="col-8" style="margin-top: 20px;padding: 0px 10px 10px 0px">
 			
 		    <div class=" menupage" style="margin-left: 15px;margin-top: 20px;">
 		    	
@@ -16,7 +26,7 @@
 			<?php echo $v->isi ?>
 		    </div>
 		</div>
-		<div class="col-4" style="background: white;margin-top: 50px;">
+		<div class="col-4" style="margin-top: 20px;">
 			<div class="container-fluid menupage" style="margin-top: 20px;padding-top: 10px;">
 				<center><h3>Artikel Lainya</h3></center>
 				<hr>

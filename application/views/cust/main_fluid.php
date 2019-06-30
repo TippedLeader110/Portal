@@ -25,7 +25,11 @@
 			</div>
 		</div>
 	</div>
-</div>
+	</div>
+	<div id="footer" >
+		WT
+	</div>
 	<?php $this->load->view('nav/script'); ?>
+
 </body>
 </html>	

@@ -11,28 +11,28 @@
 		</div>
 	</div>
 	<div class="row" style="margin-top: 20px;">
-		<!-- <div class="col-3 ">
+		<div class="col-3 ">
 			<div class="container-fluid" > 
 				<div class="row">
 					<div class="cc">
-						<div class="image" style="background-image: url('<?php echo base_url('source/img/b.jpg') ?>');width: 240px;">
+						<div class="image" style="background-image: url('<?php echo base_url('source/gambar/logo/'); echo $logo;?>');width: 240px;">
 						</div>
 						<div class="overlay">
-						    <a href="javascript:void(0);" onclick="upLogo();" class="icon" title="User Profile">
+							<form id="logoWeb">
+							<input hidden type="file" name="file" id="imgupload" style="display:none"/> 
+						    <a href="javascript:void(0);" class="icon" title="User Profile" id="OpenImgUpload">
 						  	  <i class="fas fa-upload"></i>
+						  	  </form>
 						    </a>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<button>Edit </button>
 				</div>
 			</div>
 		</div>
-		 --><!-- <div class="col-1">
-			
-		</div> -->
-<!-- <div class="ccontainer"> -->
+		
+<div class="ccontainer">
 		<div class="col-12">
 			<!-- // <?php $this->load->view('nav/cidnav') ?> -->
 			<hr>
@@ -296,5 +296,28 @@
 	// 		}
 	// 	})
 	// }
+
+	$('#OpenImgUpload').click(function(){ $('#imgupload').trigger('click'); });
+
+	$('#imgupload').change(function(event) {
+		$("#logoWeb").submit();
+	});
+
+	$("#logoWeb").submit(function(event) {
+		event.preventDefault();
+		$.ajax({
+			url: '<?php echo base_url('Custom/upLogo') ?>',
+			type: 'post',
+			processData:false,
+            contentType:false,
+			data: new FormData(this),
+			error: function(){
+				Swal.fire('Kesalahan !', 'Terjadi Kesalahan saat mencoba terhubung ke server','error');
+			},
+			success: function(){
+				location.reload();
+			}
+		})
+	});
 </script>
 

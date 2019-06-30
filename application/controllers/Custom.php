@@ -97,6 +97,10 @@ class Custom extends CI_Controller {
 		$data['nav'] = 'nav/custkiri';
 		$data['navact'] = 1;
 		$data['sek'] = $this->cmodel->getIdentitas();
+		$ll = $this->db->get('identitas')->result();
+		foreach ($ll as $key => $value) {
+			$data['logo'] = $value->logo;
+		}
 		$this->load->view('cust/main', $data);
 	}
 
@@ -109,6 +113,26 @@ class Custom extends CI_Controller {
 	public function upVisi(){
 		$data = $this->input->post('data');
 		$go = $this->cmodel->pVisi($data);
+	}
+
+	public function upLogo(){
+		$config['upload_path']="./source/gambar/logo"; //path folder file upload
+        $config['allowed_types']='gif|jpg|png'; //type file yang boleh di upload
+        $config['encrypt_name'] = TRUE; //enkripsi file name upload
+         
+        $this->load->library('upload',$config); //call library upload 
+        if($this->upload->do_upload("file")){ //upload file
+            $data = array('upload_data' => $this->upload->data()); //ambil file name yang diupload
+ 
+            $image= $data['upload_data']['file_name']; //set file name ke variable image
+            $this->db->set('logo', $image);
+            $this->db->update('identitas');
+            echo json_decode($result);
+            echo "1";
+        }
+        else{
+        	echo "0";
+        }
 	}
 
 
