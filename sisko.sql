@@ -119,10 +119,11 @@ CREATE TABLE `identitas` (
   `lartikel` int(11) DEFAULT NULL,
   `penerimaan` int(11) DEFAULT NULL,
   `tahun_penerimaan` int(11) DEFAULT NULL,
-  `maks` int(11) DEFAULT NULL,
+  `maks_ipa` int(11) DEFAULT NULL,
   `tutup_pendaftaran` date DEFAULT NULL,
   `note` text,
   `logo` text,
+  `maks_ips` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_identitas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -133,7 +134,7 @@ CREATE TABLE `identitas` (
 
 LOCK TABLES `identitas` WRITE;
 /*!40000 ALTER TABLE `identitas` DISABLE KEYS */;
-INSERT INTO `identitas` VALUES (1,'DEMO SCHOOL','<p>&nbsp;&nbsp;&ldquo;Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global&rdquo;</p>\n','<p>1.&nbsp; &nbsp;Mewujudkan pendidikan untuk menghasilkan prestasi dan lulusa berkwalitas tinggi yang peduli dengan lingkungan hidup</p>\n\n<p>2. &nbsp; Mewujudkan sumber daya manusia yang beriman, produktif, kreatif, inofatif dan efektif</p>\n\n<p>3. &nbsp; Mewujudkan pengembangan inovasi pembelajaran sesuai tuntutan</p>\n\n<p>4. &nbsp; Mewujudkan sumber daya manusia yang peduli dalam mencegahan pencemaran, mencegahan kerusakan lingkungan dan melestarikan lingkungan hidup</p>\n\n<p>5. &nbsp; Mewujudkan sarana prasarana reprensentatif dan up to date</p>\n\n<p>6. &nbsp; Mewujudkan pengelolaan pendidikan yang professional</p>\n\n<p>7. &nbsp; Mewujudkan sistim penilaian yang berafiliasi</p>\n\n<p>8. &nbsp; Mewujudkan budaya yang berkualifikasi</p>\n\n<p>9. &nbsp; Mewujudkan Sekolah yang bersih,hijau dan meminimalis hasil sampah yang tidak bermanfaat</p>\n\n<p>10. Mewujudkan manusia Indonesia yang mampu berkontribusi pada kehidupan bermasyarakat, berbangsa, bernegara dalam peradaban dunia</p>\n\n<p>11. Mewujudkan generasi emas, sehat tanpa narkoba</p>\n','SEKOLAH INI DICIPTAKAN OLEH ALI HIDAYAT SETELAH DIUSIR DARI WAKANDA',2,1,1,2019,250,'2019-06-28','<h3>Syarat Pendaftaran</h3>\n\n<ol>\n	<li>Telah dinyatakan lulus dan memiliki Ijazah/SKL dari SMP/ MTs/ SMPLB/ Paket B;</li>\n	<li>Berusia paling tinggi 21 (dua puluh satu) ( awal Tahun Pelajaran 2017/2018).</li>\n</ol>\n\n<h3>Pemberkasan</h3>\n\n<ol>\n	<li>Foto Copy Ijazah/SHUN/Surat Keterangan Lulus dari sekolah asal dan dilegalisir sebanyak 1 lembar, serta menyerahkan aslinya pada sekolah tempat mendaftar ( dijadwal yang di tentukan ).</li>\n	<li>Pas foto berwarna ukuran 3 x 4 cm sebanyak 2 lembar.</li>\n</ol>\n\n<h3>Cara Mendaftar</h3>\n\n<ol>\n	<li>Daftar akun pada halaman daftar ( tombol daftar di atas )</li>\n	<li>Setelah mengisi semua form pendaftaran , peserta didik baru diharapkan mengantarkan berkas yang diminta ke sekolah untuk verifikasi</li>\n	<li>Setelah verifikasi peserta didik baru dapat menunggu hasil seleksi di tanggal yang di tentukan yaitu ( 2019-07-15 )</li>\n</ol>\n\n<h3>Catatan Tambahan</h3>\n\n<ol>\n	<li>Saat verifikasi di kenakan biaya pendaftaran sebesar Rp.100.000,00</li>\n</ol>\n','dc581c17dde66f731764fcf1d81df3ba.png');
+INSERT INTO `identitas` VALUES (1,'DEMO SCHOOL','<p>&nbsp;&nbsp;&ldquo;Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global&rdquo;</p>\n','<p>1.&nbsp; &nbsp;Mewujudkan pendidikan untuk menghasilkan prestasi dan lulusa berkwalitas tinggi yang peduli dengan lingkungan hidup</p>\n\n<p>2. &nbsp; Mewujudkan sumber daya manusia yang beriman, produktif, kreatif, inofatif dan efektif</p>\n\n<p>3. &nbsp; Mewujudkan pengembangan inovasi pembelajaran sesuai tuntutan</p>\n\n<p>4. &nbsp; Mewujudkan sumber daya manusia yang peduli dalam mencegahan pencemaran, mencegahan kerusakan lingkungan dan melestarikan lingkungan hidup</p>\n\n<p>5. &nbsp; Mewujudkan sarana prasarana reprensentatif dan up to date</p>\n\n<p>6. &nbsp; Mewujudkan pengelolaan pendidikan yang professional</p>\n\n<p>7. &nbsp; Mewujudkan sistim penilaian yang berafiliasi</p>\n\n<p>8. &nbsp; Mewujudkan budaya yang berkualifikasi</p>\n\n<p>9. &nbsp; Mewujudkan Sekolah yang bersih,hijau dan meminimalis hasil sampah yang tidak bermanfaat</p>\n\n<p>10. Mewujudkan manusia Indonesia yang mampu berkontribusi pada kehidupan bermasyarakat, berbangsa, bernegara dalam peradaban dunia</p>\n\n<p>11. Mewujudkan generasi emas, sehat tanpa narkoba</p>\n','SEKOLAH INI DICIPTAKAN OLEH ALI HIDAYAT SETELAH DIUSIR DARI WAKANDA',2,1,1,2019,2,'2019-06-28','<h3>Syarat Pendaftaran</h3>\n\n<ol>\n	<li>Telah dinyatakan lulus dan memiliki Ijazah/SKL dari SMP/ MTs/ SMPLB/ Paket B;</li>\n	<li>Berusia paling tinggi 21 (dua puluh satu) ( awal Tahun Pelajaran 2017/2018).</li>\n</ol>\n\n<h3>Pemberkasan</h3>\n\n<ol>\n	<li>Foto Copy Ijazah/SHUN/Surat Keterangan Lulus dari sekolah asal dan dilegalisir sebanyak 1 lembar, serta menyerahkan aslinya pada sekolah tempat mendaftar ( dijadwal yang di tentukan ).</li>\n	<li>Pas foto berwarna ukuran 3 x 4 cm sebanyak 2 lembar.</li>\n</ol>\n\n<h3>Cara Mendaftar</h3>\n\n<ol>\n	<li>Daftar akun pada halaman daftar ( tombol daftar di atas )</li>\n	<li>Setelah mengisi semua form pendaftaran , peserta didik baru diharapkan mengantarkan berkas yang diminta ke sekolah untuk verifikasi</li>\n	<li>Setelah verifikasi peserta didik baru dapat menunggu hasil seleksi di tanggal yang di tentukan yaitu ( 2019-07-15 )</li>\n</ol>\n\n<h3>Catatan Tambahan</h3>\n\n<ol>\n	<li>Saat verifikasi di kenakan biaya pendaftaran sebesar Rp.100.000,00</li>\n</ol>\n','dc581c17dde66f731764fcf1d81df3ba.png',2);
 /*!40000 ALTER TABLE `identitas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -145,14 +146,33 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `done_seleksi` AFTER UPDATE ON `identitas` FOR EACH ROW BEGIN
-DECLARE nilai integer;
-set nilai = old.maks;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `done_seleksi` BEFORE UPDATE ON `identitas` FOR EACH ROW BEGIN
+DECLARE lim_ipa integer;
+DECLARE lim_ips integer;
+DECLARE temp integer;
+
 IF new.penerimaan=0
-THEN 
-UPDATE siswa set status = 'gagal' WHERE STATUS = 'seleksi';
-DELETE FROM siswa where status = 'gagal' ORDER BY nis  DESC limit nilai;
-end IF;
+THEN
+	SET temp= (select count(*) from siswa where status = 'seleksi' and jurusan = 'ipa');
+	IF old.maks_ipa>temp OR old.maks_ipa=temp
+	THEN
+		UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ipa';
+	ELSE
+		set lim_ipa = (temp-old.maks_ipa);
+		DELETE FROM siswa where status = 'seleksi' and jurusan = 'ipa' ORDER BY nilai_avg  ASC limit lim_ipa;		
+		UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ipa';
+	END IF;
+	SET temp= (select count(*) from siswa where status = 'seleksi' and jurusan = 'ips');
+	IF old.maks_ips>temp OR old.maks_ips=temp
+	THEN
+		UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ips';
+	ELSE
+		set lim_ips = (temp-old.maks_ips);
+		DELETE FROM siswa where status = 'seleksi' and jurusan = 'ips' ORDER BY nilai_avg  ASC limit lim_ips;		
+		UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ips';
+	END IF;
+	
+END IF;
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -285,14 +305,15 @@ DROP TABLE IF EXISTS `log_siswa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `log_siswa` (
-  `id_siswa` int(11) NOT NULL,
+  `id_siswa` int(11) NOT NULL AUTO_INCREMENT,
   `nama_siswa` int(11) NOT NULL,
   `matematika` int(11) NOT NULL,
   `b_inggris` int(11) NOT NULL,
   `b.indonesia` int(11) NOT NULL,
   `ipa` int(11) NOT NULL,
   `waktu` date NOT NULL,
-  `status` enum('ubah','hapus') NOT NULL
+  `status` enum('ubah','hapus') NOT NULL,
+  KEY `id_siswa` (`id_siswa`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -416,7 +437,7 @@ CREATE TABLE `nilai` (
   PRIMARY KEY (`id_nilai`),
   KEY `nis` (`nis`),
   KEY `id_mujian` (`id_mujian`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -425,7 +446,6 @@ CREATE TABLE `nilai` (
 
 LOCK TABLES `nilai` WRITE;
 /*!40000 ALTER TABLE `nilai` DISABLE KEYS */;
-INSERT INTO `nilai` VALUES (1,1,2,40),(2,1,4,40),(3,1,1,40),(4,1,3,40);
 /*!40000 ALTER TABLE `nilai` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -550,7 +570,7 @@ CREATE TABLE `siswa` (
   `foto_skhun` text,
   `nilai_avg` int(11) DEFAULT NULL,
   PRIMARY KEY (`nis`)
-) ENGINE=InnoDB AUTO_INCREMENT=201602064 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -559,7 +579,7 @@ CREATE TABLE `siswa` (
 
 LOCK TABLES `siswa` WRITE;
 /*!40000 ALTER TABLE `siswa` DISABLE KEYS */;
-INSERT INTO `siswa` VALUES (1,'Ashbi','2','1200-02-12','Laki-laki','2019','2','2','2','2','2','2','2','2','2',NULL,'2','2','2',2,'seleksi',NULL,'Islam','8e6b2e738dc393b5efb682c4f4bdab12.jpg',40),(201601001,'Yunita Sari','Jl. Simpang Gajah Mada ','2004-11-02','Perempuan','2016','Juwaidi','S1','PNS','Rika','S1','PNS','Jl. Simpang Gajah Mada ',NULL,NULL,NULL,NULL,'SMP Nusan Penida','Jl. Setia Budi',0,'aktif','ipa','',NULL,NULL),(201601002,'Irwan Gunawan','Perumahan Griya Giri','2004-09-16','Laki-laki','2016','Ridwan Yusuf','S1','PNS','Alya Nir','SMA','Rumah Tangga','Perumahan Griya Giri',NULL,NULL,NULL,NULL,'SMP N 30','Jl. Melati',0,'aktif','ipa','',NULL,NULL),(201601003,'Yulia Khairunisa','Jl. Kapten Griya','2016-09-04','Perempuan','2016','','','','','','','','Jamal ',NULL,'PNS','Jl. Kapten Griya','SMP N 30','Jl. Melati',0,'aktif','ipa','',NULL,NULL),(201601004,'Adi Pratama','Jl. Griya Sari','2016-08-11','Laki-laki','2016','Gunawan','S1','Dosen','Siri Jumaiti','SMA','Penjual','Jl. Griya Sari ',NULL,NULL,NULL,NULL,'SMP N 7','Jl. Pringan',0,'aktif','ipa','',NULL,NULL),(201601005,'Ahmad Pratama','JL. Sangkar','2017-09-03','Laki-laki','2016','Badrun','S1','PNS','Sari Yulia','SMA','Rumah Tangga','Jl. Sangkar',NULL,NULL,NULL,NULL,'SMP Dharma','Jl. Dr Mansyur',0,'aktif','ipa','',NULL,NULL),(201601006,'Dita Rahmadani','Jl. Ujung Siri','2016-12-08','Perempuan','2016','','','','','','','','Badrun Gunawan',NULL,'Penjual','Jl. Ujung Siri','SMP N 1','Jl. Mawar',0,'aktif','ipa','',NULL,NULL),(201601007,'Fitriayani','Jl. Mawar Sari','2017-08-22','Perempuan','2016','Riky Gunawan','S1','PNS','Fani','SMP','Rumah Tangga','Jl Mawar Sari',NULL,NULL,NULL,NULL,'SMP N 30','Jl. Melati',0,'aktif','ipa','',NULL,NULL),(201601008,'Miftahul','Jl. Anggrek','2016-11-11','Laki-laki','2016','Andri','SMA','Penjual','Fina','SMA','Rumah Tangga','Jl. Anggrek',NULL,NULL,NULL,NULL,'SMP Petani','Jl. Sawah',0,'aktif','ipa','',NULL,NULL),(201601009,'Indra Aswari','Jl. Lereng Lembah','2016-09-22','Laki-laki','2016','Ginting Siregar','S1','PNS','Farah Jaskiah','S1','Pegawai Bank','Jl. Lereng Lembah',NULL,NULL,NULL,NULL,'SMP Pancasila','Jl. Simp Pos',0,'aktif','ipa','',NULL,NULL),(201601010,'Rahma Aulia','Jl. Jangkar','2016-10-15','Perempuan','2016','Ridwan Kamil','S1','Guru','Zaskiah Sungkar','S1','Guru','Jl Jangkar',NULL,NULL,NULL,NULL,'SMP N 1','Jl. Melati',0,'aktif','ipa','',NULL,NULL),(201601011,'Anika Andriani','Jl. Pulpen','2002-09-07','Perempuan','2016','Disra Jamal','S1 ','Guru','Rahma ','SMA','Rumah Tangga','Jl. Pulpen',NULL,NULL,NULL,NULL,'SMP N 30','Jl. Melati',0,'aktif','ipa','',NULL,NULL),(201601012,'Oktavia Vira','Jl. Pulpen','2002-09-08','Perempuan','2016','Disra Jamal','S1','Guru','Rahma ','SMA','Rumah Tangga','Jl. Pulpen',NULL,NULL,NULL,NULL,'SMP N 30','Jl. Melati',0,'aktif','ipa','',NULL,NULL),(201601013,'Muhammad Ahmad','Jl. Beo','2002-09-09','Laki-laki','2016','Indra Tami','S1','Pengusaha','Rida Oktavia','S1','Rumah Tangga','',NULL,NULL,NULL,NULL,'SMP Nusan Penida','Jl. Setia Budi',0,'aktif','ipa','',NULL,NULL),(201601014,'Niken Tamara','Jl. Langgar','2002-09-10','Perempuan','2016','Purnomo ','S1','PNS','Nur Cahya','S1','Guru','Jl. Langgar',NULL,NULL,NULL,NULL,'SMP N 7 ','Jl. Pringan',0,'aktif','ipa','',NULL,NULL),(201601015,'Wicaksonon Putra','Jl. Berjaya','2002-09-11','Laki-laki','2016','Putra Dwi','S1','Penjual','Nuril ','S1','Guru','Jl. Berjaya',NULL,NULL,NULL,NULL,'SMP N 1 ','Jl. Melati',0,'aktif','ipa','',NULL,NULL),(201601016,'Gani Purnama','Jl. Selimut','2002-09-12','Laki-laki','2016','Banyu Mas','SMA','TNI','Martina ','S3','Dosen','Jl. Selimut',NULL,NULL,NULL,NULL,'SMP Sultan','Jl. Tanjung Rejo',0,'aktif','ipa','',NULL,NULL),(201601017,'Gina Putri','Jl. Barbasia Nili','2002-09-13','Perempuan','2016','Satria Musto','S1','Polisi','Mila Dini','S1','Guru','Jl. Barbasia Nili',NULL,NULL,NULL,NULL,'SMP N 10','Jl. Ringroad',0,'aktif','ipa','',NULL,NULL),(201601018,'Muhammad Ari','Jl. Biduri','2002-09-14','Laki-laki','2016','Ananda','S1','PNS','Dini Rahma','S1','PNS','JL. Biduri',NULL,NULL,NULL,NULL,'SMP  Swasta','Jl. Ahmad Yani',0,'aktif','ipa','',NULL,NULL),(201601019,'M Ridwan Tarigan','Jl. Asoka','2002-09-15','Laki-laki','2016','Muhanda','S1','PNS','Lala Riri','SMP','Rumah Tangga','Jl. Asoka',NULL,NULL,NULL,NULL,'SMP Telkom','Jl. Simp Selayang',0,'aktif','ipa','',NULL,NULL),(201601020,'Anisa Barus','Jl. A.H Nasution','2002-09-16','Perempuan','2016','Jono','S2','Dosen','Jumayati','SMA','Penjual','Jl. A.H Nasution',NULL,NULL,NULL,NULL,'SMP N 7','Jl. Pringan',0,'aktif','ipa','',NULL,NULL),(201601021,'M Rosadi ','Jl. Raya Licin','2002-09-17','Laki-laki','2016','Agung','S1','PNS','Ajeng','SMA','Penjual','Jl. Raya Licin',NULL,NULL,NULL,NULL,'SMP N 30','Jl. Melati',0,'aktif','ipa','',NULL,NULL),(201601022,'Nur Andina Rahma','Jl. Muwarma','2002-09-18','Perempuan','2016','','','','','','','','Budi Gunawan',NULL,'PNS','Jl. Muwarma','SMP Dharma','Jl. Dr Mansyur',0,'aktif','ipa','',NULL,NULL),(201601023,'Brastila Lesti','Jl. Banterang','2002-09-19','Perempuan','2016','','','','','','','','Ridwan Jamal',NULL,'TNI','Jl. Banterang','SMP N 10','Jl. Ringroad',0,'aktif','ipa','',NULL,NULL),(201601024,'Dinda Lala','Jl. Klontang','2002-09-20','Perempuan','2016','Gunawan Purnomo','SMA','Penjual','Aulia Rahma','SMA','Penjual','Jl. Klontang',NULL,NULL,NULL,NULL,'SMP Telkom','Jl. Simp Selayang',0,'aktif','ipa','',NULL,NULL),(201601025,'Bayhaqi Daulay','Jl. Eka Rasmi','2002-09-21','Laki-laki','2016','Haqi Jono','S1','PNS','Fitriayani','SMA','Rumah Tangga','Jl. Eka Rasmi',NULL,NULL,NULL,NULL,'SMP Muhamadiah','Jl. Seta Budi',0,'aktif','ipa','',NULL,NULL),(201601026,'Banyu Dwi','Jl. Purnama Jaya','2002-09-22','Laki-laki','2016','','','','','','','','Vira Oktavia',NULL,'Guru','Jl. Purnama Jaya','SMP N 30','Jl. Melati',0,'aktif','ipa','',NULL,NULL),(201602001,'Ameta Dian Fachira','Jl. Bougeinville 2','2002-06-20','Perempuan','2016','Zulkilfi','S1','PNS','Yetti','S1','PNS','Jl. Bougeinville 2',NULL,NULL,NULL,NULL,'SMP Dharma','Jl. Dr Mansyur',0,'aktif','ips','',NULL,NULL),(201602002,'Rafika Aigo','Jl. Purnama Jaya','2001-09-21','Perempuan','2016','Muhammad Udin','S1','Guru','Ananda','SMA','Rumah Tangga','Jl. Purnama Jaya',NULL,NULL,NULL,NULL,'SMP Dharma','Jl. Dr Mansyur',0,'aktif','ips','',NULL,NULL),(201602003,'Dinda Nazli','Jl. Bougeinville 3','2003-11-16','Perempuan','2017','Budi','SMA','Penjual','Ana','SMA','Penjual','Jl. Bougeinville 3',NULL,NULL,NULL,NULL,'SMP Dharma','Jl. Dr Mansyur',0,'aktif','ips','',NULL,NULL),(201602004,'Anto Siregar','Jl. Satu Jiah','0000-00-00','Laki-laki','2017',' Kiki','S1','Pekerja Kantoran','Jesica','S1','PNS','Jl. Satu Jua',NULL,NULL,NULL,NULL,'SMP Santa Thomas','Jl. Katamso',0,'aktif','ips','Kristen',NULL,NULL),(201602005,'Legardo Hamoloan','Jl. Asisi','2003-11-21','Laki-laki','2017','Jans',' SMA','TNI','Selvi','S1','PNS','Jl. Asisi',NULL,NULL,NULL,NULL,'SMP Nusan Penida','Jl. Setia Budi',0,'aktif','ips','Kristen',NULL,NULL),(201602006,'Johan ','Jl. Pembangunan','2003-01-22','Laki-laki','2017','Motoharu','SMA','Polisi','Fenni Lim','S1','Rumah Tangga','Jl. Pembangunan',NULL,NULL,NULL,NULL,'SMP Santa Thomas','Jl. Katamso',0,'aktif','ips','Kristen',NULL,NULL),(201602007,'Yusuf Aldiansyah','Jl. Eka Rasmi','2003-06-04','Laki-laki','2017',' Fauzan','S1','PNS','Yessi','S1','PNS','Jl. Eka Rasmi',NULL,NULL,NULL,NULL,'SMP N 30','Jl. Melati',0,'aktif','ips','Islam',NULL,NULL),(201602008,'Defina Yenatta','Jl. Ujung Siri','2003-07-07','Perempuan','2017','Muhammad Ari','S1','Penjual','Dian Ningsih','S1','Dosen','Jl. Ujung Sari',NULL,NULL,NULL,NULL,'SMP N 10','Jl. Ringroad',0,'aktif','ips','Islam',NULL,NULL),(201602009,'Nael','Jl. Juanita','2003-07-10','Laki-laki','2017','Victor Thalib','S1','Guru','Heven','S1','Guru','Jl. Juanita',NULL,NULL,NULL,NULL,'SMP Dharma','Jl. Dr Mansyur',0,'aktif','ips','Kristen',NULL,NULL),(201602010,'Thoriq Owen','Jl. Karya Jaya','2003-02-12','Laki-laki','2017','Angga Satrio','S1','PNS','Okki ','S1','Guru',' Jl. Karya Jaya',NULL,NULL,NULL,NULL,'SMP Dharma','Jl. Dr Mansyur',0,'aktif','ips','Islam',NULL,NULL),(201602011,'Kayla Hayyan','Jl. Jaya Karya','2003-03-21','Perempuan','2017','Eko Joko','SMA','Penjual','Nadia','SMA','Penjual','Jl. Jaya Karya',NULL,NULL,NULL,NULL,'SMP Muhamadiah','Jl. Setia Budi',0,'aktif','ips','Islam',NULL,NULL),(201602012,'Assidiq Salma','Jl. Perabotan','2003-11-14','Perempuan','2017','Fauzan Johan','S1','Pekerja Kantoran','Ulfi Nadia','S1','PNS','Jl. Perabotan',NULL,NULL,NULL,NULL,'SMP Pancasila','Jl. Dr Mansyur',0,'aktif','ips','Islam',NULL,NULL),(201602013,'Siska','Jl. Rata rata','2003-09-26','Perempuan','2017','Bisma','S1','PNS','Ratna','S1',' PNS','Jl. Rata rata',NULL,NULL,NULL,NULL,'SMP Telkom','Jl. Simp Selayang',0,'aktif','ips','Islam',NULL,NULL),(201602014,'Crish ','Jl. Perumahan','2003-03-22','Laki-laki','2017','Jackie','S1','Pengusaha','Linlin','S1','Rumah Tangga','Jl. Perumahan',NULL,NULL,NULL,NULL,'SMP Santa Thomas','Jl. Katamso',0,'aktif','ips','Budha',NULL,NULL),(201602015,'Eggy Saputra Tama','Jl. Kudus','2003-03-13','Laki-laki','2017','Budionon','S1','PNS','Afiful Aufa','S1 ','Penjual','Jl. Kudus',NULL,NULL,NULL,NULL,'SMP Telkom','Jl. Simp Selayang',0,'aktif','ips','Islam',NULL,NULL),(201602016,'Rian Febrianto','Jl. Penyabungan','2002-11-15','Laki-laki','2017','Bahdrul Fitriana','SMA','Satpam','Nur Fatiah','SMP','Penjual','Jl. Penyabungan',NULL,NULL,NULL,NULL,'SMP N 30 ',' Jl. Melati',0,'aktif','ips','Islam',NULL,NULL),(201602017,'Andri Siregar','Jl. Pembangunan','0000-00-00','Laki-laki','2017','Dedi Siregar','S1','PNS',' Nazli','S1','PNS','Jl. Pembangunan',NULL,NULL,NULL,NULL,'SMP Dharma','Jl. Dr Mansyur',0,'aktif','ips','Kristen',NULL,NULL),(201602018,'Yusri ','Jl. Mawar Sari','2003-12-21','Laki-laki','2017','','','','','','','','Rahmat Anto',NULL,' Penjual','Jl. Mawar','SMP Santa Thomas','Jl. Katamso',0,'aktif','ips','Budha',NULL,NULL),(201602019,'Ram Hevelio','Jl. Perumahan','0000-00-00','Laki-laki','2017','Rio Pratama','S1','Pengusaha','Ananda ','S1 ','Rumah Tangga','Jl. Perumahan',NULL,NULL,NULL,NULL,'SMP Santa Thomas','Jl. Katamso',0,'aktif','ips','Budha',NULL,NULL),(201602020,'Baiq Agustina','Jl. Aeikmel','2003-09-15','Laki-laki','2017','Abdul Mukti','S1','PNS','Marwah',' S1','PNS','Jl. Aeikmil',NULL,NULL,NULL,NULL,'SMP Muhamadiah','Jl. Setia Budi',0,'aktif','ips','Islam',NULL,NULL),(201602021,'Handri Pathurrahman','Jl. Lili','2003-01-21','Laki-laki','2017','Jaka Susanto','SMA','Penjual','Madriah Jumiah','SMA ','Rumah Tangga','Jl. Lili',NULL,NULL,NULL,NULL,'SMP Muhamadiah','Jl. Setia Budi',0,'aktif','ips','Islam',NULL,NULL),(201602022,'Novia Zanwadi','Jl. Lulilas','2003-07-16','Perempuan','2017','','','','','','','','Riwanti',NULL,'Dosen','Jl. Lulila','SMP Pancasila','Jl. Dr Mansyur',0,'aktif','ips','Islam',NULL,NULL),(201602023,'Khaerul Umam','Jl. Jangkar','2003-02-20','Laki-laki','2017','','','','','','','','Jokok Dana',NULL,'PNS','Jl. Jangkar','SMP Dharma','Jl. Dr Mansyur',0,'aktif','ips','Islam',NULL,NULL),(201602024,' Jansfour','Jl. Negri','2001-02-21','Laki-laki','2017','','','','','','','','Bayu',NULL,'TNI','Jl. Negri','SMP Santa Thomas','Jl. Katamso',0,'aktif','ips','Kristen',NULL,NULL),(201602025,'Andri Wahyu A.R','Jl. Oktober','2003-09-09','Perempuan','2017','Bambang Surio','SMA','Guru','Dwi Lestari','SMA','Polwan','Jl. Oktober',NULL,NULL,NULL,NULL,'SMP Nusan Penida','Jl. Setia Budi',0,'aktif','ips','Islam',NULL,NULL),(201602026,'Holifathul Ilmiah','Jl. Sekar','2003-11-08','Laki-laki','2017','','','','','','','','Ismail',NULL,'Polisi','Jl. Sekar','SMP N 1',' Jl. Mawar',0,'aktif','ips','Islam',NULL,NULL),(201602027,'Ana Farhana','Jl. Kolili','2003-09-09','Perempuan','2017','Muhammad Hasan','S1','PNS','Nizar','S1','Guru',' Jl. Kolili',NULL,NULL,NULL,NULL,'SMP N 10','Jl. Ringroad',0,'aktif','ips','Islam',NULL,NULL),(201602028,'Edi Fargusen','Jl. Kakkao','2003-01-17','Laki-laki','2017','Bambang Surio','S1','Guru','Lilia Jessia','S1 ','PNS','Jl. Kakkao',NULL,NULL,NULL,NULL,'SMP Telkom','Jl. Simp Selayang',0,'aktif','ips','Kristen',NULL,NULL),(201602029,'Iin Indriawati','Jl. Banyuwangi','2003-05-08','Perempuan','2017','Warman','SMA','Penjual','Alisa','S1','PNS','Jl. Banyuwangi',NULL,NULL,NULL,NULL,'SMP Muhamadiah','Jl. Setia budi',0,'aktif','ips','Islam',NULL,NULL),(201602030,'Hadriatnti Intan ','Jl. Bulan bulan','2003-07-11','Perempuan','2017','Warman','SMA','Penjual','Alisa','S2','PNS','Jl. Bulan bulan','Giflani Nizar',NULL,'Pengusaha','Jl. Bulan bulan','SMP N 30','Jl. Melati',0,'aktif','ips','Islam',NULL,NULL),(201602031,'Intan ','Jl. November','2003-07-12','Perempuan','2017','Warman','SMA','Penjual','Alisa','S2','PNS','Jl. November',NULL,NULL,NULL,NULL,'SMP N 31','Jl. Melati',0,'aktif','ips','Islam',NULL,NULL),(201602032,'Hadriatnti','Jl. Raya Licin','2003-07-13','Perempuan','2017','Warman','SMA','Penjual','Alisa','S1','PNS','Jl. Raya Licin',NULL,NULL,NULL,NULL,'SMP N 32','Jl. Melati',0,'aktif','ips','Islam',NULL,NULL),(201602033,'Indriawati','Jl. Lici Raya','2003-05-08','Perempuan','2017','Muhammad Hasan','S1','PNS','Nizar','S1','Polwan','Jl. Lici Raya',NULL,NULL,NULL,NULL,'SMP N 33','Jl. Melati',0,'aktif','ips','Islam',NULL,NULL),(201602034,'Fani Dilia','Jl. Marunjungjuang','2004-01-09','Perempuan','2018','Josika','S1','PNS','Jesicca','S1','PNS','Jl. Maranjuangjuang',NULL,NULL,NULL,NULL,'SMP Telkom','Jl. Simp Selayang',0,'aktif','ips','Kristen',NULL,NULL),(201602035,'Shofa Adelia ','Jl. Baru','2004-09-01','Perempuan','2018','Wahyutri Utomo','SMA','Polisi','Tuty Nur ','S1 ','Guru',' Jl. Baru',NULL,NULL,NULL,NULL,'SMP Nusan Penida','Jl. Setia Budi',0,'aktif','ips','Islam',NULL,NULL),(201602036,'Nurul Nur Atika',' Jl. Pembangunan','2003-09-03','Perempuan','2018','Ali','S1','PNS','Nadia ','S1','Guru','Jl. Pembangunan',NULL,NULL,NULL,NULL,'SMP Muhamadiah','Jl. Setia Budi',0,'aktif','ips','Islam',NULL,NULL),(201602037,'M Ihsan Maulana','Jl Bougeinville ','2004-11-09','Laki-laki','2018','Zulfan','S2','Dosen','Rina','S1','Guru','Jl. Bougeinville',NULL,NULL,NULL,NULL,'SMP Dharma','Jl. Dr Mansyur',0,'aktif','ips','Islam',NULL,NULL),(201602038,'Elya Wardhani','Jl. Langgar','2004-10-22','Perempuan','2018','Edi','SMA','Penjual','Ana','SMA','Penjual','Jl. Langgar',NULL,NULL,NULL,NULL,'SMP N 7','Jl. Pringan',0,'aktif','ips','Islam',NULL,NULL),(201602039,'Dina Undzila','Jl. Tasbih','2004-09-23','Perempuan','2018','Daniel Fadly','S1','PNS','Mya Utami','S1','Dosen','Jl. Tasbih',NULL,NULL,NULL,NULL,'SMP N 1','Jl. Mawar',0,'aktif','ips','Islam',NULL,NULL),(201602040,'Wina ','Jl. Negri','2004-09-04','Perempuan','2018','Rafly Himawasyah','S1','Guru','Adelia Fadly','SMA','Rumah Tangga','Jl. Negri',NULL,NULL,NULL,NULL,'SMP Santa Thomas','Jl. Katamso',0,'aktif','ips','Kristen',NULL,NULL),(201602041,'Wisnu Wardato','Jl. Sereng','2004-10-10','Laki-laki','2018','Withanto','SD',' Penjual','Pipi Adelia','S1','Guru','Jl. Sereng',NULL,NULL,NULL,NULL,'SMP Santa Thomas','Jl. Katamso',0,'aktif','ips','Kristen',NULL,NULL),(201602042,'Muhammad Alfitrah','Jl. Sumatra Utara','2004-08-11','Laki-laki','2018','Dimas Pratama','S1','Pengusaha','Dinda Pratama','S1','Guru','Jl. Sumatra Utara',NULL,NULL,NULL,NULL,'SMP N 30','Jl. Melati',0,'aktif','ips','Islam',NULL,NULL),(201602043,'Firmansyah Alfi','Jl. Kapten Ilyas','2004-11-05','Laki-laki','2018','Adi Pratama','S2','Dosen','Aulia Rahma','S1','PNS','Jl. Kapten Ilyas',NULL,NULL,NULL,NULL,'SMP Dharma','Jl. Dr Mansyur',0,'aktif','ips','Islam',NULL,NULL),(201602044,'Firman Utomo','Jl. K.H Dewantara','2005-12-09','Laki-laki','2018','Ramadhani','S1','Guru','Rahma Andini','S1','Pegawai Bank','Jl K.H Dewantara',NULL,NULL,NULL,NULL,'SMP Telkom','Jl. Simp Selayang',0,'aktif','ips','Islam',NULL,NULL),(201602045,'Wahyu Widianto','Jl. Gunung Sari','2004-09-19','Laki-laki','2018','','','','','','','','Anik',NULL,'Guru','Jl. Gunung Sari','SMP Pancasila','Jl. Dr Mansyur',0,'aktif','ips','Islam',NULL,NULL),(201602046,'Aldion ','Jl. Prambanan','0000-00-00','Laki-laki','2018','Alfi Cen','S1','Penjual','Lilia Jessica','S1',' PNS','Jl. Prambanan',NULL,NULL,NULL,NULL,'SMP Santa Thomas','Jl. Katamso',0,'aktif','ips','Budha',NULL,NULL),(201602047,'Riski Wahyudi','Jl. Prambanan','0000-00-00','Laki-laki','2018','Alfi Cen','S2','Penjual','Lilia Jessica','S2',' PNS','Jl. Prambanan',NULL,NULL,NULL,NULL,'SMP Santa Thomas','Jl. Katamso',0,'aktif','ips','Budha',NULL,NULL),(201602048,'Yudha ','Jl. Perjuangan','2003-09-21','Laki-laki','2018','Warianto','S1','PNS','Wanda Dewi','S1','PNS','Jl. Perjuangan',NULL,NULL,NULL,NULL,'SMP Dharma','Jl. Dr Mansyur',0,'aktif','ips','Islam',NULL,NULL),(201602049,'Wanda Kususma ','Jl. Mundziri','0000-00-00','Perempuan','2018','Ahmad','S1','Pegawai Kantor',' Jeni','SMA','Rumah Tangga','Jl. Mundziri',NULL,NULL,NULL,NULL,'SMP Dharma','Jl. Dr Mansyur',0,'aktif','ips','Islam',NULL,NULL),(201602050,'Muhammad Amin','Jl. Dr Mansyur','2004-11-21','Laki-laki','2018','Redy Gunawan','S2','Dosen',' Giselle','SMA','Rumah Tangga','Jl. Dr Mansyur',NULL,NULL,NULL,NULL,'SMP Pancasila','Jl. Dr Mansyur',0,'aktif','ips','Islam',NULL,NULL),(201602051,'Rikki ','Jl. Asoka 1','2004-04-23','Laki-laki','2018','','','','','','','','Daniel',NULL,'PNS','Jl. Asoka 1','SMP Telkom','Jl. Simp Selayang',0,'aktif','ips','Kristen',NULL,NULL),(201602052,' Indah Ramadhani','Jl. Budi Seia','2004-01-23','Perempuan','2018','Ahmad',' S1','PNS','Nur','SMA','Rumah Tangga',' Jl. Budi Seia',NULL,NULL,NULL,NULL,' SMP N 7','Jl. Pringan',0,'aktif','ips','Islam',NULL,NULL),(201602053,'Tanjug Gunawan','Jl Bougeinville ','2004-10-24','Laki-laki','2018','','','','','','','','Jamaliya',NULL,'PNS',' Jl. Bougeinville','SMP N 30','Jl. Melati',0,'aktif','ips','Kristen',NULL,NULL),(201602054,'Ali Hidayat','Jl. Jauhitam','2004-07-22','Laki-laki','2018','Fahmi Rizal','S1','Guru','Nadia Siti','SMA','Penjual','Jl. Jauhitam',NULL,NULL,NULL,NULL,'SMP Muhamadiah','Jl. Setia Budi',0,'aktif','ips','',NULL,NULL),(201602055,' Ibnu Rezky','Jl. Setia Budi','2004-08-03','Laki-laki','2018','Muhammad Fakhri','S1',' PNS','Nur Atikah','S1 ','PNS','Jl. Setia Budi',NULL,NULL,NULL,NULL,'SMP N 7','Jl. Pringan',0,'aktif','ips','Islam',NULL,NULL),(201602056,'Rahmad Amin','Jl. Dr Mansyur','2004-11-02','Laki-laki','2018','Irfan','S1','PNS ','Reza Melani','SMA ','Rumah Tangga','Jl. Dr Mansyur',NULL,NULL,NULL,NULL,'SMP Dharma','Jl. Dr Mansyur',0,'aktif','ips','Islam',NULL,NULL),(201602057,'Abadi Tarigan','Jl. Asoka','2004-12-21','Laki-laki','2018','Leo Tarigan','SMA','TNI','Jesicca','S1','PNS','Jl. Asoka',NULL,NULL,NULL,NULL,'SMP Santa Thomas','Jl. Katamso',0,'aktif','ips','Kristen',NULL,NULL),(201602058,'Egik ','Jl. Garuda','2004-01-02','Laki-laki','2018','','','','','','','','Fahmi ',NULL,'PNS','Jl. Garuda','SMP Nusan Penida','Jl. Setia Budi',0,'aktif','ips','Islam',NULL,NULL),(201602059,'Rahma Adinda','Jl. Dr Mansyur','2004-12-11','Perempuan','2018','Dandi','S1','Pekerja Kantoran','Arini','S1 ','Pegawai Bank','Jl. Dr Mansyur',NULL,NULL,NULL,NULL,'SMP Dharma','Jl. Dr Mansyur',0,'aktif','ips','Islam',NULL,NULL),(201602060,'Jenie Andini','Jl. Perumahan','2004-07-21','Perempuan','2018','Jans','S1','Pengusaha','Leli','S1','Rumah Tangga','Jl. Perumahan',NULL,NULL,NULL,NULL,'SMP N 1','Jl. Mawar',0,'aktif','ips','Budha',NULL,NULL),(201602061,'Anggika ','Jl. Mawar no 2','2004-08-02','Perempuan','2018','','','','','','','','Lianda',NULL,'Pegawai Kantor',' ',' SMP N 1','Jl. Mawar',0,'aktif','ips','Kristen',NULL,NULL),(201602062,'Naufal','Jl. Azmi no 7','2004-09-11','Laki-laki','2018','Fachrul','S1','Guru','Marischa','S1','Guru','Jl. Azmi no 1',NULL,NULL,NULL,NULL,'SMP Pancasila','Jl. Dr Mansyur',0,'aktif','ips','Islam',NULL,NULL),(201602063,'Amelia Fakhirah','Jl. Pembangunan','2004-05-21','Perempuan','2018','Muhammad Maulana','S1','PNS','Nur Nasywa ',' S1','Polwan','Jl. Pembangunan',NULL,NULL,NULL,NULL,'SMP Nusan Penida','Jl. Setia Budi',0,'aktif','ips','Islam',NULL,NULL);
+INSERT INTO `siswa` VALUES (1,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ipa',NULL,NULL,50),(2,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ipa',NULL,NULL,50),(4,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ipa',NULL,NULL,50),(6,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ips',NULL,NULL,50),(7,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ips',NULL,NULL,50);
 /*!40000 ALTER TABLE `siswa` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -572,6 +592,36 @@ UNLOCK TABLES;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `verifikasi_data` AFTER INSERT ON `siswa` FOR EACH ROW INSERT INTO verifikasi (habis_waktu, nis) VALUES (curdate(), new.nis) */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `sukses_seleksi` BEFORE UPDATE ON `siswa` FOR EACH ROW BEGIN
+DECLARE jur integer;
+DECLARE nilai_a integer;
+IF old.jurusan = 'ipa'
+THEN
+SET jur = 1;
+ELSEIF old.jurusan = 'ips'
+THEN
+SET jur = 2;
+end IF;
+
+IF new.status = 'aktif'
+THEN
+set new.nis = concat(year(curdate()),'0',jur,old.nis);
+end IF;
+END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -628,6 +678,48 @@ LOCK TABLES `template` WRITE;
 UNLOCK TABLES;
 
 --
+-- Temporary table structure for view `tempsiswa`
+--
+
+DROP TABLE IF EXISTS `tempsiswa`;
+/*!50001 DROP VIEW IF EXISTS `tempsiswa`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `tempsiswa` (
+  `nis` tinyint NOT NULL,
+  `jurusan` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary table structure for view `urutipa`
+--
+
+DROP TABLE IF EXISTS `urutipa`;
+/*!50001 DROP VIEW IF EXISTS `urutipa`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `urutipa` (
+  `nis` tinyint NOT NULL,
+  `NUM` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary table structure for view `urutips`
+--
+
+DROP TABLE IF EXISTS `urutips`;
+/*!50001 DROP VIEW IF EXISTS `urutips`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `urutips` (
+  `nis` tinyint NOT NULL,
+  `NUM` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Table structure for table `user`
 --
 
@@ -641,7 +733,7 @@ CREATE TABLE `user` (
   `password` varchar(32) NOT NULL,
   `level` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -650,7 +742,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (2,'Muhammad Bayhaqi Daulay','bayhaqi','5b75bd843edb24b0ace1d5eba6625272',2),(3,'Admin Demo','admin','0192023a7bbd73250516f069df18b500',2);
+INSERT INTO `user` VALUES (2,'Muhammad Bayhaqi Daulay','bayhaqi','5b75bd843edb24b0ace1d5eba6625272',2),(3,'Admin Demo','admin','0192023a7bbd73250516f069df18b500',2),(5,'DEMO','demo','fe01ce2a7fbac8fafaed7c982a04e229',2);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -667,7 +759,7 @@ CREATE TABLE `verifikasi` (
   `nis` int(11) NOT NULL,
   PRIMARY KEY (`nomor_verifikasi`),
   KEY `nis` (`nis`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -676,6 +768,7 @@ CREATE TABLE `verifikasi` (
 
 LOCK TABLES `verifikasi` WRITE;
 /*!40000 ALTER TABLE `verifikasi` DISABLE KEYS */;
+INSERT INTO `verifikasi` VALUES (1,'2019-07-03',1),(2,'2019-07-03',2),(3,'2019-07-03',3),(4,'2019-07-03',4),(5,'2019-07-03',5),(6,'2019-07-03',6),(7,'2019-07-03',7);
 /*!40000 ALTER TABLE `verifikasi` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -766,7 +859,7 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `allpost`(IN `AN` INT(11))
 BEGIN
 SELECT 
-a.slug, a.id_post, a.judul, c.nama ,a.id_kategori, a.status , b.nama_kategori FROM post a inner join kategori b on a.id_kategori=b.id_kategori inner join user c on c.id_user = a.id_user where a.id_kategori = AN;
+a.slug, a.tanggal ,a.id_post, a.judul, a.cover ,c.nama ,a.id_kategori, a.status , b.nama_kategori FROM post a inner join kategori b on a.id_kategori=b.id_kategori inner join user c on c.id_user = a.id_user where a.id_kategori = AN;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -812,6 +905,28 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `nismaker` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `nismaker`(IN `nisa` INT(4), IN `jur` INT(4))
+    NO SQL
+BEGIN
+DECLARE nilai_a integer;
+set nilai_a = (select num from urutsiswa WHERE nis = nisa);
+UPDATE siswa SET nis = concat(year(curdate()),'0',jur,nilai_a) where nis = nisa;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `postname` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -830,6 +945,25 @@ SELECT
 a.id_post, a.slug ,a.judul, c.nama ,a.id_kategori, a.status , b.nama_kategori FROM post a inner join kategori b on a.id_kategori=b.id_kategori inner join user c on c.id_user = a.id_user where a.id_kategori=ID and a.judul like CONCAT('%', @name, '%')
 LIMIT 5;
 END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `reset` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = cp932 */ ;
+/*!50003 SET character_set_results = cp932 */ ;
+/*!50003 SET collation_connection  = cp932_japanese_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `reset`()
+begin
+alter table siswa auto_increment = 1;
+end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -930,6 +1064,63 @@ DELIMITER ;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `tempsiswa`
+--
+
+/*!50001 DROP TABLE IF EXISTS `tempsiswa`*/;
+/*!50001 DROP VIEW IF EXISTS `tempsiswa`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = cp932 */;
+/*!50001 SET character_set_results     = cp932 */;
+/*!50001 SET collation_connection      = cp932_japanese_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `tempsiswa` AS select `a`.`nis` AS `nis`,`a`.`jurusan` AS `jurusan` from (`siswa` `a` join `identitas` `b`) where (`a`.`thn_ajaran` = `b`.`tahun_penerimaan`) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `urutipa`
+--
+
+/*!50001 DROP TABLE IF EXISTS `urutipa`*/;
+/*!50001 DROP VIEW IF EXISTS `urutipa`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = cp932 */;
+/*!50001 SET character_set_results     = cp932 */;
+/*!50001 SET collation_connection      = cp932_japanese_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `urutipa` AS select `t`.`nis` AS `nis`,((select count(0) from `tempsiswa` where ((`tempsiswa`.`nis` < `t`.`nis`) and (`tempsiswa`.`jurusan` = 'ipa'))) + 1) AS `NUM` from `tempsiswa` `t` where (`t`.`jurusan` = 'ipa') */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `urutips`
+--
+
+/*!50001 DROP TABLE IF EXISTS `urutips`*/;
+/*!50001 DROP VIEW IF EXISTS `urutips`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = cp932 */;
+/*!50001 SET character_set_results     = cp932 */;
+/*!50001 SET collation_connection      = cp932_japanese_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `urutips` AS select `t`.`nis` AS `nis`,((select count(0) from `tempsiswa` where ((`tempsiswa`.`nis` < `t`.`nis`) and (`tempsiswa`.`jurusan` = 'ips'))) + 1) AS `NUM` from `tempsiswa` `t` where (`t`.`jurusan` = 'ips') */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -940,4 +1131,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-30 20:11:08
+-- Dump completed on 2019-07-03 14:47:04
