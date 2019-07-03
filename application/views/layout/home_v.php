@@ -25,6 +25,18 @@
 			</div>
 			</div>
 		</div>
+
+		<?php 
+
+		$data['id'] = $this->db->get('identitas')->result();
+		$da = $data['id'];
+		foreach ($da as $key => $daval) {
+		}
+		$nama = $daval->nama_sekolah;
+
+		 ?>
+
+		 
 		<footer class="footer">
 		<div class="container foot"> 
 			<span style="color: white">© Copyright <?php   echo $nama; ?></span>

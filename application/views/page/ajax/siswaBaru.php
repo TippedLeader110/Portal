@@ -1,7 +1,7 @@
 <div class="row" style="margin-top: 50px;">
         <div class="col-12">
           <div class="table-responsive">
-            <table class="table table-primary">
+            <table class="table table-striped">
               <tr>
                 <th>NIS</th><th>Nama</th><th>Status</th><th>Tahun Masuk</th><th>Sekolah Asal</th><th>Aksi</th>
               </tr>
@@ -17,7 +17,7 @@
                   <?php endif ?>
                   <td><?php echo $sval->thn_ajaran ?></td>
                   <td><?php echo $sval->sekolah_asal ?></td>
-                  <td><button class="btn btn-outline-primary" value="<?php echo $sval->nama_siswa ?>" onclick="infolb(<?php echo $sval->nis ?>)">Info Lebih</button></td>
+                  <td><button class="btn btn-outline-primary" value="<?php echo $sval->nama_siswa ?>" onclick="infolb(<?php echo $sval->nis ?>)">Info Lebih</button><button class="btn btn-outline-danger" value="<?php echo $sval->nama_siswa ?>" onclick="hps(<?php echo $sval->nis ?>)">Hapus</button></td>
                 </tr>
               <?php endforeach ?>
             </table>
@@ -48,5 +48,32 @@
         function infolb(nis){
           $('#modal-body').load('<?php echo base_url('Custom/siswaBEDIT/') ?>' + nis);
           $('#infoB').modal('show');
+        }
+
+        function hps(id){
+          $.ajax({
+            url: '<?php echo base_url('Custom/hpssiswa') ?>',
+            type: 'post',
+            data: {id: id},
+            error: function(){
+                  Swal.fire({
+                            title: 'Kesalahan',
+                            text: 'Gagal Hapus !!',
+                            type: "error",
+                            timer: 3000
+                           });  
+                },
+                success: function(){
+                  Swal.fire({
+                            title: 'Sukses',
+                            text: 'Berhasil Hapus !!',
+                            type: "success",
+                            timer: 3000
+                           });  
+                  $('#siswabaru').load('<?php echo base_url('Custom/siswaBaru') ?>').hide().fadeIn('slow');
+            }
+          })
+        
+          
         }
       </script>

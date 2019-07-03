@@ -27,7 +27,7 @@ class Home extends CI_Controller {
 		$data['postmain'] = $this->db->get('allpost')->result();
 		$this->db->limit(9);
 		$data['postmain3'] = $this->db->get('allpost')->result();
-		$this->db->order_by('id_post', 'desc');
+		$this->db->order_by('tanggal', 'desc');
 		$data['post'] = $this->db->get('post')->result();
 		$this->db->limit(6);
 		$data['img'] = $this->db->get('img')->result();

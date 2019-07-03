@@ -268,4 +268,31 @@ class Artikel extends CI_Controller {
 		$this->load->view('page/ajax/modalpage', $data);	
 	}
 
+
+	public function lulusCari($id){
+		$id = urldecode($id);
+		$this->db->where('thn_ajaran', $id);
+		$data['siswa'] = $this->db->get('siswa')->result();
+		$this->load->view('page/ajax/luluscari', $data);
+	}
+
+	public function lulus(){
+
+		$data['title'] = "Daftar Lulus Peserta Didik Baru";
+		$data['mapel'] = $this->db->query('select distinct thn_ajaran from siswa')->result();
+		$data['datanav'] = $this->db->get('navitem')->result();
+		$data['vnav'] = "nav/home_v";
+		$data['id'] = $this->db->get('identitas')->result();
+		$da = $data['id'];
+		foreach ($da as $key => $daval) {
+		}
+		if ($daval->lhome==1) {
+			$data['v1'] = "page/lulus";
+			$this->load->view('layout/home_v', $data);
+		}elseif ($daval->lhome==2) {
+			$data['v1'] = "page/lulus";
+			$this->load->view('layout/home_v_2', $data);
+		}	
+	}
+
 }

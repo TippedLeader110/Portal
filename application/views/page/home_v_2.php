@@ -37,8 +37,11 @@
               <button onclick="window.location.href='<?php echo base_url('Artikel/About') ?>';" class="btn btn-info" ><div style="color: white">Informasi Sekolah</div><span><h2><i class="fas fa-info"></i></h2></span></button>
               <?php if ($vid->penerimaan==1): ?>
               <button onclick="window.location.href='<?php echo base_url('User') ?>';" class="btn btn-info" ><div style="color: white">Daftar Online</div><span><h2><i class="fas fa-door-open"></i></h2></span></button>
-            </div>
             <?php endif ?>
+              <?php if ($vid->penerimaan==0): ?>
+                <button onclick="window.location.href='<?php echo base_url('Artikel/Lulus') ?>';" class="btn btn-info" ><div style="color: white">Daftar Lulus Seleksi</div><span><h2><i class="fas fa-door-open"></i></h2></span></button>
+              <?php endif ?>
+            </div>
         </div>
         <div class="row" style="margin-top: 50px;">
           <div class="col-12">

@@ -744,7 +744,7 @@ class Custom extends CI_Controller {
 	}
 
 	public function siswaBaru(){
-		$data['siswa'] = $this->db->get('siswa')->result();
+		$data['siswa'] = $this->db->query('select * from siswa where status = "seleksi" or status = "pending"')->result();
 		$this->load->view('page/ajax/siswaBaru', $data);
 	}
 
