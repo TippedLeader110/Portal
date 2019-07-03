@@ -544,7 +544,7 @@ CREATE TABLE `siswa` (
 
 LOCK TABLES `siswa` WRITE;
 /*!40000 ALTER TABLE `siswa` DISABLE KEYS */;
-INSERT INTO `siswa` VALUES (1,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ipa',NULL,NULL,50,NULL),(2,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ipa',NULL,NULL,50,NULL),(4,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ipa',NULL,NULL,50,NULL),(6,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ips',NULL,NULL,50,NULL),(7,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ips',NULL,NULL,50,NULL);
+INSERT INTO `siswa` VALUES (2019011,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'aktif','ipa',NULL,NULL,50,NULL),(2019012,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'aktif','ipa',NULL,NULL,50,NULL),(2019014,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'aktif','ipa',NULL,NULL,50,NULL),(2019026,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'aktif','ips',NULL,NULL,50,NULL),(2019027,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'aktif','ips',NULL,NULL,50,NULL);
 /*!40000 ALTER TABLE `siswa` ENABLE KEYS */;
 UNLOCK TABLES;
 ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
@@ -586,8 +586,8 @@ end IF;
 
 IF new.status = 'aktif'
 THEN
-set nilai_a = (select NUM from urutipa WHERE nis = old.nis);
-set new.nis = concat(year(curdate()),'0',jur,old.nis);
+set nilai_a = (select tahun_penerimaan from identitas);
+set new.nis = concat(nilai_a,'0',jur,old.nis);
 end IF;
 END */;;
 DELIMITER ;
@@ -1068,4 +1068,4 @@ ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-04  2:07:54
+-- Dump completed on 2019-07-04  2:13:54
