@@ -330,6 +330,7 @@ class Custom extends CI_Controller {
         $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
         $config['last_tagl_close']  = '</span></li>';
 		$this->pagination->initialize($config);		
+		$data['from'] = $from;
 		$data['galery'] = $this->cmodel->data($config['per_page'],$from);
 		$this->load->view('page/ajax/galery', $data);	
 	}
