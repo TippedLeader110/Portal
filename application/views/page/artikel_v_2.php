@@ -36,7 +36,13 @@
 					<li><a href="<?php echo base_url('Artikel/sekolah/'); echo $value->id_post ?>"><?php echo $value->judul ?></a></li>
 				<?php endforeach ?>
 				</ul>
+
 			</div>
 		</div>
 	</div>
+	<footer class="footer">
+		<div class="container foot"> 
+			<span style="color: white">© Copyright</span>
+		</div>
+	</footer>
 </div>

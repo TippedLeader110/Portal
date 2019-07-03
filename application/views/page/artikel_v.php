@@ -40,6 +40,11 @@
 				<?php endforeach ?>
 				</div>
 			</div>
+			<footer class="footer">
+		<div class="container foot"> 
+			<span style="color: white">© Copyright <?php   echo $nama; ?></span>
+		</div>
+	</footer>
 		</div>
 		
 	</div>
