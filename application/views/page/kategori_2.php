@@ -26,17 +26,12 @@
   <?php foreach ($post as $key => $post3): ?>
     <div class="col-4">
             <div class="card mb-4 box-shadow">
-                    <a class="lightbox" href="<?php echo base_url('Artikel/sekolah/'); echo $post3->id_post; ?>"><img style="width: 100%;max-height: 160px;object-position: center;object-fit: cover;" class="card-img-top" src="<?php echo base_url('source/gambar/post/'); echo $post3->cover ?>" alt="Card image cap">
+                    <a href="<?php echo base_url('Artikel/sekolah/'); echo $post3->id_post; ?>"><img style="width: 100%;max-height: 160px;object-position: center;object-fit: cover;" class="card-img-top" src="<?php echo base_url('source/gambar/post/'); echo $post3->cover ?>" alt="Card image cap">
                     <div class="card-body" style="max-height: 100px;">
                       <div style="width: 300px;height: 50px;overflow: hidden;"><?php echo $post3->judul ?></div>
                         <span style="max-width: 50px;"><?php echo $post3->nama ?></span>&nbsp;<span><?php echo $post3->tanggal ?></span></a>
-                        <div class="lightbox-target" id="<?php echo $post3->judul ?>">
-                         <img src="<?php echo base_url('source/gambar/post/'); echo $post3->cover ?>"/>
-                         <a class="lightbox-close" href="#"></a>
-                        </div>
                 </div>
         </div>
     </div>
-
   <?php endforeach ?>
 </div>
