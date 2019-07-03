@@ -71,6 +71,30 @@ class Artikel extends CI_Controller {
 		$this->load->view('layout/home_v2', $data);
 	}
 
+	public function kategori($id){
+		$data['title'] = "Homepage";
+		$data['datanav'] = $this->db->get('navitem')->result();
+		$data['vnav'] = "nav/home_v";
+		$data['id'] = $this->db->get('identitas')->result();
+		$da = $data['id'];
+		foreach ($da as $key => $daval) {
+		}
+		$this->db->where('id_kategori', $id);
+		$dw = $this->db->get('kategori')->result();
+		foreach ($dw as $key => $dww) {
+			$data['nkate'] = $dww->nama_kategori;
+		}
+		$data['post'] = $this->db->query("CALL allpost(".$id.")")->result();
+		if ($daval->lhome==1) {
+			$data['v1'] = "page/kategori";
+			$this->load->view('layout/home_v', $data);
+		}elseif ($daval->lhome==2) {
+			$data['v1'] = "page/kategori_2";
+			$this->load->view('layout/home_v_2', $data);
+		}
+
+	}
+
 	public function SemuaArtikel(){
 		$data['d'] = $this->db->get('allpost')->result();
 		$data['title'] = "Homepage";

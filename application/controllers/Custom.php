@@ -187,6 +187,7 @@ class Custom extends CI_Controller {
 	}
 
 	public function naveditkate2($id, $like){
+		$like = urldecode($like);
 		$data['post'] = $this->db->query("call postname(".$id.", '".$like."')")->result();
 		$this->load->view('page/ajax/tableLink', $data);	
 	}
@@ -211,9 +212,6 @@ class Custom extends CI_Controller {
 	}
 
 	public function enavbar(){
-		$ab = $this->input->post('ab');
-		$data['navbar'] = $this->cmodel->getnavDrop($ab);
-		$this->load->view('page/ajax/navbar', $data);	
 	}
 
 	public function enavbarfirst(){
@@ -594,11 +592,13 @@ class Custom extends CI_Controller {
 
 	public function siswaupdateSetting(){
 		$a = $this->input->post('thn');
-		$b = $this->input->post('jumlah');
+		$b1 = $this->input->post('jumlah1');
+		$b2 = $this->input->post('jumlah2');
 		$c = $this->input->post('isi');
 		$d = $this->input->post('tutup');
 		$this->db->set('tahun_penerimaan', $a);
-		$this->db->set('maks', $b);
+		$this->db->set('maks_ipa', $b1);
+		$this->db->set('maks_ips', $b2);
 		$this->db->set('note', $c);
 		$this->db->set('tutup_pendaftaran', $d);
 		$this->db->update('identitas');
@@ -657,10 +657,11 @@ class Custom extends CI_Controller {
             $data = array('upload_data' => $this->upload->data()); //ambil file name yang diupload
  
             $skhu= $data['upload_data']['file_name']; //set file name ke variable image
+            $jur = $this->input->post('jurusan');
             $nis = $this->input->post('nis');
-            $result= $this->cmodel->saveSKHU($skhu, $nis); //kirim value ke model m_upload
+            $result= $this->cmodel->saveSKHU($skhu, $nis, $jur); //kirim value ke model m_upload
             echo "1";
-            $this->db->query("UPDATE verifikasi set status = 'aktif' where nis = ".$nis."");
+            $this->db->query("UPDATE verifikasi set habis_waktu = '0000-00-00' where nis = ".$nis."");
             $this->db->where('nis', $nis);
             $this->db->delete('verifikasi');
         }
@@ -931,6 +932,35 @@ class Custom extends CI_Controller {
 	public function adminlist(){
 		$data['data'] = $this->db->get('user')->result();
 		$this->load->view('page/ajax/adminlist', $data);
+	}
+	public function adminlistCari($cari){
+		$cari = urldecode($cari);
+		$this->db->like('nama', $cari);
+		$data['cari'] = $cari;
+		$data['data'] = $this->db->get('user')->result();
+		$this->load->view('page/ajax/cariadminlist', $data);
+	}
+	public function adminlistCarino(){
+		$data['data'] = $this->db->get('user')->result();
+		$this->load->view('page/ajax/cariadminlist', $data);
+	}
+	public function addadmin(){
+		$data['data'] = $this->db->get('user')->result();
+		$this->load->view('page/ajax/addadmin', $data);
+	}
+	public function addAdminSave(){
+		$post = $this->input->post();
+		$this->db->where('username', $post['username']);
+		$nilai = $this->db->get('user')->num_rows();
+
+		if ($nilai!=0) {
+			echo "gagal";
+		}
+		else{
+			$datanya = array('nama' => $post['nama'], 'username' => $post['username'], 'password' => md5($post['pass']), 'level' => $post['otoritaslevel']);
+			$this->db->insert('user', $datanya);
+			echo "sukses";
+		}
 	}
 	public function remAkun(){
 		$id = $this->input->post('id');

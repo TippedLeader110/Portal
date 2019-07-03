@@ -15,10 +15,10 @@
             <div class="row">
               <div class="col-12">
                 <span style="font-size: 20px;">Status Penerimaan :</span><?php if ($setval->penerimaan==1): ?>
-                  <label class="switch"><input onclick="akreak(0)" type="checkbox" checked><span class="slider round"></span></label>
+                  <label class="switch"><input value="0" type="checkbox" checked id="checkCari1"><span class="slider round"></span></label>
                 <?php endif ?>
                 <?php if ($setval->penerimaan==0): ?>
-                  <label class="switch"><input onclick="akreak(1)" type="checkbox"><span class="slider round"></span></label>
+                  <label class="switch"><input onclick="akreak(1)" type="checkbox" id="checkCari2"><span class="slider round"></span></label>
                 <?php endif ?>
                 <hr>
               </div>
@@ -32,7 +32,10 @@
                     <input value="<?php echo $setval->tahun_penerimaan ?>" type="number" name="thn" class="form-control">
                     
                     Jumlah Maksismum Peserta Didik
-                    <input type="number" value="<?php echo $setval->maks ?>" name="jumlah" class="form-control">
+                    <label>IPA</label>
+                    <input type="number" value="<?php echo $setval->maks_ipa ?>" name="jumlah1" class="form-control">
+                    <label>IPS</label>
+                    <input type="number" value="<?php echo $setval->maks_ips ?>" name="jumlah2" class="form-control">
                     Waktu Tutup Pendaftaran
                     <input type="date" value="<?php echo $setval->tutup_pendaftaran ?>" name="tutup" class="form-control">
                   </div>
@@ -95,4 +98,45 @@
         });
 
         })
+
+        $('#checkCari1').click(function(event) {
+          event.preventDefault();
+          Swal.fire({
+            title: 'Apakah anda ingin menutup pendaftaran ?. ',
+            text: 'Dengan catatan setelah anda menutup pendaftaran diluar jadwal tutup otomatis maka siswa akan langsung di seleksi dan hasil akan di tampilkan',
+            type: "question",
+          showCancelButton: true,
+          confirmButtonText: 'Ya, tutup',
+          cancelButtonText: 'Batal',
+          cancelButtonColor: 'red',
+          showLoaderOnConfirm: true
+          }).then(result => {
+          if (result.value) {
+              $.ajax({
+                url: '<?php echo base_url('Custom/akreak') ?>',
+                type: 'post',
+                data: {awl: 0},
+                error: function(){
+                  Swal.fire({
+                            title: 'Kesalahan',
+                            text: 'Penerimaan gagal diganti !!',
+                            type: "error",
+                            timer: 3000
+                           });  
+                },
+                success: function(){
+                  // Swal.fire({
+                  //           title: 'Sukses',
+                  //           text: 'Layout berhasil diganti !!',
+                  //           type: "success",
+                  //           timer: 3000
+                  //          });  
+                  $('#akreak').load('<?php echo base_url('Custom/sisSetting') ?>').hide().fadeIn('slow');
+                }
+              });          
+          }
+          else{
+            console.log('batal');
+          }
+        })});
       </script>

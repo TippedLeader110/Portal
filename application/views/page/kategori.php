@@ -1,9 +1,6 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('source/css/sekolah.css') ?>">
-<?php foreach ($id as $key => $vid): ?>
-<?php endforeach ?>
-<?php foreach ($post as $key => $vpost): ?>
-<?php endforeach ?>
+
 <?php $data['post'] = $post ?>
 <div class="row" style="margin-top: 10px;margin-bottom: 10px;">
   <div class="col-12">

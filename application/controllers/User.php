@@ -21,6 +21,11 @@ public function daftarsave()
 
 public function Sukses($d)
 {
+		$this->db->where('nis', $d);
+		$d = $this->db->get('verifikasi')->result();
+		foreach ($d as $key => $value) {
+			$d = $value->nomor_verifikasi;
+		}
 		$data['datanav'] = $this->db->get('navitem')->result();
 		$data['vnav'] = "nav/home_v";
 		$data['view'] = 'Users/success';

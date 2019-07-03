@@ -119,12 +119,10 @@
 		        <button type="button" class="close" data-dismiss="modal">&times;</button>
 		    </div>
 		    <div class="modal-body">
-		    	<form id="passdo">
 	        		<div class="form-group">
 					Ganti Nama
 					<input class="form-control" type="text" id="namaSaya" name="namaSaya">
 					</div>
-				</form>
 		    </div>
 		    <div class="modal-footer">
 		        <div id="but"></div><button class="btn btn-outline-primary" onclick="simNama(<?php echo $sva->id_user ?>)">Simpan</button>&nbsp;<button type="button" class="btn btn-warning" data-dismiss="modal">Batal</button>
@@ -234,7 +232,7 @@
 		function adminlist(){
 			if ($('#leveluser').val()==1) {
 				Swal.fire('Kesalahan Otoritas', 'Akun anda tidak memiliki otoritas untuk melihat daftar akun !!', 'error');
-				$('#v-pills-home').tab('show');
+				activaTab('v-pills-home');
 			}else{
 				$('#adminlist').load('<?php echo base_url('Custom/adminlist') ?>');
 			}
@@ -245,8 +243,16 @@
 			if ($('#leveluser').val()==1) {
 				Swal.fire('Kesalahan Otoritas', 'Akun anda tidak memiliki otoritas untuk menambah akun !!', 'error');
 				$('#v-pills-home').tab('show');
+				activaTab('v-pills-home');
 			}else{
 				$('#addadmin').load('<?php echo base_url('Custom/addadmin') ?>');
 			}
 		}
+
+		function activaTab(tab){
+	    $('.nav-tabs a[href="#' + tab + '"]').tab('show');
+		};
+
+
+		
 	</script>

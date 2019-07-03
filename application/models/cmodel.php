@@ -94,9 +94,10 @@ class cmodel extends CI_Model {
 		$this->db->insert('post', $data);
 	}
 
-	public function saveSKHU($SKHU,$nis){
+	public function saveSKHU($SKHU,$nis,$jur){
 		$this->db->where('nis', $nis);
 		$this->db->set('foto_skhun', $SKHU);
+		$this->db->set('jurusan', $jur);
 		$this->db->update('siswa');
 		// $this->db->query("UPDATE siswa set foto_skhun = '".$SKHU."' where nis = ".$nis."");
 	}

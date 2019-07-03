@@ -1,3 +1,34 @@
-CREATE USER 'portal'@'localhost' IDENTIFIED BY 'P2019RtAl';
-GRANT ALL ON portal.* TO 'portal'@'localhost' IDENTIFIED BY 'P2019RtAl';
+CREATE USER 'sisko'@'localhost' IDENTIFIED BY 'SIS2019KO';
+GRANT ALL ON sisko.* TO 'sisko'@'localhost' IDENTIFIED BY 'SIS2019KO';
 FLUSH PRIVILEGES;
+
+
+IF (new.penerimaan = 0 AND new.tutup_pendaftaran=<curdate())
+THEN
+m
+end IF;
+
+delete from nilai
+where
+   nilai
+  in 
+  (select avg(nilai) as nilai_as
+  from
+    nilai
+  group by
+    nilai_as desc)
+
+
+
+CREATE TRIGGER ver_ver AFTER DELETE ON verifikasi FOR EACH ROW
+BEGIN
+DECLARE n integer;
+set n = old.nis;
+IF old.status='aktif'
+THEN
+UPDATE siswa SET STATUS = 'seleksi' WHERE nis = n;
+ELSEIF old.status='pending'
+THEN
+DELETE from siswa where nis = n;
+END IF;
+END

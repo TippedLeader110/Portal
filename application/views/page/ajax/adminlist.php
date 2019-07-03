@@ -3,7 +3,11 @@
 	  	<div class="container" style="margin-top: 50px;">
 	  		<div class="row">
 	  			<div class="col-12">
-	  				<div class="table-responsive">
+	  				<div class="form-group" style="width: 40%">
+	  					<input type="text" name="cari" class="form-control" placeholder="Cari Nama" id="cari" oninput="cari()">
+	  				</div>
+	  				<div id="cariadminlist">
+	  					<div class="table-responsive">
 	  					<table class="table table-striped">
 	  						<tr>
 	  							<th>ID</th><th>Nama</th><th>Level</th><th colspan="">Aksi</th>
@@ -17,6 +21,7 @@
 	  							</tr>
 	  						<?php endforeach ?>
 	  					</table>
+	  				</div>
 	  				</div>
 	  			</div>
 	  		</div>
@@ -32,12 +37,10 @@
 		        <button type="button" class="close" data-dismiss="modal">&times;</button>
 		    </div>
 		    <div class="modal-body">
-		    	<form id="passdo">
 	        		<div class="form-group">
 					Ganti Nama
 					<input class="form-control" type="text" id="namaSaya" name="namaSaya">
 					</div>
-				</form>
 		    </div>
 		    <div class="modal-footer">
 		        <div id="but"></div><button class="btn btn-outline-primary" onclick="simNama(<?php echo $sva->id_user ?>)">Simpan</button>&nbsp;<button type="button" class="btn btn-warning" data-dismiss="modal">Batal</button>
@@ -134,4 +137,14 @@
 	}
 	})
 }
+
+	function cari(){
+		if ($('#cari').val()!='') {
+			$("#cariadminlist").load('<?php echo base_url('Custom/adminlistCari/')?>'+ $('#cari').val());
+		}
+		else{
+			$("#cariadminlist").load('<?php echo base_url('Custom/adminlistCarino')?>');	
+		}
+		// alert($('#cari').val());
+	}
 </script>

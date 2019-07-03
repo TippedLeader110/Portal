@@ -23,4 +23,21 @@ query view allpost
 create or replace view allpost as select b.nama , a.judul, a.tanggal, a.status, a.kategori from post a inner join user on a.id_user = b.id_user ;
 
 
-create or replace view allpost as select a.id_post, a.isi, a.judul, b.nama, a.tanggal, a.status, d.nama_kategori, a.cover from post a inner join user b on a.id_user = b.id_user inner join kategori d on a.id_kategori = d.id_kategori 
+create or replace view allpost as select a.slug, a.id_post, a.isi, a.judul, b.nama, a.tanggal,d.id_kategori, a.status, d.nama_kategori, a.cover from post a inner join user b on a.id_user = b.id_user inner join kategori d on a.id_kategori = d.id_kategori 
+
+
+DELIMITER $$
+DECLARE @cnt integer;
+CREATE TRIGGER maks
+BEFORE INSERT
+ON navitem
+FOR EACH ROW
+BEGIN
+  SELECT COUNT(*) INTO @cnt FROM navitem
+  IF @cnt >= 25 THEN
+    CALL sth(); 
+  END IF;
+END
+$$
+
+DELIMITER ;

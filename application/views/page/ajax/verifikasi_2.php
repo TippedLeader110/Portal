@@ -136,7 +136,23 @@
 		
 		if (req===true) {
 			var form = new FormData(this);
-		$('.nilai').each(function(){
+		
+	
+		// alert('dot');
+		console.log('dot');
+
+       	$.ajax({
+       		url: '<?php echo base_url('Custom/sisVerdofile') ?>',
+       		type: 'POST',
+       		data: new FormData(this),
+       		processData: false,
+			contentType: false,
+       		error: function(){
+       			console.log('gagal');
+       			Swal.fire('Kesalahan !!', 'File Tidak didukung jpg/png !!', 'error');
+       		},
+       		success: function(data){
+       			$('.nilai').each(function(){
         	var nilai = $(this).val();
         	var nis = $('#nis').val();
         	var id = $(this).attr('name');
@@ -153,21 +169,6 @@
         	});
         	
     });
-	
-		// alert('dot');
-		console.log('dot');
-
-       	$.ajax({
-       		url: '<?php echo base_url('Custom/sisVerdofile') ?>',
-       		type: 'POST',
-       		data: new FormData(this),
-       		processData: false,
-			contentType: false,
-       		error: function(){
-       			console.log('gagal');
-       			Swal.fire('Kesalahan !!', 'Terjadi kesalahan saat mencoba terhubung ke server !!', 'error');
-       		},
-       		success: function(data){
        			console.log(data);
 				Swal.fire('Berhasil !!', 'Verifikasi berhasil !!', 'success');
 				// $('#pengaturan').load();
