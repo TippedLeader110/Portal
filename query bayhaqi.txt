@@ -19,3 +19,10 @@ DO
 BEGIN
 DELETE FROM verifikasi WHERE habis_waktu < curedate() - INTERVAL 7 DAY;
 END;
+
+
+
+
+create or replace view ket_guru as select a.id_mapel ,a.nip , a.nama_guru, b.jabatan, c.mapel, a.alamat, a.foto from guru a inner join jabatan_guru b on a.id_jabatan = b.id_jabatan inner
+join mapel c on c.id_mapel = a.id_mapel ;
+

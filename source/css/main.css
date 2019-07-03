@@ -5,16 +5,6 @@
 	margin-top: 0px;
 	padding-top: 101px;
 }
-.navm{
-	width: 140px;
-	margin-left: 180px;
-}
-.navt{
-	width: 40px;
-}
-.nav-item{
-	width: 100px;
-}
 .cl{
 	color: black;
 }
@@ -57,4 +47,17 @@
 
 .carousel-inner > .carousel-item > img {
   width: 50%; margin: auto;
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+  /*background-color: #f5f5f5;*/
+}
+
+.foot{
+	background-color: #335C81	;
 }

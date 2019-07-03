@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title><?php echo $title ?></title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -18,10 +20,15 @@
 <body style="background: transparent;">
 	<div class="row">
 			<div class="col-12">
-			<div id="page">
+				<div id="page">
 				<?php $this->load->view($v1) ?>
 			</div>
 			</div>
 		</div>
+		<footer class="footer">
+		<div class="container foot"> 
+			<span style="color: white">© Copyright <?php   echo $nama; ?></span>
+		</div>
+	</footer>
 </body>
 </html>

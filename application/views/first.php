@@ -2,7 +2,7 @@
     <div class="col-12" style="">
       <div class="img-wrapper">
         <div class="img-overlay"></div>
-        <img style="width: 100%;height: 400px;object-position: center;object-fit: cover;" src="<?php echo base_url('Source/gambar/post/'); echo $vpost->cover ?>">
+        <a href="<?php echo base_url('Artikel/sekolah/'); echo $vpost->id_post ?>"><div class="img-wrapper"><img style="width: 100%;height: 400px;object-position: center;object-fit: cover;" src="<?php echo base_url('Source/gambar/post/'); echo $vpost->cover ?>"></div>
         <div style="position: absolute;top: 80%;left: 50%;transform: translate(-50%, -50%);"><h4 style="color: white"><?php echo $vpost->judul ?></h4></div>
       </div>
     </div>  
@@ -12,7 +12,7 @@
       <div class="col-6">
         <div class="img-wrapper">
         <div class="img-overlay"></div>
-        <img style="width: 100%;height: 400px;object-position: center;object-fit: cover;" src="<?php echo base_url('Source/gambar/post/'); echo $vpost2->cover ?>">
+        <a href="<?php echo base_url('Artikel/sekolah/'); echo $vpost2->id_post ?>"><div class="img-wrapper"><img style="width: 100%;height: 400px;object-position: center;object-fit: cover;" src="<?php echo base_url('Source/gambar/post/'); echo $vpost2->cover ?>"></a>
         <div style="position: absolute;top: 80%;left: 50%;transform: translate(-50%, -50%);"><h4 style="color: white"><?php echo $vpost2->judul ?></h4></div>
       </div>
       </div>
@@ -20,7 +20,7 @@
   <?php endif ?>
   <?php if (sizeof($post)==3 || sizeof($post)>3): ?>
     <?php $ulang=1; ?>
-      <div class="col-6" style="padding: 0px 0px 0px 10px">
+      <div class="col-6" style="padding: 0px 0px 0px 15px">
         <a href="<?php echo base_url('Artikel/sekolah/'); echo $post[0]->id_post ?>"><div class="img-wrapper">
         <div class="img-overlay"></div>
         <img style="width: 100%;height: 400px;object-position: center;object-fit: cover;" src="<?php echo base_url('Source/gambar/post/'); echo $post[0]->cover ?>">

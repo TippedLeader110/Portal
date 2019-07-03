@@ -15,6 +15,8 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>/source/css/custom.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url('source/css/main.css') ?>"> -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 </head>
 <body style="background: white">
 	<div id="main">
@@ -29,9 +31,8 @@
 		</div>
 	</div>
 		</div>
-	</div>
-	<footer>
-	</footer>
 	<?php $this->load->view('nav/script'); ?>
+	
+	</div>
 </body>
 </html>	

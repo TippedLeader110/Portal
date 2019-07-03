@@ -206,16 +206,66 @@ class Artikel extends CI_Controller {
 	}
 
 	public function about(){
-		$this->load->library('googlemaps');
-        $config=array();
-        $config['center']="37.4419, -122.1419";
-        $config['zoom']=17;
-        $config['map_height']="400px";
-        $this->googlemaps->initialize($config);
-        $marker=array();
-        $marker['position']="37.4419, -122.1419";
-        $this->googlemaps->add_marker($marker);
-        $data['map']=$this->googlemaps->create_map();
-        $this->load->view('v_map',$data);
+		$data['guru'] = $this->db->get('ket_guru')->result();
+		$data['title'] = "Informasi Sekolah";
+		$data['datanav'] = $this->db->get('navitem')->result();
+		$data['vnav'] = "nav/home_v";
+		$data['id'] = $this->db->get('identitas')->result();
+		$da = $data['id'];
+		foreach ($da as $key => $daval) {
+		}
+		$data['nama'] = $daval->nama_sekolah;
+		if ($daval->lhome==1) {
+			$data['v1'] = "page/about";
+			$this->load->view('layout/home_v', $data);
+		}elseif ($daval->lhome==2) {
+			$data['v1'] = "page/about";
+			$this->load->view('layout/home_v_2', $data);
+		}	
 	}
+
+	public function DirGuru(){
+		$data['title'] = "Dir Guru";
+		$data['mapel'] = $this->db->get('mapel')->result();
+		$data['datanav'] = $this->db->get('navitem')->result();
+		$data['vnav'] = "nav/home_v";
+		$data['id'] = $this->db->get('identitas')->result();
+		$da = $data['id'];
+		foreach ($da as $key => $daval) {
+		}
+		if ($daval->lhome==1) {
+			$data['v1'] = "page/dirguru";
+			$this->load->view('layout/home_v', $data);
+		}elseif ($daval->lhome==2) {
+			$data['v1'] = "page/dirguru";
+			$this->load->view('layout/home_v_2', $data);
+		}	
+	}
+	public function cariGuru($id){
+		$id = urldecode($id);
+		$this->db->where('id_mapel', $id);
+		$data['guru'] = $this->db->get('ket_guru')->result();
+		$this->load->view('page/ajax/dirguru', $data);
+	}
+
+	public function cariGuruNamaMapel(){
+		$post = $this->input->post();
+		$this->db->where('id_mapel', $post['a']);
+		$this->db->like('nama_guru', $post['b']);
+		$data['guru'] = $this->db->get('ket_guru')->result();
+		$this->load->view('page/ajax/dirguru', $data);
+	}
+
+	public function cariGuruNama($id){
+		$id = urldecode($id);
+		$this->db->like('nama_guru', $id);
+		$data['guru'] = $this->db->get('ket_guru')->result();
+		$this->load->view('page/ajax/dirguru', $data);
+	}
+	public function modalpage($id){
+		$this->db->where('nip',$id);
+		$data['guru2'] = $this->db->get('ket_guru')->result();
+		$this->load->view('page/ajax/modalpage', $data);	
+	}
+
 }

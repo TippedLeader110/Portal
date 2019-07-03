@@ -1,7 +1,6 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('source/css/sekolah.css') ?>">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
 
 <?php foreach ($id as $key => $vid): ?>
 <?php endforeach ?>
@@ -34,8 +33,8 @@
       <div class="col-12">
         <div class="row">
             <div class="col-12">
-              <button class="btn btn-info" ><div style="color: white">Guru Kami</div><span><h2><i class="fas fa-user-tie"></i></h2></span></button>
-              <button class="btn btn-info" ><div style="color: white">Informasi Sekolah</div><span><h2><i class="fas fa-info"></i></h2></span></button>
+              <button class="btn btn-info" onclick="window.location.href='<?php echo base_url('Artikel/DirGuru') ?>';"><div style="color: white">Guru Kami</div><span><h2><i class="fas fa-user-tie"></i></h2></span></button>
+              <button onclick="window.location.href='<?php echo base_url('Artikel/About') ?>';" class="btn btn-info" ><div style="color: white">Informasi Sekolah</div><span><h2><i class="fas fa-info"></i></h2></span></button>
               <?php if ($vid->penerimaan==1): ?>
               <button onclick="window.location.href='<?php echo base_url('User') ?>';" class="btn btn-info" ><div style="color: white">Daftar Online</div><span><h2><i class="fas fa-door-open"></i></h2></span></button>
             </div>

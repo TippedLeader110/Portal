@@ -39,6 +39,7 @@ class Home extends CI_Controller {
 		$da = $data['id'];
 		foreach ($da as $key => $daval) {
 		}
+		$data['nama'] = $daval->nama_sekolah;
 		if ($daval->lhome==1) {
 			$data['v1'] = "page/home_v_2";
 		$this->load->view('layout/home_v', $data);

@@ -8,7 +8,7 @@
 		<center><h2><?php echo $setval->nama_sekolah ?></h2></center>
 		<center><h3><a href="user/daftar" style="color:red">Daftar Disini !!</h3></a></center>
 		<hr>
-		<div class="container">
+		<div class="container " >
 				<?php foreach ($id as $key => $vlist): ?>
 					<?php echo $vlist->note ?>
 				<?php endforeach ?>

@@ -17,19 +17,19 @@
       
     </ul>
   </div>
-  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+  <div class="navbar-collapse collapse">
         <ul class="navbar-nav ml-auto">
             <?php if ($this->session->userdata('status') != "login"): ?>
-              <li class="nav-item nav-item-c mr-auto">
+              <li class="nav-item nav-item-c " style="width: 100px;">
               <a class="nav-link cl" href="<?php echo base_url('login') ?>" style="">Login <i class="fas fa-sign-in-alt"></i></a>
             </li>
             <?php endif ?>
             <?php if ($this->session->userdata('status') == "login"): ?>
-              <li class="nav-item nav-item-c mr-auto">
-              <a class="nav-link cl" href="<?php echo base_url('Custom') ?>" style="">Admin <i class="fas fa-columns"></i></a>
+              <li class="nav-item nav-item-c " style="width: 100px;">
+              <a class="nav-link cl" href="<?php echo base_url('Custom') ?>" style=""><span>Admin&nbsp;<i class="fas fa-columns"></i></span></a>
             </li>
             <?php endif ?>
-          <li class="nav-item nav-item-c mr-auto" style="margin-left: 0px;width: 40%;margin-right: 10px;">
+          <li class="nav-item nav-item-c" style="margin-left: 0px;width: 40%;margin-right: 10px;">
               <a data-toggle="collapse" class="nav-link cl" href="#search" style=""><i class="fas fa-search"></i></a>
             </li>
         </ul>
