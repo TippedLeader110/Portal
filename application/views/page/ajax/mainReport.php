@@ -13,13 +13,17 @@
 		</div>
 		<div class="col-4">
 			<div class="container kolmenu" style="background: #393E41" >
-				<center><h1>50</h1></center>
+			<?php foreach ($blabla as $key => $value): ?>
+				<center><h1><?php echo $value->jumlah_guru?></h1></center>
+			<?php endforeach?>
 			</div>
 			
 		</div>
 		<div class="col-4">
 			<div class="container kolmenu" style="background: #706E70" >
-				<center><h1>50</h1></center>
+				<?php foreach ($blabla as $key => $value): ?>
+				<center><h1><?php echo $value->jumlah_siswa_aktif?></h1></center>
+				<?php endforeach?>
 			</div>
 			
 		</div>
@@ -32,12 +36,12 @@
 		</div>
 		<div class="col-4" style="margin-top: 5px">
 			<div class="container koltext" style="background: #393E41" >
-				<center><h4>Jumlah Artikel Terpublish</h4></center>
+				<center><h4>Jumlah Semua Guru</h4></center>
 			</div>
 		</div>
 		<div class="col-4" style="margin-top: 5px">
 			<div class="container koltext" style="background: #706E70" >
-				<center><h4>Jumlah Artikel Pending</h4></center>
+				<center><h4>Jumlah Siswa Aktif</h4></center>
 			</div>
 		</div>
 	</div>

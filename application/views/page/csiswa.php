@@ -90,25 +90,27 @@ input:checked + .slider:before {
     <div class="row" style="margin-top: 20px;">
     <div class="col-3">
       <div class="container kolmenu" >
-        <center><h1>50</h1></center>
+      <?php foreach ($blabla as $key => $value): ?>
+        <center><h1><?php echo $value->jumlah_siswa_aktif?></h1></center>
+        <?php endforeach?>
       </div>
       
     </div>
     <div class="col-3">
       <div class="container kolmenu" style="background: #393E41" >
-        <center><h1>50</h1></center>
+       <?php foreach ($blabla as $key => $value): ?>
+        <center><h1><?php echo $value->jumlah_siswa_pending?></h1></center>
+      <?php endforeach?>
       </div>
       
     </div>
-    <div class="col-3">
-      <div class="container kolmenu" style="background: #706E70" >
-        <center><h1>50</h1></center>
-      </div>
+
       
-    </div>
     <div class="col-3">
       <div class="container kolmenu" style="background: #577399" >
-        <center><h1>50</h1></center>
+       <?php foreach ($blabla as $key => $value): ?>
+        <center><h1><?php echo $value->jumlah_siswa_seleksi?></h1></center>
+        <?php endforeach?>
       </div>
       
     </div>
@@ -121,17 +123,13 @@ input:checked + .slider:before {
     </div>
     <div class="col-3" style="margin-top: 5px">
       <div class="container koltext" style="background: #393E41" >
-        <center><h4>Siswa Nonaktif</h4></center>
+        <center><h4>Siswa Pending</h4></center>
       </div>
     </div>
-    <div class="col-3" style="margin-top: 5px">
-      <div class="container koltext" style="background: #706E70" >
-        <center><h4>Siswa Ditolak</h4></center>
-      </div>
-    </div>
+
     <div class="col-3" style="margin-top: 5px">
       <div class="container koltext" style="background: #577399" >
-        <center><h4>Siswa Baru</h4></center>
+        <center><h4>Siswa Seleksi</h4></center>
       </div>
     </div>
   </div>

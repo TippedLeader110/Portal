@@ -39,9 +39,10 @@ class Custom extends CI_Controller {
 	public function getCmain(){
 		$id = $this->input->post('id');
 		if ($id=='report') {
-			$bay = $this->db->query('select * from allcount');
+			$bay = $this->db->get('allcount');
 			$k['blabla'] = $bay->result();
 			$this->load->view('page/ajax/mainReport', $k);
+
 			// $data['ret'] = $this->cmodel->getAllcount();
 		}
 		elseif ($id=='log') {
@@ -50,11 +51,6 @@ class Custom extends CI_Controller {
 		elseif ($id=='pintas') {
 			# code...
 		}
-	}
-	public function count(){
-		$bay = $this->db->query('select * from allcount2');
-		$k['blabla'] = $bay->result();
-		$this->load->view('page/ajax/mainReport', $k);
 	}
 
 	public function KWeb(){
@@ -263,7 +259,7 @@ class Custom extends CI_Controller {
 		$data['ac'] = 2;
 		$data['nav'] = 'nav/custkiri';
 		$data['navact'] = 4;
-		$this->load->view('cust/main', $data);
+		$this->load->view('cust/main', $dapata);
 	}
 
 	public function ewarna(){
@@ -651,7 +647,10 @@ class Custom extends CI_Controller {
 		$data['nav'] = 'nav/custkiri2';
 		$data['navact'] = 4;	
 		$data['siswa'] = $this->db->get('siswa')->result();
+		$bay = $this->db->get('allcount');
+		$data['blabla'] = $bay->result();
 		$data['set'] = $this->db->get('identitas')->result();
+
 		$this->load->view('cust/main', $data);
 	}
 
