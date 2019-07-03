@@ -29,7 +29,7 @@
                   
                   <div class="form-group">
                     Tahun Penerimaan
-                    <input value="<?php echo $setval->tahun_penerimaan ?>" type="number" name="thn" class="form-control">
+                    <input value="<?php echo date("Y"); ?>" type="number" name="thn" class="form-control">
                     
                     Jumlah Maksismum Peserta Didik
                     <label>IPA</label>

@@ -656,6 +656,12 @@ class Custom extends CI_Controller {
 		$this->load->view('cust/main', $data);
 	}
 
+	public function siswahapu(){
+		$id = $this->input->post('id');
+		$this->db->where('nis', $id);
+		$this->db->delete('siswa');
+	}
+
 	public function siswaupdateSetting(){
 		$a = $this->input->post('thn');
 		$b1 = $this->input->post('jumlah1');

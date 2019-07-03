@@ -167,6 +167,47 @@ function delWarna(ab, aa) {
 	})
 }
 
+         function hps(a) {
+          Swal.fire({
+            title: 'Hapus Siswa',
+            text: 'Apakah anda ingin menghapus siswa ini ?',
+            type: "question",
+          showCancelButton: true,
+          confirmButtonText: 'Ya, Hapus',
+          cancelButtonText: 'Batal',
+          cancelButtonColor: 'red',
+          showLoaderOnConfirm: true
+          }).then(result => {
+          if (result.value) {
+            // alert(ab + " " + aa);
+          $.ajax({
+                url: 'http://localhost/Portal/Custom/siswahapu',
+                  type: 'POST',
+                  data: {id: a},
+                  error: function() {
+                    // alert('Something is wrong');
+                    Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
+                  },
+                  success: function() {
+                      Swal.fire({
+                        title: 'Sukses',
+                        text: 'Siswa berhasil dihapus !!',
+                        type: "success",
+                        timer: 3000
+                       });
+                      location.reload()
+            //           setTimeout(function() 
+                // {
+              //  location.reload();  //Refresh page
+                // }, 100);
+                 }
+              });
+          }
+          else{
+          Swal.fire('Kesalahan !!','SIswa tidak jadi dihapus !!', "error");
+        }
+        })
+      }
 
 </script>
 
