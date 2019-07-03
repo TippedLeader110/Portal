@@ -420,22 +420,16 @@ class Custom extends CI_Controller {
 		$data['m'] = $ali->result();
 		$this->load->view('page/ajax/createpost', $data);
 	}
-	public function postUpdate($a){
-		$ali = $this->db->get('kategori');
-		$data['m'] = $ali->result();
-		$this->db->where('id_post', $a);
-		$data['post'] = $this->db->get('post')->result();
-		$this->load->view('page/ajax/updatePost', $data);
-	}
-
-	public function postShow(){
+	public function kecarian($id){
+		$id = urldecode($id);
 		$r = $this->db->get('allpost');
 		$data['quer'] = $r->result();
 		$this->load->library('pagination');
-		$jumlah_data = $this->cmodel->jumlah_data('allpost');
+		$this->db->like('judul', $id);
+		$jumlah_data = $this->db->get('allpost')->num_rows();
 		// $config['base_url'] = base_url('Custom/egalery');
 		$config['total_rows'] = $jumlah_data;
-		$config['per_page'] = 10;
+		$config['per_page'] = 4;
 		$from = $this->uri->segment(3);
 		$config['first_link']       = 'First';
         $config['last_link']        = 'Last';
@@ -456,15 +450,58 @@ class Custom extends CI_Controller {
         $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
         $config['last_tagl_close']  = '</span></li>';
         $this->pagination->initialize($config);		
-		$data['quer'] = $this->cmodel->allpost($config['per_page'],$from);
-		$this->load->view('page/ajax/showpost', $data);
+		$data['quer'] = $this->cmodel->allpost3($config['per_page'],$from, $id);
+
+		$this->load->view('page/ajax/quer', $data);
+	}
+	public function postUpdate($a){
+		$ali = $this->db->get('kategori');
+		$data['m'] = $ali->result();
+		$this->db->where('id_post', $a);
+		$data['post'] = $this->db->get('post')->result();
+		$this->load->view('page/ajax/updatePost', $data);
+	}
+	public function quer(){
+		$r = $this->db->get('allpost');
+		$data['quer'] = $r->result();
+		$this->load->library('pagination');
+		$jumlah_data = $this->cmodel->jumlah_data('allpost');
+		// $config['base_url'] = base_url('Custom/egalery');
+		$config['total_rows'] = $jumlah_data;
+		$config['per_page'] = 2;
+		$from = $this->uri->segment(3);
+		$config['first_link']       = 'First';
+        $config['last_link']        = 'Last';
+        $config['next_link']        = 'Next';
+        $config['prev_link']        = 'Prev';
+        $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+        $config['full_tag_close']   = '</ul></nav></div>';
+        $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close']    = '</span></li>';
+        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+        $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+        $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['prev_tagl_close']  = '</span>Next</li>';
+        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+        $config['first_tagl_close'] = '</span></li>';
+        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['last_tagl_close']  = '</span></li>';
+        $this->pagination->initialize($config);		
+		$data['quer'] = $this->cmodel->allpost2($config['per_page'],$from);
+
+		$this->load->view('page/ajax/quer', $data);
+	}
+	public function postShow(){
+		$this->load->view('page/ajax/showpost');
 	}
 	public function postShow2(){
 		$this->load->library('pagination');
 		$jumlah_data = $this->cmodel->jumlah_data('allpost');
 		// $config['base_url'] = base_url('Custom/egalery');
 		$config['total_rows'] = $jumlah_data;
-		$config['per_page'] = 10;
+		$config['per_page'] = 2;
 		$from = $this->uri->segment(3);
 		$config['first_link']       = 'First';
         $config['last_link']        = 'Last';
