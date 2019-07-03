@@ -32,7 +32,7 @@ class Home extends CI_Controller {
 		$data['img'] = $this->db->get('img')->result();
 		$data['kate'] = $this->db->get('kategori')->result();
 		$data['vnav'] = "nav/home_v";
-		$data['postmain2'] = $this->db->query('SELECT * FROM allpost 			ORDER BY RAND() LIMIT 4')->result();
+		$data['postmain2'] = $this->db->query('SELECT * FROM allpost 			ORDER BY RAND() LIMIT 2')->result();
 		$data['rand'] = $this->db->query('SELECT link FROM img ORDER BY RAND() LIMIT 1')->result();
 		$data['id'] = $this->db->get('identitas')->result();
 		$da = $data['id'];

@@ -53,7 +53,7 @@
             <div class="col-md-4">
                   <a data-fancybox="gallery" href="<?php echo base_url('source/gambar/galery/'); echo $vimg->link ?>"><div class="card mb-4 box-shadow">
                     <img style="width: 100%;height: 100px;object-position: center;object-fit: cover;" class="card-img-top" src="<?php echo base_url('source/gambar/galery/'); echo $vimg->link ?>" alt="Card image cap">
-                    <div class="card-body" style="max-height: 50px;">
+                    <div class="card-body" style="max-height: 50px;max-width: 400px;overflow: hidden;">
                       <p class="card-text"><?php echo $vimg->deskripsi ?></p>
                     </div>
                   </div>
@@ -111,7 +111,7 @@
       <div class="col-4">
       <h4 class="bold"><?php echo $vkate->nama_kategori ?></h4>
       <hr>
-      <?php $this->db->where('id_kategori', $vkate->id_kategori);$this->db->limit(6);$query = $this->db->get("allpost")->result(); ?>
+      <?php $this->db->where('id_kategori', $vkate->id_kategori);$this->db->limit(3);$query = $this->db->get("allpost")->result(); ?>
       <?php foreach ($query as $key => $vkate2): ?>
         <a href="<?php echo base_url('Artikel/sekolah/'); echo $vkate2->id_post; ?>"><h5><?php echo $vkate2->judul ?></h5></a>
         <p><?php echo $vkate2->nama ?>&nbsp;|&nbsp;<?php echo $vkate2->tanggal ?></p>
