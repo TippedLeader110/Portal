@@ -139,6 +139,14 @@ class cmodel extends CI_Model {
 		return $this->db->get($data)->num_rows();
 	}
 
+	public function jumlah_data_kate($data,$id){
+		$this->db->where('id_kategori', $id);
+		return $this->db->get($data)->num_rows();
+	}
+	public function jumlah_data_img($data){
+		return $this->db->get($data)->num_rows();
+	}
+
 	function data($number,$offset){
 		return $query = $this->db->get('img',$number,$offset)->result();		
 	}
@@ -148,8 +156,12 @@ class cmodel extends CI_Model {
 	function mapel($number,$offset){
 		return $query = $this->db->get('mapel',$number,$offset)->result();
 	}
-	function allpost($number,$offset){
+	function allpost($number,$offset,$id){
+		$this->db->where('id_kategori', $id);
 		return $query = $this->db->get('allpost',$number,$offset)->result();
+	}
+	function img($number,$offset){
+		return $query = $this->db->get('img',$number,$offset)->result();
 	}
 	function kate($number,$offset){
 		return $query = $this->db->get('kategori',$number,$offset)->result();
