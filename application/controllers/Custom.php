@@ -430,7 +430,7 @@ class Custom extends CI_Controller {
 		$jumlah_data = $this->db->get('allpost')->num_rows();
 		// $config['base_url'] = base_url('Custom/egalery');
 		$config['total_rows'] = $jumlah_data;
-		$config['per_page'] = 4;
+		$config['per_page'] = 10;
 		$from = $this->uri->segment(3);
 		$config['first_link']       = 'First';
         $config['last_link']        = 'Last';
@@ -469,7 +469,7 @@ class Custom extends CI_Controller {
 		$jumlah_data = $this->cmodel->jumlah_data('allpost');
 		// $config['base_url'] = base_url('Custom/egalery');
 		$config['total_rows'] = $jumlah_data;
-		$config['per_page'] = 2;
+		$config['per_page'] = 10;
 		$from = $this->uri->segment(3);
 		$config['first_link']       = 'First';
         $config['last_link']        = 'Last';
@@ -502,7 +502,7 @@ class Custom extends CI_Controller {
 		$jumlah_data = $this->cmodel->jumlah_data('allpost');
 		// $config['base_url'] = base_url('Custom/egalery');
 		$config['total_rows'] = $jumlah_data;
-		$config['per_page'] = 2;
+		$config['per_page'] = 10;
 		$from = $this->uri->segment(3);
 		$config['first_link']       = 'First';
         $config['last_link']        = 'Last';
@@ -608,7 +608,7 @@ class Custom extends CI_Controller {
 		$this->load->library('pagination');
 		$jumlah_data = $this->cmodel->jumlah_data('kategori');
 		$config['total_rows'] = $jumlah_data;
-		$config['per_page'] = 3;
+		$config['per_page'] = 10;
 		$from = $this->uri->segment(3);
 		$config['first_link']       = 'First';
         $config['last_link']        = 'Last';
@@ -799,8 +799,34 @@ class Custom extends CI_Controller {
 		$this->load->view('page/ajax/showGuru', $data);
 	}
 	public function guruShow(){
-		$r = $this->db->query('select * from ket_guru');
+		$r = $this->db->get('ket_guru');
 		$data['quer'] = $r->result();
+		$jumlah_data = $this->cmodel->jumlah_data('ket_guru');
+		$this->load->library('pagination');
+		// $config['base_url'] = base_url('Custom/egalery');
+		$config['total_rows'] = $jumlah_data;
+		$config['per_page'] = 4;
+		$from = $this->uri->segment(3);
+		$config['first_link']       = 'First';
+        $config['last_link']        = 'Last';
+        $config['next_link']        = 'Next';
+        $config['prev_link']        = 'Prev';
+        $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+        $config['full_tag_close']   = '</ul></nav></div>';
+        $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close']    = '</span></li>';
+        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+        $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+        $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['prev_tagl_close']  = '</span>Next</li>';
+        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+        $config['first_tagl_close'] = '</span></li>';
+        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['last_tagl_close']  = '</span></li>';
+		$this->pagination->initialize($config);		
+		$data['quer'] = $this->cmodel->guru($config['per_page'],$from);
 		$data['m'] = $this->db->get('jabatan_guru')->result();
 		$data['k'] = $this->db->get('mapel')->result();
 		$this->load->view('page/ajax/showguru', $data);

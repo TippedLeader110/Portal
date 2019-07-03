@@ -153,6 +153,9 @@ class cmodel extends CI_Model {
 	function jabat_guru($number,$offset){
 		return $query = $this->db->get('jabatan_guru',$number,$offset)->result();
 	}
+	function guru($number,$offset){
+		return $query = $this->db->get('ket_guru',$number,$offset)->result();
+	}
 	function mapel($number,$offset){
 		return $query = $this->db->get('mapel',$number,$offset)->result();
 	}

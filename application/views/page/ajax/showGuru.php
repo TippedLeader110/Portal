@@ -3,9 +3,7 @@
   <div class="table table-responsive">
     <table class="table table-striped">
       <tr class="table-active">
-        <th>
-          Nomor
-        </th>
+
         <th>Nama Guru</th>
         <th>Alamat</th>
         <th>Jabatan</th>
@@ -15,9 +13,7 @@
       <?php $i=1; ?>
       <?php foreach ($quer as $key => $value): ?>
         <tr>
-          <td>
-            <?php echo $i; $i++; ?>
-          </td>
+
           <td>
             <?php echo $value->nama_guru ?>
           </td>
@@ -36,6 +32,12 @@
     </table>
   </div>
 </div>
+
+<div class="row" style="padding-left: 18px">
+    <div class="col-12">
+      <?php echo $this->pagination->create_links(); ?>
+    </div>
+  </div>
 
         <form id="formguru">
 <div class="modal fade" id="myModal">
@@ -139,5 +141,15 @@
       Swal.fire('Kesalahan !!', 'Tolong isi semua form input !!', 'error');
     }
   })
+
+  var numberdude;
+  $("span.page-link a").click(function(e) {
+      e.preventDefault();
+    var href = $(this).attr("href");
+    numberdude = href;
+    console.log(href);
+    $("#page").load('<?php echo base_url('Custom/guruShow')?>' + href);
+
+  });
 </script>
 
