@@ -1,4 +1,5 @@
-<?php $no = $this->uri->segment('3') + 1;    ?>
+<?php $no = $this->uri->segment('3')    ?>
+<input type="number" hidden id="no" name="no">
 
 <div class="row" style="padding-left: 18px">
 	<?php if (!empty($galery)): ?>
@@ -29,13 +30,14 @@
 	</div>
 	<script type="text/javascript">
 
-		var numberdude;
+	numberdude = '<?php echo $no ?>';
+	console.log(numberdude);
 	$("span.page-link a").click(function(e) {
     	e.preventDefault();
 		var href = $(this).attr("href");
-		numberdude = href;
-		console.log(href);
-		$("#warna").load('<?php echo base_url('Custom/egalery')?>' + href);
+		// numberdude = href;
+		// console.log(href);
+		$("#warna").load('<?php echo base_url('Custom/egalery/')?>' + href);
 
 	});
 	
@@ -71,7 +73,7 @@
                  	type: "success",
                  	timer: 3000
                  });
-				$("#warna").load('<?php echo base_url('Custom/egalery')?>' +numberdude);
+				$("#warna").load('<?php echo base_url('Custom/egalery/')?>' +numberdude);
 			}
 			});
 		}

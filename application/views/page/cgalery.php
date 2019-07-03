@@ -1,10 +1,11 @@
-
+<?php $no = $this->uri->segment('3') + 1;    ?>
+<input type="number" hidden id="no" name="no">
 
   <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>source/css/customNav.css">
 	<div class="row">
 		<div class="col-12">
 			<div class="head" style="margin-left: 0px;">
-				Dashboard Admin / Kelolah Data Web Sekolah / Kelolah Halaman / Postingan
+				Dashboard Admin / Kelolah Data Web Sekolah / Kelolah Halaman / Galeri
 			</div>
 		</div>
 	</div>
@@ -68,6 +69,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
     // alert('yeah');
+    var numberdude;
     $("#warna").load('<?php echo base_url('Custom/egalery')?>');
        
     
@@ -83,15 +85,16 @@ $(document).ready(function(){
                      cache:false,
                      async:false,
                       success: function(data){
-                           	if (data==1) {
+                           	if (data!=0) {
                            		Swal.fire({
 			                 	title: 'Sukses',
 			                 	text: 'Gambar berhasil disimpan !!',
 			                 	type: "success",
 			                 	timer: 3000
 			                 });
-                              if (numberdude=='undefined') {
-                              $("#warna").load('<?php echo base_url('Custom/egalery')?>'+numberdude);
+                              console.log(numberdude);
+                              if (numberdude!='undefined') {
+                              $("#warna").load('<?php echo base_url('Custom/egalery/')?>'+numberdude);
                               }
                               else{
                                $("#warna").load('<?php echo base_url('Custom/egalery')?>'); 

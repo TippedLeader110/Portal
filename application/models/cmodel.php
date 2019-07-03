@@ -160,6 +160,13 @@ class cmodel extends CI_Model {
 		$this->db->where('id_kategori', $id);
 		return $query = $this->db->get('allpost',$number,$offset)->result();
 	}
+	function allpost3($number,$offset,$id){
+		$this->db->like('judul', $id);
+		return $query = $this->db->get('allpost',$number,$offset)->result();
+	}
+	function allpost2($number,$offset){
+		return $query = $this->db->get('allpost',$number,$offset)->result();
+	}
 	function img($number,$offset){
 		return $query = $this->db->get('img',$number,$offset)->result();
 	}

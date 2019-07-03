@@ -1,45 +1,19 @@
-<div class="container-fluid menupage" >
-	<div class="table table-responsive">
-		<table class="table table-striped">
-			<tr class="table-active">
-				<th>Judul</th>
-				<th>Author</th>
-				<th>Tanggal</th>
-				<th>Tipe Publikasi</th>
-				<th>Kategori</th>
-				<th colspan="2">Aksi</th>
-			</tr>
-			<?php foreach ($quer as $key => $value): ?>
-				<tr>
-					<td>
-						<?php echo $value->judul ?>
-					</td>
-					<td>
-						<?php echo $value->nama ?>
-					</td>
-					<td>
-						<?php echo $value->tanggal ?>
-					</td>
-					<td>
-						<?php echo $value->status ?>
-					</td>
-					<td>
-						<?php echo $value->nama_kategori; ?>
-					</td>
-					<td><button class="btn btn-danger" onclick="Gdel(<?php echo $value->id_post ?>);">Hapus</button></td>
-					<td><button class="btn btn-warning" onclick="Gedit(<?php echo $value->id_post ?>);">Edit</button></td>
-				</tr>
-			<?php endforeach ?>
-		</table>
+<div class="row">
+	<div class="col-4">
+		<input type="text" name="cari" id="cari" class="form-control" placeholder="Cari Artikel">
+	</div>
+	<div class="col-4">
+		<button id="carishow" onclick="reset()" class="btn btn-primary">Tampilkan Semua</button>
 	</div>
 </div>
-<div class="row" style="padding-left: 18px">
-		<div class="col-12">
-			<?php echo $this->pagination->create_links(); ?>
-		</div>
-	</div>
+
+<div id="kecarian">
+	
+</div>
+
 
 <script type="text/javascript">
+	$('#kecarian').load('<?php echo base_url('Custom/quer') ?>')
 	function Gedit(a){
 		$("#page").load('<?php echo base_url('Custom/postUpdate/') ?>' + a).hide().fadeIn('slow');
 		
@@ -93,3 +67,17 @@ function Gdel(ab) {
 	}
 	})
 }
+
+$('#cari').keypress(function (e) {
+  if (e.which == 13) {
+  	// $('#kecarian').empty();
+  	$("#kecarian").load('<?php echo base_url('Custom/kecarian/') ?>' + $('#cari').val()).hide().fadeIn('slow');	
+  	console.log($('#cari').val());
+  	$('$carishow').show();
+  }
+    });
+	
+function reset(){
+	$("#page").load('<?php echo base_url('Custom/postShow') ?>').hide().fadeIn('slow');
+}
+    </script>
