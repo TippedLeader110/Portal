@@ -18,7 +18,7 @@
       </div>
     <?php endforeach ?>
   <?php endif ?>
-  <?php if (sizeof($post)==3): ?>
+  <?php if (sizeof($post)==3 || sizeof($post)>3): ?>
     <?php $ulang=1; ?>
       <div class="col-6" style="padding: 0px 0px 0px 10px">
         <div class="img-wrapper">
