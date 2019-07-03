@@ -18,7 +18,7 @@
 	  					<input type="text" class="form-control" name="username">
 	  				</div>
 	  				<div class="form-group">
-						Ganti Password
+						Password
 						<input class="form-control" type="password" id="addpass" name="pass">
 						<div id="eral" class="alert alert-danger" role="alert">
 				  			<span id="erl"></span>

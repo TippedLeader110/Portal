@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('source/css/customNav.css') ?>">
 <?php foreach ($post as $key => $v): ?>
 <?php endforeach ?>
-<div class="container" >
+<div class="container" style="width: 80%">
 	<?php foreach ($ids as $key => $vid): ?>
 	
 	<?php endforeach ?>
@@ -16,11 +16,11 @@
 			<div class="col-12" style="background: white;margin-top: 50px;padding: 10px 10px 10px 10px">
 			
 		    	
-			<div class="container-fluid menupage">
+			<div class="container-fluid">
 				<h1><?php echo $v->judul ?></h1>
 
 			Author : <?php echo $v->nama ?>&nbsp;|| <?php echo $v->tanggal ?> || Kategori : <?php echo $v->nama_kategori ?>
-			<div class="container" style="height: 300px;background-image: url(<?php echo base_url('source/gambar/post/'); echo $v->cover; ?>);background-position: center center">
+			<div class="container" style="height: 300px;background-image: url(<?php echo base_url('source/gambar/post/'); echo $v->cover; ?>);background-position: center center;background-size: cover;background-repeat: no-repeat;">
 		    </div>
 			<hr>
 			<?php echo $v->isi ?>

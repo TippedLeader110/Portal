@@ -26,9 +26,9 @@
 		</div>
 	</div>
 	</div>
-	<div id="footer" >
+	<!-- <div id="footer" >
 		WT
-	</div>
+	</div> -->
 	<?php $this->load->view('nav/script'); ?>
 
 </body>
