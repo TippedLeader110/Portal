@@ -1,4 +1,5 @@
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('source/css/sekolah.css') ?>">
 <?php foreach ($id as $key => $vid): ?>
 <?php endforeach ?>
@@ -18,7 +19,7 @@
 </div>
 <div class="row" style="margin-top: 20px;">
   <div class="col-12">
-       <h4 class="bold"><?php echo $nkate ?></h4>
+       <center><h2 class="bold" style="font-weight: bolder;">Galery Kami</h2></center>
      <hr>
   </div>
 </div>
@@ -26,17 +27,15 @@
   <?php foreach ($post as $key => $post3): ?>
     <div class="col-4">
             <div class="card mb-4 box-shadow">
-                    <a class="lightbox" href="<?php echo base_url('Artikel/sekolah/'); echo $post3->id_post; ?>"><img style="width: 100%;max-height: 160px;object-position: center;object-fit: cover;" class="card-img-top" src="<?php echo base_url('source/gambar/post/'); echo $post3->cover ?>" alt="Card image cap">
+                    <a data-fancybox="gallery" href="<?php echo base_url('source/gambar/galery/'); echo $post3->link ?>">
+                      <div style="height: 150px;">
+                        <img style="width: 100%;max-height: 160px;object-position: center;object-fit: fill;" class="card-img-top" src="<?php echo base_url('source/gambar/galery/'); echo $post3->link ?>" alt="Card image cap">
+                      </div>
                     <div class="card-body" style="max-height: 100px;">
-                      <div style="width: 300px;height: 50px;overflow: hidden;"><?php echo $post3->judul ?></div>
-                        <span style="max-width: 50px;"><?php echo $post3->nama ?></span>&nbsp;<span><?php echo $post3->tanggal ?></span></a>
-                        <div class="lightbox-target" id="<?php echo $post3->judul ?>">
-                         <img src="<?php echo base_url('source/gambar/post/'); echo $post3->cover ?>"/>
-                         <a class="lightbox-close" href="#"></a>
-                        </div>
+                      <div style="width: 300px;height: 50px;overflow: hidden;"><?php echo $post3->deskripsi ?></div>
+                        </a>
                 </div>
         </div>
     </div>
-
   <?php endforeach ?>
 </div>

@@ -60,6 +60,7 @@ public function index()
 	}
 
 
+
 public function home(){
 	$data['datanav'] = $this->db->get('navitem')->result();
 	$data['id'] = $this->db->get('identitas')->result();

@@ -95,6 +95,26 @@ class Artikel extends CI_Controller {
 
 	}
 
+	public function galery(){
+		$data['title'] = "Homepage";
+		$data['datanav'] = $this->db->get('navitem')->result();
+		$data['vnav'] = "nav/home_v";
+		$data['id'] = $this->db->get('identitas')->result();
+		$da = $data['id'];
+		foreach ($da as $key => $daval) {
+		}
+		
+		$data['post'] = $this->db->query("SELECT * FROM IMG ORDER BY  id_img desc")->result();
+		if ($daval->lhome==1) {
+			$data['v1'] = "page/galery";
+			$this->load->view('layout/home_v', $data);
+		}elseif ($daval->lhome==2) {
+			$data['v1'] = "page/galery";
+			$this->load->view('layout/home_v_2', $data);
+		}
+
+	}
+
 	public function SemuaArtikel(){
 		$data['d'] = $this->db->get('allpost')->result();
 		$data['title'] = "Homepage";

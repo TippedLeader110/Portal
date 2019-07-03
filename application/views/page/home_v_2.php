@@ -1,5 +1,8 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('source/css/sekolah.css') ?>">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
 <?php foreach ($id as $key => $vid): ?>
 <?php endforeach ?>
 <?php foreach ($post as $key => $vpost): ?>
@@ -48,12 +51,13 @@
           
           <?php foreach ($img as $key => $vimg): ?>
             <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
+                  <a data-fancybox="gallery" href="<?php echo base_url('source/gambar/galery/'); echo $vimg->link ?>"><div class="card mb-4 box-shadow">
                     <img style="width: 100%;height: 100px;object-position: center;object-fit: cover;" class="card-img-top" src="<?php echo base_url('source/gambar/galery/'); echo $vimg->link ?>" alt="Card image cap">
                     <div class="card-body" style="max-height: 50px;">
                       <p class="card-text"><?php echo $vimg->deskripsi ?></p>
                     </div>
                   </div>
+                  </a>
             </div>
      
           <?php endforeach ?>
@@ -61,7 +65,7 @@
         </div>
         <div class="row">
             <div class="container">
-              <center><a href="">Lihat Semua Galeri</a></center>
+              <center><a href="<?php echo base_url('Artikel/Galery') ?>">Lihat Semua Galeri</a></center>
             </div>
           </div>
       </div>
@@ -117,3 +121,14 @@
 
     <?php endforeach ?>
   </div>
+
+
+  <script type="text/javascript">
+    $("a.group").fancybox({
+    'transitionIn'  : 'elastic',
+    'transitionOut' : 'elastic',
+    'speedIn'   : 600, 
+    'speedOut'    : 200, 
+    'overlayShow' : false
+  });
+  </script>
