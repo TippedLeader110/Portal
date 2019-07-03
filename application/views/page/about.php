@@ -27,6 +27,8 @@
 	      <a class="nav-link" id="v-Sejarah-tab" data-toggle="pill" href="#v-Sejarah" role="tab" aria-controls="v-Sejarah" aria-selected="true">Sejarah Kami</a>
 
 	      <a class="nav-link" id="v-struktur-tab" data-toggle="pill" href="#v-struktur" role="tab" aria-controls="v-struktur" aria-selected="true">Struktur Sekolah</a>
+
+	      <a class="nav-link" id="v-kontak-tab" data-toggle="pill" href="#v-kontak" role="tab" aria-controls="v-kontak" aria-selected="true">Kontak Sekolah</a>
     	</div>
 	</div>
 	<div class="col-10">
@@ -44,6 +46,12 @@
 				<h4>Sejarah</h4>
 				<hr>
 				<?php echo $vid->sejarah ?>
+			</div>
+
+			<div class="tab-pane fade " id="v-kontak" role="tabpanel" aria-labelledby="v-kontak-tab">
+				<h4>Kontak Kami</h4>
+				<hr>
+				<?php echo $vid->kontak_lokasi ?>
 			</div>
 
 			<div class="tab-pane fade " id="v-struktur" role="tabpanel" aria-labelledby="v-struktur-tab">
