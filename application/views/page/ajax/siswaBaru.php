@@ -50,30 +50,5 @@
           $('#infoB').modal('show');
         }
 
-        function hps(id){
-          $.ajax({
-            url: '<?php echo base_url('Custom/hpssiswa') ?>',
-            type: 'post',
-            data: {id: id},
-            error: function(){
-                  Swal.fire({
-                            title: 'Kesalahan',
-                            text: 'Gagal Hapus !!',
-                            type: "error",
-                            timer: 3000
-                           });  
-                },
-                success: function(){
-                  Swal.fire({
-                            title: 'Sukses',
-                            text: 'Berhasil Hapus !!',
-                            type: "success",
-                            timer: 3000
-                           });  
-                  $('#siswabaru').load('<?php echo base_url('Custom/siswaBaru') ?>').hide().fadeIn('slow');
-            }
-          })
-        
           
-        }
       </script>

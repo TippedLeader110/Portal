@@ -82,7 +82,7 @@
 
 					<label s>Status</label>                                    
                     <input type="text" id="status" name="status" class="form-control" ><br>
-            
+            		
 
 
 
