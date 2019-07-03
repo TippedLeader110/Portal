@@ -16,13 +16,6 @@ view dropdown <-ininamanyna ya = id_item , label(navitem) , link(navitem), tipe(
  select navitem.id_item , subnavitem.label ,subnavitem.link, subnavitem.id_sub from navitem inner join subnavitem where subnavitem.id_item = navitem.id_item;
 kalo kau nanya kenapa ga kau aja yg buat bay jawab ku = karna aku rajin ga kaya kau
 
-
-CREATE view allcount AS SELECT COUNT(*) AS jumlah_guru,
-(SELECT COUNT(*) FROM allpost) AS jumlah_post,
-(SELECT COUNT(*) FROM siswa where status="aktif") as jumlah_siswa_aktif,
-(SELECT COUNT(*) FROM siswa WHERE status="pending") AS jumlah_siswa_pending,
-(SELECT COUNT(*) FROM siswa WHERE status="seleksi") AS jumlah_siswa_seleksi
-FROM ket_guru;
 -----------------------------------
 
 query view allpost
@@ -56,3 +49,30 @@ SET collation_connection = 'utf8_general_ci';
 ALTER DATABASE sisko CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 ALTER TABLE post CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+
+
+
+CREATE TRIGGER `hapus_siswa` AFTER DELETE ON `siswa`
+ FOR EACH ROW BEGIN
+INSERT INTO log_siswa
+SET
+nis=old.nis,
+nama_siswa=old.nama_siswa,
+alamat=old.alamat,
+jenis_kelamin=old.jenis_kel,
+waktu=NOW(),
+status="hapus";
+END
+
+CREATE TRIGGER `ubah_siswa` AFTER UPDATE ON `siswa`
+ FOR EACH ROW BEGIN
+INSERT INTO log_siswa
+SET
+nis=old.nis,
+nama_siswa=old.nama_siswa,
+alamat=old.alamat,
+jenis_kelamin=old.jenis_kel,
+waktu=NOW(),
+status="ubah";
+END
