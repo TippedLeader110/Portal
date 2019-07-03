@@ -95,6 +95,27 @@ class Artikel extends CI_Controller {
 
 	}
 
+	public function Cari($id){
+		$id = urldecode($id);
+		$data['title'] = $id;
+		$data['datanav'] = $this->db->get('navitem')->result();
+		$data['vnav'] = "nav/home_v";
+		$data['id'] = $this->db->get('identitas')->result();
+		$da = $data['id'];
+		foreach ($da as $key => $daval) {
+		}
+		$this->db->like('judul', $id);
+		$data['post'] = $this->db->get("allpost")->result();
+		if ($daval->lhome==1) {
+			$data['v1'] = "page/cari";
+			$this->load->view('layout/home_v', $data);
+		}elseif ($daval->lhome==2) {
+			$data['v1'] = "page/cari";
+			$this->load->view('layout/home_v_2', $data);
+		}
+
+	}
+
 	public function galery(){
 		$data['title'] = "Homepage";
 		$data['datanav'] = $this->db->get('navitem')->result();
@@ -116,23 +137,19 @@ class Artikel extends CI_Controller {
 	}
 
 	public function SemuaArtikel(){
-		$data['d'] = $this->db->get('allpost')->result();
-		$data['title'] = "Homepage";
-		
+		$data['post'] = $this->db->get('allpost')->result();
+		$data['title'] = "Semua Artikel";
 		$data['datanav'] = $this->db->get('navitem')->result();
-		$data['post'] = $this->db->get('post')->result();
-		$data['img'] = $this->db->get('img')->result();
 		$data['vnav'] = "nav/home_v";
-		$data['rand'] = $this->db->query('SELECT link FROM img ORDER BY RAND() LIMIT 1')->result();
 		$data['id'] = $this->db->get('identitas')->result();
 		$da = $data['id'];
 		foreach ($da as $key => $daval) {
 		}
 		if ($daval->lhome==1) {
-			$data['v1'] = "page/home_v";
+			$data['v1'] = "page/allpost";
 			$this->load->view('layout/home_v', $data);
 		}elseif ($daval->lhome==2) {
-			$data['v1'] = "page/home_v_2";
+			$data['v1'] = "page/allpost";
 			$this->load->view('layout/home_v_2', $data);
 		}
 	}

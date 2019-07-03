@@ -12,6 +12,7 @@
 	  </div>
 	</div>
 	<?php $this->load->view($vnav) ?>
+	
 	<div class="row">
 			<div class="col-8" style="margin-top: 20px;padding: 0px 10px 10px 0px">
 			

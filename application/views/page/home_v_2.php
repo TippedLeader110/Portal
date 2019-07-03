@@ -72,6 +72,7 @@
     </div>
     </div>
     <div class="col-4">
+      
       <h4 class="bold">BERITA ACAK</h4>
       <hr>
       <?php foreach ($postmain2 as $key => $vpostmain): ?>

@@ -29,9 +29,21 @@
               <a class="nav-link cl" href="<?php echo base_url('Custom') ?>" style="">Admin <i class="fas fa-columns"></i></a>
             </li>
             <?php endif ?>
+          <li class="nav-item nav-item-c mr-auto" style="margin-left: 0px;width: 40%;margin-right: 10px;">
+              <a data-toggle="collapse" class="nav-link cl" href="#search" style=""><i class="fas fa-search"></i></a>
+            </li>
         </ul>
     </div>
 </nav>
+<div  id="search" class="collapse float-right" style="position: relative;margin-top: 10px;width: 400px;margin-bottom: -30px;" >
+    <div class="form-group">
+      <input type="text" name="cari" id="cari" class="form-control" placeholder="Cari Artikel">
+    </div>
+  </div>
 <script type="text/javascript">
-	
+	 $('#cari').keypress(function (e) {
+  if (e.which == 13) {
+    window.location.href="<?php echo base_url('Artikel/Cari/') ?>"+ $('#cari').val();
+  }
+    });
 </script>
