@@ -83,6 +83,9 @@
             </option>
           <?php endforeach ?>
         </select>
+        <hr>
+        <label>Foto</label><br>
+        <input type="file" name="file" >
         </div>
         
         <!-- Modal footer -->
@@ -115,11 +118,16 @@
           Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
               console.log(data);
         },
-        success: function(){
-          Swal.fire('Berhasil !!','Guru berhasi ditambah !!', 'success');
+        success: function(data){
+          if (data==1) {
+            Swal.fire('Berhasil !!','Guru berhasi ditambah !!', 'success');
           $("#page").load('<?php echo base_url('Custom/guruShow') ?>');
           $('.modal-backdrop').remove();
           // $('#myModal').hide();
+          }
+          else{
+            Swal.fire('Kesalahan !!','Format fle tidak didukung !!', "error");
+          }
         }
       });
       

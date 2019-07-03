@@ -276,6 +276,13 @@ class Custom extends CI_Controller {
 		$b = $this->input->post('label');
 		$this->cmodel->setWarna($a,$b);
 	}
+
+	public function savelokasi(){
+		$a = $this->input->post('a');
+		$this->db->set('kontak_lokasi', $a);
+		$this->db->update('identitas');
+	}
+
 	public function remWarna(){
 		$a = $this->input->post('id');
 		$this->cmodel->delWarna($a);
@@ -346,6 +353,26 @@ class Custom extends CI_Controller {
              
             $result= $this->cmodel->simpan_upload($judul,$image,$tipe); //kirim value ke model m_upload
             echo json_decode($result);
+            echo "1";
+        }
+        else{
+        	echo "0";
+        }
+	}
+
+	public function guruSave(){
+        $config['upload_path']="./source/gambar/guru"; //path folder file upload
+        $config['allowed_types']='gif|jpg|png'; //type file yang boleh di upload
+        $config['encrypt_name'] = TRUE; //enkripsi file name upload
+         
+        $this->load->library('upload',$config); //call library upload 
+        if($this->upload->do_upload("file")){ //upload file
+            $data = array('upload_data' => $this->upload->data()); //ambil file name yang diupload
+            $image= $data['upload_data']['file_name']; //set file name ke variable image
+             
+ 			$post = $this->input->post();
+			$data = array('nama_guru' => $post['nguru'], 'id_mapel' => $post['mapel'], 'id_jabatan' => $post['jabatan'], 'alamat' => $post['alamat'], 'nip' => $post['nip'], 'foto' => $image);
+			$this->db->insert('guru', $data);
             echo "1";
         }
         else{
@@ -732,11 +759,6 @@ class Custom extends CI_Controller {
 		$ali = $this->db->get('jabatan_guru');
 		$data['m'] = $ali->result();
 		$this->load->view('page/ajax/showGuru', $data);
-	}
-	public function guruSave(){
-		$post = $this->input->post();
-		$data = array('nama_guru' => $post['nguru'], 'id_mapel' => $post['mapel'], 'id_jabatan' => $post['jabatan'], 'alamat' => $post['alamat'], 'nip' => $post['nip']);
-		$this->db->insert('guru', $data);
 	}
 	public function guruShow(){
 		$r = $this->db->query('select * from ket_guru');

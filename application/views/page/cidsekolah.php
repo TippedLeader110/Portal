@@ -88,11 +88,11 @@
 		        <button type="button" class="close" data-dismiss="modal">&times;</button>
 		    </div>
 		    <div class="modal-body">
-		        <textarea id="sekid" name="sekid">
+		        <textarea id="logokganti" name="logokganti" style="height: 300px;">
 				</textarea>
 		    </div>
 		    <div class="modal-footer">
-		        <div id="but"></div><button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+		        <div id="but"></div><button onclick="savelokasi()"  class="btn btn-primary" >Simpan</button>&nbsp;<button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
 		    </div>
 		</div>
   	</div>
@@ -109,8 +109,43 @@
 			filebrowserUploadUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'); ?>', 
 			filebrowserImageUploadUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'); ?>', 
 			filebrowserFlashUploadUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'); ?>'
-	}); CKFinder.setupCKEditor( editor, '../' );
+	});
+
+		var editor = CKEDITOR.replace( 'logokganti', {
+		height:500, removePlugins : 'resize', filebrowserBrowseUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/ckfinder.html'); ?>', filebrowserImageBrowseUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/ckfinder.html?type=Images'); ?>', 
+		filebrowserFileBrowseUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/ckfinder.html?type=File'); ?>', 
+			filebrowserFlashBrowseUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/ckfinder.html?type=Flash'); ?>', 
+			filebrowserUploadUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'); ?>', 
+			filebrowserImageUploadUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'); ?>', 
+			filebrowserFlashUploadUrl : '<?php echo base_url('plugins/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'); ?>'
+		});
     };
+
+    function lokkok(){
+    	$('#logok').modal('show');
+
+    	
+    }
+
+    function savelokasi(){
+    	var a = CKEDITOR.instances.logokganti.getData();
+    	console.log(a);
+    	$.ajax({
+    		url: '<?php echo base_url('Custom/savelokasi') ?>',
+    		type: 'post',
+    		data: {a: a},
+    		error: function(){
+    			Swal.fire('Kesalahan!!', 'Terjadi masalah saat mencoba terhubung ke server !!', 'error');
+    		},
+    		success: function(){
+    			Swal.fire('Berhasil !!', 'Data berhasil disimpan !!', 'success');
+    			CKEDITOR.instances.logokganti.setData(a);
+    			$('#logok').modal('hide');
+    			$('.modal-backdrop').remove();
+    		}
+
+    	})
+    }
 
 	$(document).ready(function(){
     // alert('yeah');
