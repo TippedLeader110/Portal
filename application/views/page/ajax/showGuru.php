@@ -26,7 +26,7 @@
           <td>
             <?php echo $value->mapel ?>
           </td>
-          <td><button class="btn btn-danger" onclick="gurudel(<?php echo $value->id_guru ?>);">Hapus</button></td>
+          <td><button class="btn btn-danger" onclick="gurudel(<?php echo $value->nip ?>);">Hapus</button></td>
         </tr>
       <?php endforeach ?>
     </table>
