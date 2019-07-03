@@ -89,7 +89,7 @@ class Artikel extends CI_Controller {
 			$data['v1'] = "page/kategori";
 			$this->load->view('layout/home_v', $data);
 		}elseif ($daval->lhome==2) {
-			$data['v1'] = "page/kategori_2";
+			$data['v1'] = "page/kategori";
 			$this->load->view('layout/home_v_2', $data);
 		}
 
@@ -152,5 +152,19 @@ class Artikel extends CI_Controller {
 			$data['v1'] = "page/allpost";
 			$this->load->view('layout/home_v_2', $data);
 		}
+	}
+
+	public function about(){
+		$this->load->library('googlemaps');
+        $config=array();
+        $config['center']="37.4419, -122.1419";
+        $config['zoom']=17;
+        $config['map_height']="400px";
+        $this->googlemaps->initialize($config);
+        $marker=array();
+        $marker['position']="37.4419, -122.1419";
+        $this->googlemaps->add_marker($marker);
+        $data['map']=$this->googlemaps->create_map();
+        $this->load->view('v_map',$data);
 	}
 }

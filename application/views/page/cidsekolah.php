@@ -27,9 +27,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-				</div>
 			</div>
+				<div class="row" style="margin-top: 270px;">
+					<div class="col-12">
+						<button onclick="lokkok()" class="btn btn-outline-primary">Ubah Info Lokasi dan Kontak</button>
+					</div>
+				</div>
 		</div>
 		
 <div class="ccontainer">
@@ -63,6 +66,25 @@
 	    <div class="modal-content">
 		    <div class="modal-header">
 		    	<h4 class="modal-title">Edit Data</h4>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		    </div>
+		    <div class="modal-body">
+		        <textarea id="sekid" name="sekid">
+				</textarea>
+		    </div>
+		    <div class="modal-footer">
+		        <div id="but"></div><button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+		    </div>
+		</div>
+  	</div>
+</div>
+
+
+<div class="modal fade" id="logok" role="dialog">
+    <div class="modal-dialog">
+	    <div class="modal-content">
+		    <div class="modal-header">
+		    	<h4 class="modal-title">Edit Lokasi dan Kontak</h4>
 		        <button type="button" class="close" data-dismiss="modal">&times;</button>
 		    </div>
 		    <div class="modal-body">

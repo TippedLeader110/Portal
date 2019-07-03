@@ -25,7 +25,7 @@
 <div class="row">
   <div id="page">
     <?php foreach ($post as $key => $post3): ?>
-    <div class="col-4">
+    <div class="col-6">
             <div class="card mb-4 box-shadow">
                     <a href="<?php echo base_url('Artikel/sekolah/'); echo $post3->id_post; ?>"><img style="width: 100%;max-height: 160px;object-position: center;object-fit: cover;" class="card-img-top" src="<?php echo base_url('source/gambar/post/'); echo $post3->cover ?>" alt="Card image cap">
                     <div class="card-body" style="max-height: 100px;">
