@@ -137,9 +137,77 @@ CREATE TABLE `identitas` (
 
 LOCK TABLES `identitas` WRITE;
 /*!40000 ALTER TABLE `identitas` DISABLE KEYS */;
-INSERT INTO `identitas` VALUES (1,'DEMO SCHOOL','<p>&nbsp;&nbsp;&ldquo;Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global&rdquo;</p>\n','<p>1.&nbsp; &nbsp;Mewujudkan pendidikan untuk menghasilkan prestasi dan lulusa berkwalitas tinggi yang peduli dengan lingkungan hidup</p>\n\n<p>2. &nbsp; Mewujudkan sumber daya manusia yang beriman, produktif, kreatif, inofatif dan efektif</p>\n\n<p>3. &nbsp; Mewujudkan pengembangan inovasi pembelajaran sesuai tuntutan</p>\n\n<p>4. &nbsp; Mewujudkan sumber daya manusia yang peduli dalam mencegahan pencemaran, mencegahan kerusakan lingkungan dan melestarikan lingkungan hidup</p>\n\n<p>5. &nbsp; Mewujudkan sarana prasarana reprensentatif dan up to date</p>\n\n<p>6. &nbsp; Mewujudkan pengelolaan pendidikan yang professional</p>\n\n<p>7. &nbsp; Mewujudkan sistim penilaian yang berafiliasi</p>\n\n<p>8. &nbsp; Mewujudkan budaya yang berkualifikasi</p>\n\n<p>9. &nbsp; Mewujudkan Sekolah yang bersih,hijau dan meminimalis hasil sampah yang tidak bermanfaat</p>\n\n<p>10. Mewujudkan manusia Indonesia yang mampu berkontribusi pada kehidupan bermasyarakat, berbangsa, bernegara dalam peradaban dunia</p>\n\n<p>11. Mewujudkan generasi emas, sehat tanpa narkoba</p>\n','SEKOLAH INI DICIPTAKAN OLEH ALI HIDAYAT SETELAH DIUSIR DARI WAKANDA',2,2,1,2019,2,'2019-06-28','<h3>Syarat Pendaftaran</h3>\n\n<ol>\n	<li>Telah dinyatakan lulus dan memiliki Ijazah/SKL dari SMP/ MTs/ SMPLB/ Paket B;</li>\n	<li>Berusia paling tinggi 21 (dua puluh satu) ( awal Tahun Pelajaran 2017/2018).</li>\n</ol>\n\n<h3>Pemberkasan</h3>\n\n<ol>\n	<li>Foto Copy Ijazah/SHUN/Surat Keterangan Lulus dari sekolah asal dan dilegalisir sebanyak 1 lembar, serta menyerahkan aslinya pada sekolah tempat mendaftar ( dijadwal yang di tentukan ).</li>\n	<li>Pas foto berwarna ukuran 3 x 4 cm sebanyak 2 lembar.</li>\n</ol>\n\n<h3>Cara Mendaftar</h3>\n\n<ol>\n	<li>Daftar akun pada halaman daftar ( tombol daftar di atas )</li>\n	<li>Setelah mengisi semua form pendaftaran , peserta didik baru diharapkan mengantarkan berkas yang diminta ke sekolah untuk verifikasi</li>\n	<li>Setelah verifikasi peserta didik baru dapat menunggu hasil seleksi di tanggal yang di tentukan yaitu ( 2019-07-15 )</li>\n</ol>\n\n<h3>Catatan Tambahan</h3>\n\n<ol>\n	<li>Saat verifikasi di kenakan biaya pendaftaran sebesar Rp.100.000,00</li>\n</ol>\n','dc581c17dde66f731764fcf1d81df3ba.png',2,'<p>Nomor Telp. : 021-XXXXX</p>\n\n<p>Email : schoo@demo.com</p>\n');
+INSERT INTO `identitas` VALUES (1,'DEMO SCHOOL','<p>&nbsp;&nbsp;&ldquo;Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global&rdquo;</p>\n','<p>1.&nbsp; &nbsp;Mewujudkan pendidikan untuk menghasilkan prestasi dan lulusa berkwalitas tinggi yang peduli dengan lingkungan hidup</p>\n\n<p>2. &nbsp; Mewujudkan sumber daya manusia yang beriman, produktif, kreatif, inofatif dan efektif</p>\n\n<p>3. &nbsp; Mewujudkan pengembangan inovasi pembelajaran sesuai tuntutan</p>\n\n<p>4. &nbsp; Mewujudkan sumber daya manusia yang peduli dalam mencegahan pencemaran, mencegahan kerusakan lingkungan dan melestarikan lingkungan hidup</p>\n\n<p>5. &nbsp; Mewujudkan sarana prasarana reprensentatif dan up to date</p>\n\n<p>6. &nbsp; Mewujudkan pengelolaan pendidikan yang professional</p>\n\n<p>7. &nbsp; Mewujudkan sistim penilaian yang berafiliasi</p>\n\n<p>8. &nbsp; Mewujudkan budaya yang berkualifikasi</p>\n\n<p>9. &nbsp; Mewujudkan Sekolah yang bersih,hijau dan meminimalis hasil sampah yang tidak bermanfaat</p>\n\n<p>10. Mewujudkan manusia Indonesia yang mampu berkontribusi pada kehidupan bermasyarakat, berbangsa, bernegara dalam peradaban dunia</p>\n\n<p>11. Mewujudkan generasi emas, sehat tanpa narkoba</p>\n','SEKOLAH INI DICIPTAKAN OLEH ALI HIDAYAT SETELAH DIUSIR DARI WAKANDA',2,2,0,2019,2,'2019-06-28','<h3>Syarat Pendaftaran</h3>\n\n<ol>\n	<li>Telah dinyatakan lulus dan memiliki Ijazah/SKL dari SMP/ MTs/ SMPLB/ Paket B;</li>\n	<li>Berusia paling tinggi 21 (dua puluh satu) ( awal Tahun Pelajaran 2017/2018).</li>\n</ol>\n\n<h3>Pemberkasan</h3>\n\n<ol>\n	<li>Foto Copy Ijazah/SHUN/Surat Keterangan Lulus dari sekolah asal dan dilegalisir sebanyak 1 lembar, serta menyerahkan aslinya pada sekolah tempat mendaftar ( dijadwal yang di tentukan ).</li>\n	<li>Pas foto berwarna ukuran 3 x 4 cm sebanyak 2 lembar.</li>\n</ol>\n\n<h3>Cara Mendaftar</h3>\n\n<ol>\n	<li>Daftar akun pada halaman daftar ( tombol daftar di atas )</li>\n	<li>Setelah mengisi semua form pendaftaran , peserta didik baru diharapkan mengantarkan berkas yang diminta ke sekolah untuk verifikasi</li>\n	<li>Setelah verifikasi peserta didik baru dapat menunggu hasil seleksi di tanggal yang di tentukan yaitu ( 2019-07-15 )</li>\n</ol>\n\n<h3>Catatan Tambahan</h3>\n\n<ol>\n	<li>Saat verifikasi di kenakan biaya pendaftaran sebesar Rp.100.000,00</li>\n</ol>\n','dc581c17dde66f731764fcf1d81df3ba.png',2,'<p>Nomor Telp. : 021-XXXXX</p>\n\n<p>Email : schoo@demo.com</p>\n');
 /*!40000 ALTER TABLE `identitas` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `seleksi_done` AFTER UPDATE ON `identitas` FOR EACH ROW BEGIN
+DECLARE lim_ipa integer;
+
+DECLARE lim_ips integer;
+
+DECLARE temp integer;
+
+
+
+IF new.penerimaan=0
+
+THEN
+
+ SET temp= (select count(*) from siswa where status = 'seleksi' and jurusan = 'ipa');
+
+ IF old.maks_ipa>temp OR old.maks_ipa=temp
+
+ THEN
+
+  UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ipa';
+
+ ELSE
+
+  set lim_ipa = (temp-old.maks_ipa);
+
+  DELETE FROM siswa where status = 'seleksi' and jurusan = 'ipa' ORDER BY nilai_avg  ASC limit lim_ipa;  
+
+  UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ipa';
+
+ END IF;
+
+ SET temp= (select count(*) from siswa where status = 'seleksi' and jurusan = 'ips');
+
+ IF old.maks_ips>temp OR old.maks_ips=temp
+
+ THEN
+
+  UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ips';
+
+ ELSE
+
+  set lim_ips = (temp-old.maks_ips);
+
+  DELETE FROM siswa where status = 'seleksi' and jurusan = 'ips' ORDER BY nilai_avg  ASC limit lim_ips;  
+
+  UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ips';
+
+ END IF;
+
+ 
+
+END IF;
+
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `img`
@@ -190,6 +258,45 @@ LOCK TABLES `jabatan_guru` WRITE;
 INSERT INTO `jabatan_guru` VALUES (1,'Kepala Sekolah'),(2,'Wakil Kepala Sekolah'),(3,'Petugas Tata Usaha'),(4,'Guru PNS'),(5,'Guru Honorer');
 /*!40000 ALTER TABLE `jabatan_guru` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary table structure for view `join_sisver`
+--
+
+DROP TABLE IF EXISTS `join_sisver`;
+/*!50001 DROP VIEW IF EXISTS `join_sisver`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `join_sisver` (
+  `nomor_verifikasi` tinyint NOT NULL,
+  `nis` tinyint NOT NULL,
+  `nama_siswa` tinyint NOT NULL,
+  `alamat` tinyint NOT NULL,
+  `tgl_lahir` tinyint NOT NULL,
+  `jenis_kel` tinyint NOT NULL,
+  `thn_ajaran` tinyint NOT NULL,
+  `nama_ayah` tinyint NOT NULL,
+  `pend_akhir_ayah` tinyint NOT NULL,
+  `pekerjaan_ayah` tinyint NOT NULL,
+  `nama_ibu` tinyint NOT NULL,
+  `pend_akhir_ibu` tinyint NOT NULL,
+  `pekerjaan_ibu` tinyint NOT NULL,
+  `alamat_ortu` tinyint NOT NULL,
+  `nama_wali` tinyint NOT NULL,
+  `pend_akhir_wali` tinyint NOT NULL,
+  `pekerjaan_wali` tinyint NOT NULL,
+  `alamat_wali` tinyint NOT NULL,
+  `sekolah_asal` tinyint NOT NULL,
+  `alamat_sekolah` tinyint NOT NULL,
+  `tahun_lulus` tinyint NOT NULL,
+  `status` tinyint NOT NULL,
+  `jurusan` tinyint NOT NULL,
+  `agama` tinyint NOT NULL,
+  `foto_skhun` tinyint NOT NULL,
+  `nilai_avg` tinyint NOT NULL,
+  `foto` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `kategori`
@@ -399,7 +506,7 @@ CREATE TABLE `nilai` (
   PRIMARY KEY (`id_nilai`),
   KEY `nis` (`nis`),
   KEY `id_mujian` (`id_mujian`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -408,6 +515,7 @@ CREATE TABLE `nilai` (
 
 LOCK TABLES `nilai` WRITE;
 /*!40000 ALTER TABLE `nilai` DISABLE KEYS */;
+INSERT INTO `nilai` VALUES (1,1,1,40),(2,1,2,40),(3,1,3,40),(4,1,4,40),(5,1,4,50),(6,1,1,50),(7,1,3,50),(8,1,2,50),(9,1,1,50),(10,1,2,50),(11,1,3,50),(12,1,4,50);
 /*!40000 ALTER TABLE `nilai` ENABLE KEYS */;
 UNLOCK TABLES;
 ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
@@ -535,7 +643,7 @@ CREATE TABLE `siswa` (
   `nilai_avg` int(11) DEFAULT NULL,
   `foto` text,
   PRIMARY KEY (`nis`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -544,10 +652,9 @@ CREATE TABLE `siswa` (
 
 LOCK TABLES `siswa` WRITE;
 /*!40000 ALTER TABLE `siswa` DISABLE KEYS */;
-INSERT INTO `siswa` VALUES (2019011,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'aktif','ipa',NULL,NULL,50,NULL),(2019012,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'aktif','ipa',NULL,NULL,50,NULL),(2019014,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'aktif','ipa',NULL,NULL,50,NULL),(2019026,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'aktif','ips',NULL,NULL,50,NULL),(2019027,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'aktif','ips',NULL,NULL,50,NULL);
+INSERT INTO `siswa` VALUES (2019011,'111','1','0001-01-01','Laki-laki','2019','1','1','1','1','1','1','1','1','1','1','1','11','1',1,'aktif','ipa','Islam','f0f211e24a74725beab710223d9d812f.jpg',47,NULL);
 /*!40000 ALTER TABLE `siswa` ENABLE KEYS */;
 UNLOCK TABLES;
-ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -557,13 +664,12 @@ ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `verifikasi_data` AFTER INSERT ON `siswa` FOR EACH ROW INSERT INTO verifikasi (habis_waktu, nis) VALUES (curdate(), new.nis) */;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `verifikasi_data` AFTER INSERT ON `siswa` FOR EACH ROW INSERT INTO verifikasi (nomor_verifikasi,habis_waktu, nis, STATUS) VALUES (concat(2019,new.nis),curdate(), new.nis, 'gagal') */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -588,6 +694,7 @@ IF new.status = 'aktif'
 THEN
 set nilai_a = (select tahun_penerimaan from identitas);
 set new.nis = concat(nilai_a,'0',jur,old.nis);
+
 end IF;
 END */;;
 DELIMITER ;
@@ -676,9 +783,11 @@ CREATE TABLE `verifikasi` (
   `nomor_verifikasi` int(11) NOT NULL AUTO_INCREMENT,
   `habis_waktu` date NOT NULL,
   `nis` int(11) NOT NULL,
+  `status` enum('sukses','gagal') DEFAULT NULL,
   PRIMARY KEY (`nomor_verifikasi`),
-  KEY `nis` (`nis`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  KEY `nis` (`nis`),
+  CONSTRAINT `verifikasi_ibfk_1` FOREIGN KEY (`nis`) REFERENCES `siswa` (`nis`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=20192 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -687,10 +796,9 @@ CREATE TABLE `verifikasi` (
 
 LOCK TABLES `verifikasi` WRITE;
 /*!40000 ALTER TABLE `verifikasi` DISABLE KEYS */;
-INSERT INTO `verifikasi` VALUES (1,'2019-07-03',1),(2,'2019-07-03',2),(3,'2019-07-03',3),(4,'2019-07-03',4),(5,'2019-07-03',5),(6,'2019-07-03',6),(7,'2019-07-03',7);
+INSERT INTO `verifikasi` VALUES (20191,'2019-07-04',2019011,'sukses');
 /*!40000 ALTER TABLE `verifikasi` ENABLE KEYS */;
 UNLOCK TABLES;
-ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -700,8 +808,26 @@ ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `ver_success_1` AFTER DELETE ON `verifikasi` FOR EACH ROW BEGIN
-IF(old.habis_waktu='0000-00-00')
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `update_seleksi` BEFORE UPDATE ON `verifikasi` FOR EACH ROW IF(new.status='sukses')
+THEN
+UPDATE siswa SET STATUS = 'seleksi' WHERE nis = new.nis;
+END IF */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `ver_success_1` BEFORE DELETE ON `verifikasi` FOR EACH ROW BEGIN
+IF(old.status='sukses')
 THEN
 UPDATE siswa SET STATUS = 'seleksi' WHERE nis = old.nis;
 ELSE
@@ -713,7 +839,6 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 
 --
 -- Dumping events for database 'sisko'
@@ -721,7 +846,6 @@ ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50106 SET @save_time_zone= @@TIME_ZONE */ ;
 /*!50106 DROP EVENT IF EXISTS `auto_delete_exp_verifikasi` */;
 DELIMITER ;;
-ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;;
@@ -732,13 +856,33 @@ ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;;
 /*!50003 SET @saved_time_zone      = @@time_zone */ ;;
 /*!50003 SET time_zone             = 'SYSTEM' */ ;;
-/*!50106 CREATE*/ /*!50117 DEFINER=`root`@`localhost`*/ /*!50106 EVENT `auto_delete_exp_verifikasi` ON SCHEDULE EVERY 300 MINUTE STARTS '2019-06-28 10:57:46' ON COMPLETION NOT PRESERVE ENABLE COMMENT 'hapus yang kadaluarsa waktu verifikasi nya' DO DELETE FROM verifikasi WHERE habis_waktu < NOW() - INTERVAL 7 DAY */ ;;
+/*!50106 CREATE*/ /*!50117 DEFINER=`root`@`localhost`*/ /*!50106 EVENT `auto_delete_exp_verifikasi` ON SCHEDULE EVERY 300 MINUTE STARTS '2019-06-28 10:57:46' ON COMPLETION NOT PRESERVE ENABLE COMMENT 'hapus yang kadaluarsa waktu verifikasi nya' DO DELETE FROM verifikasi WHERE habis_waktu < NOW() - INTERVAL 7 DAY AND STATUS = 'gagal' */ ;;
 /*!50003 SET time_zone             = @saved_time_zone */ ;;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;;
 /*!50003 SET character_set_results = @saved_cs_results */ ;;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;;
-ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;;
+/*!50106 DROP EVENT IF EXISTS `auto_hapuslog_3tahun` */;;
+DELIMITER ;;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;;
+/*!50003 SET character_set_client  = utf8mb4 */ ;;
+/*!50003 SET character_set_results = utf8mb4 */ ;;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;;
+/*!50003 SET @saved_time_zone      = @@time_zone */ ;;
+/*!50003 SET time_zone             = 'SYSTEM' */ ;;
+/*!50106 CREATE*/ /*!50117 DEFINER=`root`@`localhost`*/ /*!50106 EVENT `auto_hapuslog_3tahun` ON SCHEDULE EVERY 3 YEAR STARTS '2019-07-04 03:01:13' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
+TRUNCATE log_siswa;
+TRUNCATE log_nilai;
+END */ ;;
+/*!50003 SET time_zone             = @saved_time_zone */ ;;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;;
+/*!50003 SET character_set_results = @saved_cs_results */ ;;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;;
 /*!50106 DROP EVENT IF EXISTS `auto_waktu_pendaftaran` */;;
 DELIMITER ;;
 ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;;
@@ -965,6 +1109,25 @@ ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `join_sisver`
+--
+
+/*!50001 DROP TABLE IF EXISTS `join_sisver`*/;
+/*!50001 DROP VIEW IF EXISTS `join_sisver`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = cp932 */;
+/*!50001 SET character_set_results     = cp932 */;
+/*!50001 SET collation_connection      = cp932_japanese_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `join_sisver` AS select `b`.`nomor_verifikasi` AS `nomor_verifikasi`,`siswa`.`nis` AS `nis`,`siswa`.`nama_siswa` AS `nama_siswa`,`siswa`.`alamat` AS `alamat`,`siswa`.`tgl_lahir` AS `tgl_lahir`,`siswa`.`jenis_kel` AS `jenis_kel`,`siswa`.`thn_ajaran` AS `thn_ajaran`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`pend_akhir_ayah` AS `pend_akhir_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`pend_akhir_ibu` AS `pend_akhir_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`alamat_ortu` AS `alamat_ortu`,`siswa`.`nama_wali` AS `nama_wali`,`siswa`.`pend_akhir_wali` AS `pend_akhir_wali`,`siswa`.`pekerjaan_wali` AS `pekerjaan_wali`,`siswa`.`alamat_wali` AS `alamat_wali`,`siswa`.`sekolah_asal` AS `sekolah_asal`,`siswa`.`alamat_sekolah` AS `alamat_sekolah`,`siswa`.`tahun_lulus` AS `tahun_lulus`,`siswa`.`status` AS `status`,`siswa`.`jurusan` AS `jurusan`,`siswa`.`agama` AS `agama`,`siswa`.`foto_skhun` AS `foto_skhun`,`siswa`.`nilai_avg` AS `nilai_avg`,`siswa`.`foto` AS `foto` from (`siswa` join `verifikasi` `b` on((`siswa`.`nis` = `b`.`nis`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `ket_guru`
 --
 
@@ -1068,4 +1231,4 @@ ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-04  2:13:54
+-- Dump completed on 2019-07-04  4:01:09

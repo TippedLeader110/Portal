@@ -25,7 +25,12 @@
   		<input type="text" onkeyup="cari()" name="cariterus" id="cariterus" class="form-control" placeholder="Cari Guru">
   	</div>
   </div> -->
-  <div class="col-5 offset-1">
+<div class="col-5 offset-1">
+  	<div class="form-group">
+  		<input type="text" onkeyup="cari()" name="cariterus" id="cariterus" class="form-control" placeholder="Cari Nomor Pendaftaran">
+  	</div>
+  </div>
+  <div class="col-5">
   	<div class="form-group">
   		<select class="form-control" name="selek" id="selek">
   			<option value="null">-Pilih Tahun</option>
@@ -69,6 +74,40 @@
 
 <script type="text/javascript">
 	console.log($('#selek').val());
+	console.log($('#selek').val());
+
+	function cari(){
+		var val = $('#cariterus').val();
+		if (val!='') {
+
+		console.log(val);
+		if ($('#selek').val()=='null') {
+			$('#pageajax').load("<?php echo base_url('Artikel/luluscarino/') ?>" + val);
+		}	
+		else if($('#selek').val()!='null') {
+			event.preventDefault();
+			var a = $('#selek').val();
+			var b = $('#cariterus').val();
+			console.log(b);
+			$.ajax({
+				url: '<?php echo base_url('Artikel/luluscarinotahun') ?>',
+				type: 'post',
+				data: {a: a, b: b},
+				error: function(){
+					Swal.fire('Kesalahan!!', 'Tidak dapat terhubung ke server', 'error');
+				},
+				success: function(data){
+					console.log('done');
+					$('#pageajax').html(data);
+				}
+			})
+		}
+		}
+		else{
+			$('#pageajax').empty();
+		}
+	}
+
 
 	$('#selek').change(function(event) {
 		console.log($('#selek').val());

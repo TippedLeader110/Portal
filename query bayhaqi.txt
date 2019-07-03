@@ -1,3 +1,7 @@
+select * from siswa inner join verifikasi b on siswa.nis = b.nis;
+
+create or replace view join_sisver as select b.nomor_verifikasi , siswa.* from siswa inner join verifikasi b on siswa.nis = b.nis;
+
 
 MariaDB [portal]> create or replace view nofitur as  select fitur.id_fitur, fitur.label, fitur.link from fitur inner joi
 n main on fitur.id_fitur <> main.id_fitur;
@@ -26,3 +30,135 @@ END;
 create or replace view ket_guru as select a.id_mapel ,a.nip , a.nama_guru, b.jabatan, c.mapel, a.alamat, a.foto from guru a inner join jabatan_guru b on a.id_jabatan = b.id_jabatan inner
 join mapel c on c.id_mapel = a.id_mapel ;
 
+
+BEGIN
+DECLARE lim_ipa integer;
+DECLARE lim_ips integer;
+DECLARE temp integer;
+
+IF new.penerimaan=0
+THEN
+	SET temp= (select count(*) from siswa where status = 'seleksi' and jurusan = 'ipa');
+	IF old.maks_ipa>temp OR old.maks_ipa=temp
+	THEN
+		UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ipa';
+	ELSE
+		set lim_ipa = (temp-old.maks_ipa);
+		DELETE FROM siswa where status = 'seleksi' and jurusan = 'ipa' ORDER BY nilai_avg  ASC limit lim_ipa;		
+		UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ipa';
+	END IF;
+
+	SET temp= (select count(*) from siswa where status = 'seleksi' and jurusan = 'ips');
+	IF old.maks_ips>temp OR old.maks_ips=temp
+	THEN
+		UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ips';
+	ELSE
+		set lim_ips = (temp-old.maks_ips);
+		DELETE FROM siswa where status = 'seleksi' and jurusan = 'ips' ORDER BY nilai_avg  ASC limit lim_ips;		
+		UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ips';
+	END IF;
+END IF;
+
+
+IF new.penerimaan=0
+THEN 
+SET temp = (select count(*) from siswa where status = 'seleksi' and jurusan = 'ipa');
+IF old.maks_ipa>temp OR old.maks_ipa=temp
+THEN
+UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ipa';
+ELSEIF old.maks_ipa<temp
+set lim_ipa = temp-old.maks_ipa;
+DELETE FROM siswa where status = 'seleksi' and jurusan = 'ipa' ORDER BY nilai_avg  ASC limit lim_ipa;
+UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ipa';
+END IF;
+	
+SET temp2 = (select count(*) from siswa where status = 'seleksi' and jurusan = 'ips');
+IF old.maks_ips>temp2 OR old.maks_ips=temp2
+THEN
+UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ips';
+ELSEIF old.maks_ips<temp2
+set lim_ips = temp2-old.maks_ips;
+DELETE FROM siswa where status = 'seleksi' and jurusan = 'ips' ORDER BY nilai_avg  ASC limit lim_ips;
+UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ips';
+END IF;
+end IF;
+END
+
+
+
+CREATE or replace procedure urutsiswa()
+BEGIN
+SELECT
+    (@cnt := @cnt + 1) AS rowNumber,
+    t.nis
+FROM siswa AS t
+  CROSS JOIN (SELECT @cnt := 0) AS dummy
+where thn_ajaran = YEAR(curdate())
+ORDER BY t.nis ;
+END
+
+
+CREATE or replace VIEW urutsiswa
+AS
+ SELECT 
+  inner.nis
+  , (SELECT COUNT(*) + 1 FROM siswa inner WHERE inner.nis < outer.nis) AS row_number
+ FROM 
+   siswa outer
+
+
+create or replace view  urutipa as SELECT nis, (SELECT COUNT(*) FROM tempsiswa WHERE nis < t.nis) +1 AS NUM from tempsiswa t where jurusan = 'ipa';
+
+create or replace  view  tempsiswa as select a.nis, a.jurusan from siswa a inner join identitas b where a.thn_ajaran = b.tahun_penerimaan;
+
+
+
+BEGIN
+DECLARE jur integer;
+DECLARE nilai_a integer;
+IF old.jurusan = 'ipa'
+THEN
+SET jur = 1;
+ELSEIF old.jurusan = 'ips'
+THEN
+SET jur = 2;
+end IF;
+
+IF new.status = 'pending'
+THEN
+set nilai_a = (select num from urutsiswa WHERE nis = old.nis);
+set new.nis = concat(year(curdate()),'0',jur,nilai_a);
+end IF;
+END
+
+
+
+
+BEGIN
+DECLARE jur integer;
+DECLARE nilai_a integer;
+IF old.jurusan = 'ipa'
+THEN
+SET jur = 1;
+ELSEIF old.jurusan = 'ips'
+THEN
+SET jur = 2;
+end IF;
+
+IF new.status = 'aktif'
+THEN
+set nilai_a = old.nis;
+set new.nis = (select num from urutsiswa WHERE nis = nilai_a);
+set new.nis = concat(year(curdate()),'0',jur,new.nis);
+set new.nis = new.nis;
+end IF;
+END
+
+
+set old.nis = concat(year(curdate()),'0',jur,old.nis);
+
+
+SET nilai_a = old.nis;
+SET nilai_a = (select num from urutsiswa where nis = nilai_a);
+set new.nis = concat(year(curdate()),'0',jur,nilai_a);
+end IF;

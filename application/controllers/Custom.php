@@ -727,9 +727,9 @@ class Custom extends CI_Controller {
             $nis = $this->input->post('nis');
             $result= $this->cmodel->saveSKHU($skhu, $nis, $jur); //kirim value ke model m_upload
             echo "1";
-            $this->db->query("UPDATE verifikasi set habis_waktu = '0000-00-00' where nis = ".$nis."");
-            $this->db->where('nis', $nis);
-            $this->db->delete('verifikasi');
+            $this->db->query("UPDATE verifikasi set status = 'sukses' where nis = ".$nis."");
+            // $this->db->where('nis', $nis);
+            // $this->db->delete('verifikasi');
         }
         else{
         	echo "0";

@@ -4,16 +4,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class User extends CI_Controller {
 	
 public function daftar()
-{
+{	
+		$d = $this->db->get('identitas')->result();
+		foreach ($d as $key => $dv) {
+			
+		}
+		if ($dv->penerimaan==0) {
+			redirect('home');
+		}else{
 		$data['datanav'] = $this->db->get('navitem')->result();
 		$data['vnav'] = "nav/home_v";
 		$data['view'] = 'Users/Daftarsiswa';
 		$data['id'] = $this->db->get('identitas')->result();
 		$this->load->view('layout/User', $data);
+		}
 }
 
 public function daftarsave()
 {		
+
             $post = $this->input->post();
 			$data = $this->cmodel->sendit($post);
 			redirect(base_url("user/Sukses/".$data.""), 'refresh');

@@ -256,6 +256,14 @@ class Artikel extends CI_Controller {
 		$this->load->view('page/ajax/dirguru', $data);
 	}
 
+	public function luluscarinotahun(){
+		$post = $this->input->post();
+		$this->db->where('thn_ajaran', $post['a']);
+		$this->db->like('nomor_verifikasi', $post['b']);
+		$data['siswa'] = $this->db->get('join_sisver')->result();
+		$this->load->view('page/ajax/luluscari', $data);
+	}
+
 	public function cariGuruNama($id){
 		$id = urldecode($id);
 		$this->db->like('nama_guru', $id);
@@ -268,7 +276,12 @@ class Artikel extends CI_Controller {
 		$this->load->view('page/ajax/modalpage', $data);	
 	}
 
-
+	public function luluscarino($id){
+		$id = urldecode($id);
+		$this->db->like('nomor_verifikasi', $id);
+		$data['siswa'] = $this->db->get('join_sisver')->result();
+		$this->load->view('page/ajax/luluscari', $data);
+	}
 	public function lulusCari($id){
 		$id = urldecode($id);
 		$this->db->where('thn_ajaran', $id);
