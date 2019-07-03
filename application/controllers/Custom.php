@@ -359,6 +359,17 @@ class Custom extends CI_Controller {
         }
 	}
 
+	public function gurudit($id){
+		$id = urldecode($id);
+		$data['k'] = $this->db->get('mapel')->result();
+		$ali = $this->db->get('jabatan_guru');
+		$data['m'] = $ali->result();
+		$this->db->where('nip', $id);
+		$data['gurudit'] = $this->db->get('guru')->result();
+		$this->load->view('page/ajax/modaleditguru', $data);
+
+	}
+
 	public function guruSave(){
         $config['upload_path']="./source/gambar/guru"; //path folder file upload
         $config['allowed_types']='gif|jpg|png'; //type file yang boleh di upload
@@ -376,6 +387,39 @@ class Custom extends CI_Controller {
         }
         else{
         	echo "0";
+        }
+	}
+
+	public function guruSave2(){
+        $config['upload_path']="./source/gambar/guru"; //path folder file upload
+        $config['allowed_types']='gif|jpg|png'; //type file yang boleh di upload
+        $config['encrypt_name'] = TRUE; //enkripsi file name upload
+         
+        $this->load->library('upload',$config); //call library upload 
+ 			$post = $this->input->post();
+        if($this->upload->do_upload("file")){ //upload file
+            $data = array('upload_data' => $this->upload->data()); //ambil file name yang diupload
+            $image= $data['upload_data']['file_name']; //set file name ke variable image
+            $this->db->set('nama_guru',$post['nguru']);
+			$this->db->set('nip',$post['nip']);
+			$this->db->set('alamat',$post['alamat']);
+			$this->db->set('id_jabatan',$post['jabatan']);
+			$this->db->set('id_mapel',$post['mapel']);
+			$this->db->set('foto',$post['image']);
+			$this->db->where('nip', $post['hdd']);
+			$this->db->update('guru');
+            echo "1";
+        }
+        else{
+        	$this->db->set('nama_guru',$post['nguru']);
+			$this->db->set('nip',$post['nip']);
+			$this->db->set('alamat',$post['alamat']);
+			$this->db->set('id_jabatan',$post['jabatan']);
+			$this->db->set('id_mapel',$post['mapel']);
+			// $this->db->set('foto',$post['image']);
+			$this->db->where('nip', $post['hdd']);
+			$this->db->update('guru');
+			echo "1";
         }
 	}
 
@@ -853,7 +897,7 @@ class Custom extends CI_Controller {
 	}
 	public function delGuru(){
 		$id = $this->input->post('id');
-		$this->db->where('id_guru',$id);
+		$this->db->where('nip',$id);
 		$this->db->delete('guru');
 	}
 	public function sJabatan(){

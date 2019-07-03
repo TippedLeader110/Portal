@@ -26,7 +26,7 @@
           <td>
             <?php echo $value->mapel ?>
           </td>
-          <td><button class="btn btn-danger" onclick="gurudel(<?php echo $value->nip ?>);">Hapus</button></td>
+          <td><button class="btn btn-primary" onclick="gurudit(<?php echo $value->nip ?>);">Edit</button>&nbsp;<button class="btn btn-danger" onclick="gurudel(<?php echo $value->nip ?>);">Hapus</button></td>
         </tr>
       <?php endforeach ?>
     </table>
@@ -39,21 +39,18 @@
     </div>
   </div>
 
-        <form id="formguru">
-<div class="modal fade" id="myModal">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Tambah Guru</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-        <div class="form-group">
-        Nama Guru
+<form id="formguru">
+  <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Tambah Guru</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+                Nama Guru
           <input type="text" class="form-control" name="nguru" id="nguru">
           <hr>
         NIP
@@ -73,6 +70,7 @@
             </option>
           <?php endforeach ?>
         </select>
+      </div>
         <div class="form-group">
         <hr>
         Mata Pelajaran Diampu
@@ -88,13 +86,43 @@
         <hr>
         <label>Foto</label><br>
         <input type="file" name="file" >
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" onclick="subGuru()" class="btn btn-primary">Tambah</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+
+<form id="guruform">
+  <div class="modal fade" id="guruD" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Guru</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="pageeditguru">
+          
         </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <center><button type="button" class="btn btn-primary" name="go" data-dismiss="myModal" onclick="subGuru()" type="submit">Tambah</button></center>
-        </div>
-        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" onclick="subGuru2()" class="btn btn-primary">Simpan</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+
 
 <script type="text/javascript">
   console.log('done');
@@ -102,13 +130,24 @@
     $('#formguru').submit();
   }
 
+  function subGuru2(){
+    $('#guruform').submit();
+  }
+
+  function gurudit(id){
+    $('#pageeditguru').load('<?php echo base_url('Custom/gurudit/') ?>' + id);
+    $('#guruD').modal('show');
+  }
+
   $('#formguru').submit(function(e){    
     console.log('masuk');
     e.preventDefault(); 
     var s1 = $('#select').val();
     var s2 = $('#select2').val();
-    var s3 = $('#nguru').val();
-    var s4 = $('#alamat').val();
+    var s3 = $('#nguru1').val();
+    var s4 = $('#alamat1').val();
+    console.log(s1);
+    console.log(s2);
     if (s1!='' && s2!='' && s3!='' && s4!='') {
       $.ajax({
         url: '<?php echo base_url('Custom/guruSave') ?>',
@@ -125,6 +164,47 @@
             Swal.fire('Berhasil !!','Guru berhasi ditambah !!', 'success');
           $("#page").load('<?php echo base_url('Custom/guruShow') ?>');
           $('.modal-backdrop').remove();
+          // $('#myModal').hide();
+          }
+          else{
+            Swal.fire('Kesalahan !!','Format fle tidak didukung !!', "error");
+          }
+        }
+      });
+      
+    }
+    else if(s1=='' && s2==''){
+      Swal.fire('Kesalahan !!', 'Tolong pilih jabatan dan mata pelajaran  !!', 'error');
+    }
+    else{
+      Swal.fire('Kesalahan !!', 'Tolong isi semua form input !!', 'error');
+    }
+  })
+
+
+  $('#guruform').submit(function(e){    
+    console.log('masuk');
+    e.preventDefault(); 
+    
+    var s1 = $('#select3').val();
+    var s2 = $('#select4').val();
+    var s3 = $('#nguru1').val();
+    var s4 = $('#alamat1').val();
+    if (s1!='' && s2!='' && s3!='' && s4!='') {
+      $.ajax({
+        url: '<?php echo base_url('Custom/guruSave2 ') ?>',
+        type: 'POST',
+        data: new FormData(this),
+        processData:false,
+        contentType:false,
+        error: function(){
+          Swal.fire('Kesalahan !!','Koneksi ke server gagal !!', "error");
+              console.log(data);
+        },
+        success: function(data){
+          if (data==1) {
+            Swal.fire('Berhasil !!','Guru berhasi diedit !!', 'success');
+          location.reload();
           // $('#myModal').hide();
           }
           else{
