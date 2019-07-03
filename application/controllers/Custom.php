@@ -46,7 +46,9 @@ class Custom extends CI_Controller {
 			// $data['ret'] = $this->cmodel->getAllcount();
 		}
 		elseif ($id=='log') {
-			# code...
+			$bay = $this->db->get('log_siswa');
+			$k['blabla'] = $bay->result();
+			$this->load->view('page/ajax/mainLog', $k);
 		}
 		elseif ($id=='pintas') {
 			# code...
