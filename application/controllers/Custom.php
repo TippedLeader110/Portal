@@ -847,7 +847,7 @@ class Custom extends CI_Controller {
 	}
 	public function delGuru(){
 		$id = $this->input->post('id');
-		$this->db->where('id_guru',$id);
+		$this->db->where('nip',$id);
 		$this->db->delete('guru');
 	}
 	public function sJabatan(){
