@@ -76,3 +76,10 @@ jenis_kelamin=old.jenis_kel,
 waktu=NOW(),
 status="ubah";
 END
+
+CREATE view allcount AS SELECT COUNT(*) AS jumlah_guru,
+(SELECT COUNT(*) FROM allpost) AS jumlah_post,
+(SELECT COUNT(*) FROM siswa where status="aktif") as jumlah_siswa_aktif,
+(SELECT COUNT(*) FROM siswa WHERE status="pending") AS jumlah_siswa_pending,
+(SELECT COUNT(*) FROM siswa WHERE status="seleksi") AS jumlah_siswa_seleksi
+FROM ket_guru;
