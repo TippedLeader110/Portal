@@ -35,3 +35,22 @@
     </div>
   <?php endforeach ?>
 </div>
+<div class="row" style="padding-left: 18px">
+    <div class="col-12">
+      <?php echo $this->pagination->create_links(); ?>
+    </div>
+  </div>
+
+<script type="text/javascript">
+
+  var numberdude;
+  $("span.page-link a").click(function(e) {
+    e.preventDefault();
+    var href = $(this).attr("href");
+    numberdude = href;
+    console.log(href);
+    $('#page').load("<?php echo base_url('Artikel/kategori/'); echo $idd; ?>" + href);
+    // $("#page").load('<?php echo base_url('Artikel/kategori/'); echo $idd; ?>' + href);
+
+  });
+  </script>

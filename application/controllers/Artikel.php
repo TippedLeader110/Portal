@@ -77,6 +77,31 @@ class Artikel extends CI_Controller {
 		$data['vnav'] = "nav/home_v";
 		$data['id'] = $this->db->get('identitas')->result();
 		$da = $data['id'];
+		$this->load->library('pagination');
+		$jumlah_data = $this->cmodel->jumlah_data_kate('allpost', $id);
+		$config['total_rows'] = $jumlah_data;
+		$config['per_page'] = 9;
+		$from = $this->uri->segment(4);
+		$config['first_link']       = 'First';
+        $config['last_link']        = 'Last';
+        $config['next_link']        = 'Next';
+        $config['prev_link']        = 'Prev';
+        $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+        $config['full_tag_close']   = '</ul></nav></div>';
+        $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close']    = '</span></li>';
+        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+        $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+        $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['prev_tagl_close']  = '</span>Next</li>';
+        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+        $config['first_tagl_close'] = '</span></li>';
+        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['last_tagl_close']  = '</span></li>';
+        $this->pagination->initialize($config);	
+        $data['idd']	 = $id;
 		foreach ($da as $key => $daval) {
 		}
 		$this->db->where('id_kategori', $id);
@@ -84,7 +109,9 @@ class Artikel extends CI_Controller {
 		foreach ($dw as $key => $dww) {
 			$data['nkate'] = $dww->nama_kategori;
 		}
-		$data['post'] = $this->db->query("CALL allpost(".$id.")")->result();
+		$this->db->where('id_kategori', $id);
+		$data['post'] = $this->db->get("allpost")->result();
+		$data['post'] = $this->cmodel->allpost($config['per_page'],$from,$id);
 		if ($daval->lhome==1) {
 			$data['v1'] = "page/kategori";
 			$this->load->view('layout/home_v', $data);
@@ -122,10 +149,34 @@ class Artikel extends CI_Controller {
 		$data['vnav'] = "nav/home_v";
 		$data['id'] = $this->db->get('identitas')->result();
 		$da = $data['id'];
+		$this->load->library('pagination');
+		$jumlah_data = $this->cmodel->jumlah_data('img');
+		$config['total_rows'] = $jumlah_data;
+		$config['per_page'] = 9;
+		$from = $this->uri->segment(3);
+		$config['first_link']       = 'First';
+        $config['last_link']        = 'Last';
+        $config['next_link']        = 'Next';
+        $config['prev_link']        = 'Prev';
+        $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+        $config['full_tag_close']   = '</ul></nav></div>';
+        $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close']    = '</span></li>';
+        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+        $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+        $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['prev_tagl_close']  = '</span>Next</li>';
+        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+        $config['first_tagl_close'] = '</span></li>';
+        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['last_tagl_close']  = '</span></li>';
+        $this->pagination->initialize($config);	
 		foreach ($da as $key => $daval) {
 		}
-		
 		$data['post'] = $this->db->query("SELECT * FROM IMG ORDER BY  id_img desc")->result();
+		$data['post'] = $this->cmodel->img($config['per_page'],$from);
 		if ($daval->lhome==1) {
 			$data['v1'] = "page/galery";
 			$this->load->view('layout/home_v', $data);
