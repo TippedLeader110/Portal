@@ -139,6 +139,7 @@ LOCK TABLES `identitas` WRITE;
 INSERT INTO `identitas` VALUES (1,'DEMO SCHOOL','<p>&nbsp;&nbsp;&ldquo;Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global&rdquo;</p>\n','<p>1.&nbsp; &nbsp;Mewujudkan pendidikan untuk menghasilkan prestasi dan lulusa berkwalitas tinggi yang peduli dengan lingkungan hidup</p>\n\n<p>2. &nbsp; Mewujudkan sumber daya manusia yang beriman, produktif, kreatif, inofatif dan efektif</p>\n\n<p>3. &nbsp; Mewujudkan pengembangan inovasi pembelajaran sesuai tuntutan</p>\n\n<p>4. &nbsp; Mewujudkan sumber daya manusia yang peduli dalam mencegahan pencemaran, mencegahan kerusakan lingkungan dan melestarikan lingkungan hidup</p>\n\n<p>5. &nbsp; Mewujudkan sarana prasarana reprensentatif dan up to date</p>\n\n<p>6. &nbsp; Mewujudkan pengelolaan pendidikan yang professional</p>\n\n<p>7. &nbsp; Mewujudkan sistim penilaian yang berafiliasi</p>\n\n<p>8. &nbsp; Mewujudkan budaya yang berkualifikasi</p>\n\n<p>9. &nbsp; Mewujudkan Sekolah yang bersih,hijau dan meminimalis hasil sampah yang tidak bermanfaat</p>\n\n<p>10. Mewujudkan manusia Indonesia yang mampu berkontribusi pada kehidupan bermasyarakat, berbangsa, bernegara dalam peradaban dunia</p>\n\n<p>11. Mewujudkan generasi emas, sehat tanpa narkoba</p>\n','SEKOLAH INI DICIPTAKAN OLEH ALI HIDAYAT SETELAH DIUSIR DARI WAKANDA',2,1,1,2019,2,'2019-06-28','<h3>Syarat Pendaftaran</h3>\n\n<ol>\n	<li>Telah dinyatakan lulus dan memiliki Ijazah/SKL dari SMP/ MTs/ SMPLB/ Paket B;</li>\n	<li>Berusia paling tinggi 21 (dua puluh satu) ( awal Tahun Pelajaran 2017/2018).</li>\n</ol>\n\n<h3>Pemberkasan</h3>\n\n<ol>\n	<li>Foto Copy Ijazah/SHUN/Surat Keterangan Lulus dari sekolah asal dan dilegalisir sebanyak 1 lembar, serta menyerahkan aslinya pada sekolah tempat mendaftar ( dijadwal yang di tentukan ).</li>\n	<li>Pas foto berwarna ukuran 3 x 4 cm sebanyak 2 lembar.</li>\n</ol>\n\n<h3>Cara Mendaftar</h3>\n\n<ol>\n	<li>Daftar akun pada halaman daftar ( tombol daftar di atas )</li>\n	<li>Setelah mengisi semua form pendaftaran , peserta didik baru diharapkan mengantarkan berkas yang diminta ke sekolah untuk verifikasi</li>\n	<li>Setelah verifikasi peserta didik baru dapat menunggu hasil seleksi di tanggal yang di tentukan yaitu ( 2019-07-15 )</li>\n</ol>\n\n<h3>Catatan Tambahan</h3>\n\n<ol>\n	<li>Saat verifikasi di kenakan biaya pendaftaran sebesar Rp.100.000,00</li>\n</ol>\n','dc581c17dde66f731764fcf1d81df3ba.png',2,'<p>Nomor Telp. : 021-XXXXX</p>\n\n<p>Email : schoo@demo.com</p>\n');
 /*!40000 ALTER TABLE `identitas` ENABLE KEYS */;
 UNLOCK TABLES;
+ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -181,6 +182,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 
 --
 -- Table structure for table `img`
@@ -195,7 +197,7 @@ CREATE TABLE `img` (
   `deskripsi` text NOT NULL,
   `tipe` enum('public','private') DEFAULT NULL,
   PRIMARY KEY (`id_img`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -204,7 +206,7 @@ CREATE TABLE `img` (
 
 LOCK TABLES `img` WRITE;
 /*!40000 ALTER TABLE `img` DISABLE KEYS */;
-INSERT INTO `img` VALUES (8,'3053546ffb15ee0aa5fb558792a08b44.PNG','DMEO','public'),(11,'5ca7b43ac177d97000b5f6fe1230661f.png','DMEO','private'),(12,'809640fcddb6905385eb4986ed5270a9.PNG','demo','public'),(13,'432018ef1dfa918af243c31ff8694758.PNG','demo','public'),(14,'f40fad3f9b9fb8d2a4c7c8e7a7ff7374.PNG','ww','public'),(15,'bb6b2cf23d6f3603fa1553d0f9745c4f.PNG','ww','public'),(16,'8b57fad322bbd43149398588ae8c2932.PNG','ww','public'),(17,'9785e05b14941782972befd7ef939032.png','wwww','public'),(18,'c36b05881d40579c54e2f1d4a14022d3.png','wwww','public'),(19,'c228a489be7041a621221d5420b7d05c.png','wwww','public'),(20,'1c4fa5642eade641abdbbf36e393e1d5.png','wwww','public'),(21,'db28442f1fe70ac1271d0e5b42567b5d.png','www','public'),(22,'bfbc776c7a4056328ebec0cf581db09f.png','ww','public'),(23,'444b9dd2ff7a73bc1efe784099bab717.png','ww','public'),(24,'e3032b8172bda13f11f6a9463fc408cf.PNG','ww','public');
+INSERT INTO `img` VALUES (25,'7cf31b8677ce07568abbcdee27115c53.jpg','Kunjungan ke perusahaan','public'),(28,'371500040bd3299fda012f096af9d173.jpg','Semarak Desember 2018','public'),(29,'e3c5aef93524556a88b58bd30ad1831a.jpg','Upacara hari lahir pancasila','public'),(30,'6e94c6c75220174954553d65965c976e.jpg','Peringatan Maulid Nabi','public'),(31,'7b09bd0397424c1954d22af2da6ca63b.jpg','Tari Saman Meraih Prestasi','public'),(33,'66d9af5f92e0d1c48a674157b97b87d4.jpg','Cheerleader','public'),(34,'69a4336bb4bdf18589d700fc11bb44a1.jpg','Kegiatan setelah UTS','public'),(35,'04f12532da462f902dcf33ded467e0f9.jpg','Tim Futsal','public');
 /*!40000 ALTER TABLE `img` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -243,7 +245,7 @@ CREATE TABLE `kategori` (
   `id_kategori` int(11) NOT NULL AUTO_INCREMENT,
   `nama_kategori` text,
   PRIMARY KEY (`id_kategori`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -252,7 +254,7 @@ CREATE TABLE `kategori` (
 
 LOCK TABLES `kategori` WRITE;
 /*!40000 ALTER TABLE `kategori` DISABLE KEYS */;
-INSERT INTO `kategori` VALUES (4,'Acara'),(6,'Kesiswaan');
+INSERT INTO `kategori` VALUES (7,'News'),(8,'Kegiatan Siswa'),(9,'Literasi');
 /*!40000 ALTER TABLE `kategori` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -402,6 +404,7 @@ LOCK TABLES `navitem` WRITE;
 INSERT INTO `navitem` VALUES (1,1,'item','green','pertama','http://localhost/Portal/Artikel/sekolah/15'),(3,3,'item','kedua','kedua','http://localhost/Portal/Artikel/5'),(4,4,'item','green','ketiga','pertama'),(5,5,'drop','','Unamed',''),(6,6,'drop','','Unamed',''),(7,7,'drop','','Unamed','');
 /*!40000 ALTER TABLE `navitem` ENABLE KEYS */;
 UNLOCK TABLES;
+ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -423,6 +426,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 
 --
 -- Table structure for table `nilai`
@@ -450,6 +454,7 @@ LOCK TABLES `nilai` WRITE;
 /*!40000 ALTER TABLE `nilai` DISABLE KEYS */;
 /*!40000 ALTER TABLE `nilai` ENABLE KEYS */;
 UNLOCK TABLES;
+ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -469,6 +474,8 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
+ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -488,6 +495,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 
 --
 -- Temporary table structure for view `nilai_seleksi`
@@ -512,20 +520,18 @@ DROP TABLE IF EXISTS `post`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `post` (
   `id_post` int(10) NOT NULL AUTO_INCREMENT,
-  `judul` text NOT NULL,
+  `judul` mediumtext NOT NULL,
   `id_kategori` int(11) DEFAULT NULL,
   `isi` varchar(500) NOT NULL,
   `tanggal` date NOT NULL,
-  `status` text NOT NULL,
+  `status` mediumtext NOT NULL,
   `id_user` int(11) DEFAULT NULL,
-  `cover` text,
-  `slug` text,
+  `cover` mediumtext,
+  `slug` mediumtext,
   PRIMARY KEY (`id_post`),
   KEY `user_id` (`id_user`),
-  KEY `kategori_id` (`id_kategori`),
-  CONSTRAINT `post_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE SET NULL ON UPDATE NO ACTION,
-  CONSTRAINT `user_id` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+  KEY `kategori_id` (`id_kategori`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -534,7 +540,7 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (15,'Forum Penerimaan Siswa Baru Sebentar Lagi Dibuka',4,'<p>Penerimaan siswa didik baru&nbsp;</p>\n','2019-06-17','public',3,'bf3968965c2329d9d9f3ab0e5cba9e44.png',NULL),(17,'ww',4,'<p>awd</p>\n','2019-06-30','public',3,'08ca7a11a068140494cd05be0bf352d4.jpg','ww'),(18,'coba',6,'<p>ww</p>\n','2019-06-30','public',3,'b439c50ba76ba30d1ecbca44988c6447.jpg','coba');
+INSERT INTO `post` VALUES (15,'Forum Penerimaan Siswa Baru Sebentar Lagi Dibuka',NULL,'<p>Penerimaan siswa didik baru&nbsp;</p>\n','2019-06-17','public',3,'bf3968965c2329d9d9f3ab0e5cba9e44.png',NULL),(17,'ww',NULL,'<p>awd</p>\n','2019-06-30','public',3,'08ca7a11a068140494cd05be0bf352d4.jpg','ww'),(18,'coba',NULL,'<p>ww</p>\n','2019-06-30','public',3,'b439c50ba76ba30d1ecbca44988c6447.jpg','coba'),(19,'UPACARA HARI LAHIR PANCASILA 1 JUNI BERLANGSUNG ',7,'<p>Hari Sabtu, 1 Juni 2019 bertepatan dengan 27 Ramadhan 1440 H, melaksanakan Upacara hari kelahiran Pancasila bertempat di lapangan sekolah. Ada yang menarik dari upacara kali ini karena pertama: bertepatan dengan bulan suci Ramadhan hari yang ke 27 dan beberapa guru maupun karyawan ada yang sudah pulang kampung halaman dalam menyambut hari raya Idul Fitri, kedua : Kepala sekolah meminta agar yang sudah pulang kampung ikut melaksanakan upacara di wilayah masing-masing dengan bergabung ke sekola','2019-07-03','public',7,'e2d23dc53a9afd1bd2d799a40188c008.jpg','UPACARA-HARI-LAHIR-PANCASILA-1-JUNI-BERLANGSUNG'),(20,'5 SMA NEGERI TERBAIK DKI JAKARTA BERDASARKAN UN 2019',7,'<p><br />\nBerikut link 5 SMA Negeri Terbaik DKI Jakarta&nbsp;<br />\nSilakan klik di sini<br />\n<br />\n<a href=\"http://kom.ps/AFzILA\">http://kom.ps/AFzILA</a>&nbsp;</p>\n','2019-07-01','public',7,'74402a38f31b42b809ac2ec35596d16e.jpg','5-SMA-NEGERI-TERBAIK-DKI-JAKARTA-BERDASARKAN-UN-2019'),(21,'KEGIATAN KUNJUNGAN KE PERUSAHAAN',7,'<p>Selasa, 11 Desember 2018 sejumlah siswa dan guru kewirausahaan SMAN 78 Jakarta melakukan kegiatan kunjungan perusahaan ke Pabrik Nestle Indonesia di Karawang, Jawa Barat. Kegiatan ini berlangsung satu hari dari pukul 7.30 sampai pukul 16.00 dan berjalan dengan tertib lancar.&nbsp;<br />\n<br />\nAgenda kunjungan perusahaan ini merupakan program sekolah rujukan tahun 2018. SMAN 78 Jakarta merupakan salah satu sekolah yang dipercaya oleh kementrian untuk melaksanakan progran sekolah Rujukan sejak','2018-12-03','public',7,'fadaf01b0acc481a1ae5b1b0037c644f.jpg','KEGIATAN-KUNJUNGAN-KE-PERUSAHAAN'),(22,'PERINGANTAN MAULID NABI MUHAMMAD SAW.1440 H',7,'<p>Tanggal 6 November 2018/1440 H&nbsp;diselenggarakan peringatan Maulid Nabi Muhammad SAW dengan penceramah Ustadz Hidayat Arifianto dan bintang tamu Agung Juna. Tema Malid Nabi kali ini adalah &quot;Our Guidance&quot; The Best of Mankind&nbsp;<br />\n<br />\nKegiatan ini dimeriahkan dengan penampilan Hafiz mmunity , Marawis, pembacaan Riwayat Nabi Muhammad SAW dan host dari siswa rohis yang cukup keren. Kegiatan ini didahului dengan sambutan Kepala Sekolah, Kepala sekolah dalam sambutannya menga','2018-12-07','public',7,'a2d8b53917a8e8bd704f866d75d621a6.jpg','PERINGANTAN-MAULID-NABI-MUHAMMAD-SAW1440-H'),(23,'SELEKSI_MUTASI2018',7,'<p>Proses Seleksi Mutasi siswa untuk Semester Genap tahun 2017/2018 :&nbsp;<br />\n<br />\n<br />\nDengan materi seleksi :&nbsp;<br />\n<br />\nTahap I Hari Jumat&nbsp;<br />\n<br />\nKelas X --&gt; Matematika dan Bahasa &amp; Sastra Indonesia<br />\n<br />\nKelas XI --&gt; Matematika dan Fisika<br />\n<br />\n<br />\nTahap II hari Senin<br />\n<br />\nKelas X --&gt; Bahasa &amp; Sastra Inggris dan Antropologi<br />\n<br />\nKelas XI --&gt; Kimia dan Biologi<br />\n<br />\n<br />\n<br />\nJumlah alokasi kursi koson','2018-02-12','public',7,'a5b3cfae2c096df17a207dc4fd1a0b68.jpg','SELEKSI_MUTASI2018'),(24,'Edufair 2017',7,'<p>EDUFAIR TAHUN 2017&nbsp;<br />\n<br />\nAcara rutin tahunan yang bermanfaat untuk memberikan informasi mengenai perguruan tinggi dalam negeri maupun perguruan tinggi yang ada di luar negeri, serta kiat-kiat untuk mendapatkan bea siswa yang ada di dalam maupun diluar negeri. Mari kita kunjungi dan ramaikan.&nbsp;</p>\n','2017-10-03','public',7,'fcf63868ea7a91e770c6df4ae57fb6b7.jpg','Edufair-2017'),(25,'MENGELOLA KONFLIK DI SEKOLAH',9,'<p>MENGELOLA KONFLIK DI SEKOLAH&nbsp;<br />\nOleh :Dr. Saryono, M.si&nbsp;<br />\n<br />\nPengertian Konflik&nbsp;<br />\nMenurut Mc Shane dkk (2010: 328) Konflik adalah suatu proses di mana satu pihak merasa bahwa Kepentingannya ditentang atau tidak disetujui oleh pihak lain (conflictis a process in which one party perceives that his or hers interests are beingopposed or negatively affected by another party).&nbsp;<br />\n<br />\nMenurut Schermehorn dkk (2005 : 338) Konflik terjadi ketika pihak-pihak','2018-10-01','public',7,'f792859a5e96250b1f53463dab04a859.jpg','MENGELOLA-KONFLIK-DI-SEKOLAH'),(30,'Putus Rindu',9,'<p>Nama : Muhammad Rafi Syamsudi&nbsp;<br />\nKelas : X IPS A<br />\n<br />\nDianggap namun tak dirasa&nbsp;<br />\nMungkin begini rasanya&nbsp;<br />\nHampa dan menyiksa&nbsp;<br />\n<br />\nDirundung pilu menyesakkan dada&nbsp;<br />\nIa tak pernah merasa&nbsp;<br />\nTak pernah menghargai pula&nbsp;<br />\n<br />\nBodoh&nbsp;<br />\nUntuk apa memikirkannya?&nbsp;<br />\nSeperti jejak kaki disebuah pantai&nbsp;<br />\nSeperti oksigen yang dibutuhkan namun tak dihargai&nbsp;<br />\n<br />\nKecewa namun gundah&','2016-06-05','public',7,'0d24d738cb77e83311e919a05b3aeca4.jpg','Putus-Rindu'),(31,'Aie es? Segar di mulut, gegar di perut',9,'<p>Oleh Nicholas Yamahoki (XI MIA H/25/2016)<br />\n<br />\nApapun makanannya, minumnya air es. Pernah dengar kalimat tersebut? Ya, mungkin kalimat tersebut pernah terbesit di benak kamu-kamu yang lagi baca artikel ini, apalagi kalo abis makan makanan yang puedesss atau makan soto yang panas-panas atau makanan panas yang superrrr pedes. Wah, pastinya minuman pertama yang paling ampuh mengusir panas, ya air es atau air dingin.&nbsp;<br />\n<br />\nNamun, tahukah kamu bahwa minum air dingin sehabis ma','2016-05-03','public',7,'9dad0608f6c03a6d125f655760972f85.jpg','Aie-es-Segar-di-mulut-gegar-di-perut'),(32,'TARI SAMAN SMAN 78 MERAIH PRESTASI MEMBANGGAKAN.',8,'<p>Ekstrakurikuler Tari Ratoh Jaroe SMA Negeri 78 Jakarta berhasil meraih prestasi di SKYFEST 2019 yang merupakan acara tahunan dari SMA Labschool Kebayoran. Lomba tersebut diadakan pada tanggal 9 Februari 2019 yang diikuti oleh 13 peserta, diantaranya SMAN 78 Jakarta, SMAN 65 Jakarta, SMAI Al Azhar BSD, SMAN 1 Tangerang, dll. Tim tersebut tampil diurutan ke-5 dengan didampingi oleh syekh Teuku Admiral.&nbsp;<br />\nDi ajang tersebut, ICES (sebutan untuk ekstrakurikuler Tari Ratoh Jaroe) berhasil','2019-02-10','public',7,'93ab7e3d067a8e090c14412d949548ae.jpg','TARI-SAMAN-SMAN-78-MERAIH-PRESTASI-MEMBANGGAKAN'),(33,'PAMERAN KARYA SENI RUPA BERBAHAN DAUR ULANG DI KEMENTRIAN LINGKUNGAN HIDUP DAN KEHUTANAN 2018',8,'<p>Tanggal 21 Desember 2018, Karya Peserta didik SMAN 78 Jakarta dalam bidang Seni Rupa khususnya yang berbahan daur ulang dipamerkan di Gedung Kementrian Lingkungan Hidup dan kehutanan. Selain SMAN 78 ikut pameran juga SMAN 23, SMAN 42, dan sekolah lain yang berjenjang SD dan SMP. Peserta pameran merupakan sekolah yang mendapat penhargaan sebagai sekolah Adiwiyata Nasional dan Adiwiyata Mandiri tahun 2018. SMA Negeri 78 Jakarta mendapat penghargaan sebagai sekolah Adiwiyata Mandiri yang sebelum','2018-11-03','public',7,'bf916b44f944bd984a5e04b8e88a27f9.jpg','PAMERAN-KARYA-SENI-RUPA-BERBAHAN-DAUR-ULANG-DI-KEMENTRIAN-LINGKUNGAN-HIDUP-DAN-KEHUTANAN-2018'),(34,'BUKU KARYA PESERTA DIDIK ',8,'<p>Buku Karya Pesera didik SMAN 78 diantaranya adalah :&nbsp;<br />\n1. Syair Emas ( Tulisan guru dan siswa sman 78 Jakarta)&nbsp;<br />\n2. Dark Moon karya Monica Niken&nbsp;<br />\n3. High School with Belt karya Abraham wiliam&nbsp;<br />\n4. Majalah AKSARA.</p>\n','2018-07-03','public',7,'0a0064853fa2d0a3d7dac3fe73d9ba41.jpg','BUKU-KARYA-PESERTA-DIDIK'),(35,'SEMARAK DESEMBER 2018',8,'<p>Kamis, 13 desember 2018 terdiri atas gabungan tiga kegiatan yaitu pekan olah raga dan seni,&nbsp;<br />\ndesember hijau, dan Jupan Eksport Tournament (JET). Kegiatan ini di adakan dalam rangka berakhirnya penilaian akhir semesterGanjil tahun pelajaran 2018-2019. Cabang perlombaan olah raga yang diselenggarakana dalaha futsal, basket, pingpong, dan badminton. Sedangkan perlombaan seni antara lain lomba seni kriya, green fashion, menghias pot, dan poster digital. Kemudian ada perlombaan mobile l','2018-05-03','public',7,'653217889523e112e84e4c1f5c84948b.jpg','SEMARAK-DESEMBER-2018'),(36,'PERINGANTAN MAULID NABI MUHAMMAD SAW.1440 H',8,'<p>Tanggal 6 November 2018/1440 H di Lapangan SMAN 78 Jakarta diselenggarakan peringatan Maulid Nabi Muhammad SAW dengan penceramah Ustadz Hidayat Arifianto dan bintang tamu Agung Juna. Tema Malid Nabi kali ini adalah &quot;Our Guidance&quot; The Best of Mankind. Kegiatan ini dimeriahkan dengan penampilan Hafiz mmunity SMAN 78, Marawis, pembacaan Riwayat Nabi Muhammad SAW dan host dari siswa rohis yang cukup keren. Kegiatan ini didahului dengan sambutan kepala SMAN 78 Jakarta DR. Saryono, M.Si, ','2018-11-06','public',7,'4c65d269be18cbce3cfdbe62c78a9be5.jpg','PERINGANTAN-MAULID-NABI-MUHAMMAD-SAW1440-H');
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -571,6 +577,7 @@ CREATE TABLE `siswa` (
   `agama` enum('Islam','Budha','Kristen') DEFAULT NULL,
   `foto_skhun` text,
   `nilai_avg` int(11) DEFAULT NULL,
+  `foto` text,
   PRIMARY KEY (`nis`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -581,9 +588,10 @@ CREATE TABLE `siswa` (
 
 LOCK TABLES `siswa` WRITE;
 /*!40000 ALTER TABLE `siswa` DISABLE KEYS */;
-INSERT INTO `siswa` VALUES (1,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ipa',NULL,NULL,50),(2,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ipa',NULL,NULL,50),(4,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ipa',NULL,NULL,50),(6,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ips',NULL,NULL,50),(7,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ips',NULL,NULL,50);
+INSERT INTO `siswa` VALUES (1,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ipa',NULL,NULL,50,NULL),(2,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ipa',NULL,NULL,50,NULL),(4,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ipa',NULL,NULL,50,NULL),(6,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ips',NULL,NULL,50,NULL),(7,'','','0000-00-00','Laki-laki','2019','','','','','','','',NULL,NULL,NULL,NULL,'','',NULL,'seleksi','ips',NULL,NULL,50,NULL);
 /*!40000 ALTER TABLE `siswa` ENABLE KEYS */;
 UNLOCK TABLES;
+ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -599,6 +607,8 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
+ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -629,6 +639,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 
 --
 -- Table structure for table `tema`
@@ -735,7 +746,7 @@ CREATE TABLE `user` (
   `password` varchar(32) NOT NULL,
   `level` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -744,7 +755,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (2,'Muhammad Bayhaqi Daulay','bayhaqi','5b75bd843edb24b0ace1d5eba6625272',2),(3,'Admin Demo','admin','0192023a7bbd73250516f069df18b500',2),(5,'DEMO','demo','fe01ce2a7fbac8fafaed7c982a04e229',2);
+INSERT INTO `user` VALUES (2,'Muhammad Bayhaqi Daulay','bayhaqi','5b75bd843edb24b0ace1d5eba6625272',2),(3,'Admin Demo','admin','0192023a7bbd73250516f069df18b500',2),(5,'DEMO','demo','fe01ce2a7fbac8fafaed7c982a04e229',2),(7,'ihsan','ihsan','f9c8074d5a013e0729373f8f74cd0648',2);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -773,6 +784,7 @@ LOCK TABLES `verifikasi` WRITE;
 INSERT INTO `verifikasi` VALUES (1,'2019-07-03',1),(2,'2019-07-03',2),(3,'2019-07-03',3),(4,'2019-07-03',4),(5,'2019-07-03',5),(6,'2019-07-03',6),(7,'2019-07-03',7);
 /*!40000 ALTER TABLE `verifikasi` ENABLE KEYS */;
 UNLOCK TABLES;
+ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -795,6 +807,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 
 --
 -- Dumping events for database 'sisko'
@@ -802,6 +815,7 @@ DELIMITER ;
 /*!50106 SET @save_time_zone= @@TIME_ZONE */ ;
 /*!50106 DROP EVENT IF EXISTS `auto_delete_exp_verifikasi` */;
 DELIMITER ;;
+ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;;
@@ -818,8 +832,10 @@ DELIMITER ;;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;;
 /*!50003 SET character_set_results = @saved_cs_results */ ;;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;;
+ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;;
 /*!50106 DROP EVENT IF EXISTS `auto_waktu_pendaftaran` */;;
 DELIMITER ;;
+ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;;
@@ -842,6 +858,7 @@ END */ ;;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;;
 /*!50003 SET character_set_results = @saved_cs_results */ ;;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;;
+ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;;
 DELIMITER ;
 /*!50106 SET TIME_ZONE= @save_time_zone */ ;
 
@@ -849,6 +866,7 @@ DELIMITER ;
 -- Dumping routines for database 'sisko'
 --
 /*!50003 DROP PROCEDURE IF EXISTS `allpost` */;
+ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -868,7 +886,9 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 DROP PROCEDURE IF EXISTS `error` */;
+ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -886,7 +906,9 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 DROP PROCEDURE IF EXISTS `mypost` */;
+ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -907,7 +929,9 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 DROP PROCEDURE IF EXISTS `nismaker` */;
+ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -929,7 +953,9 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 DROP PROCEDURE IF EXISTS `postname` */;
+ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -952,7 +978,9 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 DROP PROCEDURE IF EXISTS `reset` */;
+ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -971,6 +999,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 
 --
 -- Final view structure for view `allcount`
@@ -1133,4 +1162,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-03 16:46:06
+-- Dump completed on 2019-07-03 18:29:33
