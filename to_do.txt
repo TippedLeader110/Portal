@@ -41,3 +41,11 @@ END
 $$
 
 DELIMITER ;
+
+
+SET collation_connection = 'utf8_general_ci';
+
+
+ALTER DATABASE sisko CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+ALTER TABLE post CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
