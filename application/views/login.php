@@ -36,14 +36,10 @@
                 <div class="form-group">
                     <input type="submit" onclick="go();" name="btn" value="Login" class="btn btn-info">
         
-                    <input type="submit" name="btn" value="Daftar" class="btn btn-succes ">
+
                 </div>
                     <div class="row">
-                        <div class="container-fluid" style="color: #2F669F; ">
-                                <a href="#" onclick="" style="text-decoration: none;">Lupa Kata Sandi?</a>
-                            
-                        </div>
-                    </div>      
+                                          </div>      
 
             </form>
         </div>
