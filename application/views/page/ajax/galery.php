@@ -45,7 +45,7 @@
 
 		function delImg(a){
 			Swal.fire({
-    	title: 'Hapus Warna',
+    	title: 'Hapus Gambar',
     	text: 'Apakah anda ingin menghapus Gambar ini ?',
     	type: "question",
 		showCancelButton: true,
