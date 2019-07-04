@@ -1,8 +1,8 @@
--- MySQL dump 10.16  Distrib 10.1.26-MariaDB, for Win32 (AMD64)
+-- MySQL dump 10.16  Distrib 10.1.35-MariaDB, for Win32 (AMD64)
 --
 -- Host: localhost    Database: sisko
 -- ------------------------------------------------------
--- Server version	10.1.26-MariaDB
+-- Server version	10.1.35-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,24 +29,6 @@ SET character_set_client = utf8;
   `jumlah_siswa_aktif` tinyint NOT NULL,
   `jumlah_siswa_pending` tinyint NOT NULL,
   `jumlah_siswa_seleksi` tinyint NOT NULL
-) ENGINE=MyISAM */;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary table structure for view `allnavitem`
---
-
-DROP TABLE IF EXISTS `allnavitem`;
-/*!50001 DROP VIEW IF EXISTS `allnavitem`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE TABLE `allnavitem` (
-  `id_item` tinyint NOT NULL,
-  `id_sort` tinyint NOT NULL,
-  `tipe` tinyint NOT NULL,
-  `warna` tinyint NOT NULL,
-  `label` tinyint NOT NULL,
-  `link` tinyint NOT NULL
 ) ENGINE=MyISAM */;
 SET character_set_client = @saved_cs_client;
 
@@ -89,8 +71,8 @@ CREATE TABLE `guru` (
   PRIMARY KEY (`nip`),
   KEY `jabatan_id` (`id_jabatan`),
   KEY `mapel_id` (`id_mapel`),
-  CONSTRAINT `jabatan_id` FOREIGN KEY (`id_jabatan`) REFERENCES `jabatan_guru` (`id_jabatan`) ON UPDATE CASCADE,
-  CONSTRAINT `mapel_id` FOREIGN KEY (`id_mapel`) REFERENCES `mapel` (`id_mapel`) ON UPDATE CASCADE
+  CONSTRAINT `guru_ibfk_1` FOREIGN KEY (`id_jabatan`) REFERENCES `jabatan_guru` (`id_jabatan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `guru_ibfk_2` FOREIGN KEY (`id_mapel`) REFERENCES `mapel` (`id_mapel`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -140,6 +122,7 @@ LOCK TABLES `identitas` WRITE;
 INSERT INTO `identitas` VALUES (1,'DEMO SCHOOL','<p>&nbsp;&nbsp;&ldquo;Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global&rdquo;</p>\n','<p>1.&nbsp; &nbsp;Mewujudkan pendidikan untuk menghasilkan prestasi dan lulusa berkwalitas tinggi yang peduli dengan lingkungan hidup</p>\n\n<p>2. &nbsp; Mewujudkan sumber daya manusia yang beriman, produktif, kreatif, inofatif dan efektif</p>\n\n<p>3. &nbsp; Mewujudkan pengembangan inovasi pembelajaran sesuai tuntutan</p>\n\n<p>4. &nbsp; Mewujudkan sumber daya manusia yang peduli dalam mencegahan pencemaran, mencegahan kerusakan lingkungan dan melestarikan lingkungan hidup</p>\n\n<p>5. &nbsp; Mewujudkan sarana prasarana reprensentatif dan up to date</p>\n\n<p>6. &nbsp; Mewujudkan pengelolaan pendidikan yang professional</p>\n\n<p>7. &nbsp; Mewujudkan sistim penilaian yang berafiliasi</p>\n\n<p>8. &nbsp; Mewujudkan budaya yang berkualifikasi</p>\n\n<p>9. &nbsp; Mewujudkan Sekolah yang bersih,hijau dan meminimalis hasil sampah yang tidak bermanfaat</p>\n\n<p>10. Mewujudkan manusia Indonesia yang mampu berkontribusi pada kehidupan bermasyarakat, berbangsa, bernegara dalam peradaban dunia</p>\n\n<p>11. Mewujudkan generasi emas, sehat tanpa narkoba</p>\n','SEKOLAH INI DICIPTAKAN OLEH ALI HIDAYAT SETELAH DIUSIR DARI WAKANDA',2,2,0,2019,2,'2019-06-28','<h3>Syarat Pendaftaran</h3>\n\n<ol>\n	<li>Telah dinyatakan lulus dan memiliki Ijazah/SKL dari SMP/ MTs/ SMPLB/ Paket B;</li>\n	<li>Berusia paling tinggi 21 (dua puluh satu) ( awal Tahun Pelajaran 2017/2018).</li>\n</ol>\n\n<h3>Pemberkasan</h3>\n\n<ol>\n	<li>Foto Copy Ijazah/SHUN/Surat Keterangan Lulus dari sekolah asal dan dilegalisir sebanyak 1 lembar, serta menyerahkan aslinya pada sekolah tempat mendaftar ( dijadwal yang di tentukan ).</li>\n	<li>Pas foto berwarna ukuran 3 x 4 cm sebanyak 2 lembar.</li>\n</ol>\n\n<h3>Cara Mendaftar</h3>\n\n<ol>\n	<li>Daftar akun pada halaman daftar ( tombol daftar di atas )</li>\n	<li>Setelah mengisi semua form pendaftaran , peserta didik baru diharapkan mengantarkan berkas yang diminta ke sekolah untuk verifikasi</li>\n	<li>Setelah verifikasi peserta didik baru dapat menunggu hasil seleksi di tanggal yang di tentukan yaitu ( 2019-07-15 )</li>\n</ol>\n\n<h3>Catatan Tambahan</h3>\n\n<ol>\n	<li>Saat verifikasi di kenakan biaya pendaftaran sebesar Rp.100.000,00</li>\n</ol>\n','dc581c17dde66f731764fcf1d81df3ba.png',2,'<p>Nomor Telp. : 021-XXXXX</p>\n\n<p>Email : schoo@demo.com</p>\n');
 /*!40000 ALTER TABLE `identitas` ENABLE KEYS */;
 UNLOCK TABLES;
+ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -149,58 +132,111 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `seleksi_done` AFTER UPDATE ON `identitas` FOR EACH ROW BEGIN
-DECLARE lim_ipa integer;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `seleksi_done` AFTER UPDATE ON `identitas` FOR EACH ROW BEGIN
 
-DECLARE lim_ips integer;
+DECLARE lim_ipa integer;
 
-DECLARE temp integer;
+
 
+DECLARE lim_ips integer;
 
+
 
-IF new.penerimaan=0
+DECLARE temp integer;
 
-THEN
+
 
- SET temp= (select count(*) from siswa where status = 'seleksi' and jurusan = 'ipa');
+
 
- IF old.maks_ipa>temp OR old.maks_ipa=temp
+
 
- THEN
+IF new.penerimaan=0
 
-  UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ipa';
+
 
- ELSE
+THEN
 
-  set lim_ipa = (temp-old.maks_ipa);
+
 
-  DELETE FROM siswa where status = 'seleksi' and jurusan = 'ipa' ORDER BY nilai_avg  ASC limit lim_ipa;  
+ SET temp= (select count(*) from siswa where status = 'seleksi' and jurusan = 'ipa');
 
-  UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ipa';
+
 
- END IF;
+ IF old.maks_ipa>temp OR old.maks_ipa=temp
 
- SET temp= (select count(*) from siswa where status = 'seleksi' and jurusan = 'ips');
+
 
- IF old.maks_ips>temp OR old.maks_ips=temp
+ THEN
 
- THEN
+
 
-  UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ips';
+  UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ipa';
 
- ELSE
+
 
-  set lim_ips = (temp-old.maks_ips);
+ ELSE
 
-  DELETE FROM siswa where status = 'seleksi' and jurusan = 'ips' ORDER BY nilai_avg  ASC limit lim_ips;  
+
 
-  UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ips';
+  set lim_ipa = (temp-old.maks_ipa);
 
- END IF;
+
 
- 
+  DELETE FROM siswa where status = 'seleksi' and jurusan = 'ipa' ORDER BY nilai_avg  ASC limit lim_ipa;  
 
-END IF;
+
+
+  UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ipa';
+
+
+
+ END IF;
+
+
+
+ SET temp= (select count(*) from siswa where status = 'seleksi' and jurusan = 'ips');
+
+
+
+ IF old.maks_ips>temp OR old.maks_ips=temp
+
+
+
+ THEN
+
+
+
+  UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ips';
+
+
+
+ ELSE
+
+
+
+  set lim_ips = (temp-old.maks_ips);
+
+
+
+  DELETE FROM siswa where status = 'seleksi' and jurusan = 'ips' ORDER BY nilai_avg  ASC limit lim_ips;  
+
+
+
+  UPDATE siswa set status = 'aktif' WHERE STATUS = 'seleksi' AND jurusan = 'ips';
+
+
+
+ END IF;
+
+
+
+ 
+
+
+
+END IF;
+
+
 
 END */;;
 DELIMITER ;
@@ -208,6 +244,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 
 --
 -- Table structure for table `img`
@@ -309,7 +346,7 @@ CREATE TABLE `kategori` (
   `id_kategori` int(11) NOT NULL AUTO_INCREMENT,
   `nama_kategori` text,
   PRIMARY KEY (`id_kategori`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -340,32 +377,6 @@ SET character_set_client = utf8;
   `foto` tinyint NOT NULL
 ) ENGINE=MyISAM */;
 SET character_set_client = @saved_cs_client;
-
---
--- Table structure for table `log_nilai`
---
-
-DROP TABLE IF EXISTS `log_nilai`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `log_nilai` (
-  `id_siswa` int(11) NOT NULL,
-  `b_indonesia` int(11) NOT NULL,
-  `matematika` int(11) NOT NULL,
-  `b_inggris` int(11) NOT NULL,
-  `ipa` int(11) NOT NULL,
-  `waktu` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `log_nilai`
---
-
-LOCK TABLES `log_nilai` WRITE;
-/*!40000 ALTER TABLE `log_nilai` DISABLE KEYS */;
-/*!40000 ALTER TABLE `log_nilai` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `log_siswa`
@@ -467,7 +478,6 @@ LOCK TABLES `navitem` WRITE;
 INSERT INTO `navitem` VALUES (2,2,'item','green','Seleksi Mutasi','http://localhost/Portal/Artikel/sekolah/23'),(3,3,'item','kedua','Desember 2018','http://localhost/Portal/Artikel/sekolah/35'),(1,1,'item','green','Edufair','http://localhost/Portal/Artikel/sekolah/24');
 /*!40000 ALTER TABLE `navitem` ENABLE KEYS */;
 UNLOCK TABLES;
-ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -477,11 +487,12 @@ ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `maks` BEFORE INSERT ON `navitem` FOR EACH ROW BEGIN
+/*!50003 CREATE OR REPLACE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER maks BEFORE INSERT ON navitem
+ FOR EACH ROW BEGIN
 DECLARE nilai integer;
 SELECT COUNT(*) INTO @cnt FROM navitem;
-  IF nilai >= 6 THEN
-    call error();
+ IF nilai >= 6 THEN
+signal sqlstate '45000';
   END IF;
 END */;;
 DELIMITER ;
@@ -489,7 +500,6 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 
 --
 -- Table structure for table `nilai`
@@ -505,7 +515,8 @@ CREATE TABLE `nilai` (
   `nilai` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_nilai`),
   KEY `nis` (`nis`),
-  KEY `id_mujian` (`id_mujian`)
+  KEY `id_mujian` (`id_mujian`),
+  CONSTRAINT `nilai_ibfk_1` FOREIGN KEY (`id_mujian`) REFERENCES `mapelujian` (`id_mujian`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -528,10 +539,14 @@ ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `siswa_avg_insert` AFTER INSERT ON `nilai` FOR EACH ROW BEGIN
-DECLARE nilai_a integer;
-set nilai_a = (select avg(nilai) from nilai where nis = new.nis);
-update siswa SET nilai_avg = nilai_a WHERE nis = new.nis;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `siswa_avg_insert` AFTER INSERT ON `nilai` FOR EACH ROW BEGIN
+
+DECLARE nilai_a integer;
+
+set nilai_a = (select avg(nilai) from nilai where nis = new.nis);
+
+update siswa SET nilai_avg = nilai_a WHERE nis = new.nis;
+
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -549,10 +564,14 @@ ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `siswa_avg_up` AFTER UPDATE ON `nilai` FOR EACH ROW BEGIN
-DECLARE nilai_a integer;
-set nilai_a = (select avg(nilai) from nilai where nis = new.nis);
-update siswa SET nilai_avg = nilai_a WHERE nis = new.nis;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `siswa_avg_up` AFTER UPDATE ON `nilai` FOR EACH ROW BEGIN
+
+DECLARE nilai_a integer;
+
+set nilai_a = (select avg(nilai) from nilai where nis = new.nis);
+
+update siswa SET nilai_avg = nilai_a WHERE nis = new.nis;
+
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -594,8 +613,9 @@ CREATE TABLE `post` (
   `slug` mediumtext,
   PRIMARY KEY (`id_post`),
   KEY `user_id` (`id_user`),
-  KEY `kategori_id` (`id_kategori`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+  KEY `kategori_id` (`id_kategori`),
+  CONSTRAINT `post_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -636,14 +656,14 @@ CREATE TABLE `siswa` (
   `sekolah_asal` varchar(30) NOT NULL,
   `alamat_sekolah` varchar(50) NOT NULL,
   `tahun_lulus` int(7) DEFAULT NULL,
-  `status` enum('aktif','tidak aktif','pending','gagal','seleksi') NOT NULL,
+  `status` enum('aktif','pending','gagal','seleksi') NOT NULL,
   `jurusan` enum('ipa','ips') DEFAULT NULL,
   `agama` enum('Islam','Budha','Kristen') DEFAULT NULL,
   `foto_skhun` text,
   `nilai_avg` int(11) DEFAULT NULL,
   `foto` text,
   PRIMARY KEY (`nis`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2019012 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -679,23 +699,40 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `sukses_seleksi` BEFORE UPDATE ON `siswa` FOR EACH ROW BEGIN
-DECLARE jur integer;
-DECLARE nilai_a integer;
-IF old.jurusan = 'ipa'
-THEN
-SET jur = 1;
-ELSEIF old.jurusan = 'ips'
-THEN
-SET jur = 2;
-end IF;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `sukses_seleksi` BEFORE UPDATE ON `siswa` FOR EACH ROW BEGIN
 
-IF new.status = 'aktif'
-THEN
-set nilai_a = (select tahun_penerimaan from identitas);
-set new.nis = concat(nilai_a,'0',jur,old.nis);
+DECLARE jur integer;
 
-end IF;
+DECLARE nilai_a integer;
+
+IF old.jurusan = 'ipa'
+
+THEN
+
+SET jur = 1;
+
+ELSEIF old.jurusan = 'ips'
+
+THEN
+
+SET jur = 2;
+
+end IF;
+
+
+
+IF new.status = 'aktif'
+
+THEN
+
+set nilai_a = (select tahun_penerimaan from identitas);
+
+set new.nis = concat(nilai_a,'0',jur,old.nis);
+
+
+
+end IF;
+
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -714,34 +751,6 @@ SET character_set_client = utf8;
 /*!50001 CREATE TABLE `tempsiswa` (
   `nis` tinyint NOT NULL,
   `jurusan` tinyint NOT NULL
-) ENGINE=MyISAM */;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary table structure for view `urutipa`
---
-
-DROP TABLE IF EXISTS `urutipa`;
-/*!50001 DROP VIEW IF EXISTS `urutipa`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE TABLE `urutipa` (
-  `nis` tinyint NOT NULL,
-  `NUM` tinyint NOT NULL
-) ENGINE=MyISAM */;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary table structure for view `urutips`
---
-
-DROP TABLE IF EXISTS `urutips`;
-/*!50001 DROP VIEW IF EXISTS `urutips`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE TABLE `urutips` (
-  `nis` tinyint NOT NULL,
-  `NUM` tinyint NOT NULL
 ) ENGINE=MyISAM */;
 SET character_set_client = @saved_cs_client;
 
@@ -808,9 +817,12 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `update_seleksi` BEFORE UPDATE ON `verifikasi` FOR EACH ROW IF(new.status='sukses')
-THEN
-UPDATE siswa SET STATUS = 'seleksi' WHERE nis = new.nis;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `update_seleksi` BEFORE UPDATE ON `verifikasi` FOR EACH ROW IF(new.status='sukses')
+
+THEN
+
+UPDATE siswa SET STATUS = 'seleksi' WHERE nis = new.nis;
+
 END IF */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -826,13 +838,20 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `ver_success_1` BEFORE DELETE ON `verifikasi` FOR EACH ROW BEGIN
-IF(old.status='sukses')
-THEN
-UPDATE siswa SET STATUS = 'seleksi' WHERE nis = old.nis;
-ELSE
-DELETE from siswa WHERE nis = old.nis and status = 'pending';
-end if;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `ver_success_1` BEFORE DELETE ON `verifikasi` FOR EACH ROW BEGIN
+
+IF(old.status='sukses')
+
+THEN
+
+UPDATE siswa SET STATUS = 'seleksi' WHERE nis = old.nis;
+
+ELSE
+
+DELETE from siswa WHERE nis = old.nis and status = 'pending';
+
+end if;
+
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -874,9 +893,12 @@ DELIMITER ;;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;;
 /*!50003 SET @saved_time_zone      = @@time_zone */ ;;
 /*!50003 SET time_zone             = 'SYSTEM' */ ;;
-/*!50106 CREATE*/ /*!50117 DEFINER=`root`@`localhost`*/ /*!50106 EVENT `auto_hapuslog_3tahun` ON SCHEDULE EVERY 3 YEAR STARTS '2019-07-04 03:01:13' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
-TRUNCATE log_siswa;
-TRUNCATE log_nilai;
+/*!50106 CREATE*/ /*!50117 DEFINER=`root`@`localhost`*/ /*!50106 EVENT `auto_hapuslog_3tahun` ON SCHEDULE EVERY 3 YEAR STARTS '2019-07-04 03:01:13' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
+
+TRUNCATE log_siswa;
+
+TRUNCATE log_nilai;
+
 END */ ;;
 /*!50003 SET time_zone             = @saved_time_zone */ ;;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;;
@@ -896,12 +918,18 @@ ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;;
 /*!50003 SET @saved_time_zone      = @@time_zone */ ;;
 /*!50003 SET time_zone             = 'SYSTEM' */ ;;
-/*!50106 CREATE*/ /*!50117 DEFINER=`root`@`localhost`*/ /*!50106 EVENT `auto_waktu_pendaftaran` ON SCHEDULE EVERY 300 MINUTE STARTS '2019-06-28 11:01:14' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
-DECLARE nilai integer;
-set nilai = "select penerimaan from identitas"; 
-IF nilai <> 0 THEN
-UPDATE identitas SET penerimaan = 0 WHERE tutup_pendaftaran = curdate() or tutup_pendaftaran < curdate();
-END IF;
+/*!50106 CREATE*/ /*!50117 DEFINER=`root`@`localhost`*/ /*!50106 EVENT `auto_waktu_pendaftaran` ON SCHEDULE EVERY 300 MINUTE STARTS '2019-06-28 11:01:14' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
+
+DECLARE nilai integer;
+
+set nilai = "select penerimaan from identitas"; 
+
+IF nilai <> 0 THEN
+
+UPDATE identitas SET penerimaan = 0 WHERE tutup_pendaftaran = curdate() or tutup_pendaftaran < curdate();
+
+END IF;
+
 END */ ;;
 /*!50003 SET time_zone             = @saved_time_zone */ ;;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;;
@@ -927,30 +955,13 @@ ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `allpost`(IN `AN` INT(11))
-BEGIN
-SELECT 
-a.slug, a.tanggal ,a.id_post, a.judul, a.cover ,c.nama ,a.id_kategori, a.status , b.nama_kategori FROM post a inner join kategori b on a.id_kategori=b.id_kategori inner join user c on c.id_user = a.id_user where a.id_kategori = AN;
+BEGIN
+
+SELECT 
+
+a.slug, a.tanggal ,a.id_post, a.judul, a.cover ,c.nama ,a.id_kategori, a.status , b.nama_kategori FROM post a inner join kategori b on a.id_kategori=b.id_kategori inner join user c on c.id_user = a.id_user where a.id_kategori = AN;
+
 END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
-/*!50003 DROP PROCEDURE IF EXISTS `error` */;
-ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `error`()
-    NO SQL
-select 'penuh_lord' ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -970,33 +981,12 @@ ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mypost`(IN `A` INT)
     NO SQL
-BEGIN
-SELECT 
-a.id_post,a.slug, a.judul, c.nama ,a.id_kategori, a.status , b.nama_kategori FROM post a inner join kategori b on a.id_kategori=b.id_kategori inner join user c on c.id_user = a.id_user where c.id_user=A;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
-/*!50003 DROP PROCEDURE IF EXISTS `nismaker` */;
-ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `nismaker`(IN `nisa` INT(4), IN `jur` INT(4))
-    NO SQL
-BEGIN
-DECLARE nilai_a integer;
-set nilai_a = (select num from urutsiswa WHERE nis = nisa);
-UPDATE siswa SET nis = concat(year(curdate()),'0',jur,nilai_a) where nis = nisa;
+BEGIN
+
+SELECT 
+
+a.id_post,a.slug, a.judul, c.nama ,a.id_kategori, a.status , b.nama_kategori FROM post a inner join kategori b on a.id_kategori=b.id_kategori inner join user c on c.id_user = a.id_user where c.id_user=A;
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1017,33 +1007,17 @@ ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `postname`(IN `ID` INT(11), IN `NAME` TEXT)
     NO SQL
-BEGIN
-SET @name = NAME;
-SELECT 
-a.id_post, a.slug ,a.judul, c.nama ,a.id_kategori, a.status , b.nama_kategori FROM post a inner join kategori b on a.id_kategori=b.id_kategori inner join user c on c.id_user = a.id_user where a.id_kategori=ID and a.judul like CONCAT('%', @name, '%')
-LIMIT 5;
+BEGIN
+
+SET @name = NAME;
+
+SELECT 
+
+a.id_post, a.slug ,a.judul, c.nama ,a.id_kategori, a.status , b.nama_kategori FROM post a inner join kategori b on a.id_kategori=b.id_kategori inner join user c on c.id_user = a.id_user where a.id_kategori=ID and a.judul like CONCAT('%', @name, '%')
+
+LIMIT 5;
+
 END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
-/*!50003 DROP PROCEDURE IF EXISTS `reset` */;
-ALTER DATABASE `sisko` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = cp932 */ ;
-/*!50003 SET character_set_results = cp932 */ ;
-/*!50003 SET collation_connection  = cp932_japanese_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `reset`()
-begin
-alter table siswa auto_increment = 1;
-end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -1066,25 +1040,6 @@ ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `allcount` AS select count(0) AS `jumlah_guru`,(select count(0) from `allpost`) AS `jumlah_post`,(select count(0) from `siswa` where (`siswa`.`status` = 'aktif')) AS `jumlah_siswa_aktif`,(select count(0) from `siswa` where (`siswa`.`status` = 'pending')) AS `jumlah_siswa_pending`,(select count(0) from `siswa` where (`siswa`.`status` = 'seleksi')) AS `jumlah_siswa_seleksi` from `ket_guru` */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `allnavitem`
---
-
-/*!50001 DROP TABLE IF EXISTS `allnavitem`*/;
-/*!50001 DROP VIEW IF EXISTS `allnavitem`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `allnavitem` AS select `navitem`.`id_item` AS `id_item`,`navitem`.`id_sort` AS `id_sort`,`navitem`.`tipe` AS `tipe`,`navitem`.`warna` AS `warna`,`navitem`.`label` AS `label`,`navitem`.`link` AS `link` from `navitem` order by `navitem`.`id_item` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -1183,44 +1138,6 @@ ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `urutipa`
---
-
-/*!50001 DROP TABLE IF EXISTS `urutipa`*/;
-/*!50001 DROP VIEW IF EXISTS `urutipa`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = cp932 */;
-/*!50001 SET character_set_results     = cp932 */;
-/*!50001 SET collation_connection      = cp932_japanese_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `urutipa` AS select `t`.`nis` AS `nis`,((select count(0) from `tempsiswa` where ((`tempsiswa`.`nis` < `t`.`nis`) and (`tempsiswa`.`jurusan` = 'ipa'))) + 1) AS `NUM` from `tempsiswa` `t` where (`t`.`jurusan` = 'ipa') */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `urutips`
---
-
-/*!50001 DROP TABLE IF EXISTS `urutips`*/;
-/*!50001 DROP VIEW IF EXISTS `urutips`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = cp932 */;
-/*!50001 SET character_set_results     = cp932 */;
-/*!50001 SET collation_connection      = cp932_japanese_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `urutips` AS select `t`.`nis` AS `nis`,((select count(0) from `tempsiswa` where ((`tempsiswa`.`nis` < `t`.`nis`) and (`tempsiswa`.`jurusan` = 'ips'))) + 1) AS `NUM` from `tempsiswa` `t` where (`t`.`jurusan` = 'ips') */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -1231,4 +1148,4 @@ ALTER DATABASE `sisko` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-04  4:01:09
+-- Dump completed on 2019-07-04 11:15:46
