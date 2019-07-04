@@ -42,8 +42,8 @@
 
 	function Kdel(ab) {
     Swal.fire({
-    	title: 'Hapus Kategori',
-    	text: 'Apakah anda ingin menghapus kategori ini?',
+    	title: 'Apakah anda ingin menghapus kategori ini?',
+    	text: 'Semua artikel yang berhubungan dengan kategori ini akan ikut terhapus',
     	type: "question",
 		showCancelButton: true,
 		confirmButtonText: 'Ya, Hapus',
