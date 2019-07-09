@@ -801,7 +801,7 @@ class Custom extends CI_Controller {
 
 	public function siswaBaru(){
 		$data['siswa'] = $this->db->query('select * from siswa where status = "seleksi" or status = "pending"')->result();
-		$jumlah_data = $this->cmodel->jumlah_data('siswa');
+		$jumlah_data = $this->cmodel->jumlah_data_b();
 		$this->load->library('pagination');
 		// $config['base_url'] = base_url('Custom/egalery');
 		$config['total_rows'] = $jumlah_data;
@@ -826,7 +826,7 @@ class Custom extends CI_Controller {
         $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
         $config['last_tagl_close']  = '</span></li>';
 		$this->pagination->initialize($config);	
-		$data['siswa'] = $this->cmodel->siswa($config['per_page'],$from);	
+		$data['siswa'] = $this->cmodel->siswaB($config['per_page'],$from);	
 		$this->load->view('page/ajax/siswaBaru', $data);
 	}
 

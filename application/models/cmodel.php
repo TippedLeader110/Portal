@@ -139,6 +139,12 @@ class cmodel extends CI_Model {
 		return $this->db->get($data)->num_rows();
 	}
 
+	public function jumlah_data_b(){
+		$data='siswa';
+		$this->db->where("status='seleksi' OR status='pending'", NULL, FALSE);
+		return $this->db->get($data)->num_rows();
+	}
+
 	public function jumlah_data_kate($data,$id){
 		$this->db->where('id_kategori', $id);
 		return $this->db->get($data)->num_rows();
@@ -177,6 +183,11 @@ class cmodel extends CI_Model {
 		return $query = $this->db->get('kategori',$number,$offset)->result();
 	}
 	function siswa($number,$offset){
+		$this->db->order_by('thn_ajaran','DESC');
+		return $query = $this->db->get('siswa',$number,$offset)->result();
+	}
+	function siswaB($number,$offset){
+		$this->db->where("status='seleksi' OR status='pending'", NULL, FALSE);
 		return $query = $this->db->get('siswa',$number,$offset)->result();
 	}
 	function sendit($post){
